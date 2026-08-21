@@ -27,8 +27,8 @@
 :root{
   --paper:#fff;
   --ink:#1c1c1c;
-  --ink-2:#6e6e6e;
-  --ink-3:#a5a5a5;
+  --ink-2:#5c5c5c;   /* 6.69:1 on white */
+  --ink-3:#767676;   /* 4.54:1 — the AA floor for small text */
   --hair:#eae8e4;
   --blue:#1b4dff;
   --blue-wash:#f2f4ff;
@@ -110,7 +110,7 @@ h1,h2{
 /* A fill that's always there, and always slightly see-through — the page
    moves underneath it rather than disappearing behind a solid bar. */
 .nav::before{
-  content:'';position:fixed;inset:0 0 auto 0;height:var(--h,4.5rem);z-index:-1;
+  content:'';position:absolute;inset:0;z-index:-1;
   background:rgba(255,255,255,.66);
   backdrop-filter:saturate(150%) blur(16px);
   -webkit-backdrop-filter:saturate(150%) blur(16px);
@@ -143,7 +143,8 @@ h1,h2{
 .nav__links{display:flex;align-items:stretch}
 .nav__links a{
   position:relative;
-  padding:.15rem clamp(.7rem,2vw,1.15rem);
+  display:inline-flex;align-items:center;min-height:44px;
+  padding:0 clamp(.7rem,2vw,1.15rem);
   font-size:var(--t-micro);letter-spacing:.17em;text-transform:uppercase;
   font-weight:600;color:var(--ink-2);text-decoration:none;
   transition:color .28s var(--ease);
@@ -155,7 +156,7 @@ h1,h2{
 }
 .nav__links a::after{
   content:'';position:absolute;left:clamp(.7rem,2vw,1.15rem);right:clamp(.7rem,2vw,1.15rem);
-  bottom:-.3rem;height:1.5px;background:var(--blue);
+  bottom:.6rem;height:1.5px;background:var(--blue);
   transform:scaleX(0);transform-origin:right;
   transition:transform .38s var(--ease);
 }
@@ -852,6 +853,32 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
   letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
 }
 
+
+/* ── Touch targets ───────────────────────────────────────────────────────
+   These links are small on purpose — the type is meant to be quiet. Rather
+   than padding them out and disturbing the layout, each gets an invisible
+   box that brings the tappable area up to 44px. */
+.nav__me,.ends a,.ab-ends a,.cs-links a,.foot a{position:relative}
+.nav__me::before,
+.ends a::before,
+.ab-ends a::before,
+.cs-links a::before,
+.foot a::before{
+  content:'';position:absolute;left:-.35rem;right:-.35rem;
+  top:50%;translate:0 -50%;height:44px;
+}
+
+/* the skip link is only off-canvas until it's focused */
+.skip:focus-visible{left:.5rem;top:.5rem}
+
+/* the award listing, linked from the facts row */
+.fact-link{
+  position:relative;text-decoration:none;
+  border-bottom:1.5px solid var(--blue);
+  transition:color .3s var(--ease);
+}
+.fact-link:hover{color:var(--blue)}
+
 </style>
 </head>
 <body class="no-js" data-page="opal">
@@ -887,7 +914,7 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
     <div><dt>Role</dt><dd>Product Designer</dd></div>
     <div><dt>Team</dt><dd>Brayden, Chris DeMassa, Bess Overton</dd></div>
     <div><dt>Duration</dt><dd>10 weeks</dd></div>
-    <div><dt>Recognition</dt><dd>Indigo Design Award Winner &middot; 2026</dd></div>
+    <div><dt>Recognition</dt><dd><a class="fact-link" href="https://indigoaward.com/winners/11033" target="_blank" rel="noopener">Indigo Design Award Winner</a> &middot; 2025</dd></div>
   </dl>
 </section>
 
