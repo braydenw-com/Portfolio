@@ -1222,6 +1222,47 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
     else narrow.addListener(onWidth);
   }
 
+  /* ── The email copies itself ──────────────────────────────────────── */
+  var mail = document.getElementById('mail');
+  var note = document.getElementById('mail-note');
+
+  if (mail && note) {
+    var resetAt;
+
+    mail.addEventListener('click', function () {
+      var address = mail.dataset.mail;
+
+      var done = function (ok) {
+        note.textContent = ok ? 'copied — now go say something' : address;
+        mail.dataset.copied = 'true';
+        clearTimeout(resetAt);
+        resetAt = setTimeout(function () {
+          note.textContent = 'click to copy';
+          mail.dataset.copied = 'false';
+        }, 2600);
+      };
+
+      if (navigator.clipboard && isSecureContext) {
+        navigator.clipboard.writeText(address).then(
+          function () { done(true); },
+          function () { done(false); }
+        );
+      } else {
+        /* older browsers, or an insecure origin */
+        var t = document.createElement('textarea');
+        t.value = address;
+        t.setAttribute('readonly', '');
+        t.style.cssText = 'position:absolute;left:-9999px';
+        document.body.appendChild(t);
+        t.select();
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(t);
+        done(ok);
+      }
+    });
+  }
+
   /* ── Mark the nav link for the page you're on ─────────────────────────
      The nav is one shared partial, so nothing in the markup knows which
      page it is. Links that point at a section (anything with a #) are
