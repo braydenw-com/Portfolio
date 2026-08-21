@@ -783,6 +783,23 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
 
 /* ── Opal ────────────────────────────────────────────────────────────────── */
 
+/* Rows, not cards. Used for the competitor scan. */
+.facets{margin:1.75rem 0 0;padding:0;border-top:1px solid var(--hair)}
+.facet{
+  display:grid;gap:.15rem 2rem;align-items:baseline;
+  padding:1.05rem 0;border-bottom:1px solid var(--hair);
+  transition:padding-left .4s var(--ease);
+}
+@media (min-width:40rem){.facet{grid-template-columns:11rem minmax(0,1fr)}}
+.facet:hover{padding-left:1.1rem}
+.facet dt{
+  font-family:var(--display);font-size:var(--t-body);letter-spacing:-.02em;color:var(--ink);
+  font-variation-settings:'opsz' 18,'wdth' 94,'wght' 600;
+  transition:color .3s var(--ease);
+}
+.facet:hover dt{color:var(--blue)}
+.facet dd{margin:0;font-size:var(--t-body);color:var(--ink-2);line-height:1.6}
+
 /* three findings side by side instead of two */
 @media (min-width:44rem){.stats--3{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
@@ -858,12 +875,13 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
    These links are small on purpose — the type is meant to be quiet. Rather
    than padding them out and disturbing the layout, each gets an invisible
    box that brings the tappable area up to 44px. */
-.nav__me,.ends a,.ab-ends a,.cs-links a,.foot a{position:relative}
+.nav__me,.ends a,.ab-ends a,.cs-links a,.foot a,.fact-link{position:relative}
 .nav__me::before,
 .ends a::before,
 .ab-ends a::before,
 .cs-links a::before,
-.foot a::before{
+.foot a::before,
+.fact-link::before{
   content:'';position:absolute;left:-.35rem;right:-.35rem;
   top:50%;translate:0 -50%;height:44px;
 }
