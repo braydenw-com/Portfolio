@@ -142,9 +142,9 @@ h1,h2{
    page, so which link is current comes from body[data-page] — and from
    aria-current, which the script sets for screen readers. */
 .nav__links a[aria-current="page"],
-body[data-page="about"] .nav__links a[href="about.html"]{color:var(--ink)}
+body[data-page="about"] .nav__links a[href="/about"]{color:var(--ink)}
 .nav__links a[aria-current="page"]::after,
-body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX(1)}
+body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
 
 .nav__links a:last-child{
   color:var(--blue);
@@ -919,7 +919,7 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
   .nav__links a + a::before,
   .nav__links a::after{content:none}
   .nav__links a[aria-current="page"],
-  body[data-page="about"] .nav__links a[href="about.html"]{color:var(--blue)}
+  body[data-page="about"] .nav__links a[href="/about"]{color:var(--blue)}
 }
 
 @media (prefers-reduced-motion:reduce){

@@ -169,9 +169,9 @@ h1,h2{
    page, so which link is current comes from body[data-page] — and from
    aria-current, which the script sets for screen readers. */
 .nav__links a[aria-current="page"],
-body[data-page="about"] .nav__links a[href="about.html"]{color:var(--ink)}
+body[data-page="about"] .nav__links a[href="/about"]{color:var(--ink)}
 .nav__links a[aria-current="page"]::after,
-body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX(1)}
+body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
 
 .nav__links a:last-child{
   color:var(--blue);
@@ -946,7 +946,7 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
   .nav__links a + a::before,
   .nav__links a::after{content:none}
   .nav__links a[aria-current="page"],
-  body[data-page="about"] .nav__links a[href="about.html"]{color:var(--blue)}
+  body[data-page="about"] .nav__links a[href="/about"]{color:var(--blue)}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -963,7 +963,7 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
 <!-- ═══ Nav ════════════════════════════════════════════════════════════════ -->
 <!-- Shared by every page — edit here, never in a page source. -->
 <header class="nav" id="nav" data-open="false">
-  <a class="nav__me" href="index.html">Brayden&nbsp;Wisniewski</a>
+  <a class="nav__me" href="/">Brayden&nbsp;Wisniewski</a>
 
   <button class="burger" id="burger" type="button"
           aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
@@ -971,8 +971,8 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
   </button>
 
   <nav class="nav__links" id="nav-links" aria-label="Sections">
-    <a href="index.html#work">Work</a>
-    <a href="about.html">About</a>
+    <a href="/#work">Work</a>
+    <a href="/about">About</a>
     <a href="#hello" class="nav__hi">Say hi</a>
   </nav>
 </header>
@@ -1015,7 +1015,7 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
 <section class="work" id="work">
 
   <!-- ── Opal ─────────────────────────────────────────────────────────── -->
-  <a class="piece" href="opal.html">
+  <a class="piece" href="/opal">
     <figure class="piece__fig">
       <img src="/images/opal-hero.jpg"
            alt="The Opal focus app across several screens, showing planning, blocking, and break suggestions"
@@ -1033,7 +1033,7 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
   </a>
 
   <!-- ── Slack ────────────────────────────────────────────────────────── -->
-  <a class="piece" href="slack.html">
+  <a class="piece" href="/slack">
     <figure class="piece__fig">
       <img src="/images/slack-hero.jpg"
            alt="The redesigned Slack interface: a Save for Me action, a Pin for All action, and a unified notification panel"
@@ -1051,7 +1051,7 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
   </a>
 
   <!-- ── IBM ──────────────────────────────────────────────────────────── -->
-  <a class="piece piece--ibm" href="ibm.html">
+  <a class="piece piece--ibm" href="/ibm">
     <figure class="piece__fig">
       <img src="/images/team-session.jpg"
            alt="A design team working around a table in a high-rise office, sticky notes on the window"
