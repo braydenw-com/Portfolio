@@ -837,9 +837,14 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
 @media (min-width:52rem){.says{grid-template-columns:1fr 1fr}}
 .says .quote{display:block;align-self:start}
 .says cite{
-  display:block;margin-top:.7rem;font-style:normal;
+  display:block;margin-top:.75rem;font-style:normal;
   font-family:var(--text);font-size:var(--t-micro);
-  letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);
+  line-height:1.5;color:var(--ink-3);
+}
+/* the name reads first, the role sits under it */
+.says cite b{
+  display:block;font-weight:700;color:var(--ink);
+  letter-spacing:.13em;text-transform:uppercase;margin-bottom:.15rem;
 }
 
 .shot figcaption{
@@ -969,12 +974,12 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
     <blockquote class="quote">
       &ldquo;Your contributions helped us transform ideas into modern, polished web
       experiences that better showcase the value of our offerings.&rdquo;
-      <cite>Pepe Valiente, IBM</cite>
+      <cite><b>Pepe Valiente</b> Strategy Lead, IBM Software Core</cite>
     </blockquote>
     <blockquote class="quote">
       &ldquo;Your quick turnaround with the initial drafts and subsequent update requests
       allowed us to publish these sooner than we would have.&rdquo;
-      <cite>Patti McAuliffe, IBM</cite>
+      <cite><b>Patti McAuliffe</b> WW Support Planning, IBM</cite>
     </blockquote>
   </div>
 
