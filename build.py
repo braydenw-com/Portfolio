@@ -22,11 +22,13 @@ LINK    = '<link rel="stylesheet" href="styles.css">'
 SCRIPT  = '<script src="script.js"></script>'
 INCLUDE = re.compile(r'^([ \t]*)<!--\s*@include\s+([\w-]+)\s*-->[ \t]*$', re.M)
 
-PAGES = {'page.html': 'index.html',
-         'about.html': 'about.html',
-         'slack.html': 'slack.html',
-         'opal.html':  'opal.html',
-         'ibm.html':   'ibm.html'}
+# Directory-per-page, so URLs are /about rather than /about.html.
+# GitHub Pages serves index.html for a directory request.
+PAGES = {'page.html':  'index.html',
+         'about.html': 'about/index.html',
+         'slack.html': 'slack/index.html',
+         'opal.html':  'opal/index.html',
+         'ibm.html':   'ibm/index.html'}
 
 
 def partial(name):
@@ -60,5 +62,7 @@ for src, out in PAGES.items():
     page = page.replace(LINK,   '<style>\n' + css + '\n</style>')
     page = page.replace(SCRIPT, '<script>\n' + js + '\n</script>')
 
-    (here / out).write_text(page, encoding='utf-8')
-    print(f'{out:<12} {len(page):>7,} bytes')
+    dest = here / out
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(page, encoding='utf-8')
+    print(f'{out:<18} {len(page):>7,} bytes')

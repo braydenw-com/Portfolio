@@ -169,9 +169,9 @@ h1,h2{
    page, so which link is current comes from body[data-page] — and from
    aria-current, which the script sets for screen readers. */
 .nav__links a[aria-current="page"],
-body[data-page="about"] .nav__links a[href="about.html"]{color:var(--ink)}
+body[data-page="about"] .nav__links a[href="/about"]{color:var(--ink)}
 .nav__links a[aria-current="page"]::after,
-body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX(1)}
+body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
 
 .nav__links a:last-child{
   color:var(--blue);
@@ -946,7 +946,7 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
   .nav__links a + a::before,
   .nav__links a::after{content:none}
   .nav__links a[aria-current="page"],
-  body[data-page="about"] .nav__links a[href="about.html"]{color:var(--blue)}
+  body[data-page="about"] .nav__links a[href="/about"]{color:var(--blue)}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -963,7 +963,7 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
 <!-- ═══ Nav ════════════════════════════════════════════════════════════════ -->
 <!-- Shared by every page — edit here, never in a page source. -->
 <header class="nav" id="nav" data-open="false">
-  <a class="nav__me" href="index.html">Brayden&nbsp;Wisniewski</a>
+  <a class="nav__me" href="/">Brayden&nbsp;Wisniewski</a>
 
   <button class="burger" id="burger" type="button"
           aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
@@ -971,8 +971,8 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
   </button>
 
   <nav class="nav__links" id="nav-links" aria-label="Sections">
-    <a href="index.html#work">Work</a>
-    <a href="about.html">About</a>
+    <a href="/#work">Work</a>
+    <a href="/about">About</a>
     <a href="#hello" class="nav__hi">Say hi</a>
   </nav>
 </header>
@@ -982,7 +982,7 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
 <!-- ═══ Hero ═══════════════════════════════════════════════════════════════
      Photo, hello, statement, one paragraph. Then straight into the work. -->
 <section class="hero">
-  <img class="hero__face" src="images/brayden-headshot.jpg" alt="Brayden Wisniewski" width="1000" height="1000">
+  <img class="hero__face" src="/images/brayden-headshot.jpg" alt="Brayden Wisniewski" width="1000" height="1000">
 
   <!-- Hover it: the letters wave, and so does the hand. -->
   <p class="hero__hey">
@@ -1000,7 +1000,7 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
     interactions that make products feel good to use. I&rsquo;m currently finishing my
     BFA in User Experience Design at <!--
     Hover SCAD and the bee turns up.
- --><span class="peek">SCAD<img class="peek__bee" src="images/scad-bee.webp" alt="" aria-hidden="true" width="1280" height="1280" loading="lazy"></span>, with experience designing enterprise
+ --><span class="peek">SCAD<img class="peek__bee" src="/images/scad-bee.webp" alt="" aria-hidden="true" width="1280" height="1280" loading="lazy"></span>, with experience designing enterprise
     software at <!--
     Hover IBM and the logo bursts out of the word.
  --><span class="peek peek--ibm">IBM<span class="boom" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span> in Austin.
@@ -1015,9 +1015,9 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
 <section class="work" id="work">
 
   <!-- ── Opal ─────────────────────────────────────────────────────────── -->
-  <a class="piece" href="opal.html">
+  <a class="piece" href="/opal">
     <figure class="piece__fig">
-      <img src="images/opal-hero.jpg"
+      <img src="/images/opal-hero.jpg"
            alt="The Opal focus app across several screens, showing planning, blocking, and break suggestions"
            width="2000" height="1110" loading="lazy">
     </figure>
@@ -1033,9 +1033,9 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
   </a>
 
   <!-- ── Slack ────────────────────────────────────────────────────────── -->
-  <a class="piece" href="slack.html">
+  <a class="piece" href="/slack">
     <figure class="piece__fig">
-      <img src="images/slack-hero.jpg"
+      <img src="/images/slack-hero.jpg"
            alt="The redesigned Slack interface: a Save for Me action, a Pin for All action, and a unified notification panel"
            width="1920" height="1080" loading="lazy">
     </figure>
@@ -1051,9 +1051,9 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
   </a>
 
   <!-- ── IBM ──────────────────────────────────────────────────────────── -->
-  <a class="piece piece--ibm" href="ibm.html">
+  <a class="piece piece--ibm" href="/ibm">
     <figure class="piece__fig">
-      <img src="images/team-session.jpg"
+      <img src="/images/team-session.jpg"
            alt="A design team working around a table in a high-rise office, sticky notes on the window"
            width="1350" height="1800" loading="lazy">
     </figure>
@@ -1265,12 +1265,16 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
      The nav is one shared partial, so nothing in the markup knows which
      page it is. Links that point at a section (anything with a #) are
      skipped — only whole-page links can be "current". */
-  var thisPage = location.pathname.split('/').pop() || 'index.html';
+  /* URLs are directories now (/about, not /about.html), so compare the
+     path with the slashes stripped off both sides. */
+  var trim = function (s) { return (s || '').split('#')[0].replace(/^\/+|\/+$/g, ''); };
+  var thisPage = trim(location.pathname);
 
   document.querySelectorAll('.nav__links a').forEach(function (a) {
     var href = a.getAttribute('href') || '';
-    if (href.indexOf('#') > -1) return;
-    if (href === thisPage) a.setAttribute('aria-current', 'page');
+    if (href.indexOf('#') > -1) return;          /* section links can't be "current" */
+    var target = trim(href);
+    if (target && target === thisPage) a.setAttribute('aria-current', 'page');
   });
 
   var year = document.getElementById('year');

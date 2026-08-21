@@ -166,12 +166,16 @@
      The nav is one shared partial, so nothing in the markup knows which
      page it is. Links that point at a section (anything with a #) are
      skipped — only whole-page links can be "current". */
-  var thisPage = location.pathname.split('/').pop() || 'index.html';
+  /* URLs are directories now (/about, not /about.html), so compare the
+     path with the slashes stripped off both sides. */
+  var trim = function (s) { return (s || '').split('#')[0].replace(/^\/+|\/+$/g, ''); };
+  var thisPage = trim(location.pathname);
 
   document.querySelectorAll('.nav__links a').forEach(function (a) {
     var href = a.getAttribute('href') || '';
-    if (href.indexOf('#') > -1) return;
-    if (href === thisPage) a.setAttribute('aria-current', 'page');
+    if (href.indexOf('#') > -1) return;          /* section links can't be "current" */
+    var target = trim(href);
+    if (target && target === thisPage) a.setAttribute('aria-current', 'page');
   });
 
   var year = document.getElementById('year');
