@@ -47,22 +47,6 @@ def expand(text):
     return INCLUDE.sub(sub, text)
 
 
-# Anyone who saved a /opal.html style link before the move to clean URLs
-# still lands in the right place.
-REDIRECTS = {'about.html': '/about', 'opal.html': '/opal',
-             'slack.html': '/slack', 'ibm.html': '/ibm'}
-
-for old, new in REDIRECTS.items():
-    (here / old).write_text(
-        '<!DOCTYPE html>\n<meta charset="utf-8">\n'
-        f'<title>Redirecting to {new}</title>\n'
-        f'<link rel="canonical" href="https://www.braydenw.com{new}">\n'
-        f'<meta http-equiv="refresh" content="0; url={new}">\n'
-        f'<script>location.replace("{new}" + location.hash + location.search);</script>\n'
-        f'<p>Redirecting to <a href="{new}">{new}</a>&hellip;</p>\n',
-        encoding='utf-8')
-print(f'redirects           {len(REDIRECTS)} stubs')
-
 for src, out in PAGES.items():
     path = here / 'src' / src
     if not path.exists():
