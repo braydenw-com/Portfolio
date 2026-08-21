@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Slack — Brayden Wisniewski</title>
-<meta name="description" content="A 10-week UX research study on Slack: heuristic evaluation, usability testing with 8 participants, two redesigns, and validation with a new cohort.">
+<title>Opal — Brayden Wisniewski</title>
+<meta name="description" content="Designing better focus habits for students: a 30-student survey, three connected features, and testing with 23 participants. Indigo Design Award winner.">
 
-<link rel="canonical" href="https://www.braydenw.com/slack">
-<meta property="og:url" content="https://www.braydenw.com/slack">
-<meta property="og:title" content="Slack — UX Research">
-<meta property="og:description" content="Studying what happens when work, messages, and 67 unread notifications collide.">
-<meta property="og:image" content="https://www.braydenw.com/images/slack-hero.jpg">
+<link rel="canonical" href="https://www.braydenw.com/opal.html">
+<meta property="og:url" content="https://www.braydenw.com/opal.html">
+<meta property="og:title" content="Opal — Product Design">
+<meta property="og:description" content="Designing better focus habits for students tired of fighting their phones.">
 <meta property="og:type" content="article">
+<meta property="og:image" content="https://www.braydenw.com/images/opal-hero.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231b4dff'/%3E%3C/svg%3E">
@@ -164,9 +164,9 @@ h1,h2{
    page, so which link is current comes from body[data-page] — and from
    aria-current, which the script sets for screen readers. */
 .nav__links a[aria-current="page"],
-body[data-page="about"] .nav__links a[href="/about"]{color:var(--ink)}
+body[data-page="about"] .nav__links a[href="about.html"]{color:var(--ink)}
 .nav__links a[aria-current="page"]::after,
-body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
+body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX(1)}
 
 .nav__links a:last-child{
   color:var(--blue);
@@ -941,7 +941,7 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
   .nav__links a + a::before,
   .nav__links a::after{content:none}
   .nav__links a[aria-current="page"],
-  body[data-page="about"] .nav__links a[href="/about"]{color:var(--blue)}
+  body[data-page="about"] .nav__links a[href="about.html"]{color:var(--blue)}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -950,14 +950,14 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
 
 </style>
 </head>
-<body class="no-js" data-page="slack">
+<body class="no-js" data-page="opal">
 <script>document.body.classList.remove('no-js');</script>
 
-<a class="skip" href="#findings">Skip to the findings</a>
+<a class="skip" href="#research">Skip to the research</a>
 
 <!-- Shared by every page — edit here, never in a page source. -->
 <header class="nav" id="nav" data-open="false">
-  <a class="nav__me" href="/">Brayden&nbsp;Wisniewski</a>
+  <a class="nav__me" href="index.html">Brayden&nbsp;Wisniewski</a>
 
   <button class="burger" id="burger" type="button"
           aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
@@ -965,8 +965,8 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
   </button>
 
   <nav class="nav__links" id="nav-links" aria-label="Sections">
-    <a href="/#work">Work</a>
-    <a href="/about">About</a>
+    <a href="index.html#work">Work</a>
+    <a href="about.html">About</a>
     <a href="#hello" class="nav__hi">Say hi</a>
   </nav>
 </header>
@@ -974,280 +974,283 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
 <main id="top">
 
 <figure class="cs-cover">
-  <img src="/images/slack-hero.jpg"
-       alt="The redesigned Slack interface: a Save for Me action, a Pin for All action, and a unified notification panel"
-       width="1920" height="1080">
+  <img src="/images/opal-hero.jpg"
+       alt="The Opal focus app across several screens, showing planning, blocking, and break suggestions"
+       width="2000" height="1110">
 </figure>
 
 <!-- ═══ Opening ════════════════════════════════════════════════════════════ -->
 <section class="cs cs-open">
   <h1 class="cs-title">
-    Studying what happens when work, messages, and 67 unread notifications collide.
+    Designing better focus habits for students tired of fighting their phones.
   </h1>
 
   <dl class="cs-facts">
-    <div><dt>Role</dt><dd>Research Lead</dd></div>
-    <div><dt>Team</dt><dd>3 researchers</dd></div>
+    <div><dt>Role</dt><dd>Product Designer</dd></div>
+    <div><dt>Team</dt><dd>Brayden, Chris DeMassa, Bess Overton</dd></div>
     <div><dt>Duration</dt><dd>10 weeks</dd></div>
+    <div><dt>Recognition</dt><dd><a class="fact-link" href="https://indigoaward.com/winners/11033" target="_blank" rel="noopener">Indigo Design Award Winner</a> &middot; 2025</dd></div>
   </dl>
 </section>
 
-
-<!-- ═══ The problem ════════════════════════════════════════════════════════ -->
-<section class="cs cs-sec" id="findings">
-  <h2 class="cs-h2">Slack hides its own state.</h2>
+<!-- ═══ Research ═══════════════════════════════════════════════════════════ -->
+<section class="cs cs-sec" id="research">
+  <h2 class="cs-h2">Students don&rsquo;t need another app telling them to focus.</h2>
 
   <div class="cs-body">
     <p>
-      Slack has the features people need&mdash;but finding them and understanding what
-      they&rsquo;re doing isn&rsquo;t always easy.
+      College students already know their phones are distracting. The harder problem is
+      actually doing something about it.
     </p>
     <p>
-      We evaluated common Slack workflows and tested them with 8 participants.
-      Navigation worked. Two other everyday tasks didn&rsquo;t.
+      We surveyed <strong>30 college students</strong> and found they weren&rsquo;t asking
+      for stricter restrictions. They wanted help staying motivated, planning their time,
+      and taking breaks without immediately falling back into scrolling.
     </p>
   </div>
 
-  <dl class="stats">
-    <div class="stat">
-      <dt>3/8</dt>
-      <dd>successfully retrieved a saved message</dd>
-    </div>
-    <div class="stat">
-      <dt>2/8</dt>
-      <dd>successfully managed notifications</dd>
-    </div>
+  <dl class="stats stats--3">
+    <div class="stat"><dt>27/30</dt><dd>struggled with procrastination</dd></div>
+    <div class="stat"><dt>21/30</dt><dd>were distracted by social media and their phones</dd></div>
+    <div class="stat"><dt>61%</dt><dd>had never used a focus app</dd></div>
+  </dl>
+</section>
+
+<!-- ═══ Landscape ══════════════════════════════════════════════════════════ -->
+<section class="cs cs-sec">
+  <h2 class="cs-h2">So we looked at what was already out there.</h2>
+
+  <div class="cs-body">
+    <p>We looked at three different approaches to focus.</p>
+  </div>
+
+  <dl class="facets">
+    <div class="facet"><dt>Forest</dt><dd>Great at blocking distractions.</dd></div>
+    <div class="facet"><dt>Finch</dt><dd>Made self-care rewarding.</dd></div>
+    <div class="facet"><dt>Focus Friend</dt><dd>Brought accountability into the experience.</dd></div>
   </dl>
 
-  <p class="cs-note">
-    We ran <strong>moderated user testing sessions</strong> to watch where each of
-    those workflows broke down, and why.
+  <div class="cs-body">
+    <p style="margin-top:1.5rem">Each did something well. We saw an opening between them.</p>
+    <p class="cs-beat">What if focusing felt rewarding instead of restrictive?</p>
+  </div>
+</section>
+
+<!-- ═══ Directions ═════════════════════════════════════════════════════════ -->
+<section class="cs cs-sec">
+  <h2 class="cs-h2">Three things kept coming up.</h2>
+
+  <div class="cs-body">
+    <p>Research gave us three directions to design around.</p>
+  </div>
+
+  <div class="tasks tasks--4">
+    <article class="task">
+      <p class="task__no">01</p>
+      <h3 class="task__head">Help me know what to do.</h3>
+      <p>
+        Students were already using calendars and planners to organise their work.
+      </p>
+      <p class="task__take"><strong>Give focus some structure.</strong></p>
+    </article>
+
+    <article class="task">
+      <p class="task__no">02</p>
+      <h3 class="task__head">Give me a reason to keep going.</h3>
+      <p>
+        Students responded to progress and positive reinforcement far more than punishment.
+      </p>
+      <p class="task__take"><strong>Reward the behaviour we want to encourage.</strong></p>
+    </article>
+
+    <article class="task">
+      <p class="task__no">03</p>
+      <h3 class="task__head">Help me actually take a break.</h3>
+      <p>
+        Putting your phone down isn&rsquo;t much help if you pick it back up five minutes later.
+      </p>
+      <p class="task__take"><strong>Make time away from the screen feel worth it.</strong></p>
+    </article>
+  </div>
+</section>
+
+<!-- ═══ The turn ═══════════════════════════════════════════════════════════ -->
+<section class="cs cs-turn">
+  <h2 class="cs-title cs-title--mid">One experience, three connected ideas.</h2>
+  <p class="cs-lede">
+    Rather than treating focus as a timer, we designed around the whole cycle&mdash;
+    <strong>planning, focusing, stepping away.</strong>
   </p>
 </section>
 
-<!-- ═══ Method ═════════════════════════════════════════════════════════════ -->
-<section class="cs cs-sec">
-  <h2 class="cs-h2">Evaluate &rarr; Test &rarr; Design &rarr; Validate</h2>
+<!-- ═══ 01 Calendar ════════════════════════════════════════════════════════ -->
+<section class="cs cs-sec fix">
+  <p class="fix__no">01</p>
+  <h2 class="cs-h2">Know what&rsquo;s next.</h2>
+  <p class="fix__sub">Calendar</p>
+
+  <figure class="shot">
+    <img src="/images/opal-calendar.jpg"
+         alt="The Opal calendar screen, showing a day view with classes and meetings alongside a to-do list"
+         width="1600" height="1013" loading="lazy">
+  </figure>
 
   <div class="cs-body">
     <p>
-      We started by evaluating <strong>20 Slack workflows against Nielsen&rsquo;s 10 usability
-      heuristics</strong>. Four patterns kept appearing: hidden system states, weak feedback,
-      fragmented navigation, and unnecessary workflow friction.
-    </p>
-    <p>
-      Those findings shaped the tasks we took into moderated usability testing with
-      <strong>8 participants</strong>&mdash;then <strong>8 unmoderated sessions</strong>
-      once there was something to validate.
+      A lightweight planning system brings tasks, focus sessions, and breaks into the same
+      experience. Instead of bouncing between a planner and a focus app, students decide
+      what they need to do and immediately start doing it.
     </p>
   </div>
+
+  <p class="cs-note">
+    <strong>Research said</strong> students already plan their time&mdash;so we brought
+    the plan into the focus experience.
+  </p>
+</section>
+
+<!-- ═══ 02 Tap Stickers ════════════════════════════════════════════════════ -->
+<section class="cs cs-sec fix">
+  <p class="fix__no">02</p>
+  <h2 class="cs-h2">Make progress feel good.</h2>
+  <p class="fix__sub">Tap Stickers</p>
+
+  <figure class="shot">
+    <img src="/images/opal-stickers.jpg"
+         alt="A hand holding a phone showing a Sticker Found screen, with a physical focus sticker beside it"
+         width="1600" height="1013" loading="lazy">
+  </figure>
+
+  <div class="cs-body">
+    <p>
+      Students told us they wanted motivation&mdash;not another product punishing them for
+      getting distracted. Tap Stickers turn consistent focus into visible progress through
+      collectible gems, achievements, and rewards.
+    </p>
+    <p>
+      The goal wasn&rsquo;t to make productivity a game.
+    </p>
+    <p class="cs-beat">It was to give students a reason to want to come back.</p>
+  </div>
+</section>
+
+<!-- ═══ 03 Break Suggestions ═══════════════════════════════════════════════ -->
+<section class="cs cs-sec fix">
+  <p class="fix__no">03</p>
+  <h2 class="cs-h2">Put the phone down.</h2>
+  <p class="fix__sub">Break Suggestions</p>
+
+  <figure class="shot">
+    <img src="/images/opal-breaks.jpg"
+         alt="A phone showing a break suggestion to pick up a book, with other suggestions floating beside it"
+         width="1600" height="1013" loading="lazy">
+  </figure>
+
+  <div class="cs-body">
+    <p>
+      This became one of the most interesting parts of the project. A focus app can block
+      Instagram for 30 minutes and still fail if the first thing someone does on their
+      break is open another app.
+    </p>
+    <p>
+      So instead of only telling students what <strong>not</strong> to do, we started
+      suggesting what they <strong>could</strong> do instead.
+    </p>
+  </div>
+
+  <ul class="breaks">
+    <li>Take a walk</li>
+    <li>Grab water</li>
+    <li>Stretch</li>
+    <li>Make something</li>
+    <li>Actually step away</li>
+  </ul>
+
+  <p class="cs-note">
+    The best screen in a focus app might be
+    <strong>the one that gets you off the screen.</strong>
+  </p>
 </section>
 
 <!-- ═══ Testing ════════════════════════════════════════════════════════════ -->
 <section class="cs cs-sec">
-  <h2 class="cs-h2">Three tasks. Two major failures.</h2>
+  <h2 class="cs-h2">Then we put it in front of people.</h2>
 
-  <div class="tasks">
+  <div class="cs-body">
+    <p>
+      <strong>23 participants</strong> tested the experience. Rather than validating
+      everything we had made, testing showed us exactly where the product still
+      wasn&rsquo;t clear enough.
+    </p>
+  </div>
+
+  <div class="tasks tasks--4">
     <article class="task">
       <p class="task__no">01</p>
-      <h3 class="task__head">Finding your way around</h3>
-      <p class="task__score task__score--good"><b>8/8</b> successful</p>
-      <p>
-        Participants understood the channel structure immediately. It matched how they
-        expected a workplace tool to behave.
-      </p>
-      <blockquote class="quote">&ldquo;Ohhh Slack. I feel comfy here.&rdquo;</blockquote>
+      <h3 class="task__head">&ldquo;Event&rdquo; didn&rsquo;t make sense.</h3>
+      <p>Participants struggled with terminology throughout the interface.</p>
       <p class="task__take">
-        <strong>Nothing to fix.</strong> When the interface met expectations, it
-        disappeared into the background.
+        <strong>Change:</strong> use familiar language like Task or Activity, paired with
+        recognisable icons.
       </p>
     </article>
 
     <article class="task">
       <p class="task__no">02</p>
-      <h3 class="task__head">Finding a saved message</h3>
-      <p class="task__score"><b>3/8</b> successful <i>Severity 4/4</i></p>
-      <p>
-        Participants couldn&rsquo;t separate <strong>Saved, Pinned, and Later</strong>.
-        Most searched several places before giving up or settling.
-      </p>
-      <blockquote class="quote">&ldquo;There is usually a saved button here. This is terribly confusing.&rdquo;</blockquote>
+      <h3 class="task__head">Scanning needed more guidance.</h3>
+      <p>Participants weren&rsquo;t always sure where or how to position their phone.</p>
       <p class="task__take">
-        The concept wasn&rsquo;t the problem.
-        <strong>Slack&rsquo;s language was.</strong>
+        <strong>Change:</strong> add visual alignment guides and clearer onboarding.
       </p>
     </article>
 
     <article class="task">
       <p class="task__no">03</p>
-      <h3 class="task__head">Managing notifications</h3>
-      <p class="task__score"><b>2/8</b> successful <i>Severity 4/4</i></p>
-      <p>
-        Controls were spread across menus. Participants couldn&rsquo;t tell what was
-        active, why, or where to change it.
-      </p>
-      <blockquote class="quote">&ldquo;I have no idea where to even start with this.&rdquo;</blockquote>
+      <h3 class="task__head">New users needed more help.</h3>
+      <p>Some of the more advanced features weren&rsquo;t immediately understandable.</p>
       <p class="task__take">
-        Before people could change the system,
-        <strong>they had to understand it.</strong>
+        <strong>Change:</strong> introduce contextual guidance the first time someone meets
+        a feature.
       </p>
     </article>
   </div>
 
-</section>
-
-<!-- ═══ The turn ═══════════════════════════════════════════════════════════ -->
-<section class="cs cs-turn">
-  <h2 class="cs-title cs-title--mid">So, we changed two things.</h2>
-  <p class="cs-lede">
-    Rather than redesigning Slack from scratch, we focused on the two moments where
-    testing showed the biggest breakdowns.
+  <p class="cs-note">
+    Testing didn&rsquo;t tell us the idea was finished.
+    <strong>It told us where to keep designing.</strong>
   </p>
-</section>
-
-<!-- ═══ Fix 01 ═════════════════════════════════════════════════════════════ -->
-<section class="cs cs-sec fix">
-  <p class="fix__no">01</p>
-  <h2 class="cs-h2">Make ownership obvious.</h2>
-  <p class="fix__sub">Save for Me. Pin for Everyone.</p>
-
-  <div class="cs-body">
-    <p>
-      The existing experience asked people to understand the difference between Saved,
-      Pinned, and Later without clearly communicating who each action was for.
-    </p>
-  </div>
-
-  <div class="ba">
-    <figure>
-      <img src="/images/slack-save-before.jpg" style="object-position:right center" alt="The original Slack message menu, showing Pin to channel among the other actions" width="1600" height="912" loading="lazy">
-      <figcaption><b>Before</b> Saved, Pinned, and Later made ownership and visibility unclear.</figcaption>
-    </figure>
-    <figure>
-      <img src="/images/slack-save-after.jpg" style="object-position:right center" alt="The redesigned message toolbar, showing a Pin for All action" width="1600" height="875" loading="lazy">
-      <figcaption><b>After</b> Users could understand where information would go before selecting an action.</figcaption>
-    </figure>
-  </div>
-
-  <p class="jump"><span class="jump__from">3/8</span><span class="jump__arrow" aria-hidden="true">&rarr;</span><span class="jump__to">8/8</span></p>
-  <p class="jump__note">
-    In validation testing, all 8 participants successfully completed the redesigned
-    message-retrieval task.
-  </p>
-</section>
-
-<!-- ═══ Fix 02 ═════════════════════════════════════════════════════════════ -->
-<section class="cs cs-sec fix">
-  <p class="fix__no">02</p>
-  <h2 class="cs-h2">Show what Slack is doing.</h2>
-  <p class="fix__sub">One place for notifications.</p>
-
-  <div class="cs-body">
-    <p>
-      The original experience spread notification controls across multiple locations while
-      giving users very little indication of their current state.
-    </p>
-    <p>
-      We introduced a persistent notification status and brought the related controls
-      into one place.
-    </p>
-  </div>
-
-  <div class="ba">
-    <figure>
-      <img src="/images/slack-notif-before.jpg" alt="Slack's Preferences panel, with notification controls spread across a long settings list" width="1600" height="912" loading="lazy">
-      <figcaption><b>Before</b> The UI was hard to find, and nothing showed what was already on.</figcaption>
-    </figure>
-    <figure>
-      <img src="/images/slack-notif-after.jpg" style="object-position:right center" alt="The unified System Notifications panel, showing an overview count and per-channel controls" width="1600" height="873" loading="lazy">
-      <figcaption><b>After</b> Users could see what was active, understand why, and change it without searching across multiple menus.</figcaption>
-    </figure>
-  </div>
-
-  <p class="jump"><span class="jump__from">2/8</span><span class="jump__arrow" aria-hidden="true">&rarr;</span><span class="jump__to">8/8</span></p>
-  <p class="jump__note">
-    Every participant who completed the redesigned notification task during validation
-    was able to complete it successfully.
-  </p>
-</section>
-
-<!-- ═══ Validation ═════════════════════════════════════════════════════════ -->
-<section class="cs cs-sec">
-  <h2 class="cs-h2">Same problems. New designs. New cohort.</h2>
-
-  <div class="cs-body">
-    <p>
-      We tested the redesigned experiences with <strong>8 new participants through
-      UserTesting.com</strong>.
-    </p>
-    <p>
-      The goal wasn&rsquo;t to prove we had created the perfect solution. It was to see
-      whether the same failures still appeared in unmoderated sessions, where no
-      researcher was present to observe or ask follow-up questions.
-    </p>
-    <p class="cs-beat">They didn&rsquo;t.</p>
-  </div>
-
-  <dl class="stats">
-    <div class="stat">
-      <dt>37.5% &rarr; 100%</dt>
-      <dd>Message retrieval</dd>
-    </div>
-    <div class="stat">
-      <dt>25% &rarr; 100%</dt>
-      <dd>Notification management, among participants who completed the task</dd>
-    </div>
-  </dl>
-
-</section>
-
-<!-- ═══ Why ════════════════════════════════════════════════════════════════ -->
-<section class="cs cs-sec">
-  <h2 class="cs-h2">Why does this matter?</h2>
-
-  <div class="cs-body">
-    <p>
-      Slack is something people can interact with hundreds of times throughout a workweek.
-      Small moments of uncertainty can compound quickly.
-    </p>
-    <p>
-      Making system state, language, and controls easier to understand could mean less time
-      searching, easier feature discovery, and more confidence using the product.
-    </p>
-    <p>
-      The interface didn&rsquo;t need more functionality.
-      <strong>It needed to communicate the functionality it already had.</strong>
-    </p>
-  </div>
 </section>
 
 <!-- ═══ Close ══════════════════════════════════════════════════════════════ -->
 <section class="cs cs-close">
-  <h2 class="cs-title cs-title--mid">Clear systems create confident users.</h2>
+  <h2 class="cs-title cs-title--mid">Designing for focus meant designing beyond focus.</h2>
 
   <div class="cs-body">
     <p>
-      The biggest problems we found weren&rsquo;t caused by people misunderstanding what they
-      wanted to do. They came from Slack failing to communicate <strong>where things lived,
-      what was active, and what would happen next.</strong>
+      During the project we tracked our own screen-time habits. That changed the way I
+      thought about the problem. The challenge wasn&rsquo;t simply how to stop people
+      getting distracted.
+    </p>
+    <p class="cs-beat">
+      How do we make putting the phone down feel better than picking it back up?
     </p>
     <p>
-      By making ownership clearer and system state visible, we turned two major points of
-      failure into experiences participants could successfully navigate.
+      That shift pushed the product past timers and restrictions, toward planning,
+      positive reinforcement, and breaks worth taking.
     </p>
     <p>
-      And sometimes, making something easier doesn&rsquo;t mean adding more.
+      A focus product shouldn&rsquo;t rely on willpower alone. It should make the better
+      choice a little easier to make.
     </p>
-    <p class="cs-beat">It means making what&rsquo;s already there make sense.</p>
   </div>
 </section>
 
 <!-- ═══ Next ═══════════════════════════════════════════════════════════════ -->
 <section class="cs cs-next" id="hello">
-  <a class="say-hi" href="/#work">More work <span aria-hidden="true">&rarr;</span></a>
+  <a class="say-hi" href="index.html#work">More work <span aria-hidden="true">&rarr;</span></a>
   <nav class="ab-ends" aria-label="Elsewhere">
-    <a href="/">Home</a>
-    <a href="/about">About</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
     <a href="mailto:brayden@braydenw.com">Email</a>
   </nav>
 </section>

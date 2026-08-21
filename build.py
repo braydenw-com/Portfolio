@@ -22,13 +22,11 @@ LINK    = '<link rel="stylesheet" href="styles.css">'
 SCRIPT  = '<script src="script.js"></script>'
 INCLUDE = re.compile(r'^([ \t]*)<!--\s*@include\s+([\w-]+)\s*-->[ \t]*$', re.M)
 
-# Directory-per-page, so URLs are /about rather than /about.html.
-# GitHub Pages serves index.html for a directory request.
 PAGES = {'page.html':  'index.html',
-         'about.html': 'about/index.html',
-         'slack.html': 'slack/index.html',
-         'opal.html':  'opal/index.html',
-         'ibm.html':   'ibm/index.html'}
+         'about.html': 'about.html',
+         'slack.html': 'slack.html',
+         'opal.html':  'opal.html',
+         'ibm.html':   'ibm.html'}
 
 
 def partial(name):
