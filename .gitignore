@@ -6,3 +6,7 @@
 
 # node, if it ever shows up
 node_modules/
+
+# working notes — kept locally, not published
+BraydenW.com*Redesign Direction*.md
+notes/
