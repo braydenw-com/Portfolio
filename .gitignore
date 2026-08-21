@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# local backups of earlier drafts
+.backup-prev/
+
+# node, if it ever shows up
+node_modules/

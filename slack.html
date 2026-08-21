@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slack — Brayden Wisniewski</title>
+<meta name="description" content="A 10-week UX research study on Slack: heuristic evaluation, moderated usability testing with 8 participants, two targeted redesigns, and validation with a new cohort.">
+
+<meta property="og:title" content="Slack — UX Research">
+<meta property="og:description" content="Studying what happens when work, messages, and 67 unread notifications collide.">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231b4dff'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:ital,wght@0,300..700;1,300..600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════════════════
+   braydenw.com
+   One calm column. White paper, #1c1c1c type, one blue.
+   Bricolage Grotesque for the loud parts, Open Sans for everything read.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root{
+  --paper:#fff;
+  --ink:#1c1c1c;
+  --ink-2:#6e6e6e;
+  --ink-3:#a5a5a5;
+  --hair:#eae8e4;
+  --blue:#1b4dff;
+  --blue-wash:#f2f4ff;
+
+  --display:'Bricolage Grotesque','Archivo','Helvetica Neue',sans-serif;
+  --text:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+
+  --col:74rem;                     /* the one column everything lives in */
+  /* Four sizes. Everything on both pages uses one of these. */
+  --t-display:clamp(2rem,6.4vw,6.2rem);   /* the home page statement, and only that */
+  --t-head:clamp(1.45rem,1.05rem + 1.5vw,2.15rem);
+  --t-sub:clamp(1.1rem,1rem + .5vw,1.35rem);
+  --t-body:1.0625rem;
+  --t-small:.9375rem;
+  --t-micro:.75rem;
+
+  /* Spacing, like type: a few named steps, used everywhere. */
+  --space-top:clamp(6.5rem,13vw,8rem);      /* clearance under the fixed nav */
+  --space-big:clamp(4rem,9vw,6.5rem);       /* around the loud moments */
+  --space-section:clamp(3rem,7vw,5rem);     /* between ordinary sections */
+  --space-head:1.1rem;                      /* heading to the copy under it */
+
+  --pad:clamp(1.5rem,6vw,2.5rem);
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html:focus-within{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html:focus-within{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+
+body{
+  margin:0;
+  overflow-x:hidden;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--text);
+  font-size:var(--t-body);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+::selection{background:var(--blue);color:#fff}
+img{display:block;max-width:100%;height:auto}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:3px}
+
+h1,h2{
+  margin:0;font-family:var(--display);font-weight:600;
+  letter-spacing:-.032em;line-height:1.05;
+  font-variation-settings:'opsz' 48,'wdth' 96,'wght' 600;
+}
+
+.skip{position:absolute;left:-9999px;top:0;z-index:99;background:var(--blue);color:#fff;padding:.75rem 1.25rem}
+.skip:focus{left:.5rem;top:.5rem}
+
+/* Every block sits in the same column. That's the whole layout. */
+.hero,.work,.about,.hello-sec,.foot{
+  width:100%;max-width:var(--col);
+  margin-inline:auto;padding-inline:var(--pad);
+}
+
+/* ── Nav ─────────────────────────────────────────────────────────────────
+   A masthead rather than a row of links: the name set in caps with a blue
+   marker, the sections small and letterspaced behind hairline dividers. */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:60;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1.5rem;
+  max-width:var(--col);margin-inline:auto;
+  padding:1.5rem var(--pad) 1.15rem;
+  transition:padding .35s var(--ease);
+}
+/* A fill that's always there, and always slightly see-through — the page
+   moves underneath it rather than disappearing behind a solid bar. */
+.nav::before{
+  content:'';position:fixed;inset:0 0 auto 0;height:var(--h,4.5rem);z-index:-1;
+  background:rgba(255,255,255,.66);
+  backdrop-filter:saturate(150%) blur(16px);
+  -webkit-backdrop-filter:saturate(150%) blur(16px);
+  transition:background-color .35s var(--ease);
+}
+/* once you've scrolled it firms up, but never all the way to opaque */
+.nav[data-scrolled="true"]::before{background:rgba(255,255,255,.86)}
+/* the rule runs the width of the column, not the window */
+.nav::after{
+  content:'';position:absolute;left:var(--pad);right:var(--pad);bottom:0;
+  height:1px;background:var(--hair);
+  transform:scaleX(1);transform-origin:left;
+}
+.nav[data-scrolled="true"]{padding-block:.95rem .8rem}
+.nav[data-scrolled="true"]::before{opacity:1}
+
+.nav__me{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--display);font-weight:700;
+  font-size:var(--t-micro);letter-spacing:.09em;text-transform:uppercase;
+  text-decoration:none;white-space:nowrap;
+  font-variation-settings:'opsz' 14,'wdth' 88,'wght' 700;
+}
+.nav__me::after{
+  content:'';width:5px;height:5px;border-radius:50%;background:var(--blue);
+  transition:transform .4s var(--ease);
+}
+.nav__me:hover::after{transform:scale(1.9)}
+
+.nav__links{display:flex;align-items:stretch}
+.nav__links a{
+  position:relative;
+  padding:.15rem clamp(.7rem,2vw,1.15rem);
+  font-size:var(--t-micro);letter-spacing:.17em;text-transform:uppercase;
+  font-weight:600;color:var(--ink-2);text-decoration:none;
+  transition:color .28s var(--ease);
+}
+/* hairline dividers between the sections */
+.nav__links a + a::before{
+  content:'';position:absolute;left:0;top:50%;translate:0 -50%;
+  width:1px;height:.8rem;background:var(--hair);
+}
+.nav__links a::after{
+  content:'';position:absolute;left:clamp(.7rem,2vw,1.15rem);right:clamp(.7rem,2vw,1.15rem);
+  bottom:-.3rem;height:1.5px;background:var(--blue);
+  transform:scaleX(0);transform-origin:right;
+  transition:transform .38s var(--ease);
+}
+.nav__links a:hover{color:var(--ink)}
+.nav__links a:hover::after{transform:scaleX(1);transform-origin:left}
+
+/* The page you're on stays marked. The nav markup is identical on every
+   page, so which link is current comes from body[data-page] — and from
+   aria-current, which the script sets for screen readers. */
+.nav__links a[aria-current="page"],
+body[data-page="about"] .nav__links a[href="about.html"]{color:var(--ink)}
+.nav__links a[aria-current="page"]::after,
+body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX(1)}
+
+.nav__links a:last-child{
+  color:var(--blue);
+  padding-right:0;
+}
+.nav__links a:last-child::after{right:0;background:var(--blue)}
+
+@media (max-width:40rem){
+  .nav{padding-inline:var(--pad)}
+  .nav__me{letter-spacing:.07em}
+  .nav__links a{padding-inline:.5rem;letter-spacing:.12em}
+  .nav__links a:last-child{padding-right:0}
+}
+
+/* ── Hero ────────────────────────────────────────────────────────────────── */
+.hero{padding-top:var(--space-top);padding-bottom:var(--space-big)}
+
+.hero__face{
+  width:4.5rem;height:4.5rem;border-radius:50%;object-fit:cover;
+  margin-bottom:1.75rem;
+  filter:grayscale(1);
+  transition:filter .5s var(--ease),transform .5s var(--ease);
+}
+.hero__face:hover{filter:grayscale(0);transform:rotate(-3deg) scale(1.04)}
+
+.hero__hey{
+  font-size:var(--t-body);color:var(--ink-2);margin-bottom:.9rem;
+  width:fit-content;cursor:default;
+}
+/* The hand tips in from the left, then waves twice. */
+.hand{
+  display:inline-block;margin-left:.45rem;
+  transform-origin:70% 85%;
+  opacity:0;transform:translateX(-.5rem) scale(.55);
+  transition:opacity .25s var(--ease),transform .45s cubic-bezier(.34,1.56,.64,1);
+}
+.hero__hey:hover .hand{
+  opacity:1;transform:translateX(0) scale(1);
+  animation:hand-wave 1s ease-in-out .28s 2;
+}
+@keyframes hand-wave{
+  0%,100%{rotate:0deg}
+  20%{rotate:20deg}
+  45%{rotate:-12deg}
+  70%{rotate:16deg}
+}
+@media (prefers-reduced-motion:reduce){
+  .hand{transition:opacity .2s linear;transform:none}
+  .hero__hey:hover .hand{animation:none;transform:none}
+}
+
+/* Sized to fill the column edge to edge — same left rail as everything else. */
+.hero__statement{
+  max-width:none;
+  font-size:var(--t-display);
+  line-height:.98;
+  letter-spacing:-.042em;
+  margin-bottom:clamp(1.75rem,4vw,2.75rem);
+}
+/* Second line always breaks here, so both lines fill the measure. */
+.hero__statement .joy{display:block}
+
+/* ── The one interaction ─────────────────────────────────────────────────
+   Run your cursor across "a little more enjoyable." Letters widen, lighten
+   and shift toward blue in proportion to how close you are. */
+.joy .ch{
+  display:inline-block;
+  --n:0;
+  color:color-mix(in srgb,var(--blue) calc(var(--n) * 100%),var(--ink));
+  transform:translateY(calc(var(--n) * -.05em));
+  font-variation-settings:'opsz' 48,'wdth' var(--w,96),'wght' var(--g,600);
+  transition:transform .45s var(--ease),color .45s var(--ease),font-variation-settings .45s var(--ease);
+  will-change:transform,font-variation-settings;
+}
+.joy .word{white-space:nowrap}
+.no-js .joy{color:var(--blue)}
+@media (hover:none){.joy .ch{color:var(--blue)}}
+
+/* Three quarters of the column, same rail as the statement. */
+.hero__copy{
+  font-size:var(--t-body);line-height:1.7;color:var(--ink-2);
+  max-width:75%;
+}
+
+/* ── SCAD, and the bee that shows up when you hover it ───────────────────
+   Sits above the word, tips in from the left, settles with a slow bob. */
+.peek{
+  position:relative;
+  color:var(--ink);font-weight:600;
+  text-decoration:underline;
+  text-decoration-color:color-mix(in srgb,var(--blue) 45%,transparent);
+  text-decoration-thickness:1.5px;
+  text-underline-offset:3px;
+  transition:color .3s var(--ease),text-decoration-color .3s var(--ease);
+}
+.peek:hover{color:var(--blue);text-decoration-color:var(--blue)}
+
+.peek__bee{
+  position:absolute;left:50%;bottom:calc(100% + .5rem);
+  width:4.75rem;height:auto;
+  transform-origin:60% 90%;
+  transform:translate(-50%,.4rem) scale(.55) rotate(-22deg);
+  opacity:0;pointer-events:none;
+  transition:opacity .28s var(--ease),transform .52s cubic-bezier(.34,1.56,.64,1);
+}
+.peek:hover .peek__bee,.peek:focus-visible .peek__bee{
+  opacity:1;
+  transform:translate(-50%,0) scale(1) rotate(-7deg);
+  animation:bee-bob 2.6s ease-in-out .55s infinite;
+}
+@keyframes bee-bob{
+  0%,100%{transform:translate(-50%,0) scale(1) rotate(-7deg)}
+  50%    {transform:translate(-50%,-.28rem) scale(1) rotate(-3deg)}
+}
+@media (prefers-reduced-motion:reduce){
+  .peek__bee{transition:opacity .2s linear;transform:translate(-50%,0) scale(1) rotate(-7deg)}
+  .peek:hover .peek__bee{animation:none}
+}
+
+/* ── IBM, and the confetti it throws ─────────────────────────────────────
+   A burst out of the word that clears itself — nothing is left behind. */
+.peek--ibm .boom{
+  position:absolute;left:50%;bottom:calc(100% + .1rem);
+  width:0;height:0;
+  transform:translateX(-50%);
+  pointer-events:none;overflow:visible;
+}
+.boom i{
+  position:absolute;left:50%;bottom:0;
+  opacity:0;will-change:transform,opacity;
+}
+.peek--ibm:hover .boom i,.peek--ibm:focus-visible .boom i{
+  animation-name:confetti;
+  animation-timing-function:cubic-bezier(.2,.7,.35,1);
+  animation-fill-mode:forwards;          /* ends at opacity 0 */
+}
+@keyframes confetti{
+  0%  {opacity:1;transform:translate(-50%,0) rotate(0deg) scale(.5)}
+  22% {opacity:1;transform:translate(calc(-50% + var(--tx) * .5),var(--peak)) rotate(calc(var(--rot) * .35)) scale(1)}
+  100%{opacity:0;transform:translate(calc(-50% + var(--tx)),var(--fall)) rotate(var(--rot)) scale(.9)}
+}
+.boom i:nth-child(1){--tx:-2.90rem;--peak:-1.54rem;--fall:0.39rem;--rot:-354deg;width:0.29rem;height:0.25rem;border-radius:50%;background:var(--blue);animation-delay:0.043s;animation-duration:0.88s}
+.boom i:nth-child(2){--tx:-3.65rem;--peak:-2.02rem;--fall:-0.00rem;--rot:-465deg;width:0.41rem;height:0.17rem;border-radius:1px;background:#1f70c1;animation-delay:0.005s;animation-duration:0.94s}
+.boom i:nth-child(3){--tx:-2.55rem;--peak:-2.23rem;--fall:0.55rem;--rot:435deg;width:0.43rem;height:0.18rem;border-radius:1px;background:#7aa7ff;animation-delay:0.019s;animation-duration:0.89s}
+.boom i:nth-child(4){--tx:-3.26rem;--peak:-3.61rem;--fall:-0.92rem;--rot:526deg;width:0.38rem;height:0.33rem;border-radius:1px;background:#0a2fb0;animation-delay:0.025s;animation-duration:0.92s}
+.boom i:nth-child(5){--tx:-1.88rem;--peak:-2.76rem;--fall:-0.07rem;--rot:506deg;width:0.34rem;height:0.34rem;border-radius:50%;background:var(--ink);animation-delay:0.042s;animation-duration:1.15s}
+.boom i:nth-child(6){--tx:-2.87rem;--peak:-3.20rem;--fall:-0.20rem;--rot:343deg;width:0.36rem;height:0.25rem;border-radius:1px;background:#a9c5ff;animation-delay:0.007s;animation-duration:0.89s}
+.boom i:nth-child(7){--tx:-2.76rem;--peak:-4.14rem;--fall:-1.03rem;--rot:472deg;width:0.50rem;height:0.31rem;border-radius:1px;background:var(--blue);animation-delay:0.039s;animation-duration:1.12s}
+.boom i:nth-child(8){--tx:-2.18rem;--peak:-3.81rem;--fall:-1.80rem;--rot:-292deg;width:0.34rem;height:0.29rem;border-radius:1px;background:#1f70c1;animation-delay:0.092s;animation-duration:1.05s}
+.boom i:nth-child(9){--tx:-1.52rem;--peak:-4.08rem;--fall:-2.04rem;--rot:563deg;width:0.34rem;height:0.23rem;border-radius:1px;background:#7aa7ff;animation-delay:0.088s;animation-duration:1.23s}
+.boom i:nth-child(10){--tx:-0.90rem;--peak:-3.58rem;--fall:-1.36rem;--rot:549deg;width:0.32rem;height:0.21rem;border-radius:50%;background:#0a2fb0;animation-delay:0.053s;animation-duration:1.09s}
+.boom i:nth-child(11){--tx:-0.35rem;--peak:-4.12rem;--fall:-0.61rem;--rot:-392deg;width:0.47rem;height:0.33rem;border-radius:1px;background:var(--ink);animation-delay:0.056s;animation-duration:1.01s}
+.boom i:nth-child(12){--tx:0.12rem;--peak:-4.75rem;--fall:-2.61rem;--rot:-385deg;width:0.30rem;height:0.27rem;border-radius:50%;background:#a9c5ff;animation-delay:0.057s;animation-duration:1.06s}
+.boom i:nth-child(13){--tx:1.41rem;--peak:-4.60rem;--fall:-2.43rem;--rot:262deg;width:0.34rem;height:0.22rem;border-radius:1px;background:var(--blue);animation-delay:0.012s;animation-duration:1.19s}
+.boom i:nth-child(14){--tx:1.78rem;--peak:-4.35rem;--fall:-2.40rem;--rot:-515deg;width:0.44rem;height:0.25rem;border-radius:1px;background:#1f70c1;animation-delay:0.052s;animation-duration:0.93s}
+.boom i:nth-child(15){--tx:1.99rem;--peak:-4.06rem;--fall:-0.61rem;--rot:611deg;width:0.47rem;height:0.29rem;border-radius:1px;background:#7aa7ff;animation-delay:0.037s;animation-duration:0.92s}
+.boom i:nth-child(16){--tx:2.51rem;--peak:-4.37rem;--fall:-1.98rem;--rot:-458deg;width:0.45rem;height:0.30rem;border-radius:50%;background:#0a2fb0;animation-delay:0.024s;animation-duration:1.01s}
+.boom i:nth-child(17){--tx:2.23rem;--peak:-3.07rem;--fall:0.05rem;--rot:-532deg;width:0.38rem;height:0.19rem;border-radius:1px;background:var(--ink);animation-delay:0.034s;animation-duration:1.17s}
+.boom i:nth-child(18){--tx:2.78rem;--peak:-3.53rem;--fall:-1.58rem;--rot:-295deg;width:0.32rem;height:0.20rem;border-radius:1px;background:#a9c5ff;animation-delay:0.090s;animation-duration:1.19s}
+.boom i:nth-child(19){--tx:3.61rem;--peak:-3.72rem;--fall:-1.77rem;--rot:-582deg;width:0.45rem;height:0.30rem;border-radius:1px;background:var(--blue);animation-delay:0.018s;animation-duration:1.17s}
+.boom i:nth-child(20){--tx:4.18rem;--peak:-3.78rem;--fall:-1.26rem;--rot:512deg;width:0.30rem;height:0.19rem;border-radius:1px;background:#1f70c1;animation-delay:0.003s;animation-duration:1.09s}
+.boom i:nth-child(21){--tx:4.14rem;--peak:-2.56rem;--fall:0.31rem;--rot:476deg;width:0.36rem;height:0.26rem;border-radius:50%;background:#7aa7ff;animation-delay:0.001s;animation-duration:1.24s}
+.boom i:nth-child(22){--tx:3.97rem;--peak:-1.99rem;--fall:0.59rem;--rot:-547deg;width:0.33rem;height:0.21rem;border-radius:1px;background:#0a2fb0;animation-delay:0.024s;animation-duration:1.08s}
+
+@media (prefers-reduced-motion:reduce){
+  .peek--ibm:hover .boom i{animation:none}
+}
+
+/* ── Work ────────────────────────────────────────────────────────────────── */
+/* Two across the top, one full width underneath. Cells align to the top
+   so the two share a baseline no matter how long their copy runs. */
+.work{
+  display:grid;
+  gap:var(--space-section) clamp(1.5rem,3.5vw,3rem);
+  align-items:start;
+  padding-bottom:var(--space-big);
+}
+@media (min-width:52rem){
+  .work{grid-template-columns:1fr 1fr}
+  .piece--ibm{grid-column:1 / -1}
+}
+
+.piece{display:block;text-decoration:none;color:inherit}
+
+.piece__fig{margin:0 0 1.75rem;overflow:hidden;background:var(--blue-wash)}
+.piece__fig img{
+  width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center 38%;
+  filter:grayscale(.25);
+  transition:transform 1s var(--ease),filter .6s var(--ease);
+}
+.piece:hover .piece__fig img{transform:scale(1.025);filter:grayscale(0)}
+
+/* Placeholder that reads as deliberate until the real image lands. */
+.slot{
+  display:flex;flex-direction:column;justify-content:flex-end;gap:.35rem;
+  aspect-ratio:16/10;padding:clamp(1.25rem,3vw,2rem);
+  border:1px solid color-mix(in srgb,var(--blue) 18%,transparent);
+  color:var(--ink-2);
+}
+.slot--sq{aspect-ratio:1}
+.slot--wide{aspect-ratio:21/9}
+.slot--ui{aspect-ratio:4/3}
+.slot b{font-family:var(--display);font-size:var(--t-micro);letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.slot span{font-size:var(--t-small)}
+
+.piece__meta{
+  display:flex;flex-wrap:wrap;align-items:center;gap:.65rem;
+  font-size:var(--t-micro);letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:.85rem;
+}
+.piece__meta span + span::before{
+  content:'';display:inline-block;width:3px;height:3px;border-radius:50%;
+  background:var(--blue);vertical-align:.22em;margin-right:.65rem;
+}
+.piece__where{color:var(--ink-2)}
+
+.piece__title{
+  font-size:var(--t-head);
+  letter-spacing:-.03em;margin-bottom:var(--space-head);max-width:22ch;
+  transition:color .3s var(--ease);
+}
+.piece:hover .piece__title{color:var(--blue)}
+
+.piece__desc{font-size:var(--t-body);color:var(--ink-2);max-width:56ch;margin-bottom:1.35rem;line-height:1.7}
+
+.piece__cta{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--display);font-weight:600;font-size:var(--t-small);letter-spacing:-.015em;
+  padding-bottom:.25rem;border-bottom:1.5px solid var(--ink);
+  transition:gap .35s var(--ease),color .3s var(--ease),border-color .3s var(--ease);
+}
+.piece__cta i{font-style:normal;color:var(--blue)}
+.piece:hover .piece__cta{gap:.95rem;color:var(--blue);border-bottom-color:var(--blue)}
+
+/* IBM sits slightly apart — an experience, not a third case study. */
+.piece--ibm{border-top:1px solid var(--hair);padding-top:clamp(2.5rem,6vw,4rem)}
+.piece--ibm .piece__fig img{aspect-ratio:21/9}
+.piece--ibm .piece__title{max-width:18ch}
+
+/* ── Contact ─────────────────────────────────────────────────────────────── */
+.hello-sec{padding-block:var(--space-big) var(--space-section);border-top:1px solid var(--hair)}
+.hello-sec__head{
+  font-size:var(--t-head);
+  letter-spacing:-.035em;line-height:1.1;
+}
+.hello-sec__q{color:var(--blue)}
+
+.mail{display:block;text-align:left;margin-top:clamp(2rem,5vw,3rem)}
+.mail__text{
+  display:block;
+  font-family:var(--display);font-weight:600;
+  font-size:var(--t-head);
+  letter-spacing:-.035em;line-height:1.15;
+  background-image:linear-gradient(var(--blue),var(--blue));
+  background-repeat:no-repeat;background-position:0 100%;background-size:0 2px;
+  transition:background-size .5s var(--ease),color .35s var(--ease);
+  font-variation-settings:'opsz' 40,'wdth' 96,'wght' 600;
+}
+.mail:hover .mail__text,.mail:focus-visible .mail__text{color:var(--blue);background-size:100% 2px}
+.mail__note{
+  display:inline-block;margin-top:.7rem;
+  font-size:var(--t-micro);letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);
+  transition:color .3s var(--ease);
+}
+.mail:hover .mail__note,.mail[data-copied="true"] .mail__note{color:var(--blue)}
+
+.ends{display:flex;flex-wrap:wrap;gap:1.25rem 2rem;margin-top:clamp(2.5rem,6vw,4rem)}
+.ends a{
+  text-decoration:none;font-size:var(--t-small);color:var(--ink-2);
+  padding-bottom:.15rem;border-bottom:1px solid var(--hair);
+  transition:color .3s var(--ease),border-color .3s var(--ease);
+}
+.ends a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+
+/* ── Foot ────────────────────────────────────────────────────────────────── */
+.foot{
+  padding-block:1.75rem 2.5rem;
+  display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:space-between;
+  border-top:1px solid var(--hair);
+  font-size:var(--t-small);color:var(--ink-3);
+}
+
+/* ── Reveals ─────────────────────────────────────────────────────────────── */
+.rise{opacity:0;transform:translateY(1rem)}
+.rise.in{opacity:1;transform:none;transition:opacity .8s var(--ease),transform .8s var(--ease)}
+@media (prefers-reduced-motion:reduce){.rise{opacity:1;transform:none}}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ABOUT PAGE
+   Same column, same hairlines, same width axis and scale as the home page.
+   Photo-led: each section opens or closes on an image.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.ab{width:100%;max-width:var(--col);margin-inline:auto;padding-inline:var(--pad)}
+
+.ab-open{padding-top:var(--space-top)}
+
+/* the same setting as the home page statement */
+.ab-title{
+  font-family:var(--display);font-weight:600;
+  font-size:var(--t-head);
+  line-height:1.1;letter-spacing:-.032em;
+  margin:0 0 .65rem;
+  font-variation-settings:'opsz' 40,'wdth' 96,'wght' 600;
+}
+
+.ab-h2{
+  font-family:var(--display);font-weight:600;
+  font-size:var(--t-head);
+  line-height:1.1;letter-spacing:-.032em;
+  margin:0 0 var(--space-head);max-width:20ch;
+  font-variation-settings:'opsz' 40,'wdth' 96,'wght' 600;
+}
+
+/* ── Photographs ─────────────────────────────────────────────────────────── */
+.ab-fig{margin:0 0 clamp(1.75rem,4vw,2.5rem)}
+
+/* photo on the left, heading and copy on the right */
+.ab-intro{display:grid;gap:clamp(1.75rem,4vw,3rem);align-items:center}
+@media (min-width:56rem){
+  .ab-intro{grid-template-columns:minmax(0,.8fr) minmax(0,1fr)}
+}
+.ab-intro__fig{margin:0;overflow:hidden}
+.ab-intro__fig img{
+  width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 30%;
+  filter:grayscale(.25);transition:filter .6s var(--ease);
+}
+.ab-intro__fig:hover img{filter:grayscale(0)}
+.ab-intro__words .ab-text p{max-width:46ch}
+.ab-fig img{
+  width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:center 38%;
+  filter:grayscale(.25);transition:filter .6s var(--ease),transform 1s var(--ease);
+}
+.ab-fig:hover img{filter:grayscale(0);transform:scale(1.015)}
+.ab-fig--lead img{aspect-ratio:21/9}
+
+/* ── Running text ────────────────────────────────────────────────────────── */
+.ab-text p{
+  font-size:var(--t-body);line-height:1.75;color:var(--ink-2);
+  margin:0 0 1.15rem;max-width:58ch;
+}
+.ab-text p:last-child{margin-bottom:0}
+.ab-text strong{color:var(--ink);font-weight:600}
+.ab-text .peek{font-weight:600}
+
+/* ── Chapters ────────────────────────────────────────────────────────────── */
+.ab-chapter{padding-block:var(--space-section);border-top:1px solid var(--hair)}
+
+
+/* ── The four things outside design ──────────────────────────────────────── */
+.ab-grid{
+  display:grid;gap:clamp(1rem,2.5vw,1.5rem);
+  margin-top:clamp(1.25rem,3vw,1.75rem);
+}
+@media (min-width:40rem){.ab-grid{grid-template-columns:repeat(3,1fr)}}
+.ab-grid figure{margin:0}
+.ab-grid img{
+  width:100%;height:auto;aspect-ratio:1;object-fit:cover;
+  filter:grayscale(.25);transition:filter .6s var(--ease);
+}
+.ab-grid figure:hover img{filter:grayscale(0)}
+.ab-grid figcaption{
+  margin-top:.8rem;
+  font-family:var(--display);font-style:italic;
+  font-size:var(--t-small);line-height:1.4;letter-spacing:-.015em;color:var(--ink-2);
+  font-variation-settings:'opsz' 18,'wdth' 94,'wght' 400;
+  transition:color .3s var(--ease);
+}
+.ab-grid figure:hover figcaption{color:var(--blue)}
+
+/* ── Ending ──────────────────────────────────────────────────────────────── */
+.ab-summary{
+  margin:0 0 clamp(1.25rem,3vw,1.75rem);
+  font-size:var(--t-body);line-height:1.75;color:var(--ink-2);max-width:58ch;
+}
+
+/* the ending follows straight on — no rule, no fresh start */
+.ab-last{padding-block:var(--space-section)}
+.ab-title--end{margin-bottom:1.25rem}
+.ab-outro{
+  font-size:var(--t-body);
+  line-height:1.6;color:var(--ink-2);max-width:44ch;margin:0;
+}
+
+.say-hi{
+  display:inline-flex;align-items:center;gap:.7rem;
+  margin-top:clamp(1.5rem,3.5vw,2.25rem);
+  font-family:var(--display);font-weight:600;
+  font-size:var(--t-head);
+  letter-spacing:-.035em;text-decoration:none;
+  padding-bottom:.3rem;border-bottom:1.5px solid var(--ink);
+  font-variation-settings:'opsz' 40,'wdth' 96,'wght' 600;
+  transition:gap .35s var(--ease),color .3s var(--ease),border-color .3s var(--ease);
+}
+.say-hi span{color:var(--blue)}
+.say-hi:hover{gap:1.35rem;color:var(--blue);border-bottom-color:var(--blue)}
+
+.ab-ends{display:flex;flex-wrap:wrap;gap:1.25rem 2rem;margin-top:clamp(2rem,4.5vw,2.75rem)}
+.ab-ends a{
+  text-decoration:none;font-size:var(--t-small);color:var(--ink-2);
+  padding-bottom:.15rem;border-bottom:1px solid var(--hair);
+  transition:color .3s var(--ease),border-color .3s var(--ease);
+}
+.ab-ends a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CASE STUDY
+   Same column, same type scale, same hairlines as the rest of the site.
+   What's new here is evidence: scores, quotes, before/after pairs.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.cs{width:100%;max-width:var(--col);margin-inline:auto;padding-inline:var(--pad)}
+
+/* ── Opening ─────────────────────────────────────────────────────────────── */
+.cs-open{padding-top:clamp(2rem,5vw,3rem);padding-bottom:clamp(2rem,5vw,3rem)}
+
+.cs-title{
+  font-family:var(--display);font-weight:600;
+  font-size:var(--t-head);line-height:1.1;letter-spacing:-.032em;
+  margin:0;max-width:30ch;
+  font-variation-settings:'opsz' 40,'wdth' 96,'wght' 600;
+}
+.cs-title--mid{max-width:20ch}
+
+.cs-facts{
+  display:grid;gap:1.25rem clamp(1.5rem,4vw,3rem);
+  margin:clamp(2.5rem,6vw,3.5rem) 0 0;padding-top:1.5rem;
+  border-top:1px solid var(--hair);
+}
+@media (min-width:44rem){.cs-facts{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.cs-facts dt{
+  font-size:var(--t-micro);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:.4rem;
+}
+.cs-facts dd{
+  margin:0;font-family:var(--display);font-size:var(--t-body);letter-spacing:-.02em;
+  font-variation-settings:'opsz' 18,'wdth' 94,'wght' 500;
+}
+
+/* ── Sections ────────────────────────────────────────────────────────────── */
+/* No rules between sections — the whitespace does the separating. */
+.cs-sec{padding-block:var(--space-section)}
+.cs-h2{
+  font-family:var(--display);font-weight:600;
+  font-size:var(--t-head);line-height:1.1;letter-spacing:-.032em;
+  margin:0 0 var(--space-head);max-width:22ch;
+  font-variation-settings:'opsz' 40,'wdth' 96,'wght' 600;
+}
+.cs-body p{
+  font-size:var(--t-body);line-height:1.75;color:var(--ink-2);
+  margin:0 0 1.1rem;max-width:60ch;
+}
+.cs-body p:last-child{margin-bottom:0}
+.cs-body strong,.cs-note strong{color:var(--ink);font-weight:600}
+
+/* a single line that lands on its own */
+/* `.cs-body p` sets a 60ch measure and outranks a bare `.cs-beat`, so the
+   beat needs the extra specificity or it runs the full width at heading
+   size — which is why the longest one looked twice as wide as the rest. */
+.cs-body p.cs-beat,.cs-beat{
+  font-family:var(--display);font-size:var(--t-head);
+  color:var(--ink);letter-spacing:-.03em;line-height:1.15;
+  margin-top:1.5rem;max-width:26ch;
+  font-variation-settings:'opsz' 40,'wdth' 96,'wght' 600;
+}
+.cs-note{
+  margin-top:clamp(1.75rem,4vw,2.5rem);
+  font-size:var(--t-small);line-height:1.65;color:var(--ink-2);max-width:56ch;
+  padding-left:1rem;border-left:2px solid var(--blue);
+}
+
+/* ── Numbers ─────────────────────────────────────────────────────────────── */
+.stats{
+  display:grid;gap:clamp(1.5rem,4vw,2.5rem);
+  margin:clamp(2rem,5vw,3rem) 0 0;padding:0;
+}
+@media (min-width:44rem){.stats{grid-template-columns:1fr 1fr}}
+.stat{border-top:2px solid var(--ink);padding-top:1rem}
+.stat dt{
+  font-family:var(--display);font-weight:700;
+  font-size:var(--t-head);line-height:1.05;letter-spacing:-.035em;
+  color:var(--blue);margin-bottom:.5rem;
+  font-variation-settings:'opsz' 40,'wdth' 96,'wght' 700;
+}
+.stat dd{margin:0;font-size:var(--t-small);line-height:1.5;color:var(--ink-2);max-width:32ch}
+
+/* ── The three tasks ─────────────────────────────────────────────────────── */
+/* Three tasks, three columns — they're meant to be compared, so every row
+   lines up across all three via subgrid: number, title, score, copy, quote,
+   takeaway. Without it each column drifts as soon as a title wraps. */
+.tasks{
+  display:grid;gap:clamp(2rem,4vw,2.5rem);
+  margin-top:clamp(2rem,5vw,3rem);
+}
+@media (min-width:58rem){
+  .tasks{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    grid-template-rows:repeat(6,auto);
+    column-gap:clamp(2rem,4vw,2.5rem);
+    row-gap:0;
+  }
+  /* number, heading, copy, takeaway — no score or quote */
+  .tasks--4{grid-template-rows:repeat(4,auto)}
+  .tasks--4 .task{grid-row:span 4}
+  .task{
+    display:grid;grid-row:span 6;grid-template-rows:subgrid;
+    row-gap:0;align-content:start;
+  }
+}
+.task{border-top:2px solid var(--ink);padding-top:1.1rem}
+.task__no{
+  font-size:var(--t-micro);letter-spacing:.14em;color:var(--blue);
+  font-weight:700;margin:0 0 .55rem;
+}
+.task__head{
+  font-family:var(--display);font-weight:600;
+  font-size:var(--t-sub);line-height:1.2;letter-spacing:-.025em;margin:0 0 .55rem;
+  font-variation-settings:'opsz' 24,'wdth' 96,'wght' 600;
+}
+.task__score{
+  font-size:var(--t-micro);letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 1rem;
+}
+.task__score b{color:var(--blue);font-weight:700;font-size:1.15em;letter-spacing:.02em}
+.task__score i{font-style:normal}
+.task__score i::before{content:'·';margin:0 .55rem;color:var(--hair)}
+.task__score--good b{color:var(--ink)}
+.task p{font-size:var(--t-body);line-height:1.65;color:var(--ink-2);margin:0 0 1rem}
+.task strong{color:var(--ink);font-weight:600}
+.task__take{margin:0!important}
+
+/* The rule runs the full height of the row and the quote sits centred on
+   it, so a one-line quote and a two-line quote still read as a set. */
+.quote{
+  display:flex;align-items:center;align-self:stretch;
+  margin:0 0 1rem;padding-left:1.1rem;
+  border-left:2px solid var(--blue);
+  font-family:var(--display);font-style:italic;
+  font-size:var(--t-body);line-height:1.4;letter-spacing:-.02em;
+  color:var(--ink);
+  font-variation-settings:'opsz' 32,'wdth' 94,'wght' 400;
+}
+
+/* ── The turn ────────────────────────────────────────────────────────────── */
+.cs-turn{padding-block:var(--space-big)}
+.cs-lede{
+  margin-top:clamp(1.5rem,3.5vw,2.25rem);
+  font-size:var(--t-body);line-height:1.75;color:var(--ink-2);max-width:56ch;
+}
+
+/* ── The two fixes ───────────────────────────────────────────────────────── */
+.fix__no{
+  font-size:var(--t-micro);letter-spacing:.14em;color:var(--blue);
+  font-weight:700;margin-bottom:.75rem;
+}
+.fix__sub{
+  font-family:var(--display);font-size:var(--t-body);letter-spacing:-.02em;
+  color:var(--ink-2);margin:-.75rem 0 1.5rem;
+  font-variation-settings:'opsz' 20,'wdth' 94,'wght' 500;
+}
+
+.ba{display:grid;gap:clamp(1.25rem,3vw,2rem);margin-top:clamp(2rem,5vw,2.75rem)}
+@media (min-width:52rem){.ba{grid-template-columns:1fr 1fr}}
+.ba figure{margin:0}
+.ba img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--hair)}
+.ba figcaption{
+  margin-top:.85rem;font-size:var(--t-small);line-height:1.55;color:var(--ink-2);
+}
+.ba figcaption b{
+  display:block;font-family:var(--display);
+  font-size:var(--t-micro);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:.3rem;font-weight:700;
+}
+
+/* Saved → Save for Me, and what each one now means */
+/* the before-and-after number */
+.jump{
+  display:flex;align-items:baseline;flex-wrap:wrap;gap:.75rem;
+  margin-top:clamp(2.5rem,6vw,3.5rem);
+  font-family:var(--display);font-weight:700;
+  font-size:var(--t-head);line-height:1.05;letter-spacing:-.035em;
+  font-variation-settings:'opsz' 40,'wdth' 96,'wght' 700;
+}
+.jump__from{color:var(--ink-3)}
+.jump__arrow{color:var(--blue);font-size:.7em}
+.jump__to{color:var(--blue)}
+.jump__note{
+  margin-top:.9rem;font-size:var(--t-small);line-height:1.6;
+  color:var(--ink-2);max-width:46ch;
+}
+
+/* ── Close ───────────────────────────────────────────────────────────────── */
+.cs-close{padding-block:var(--space-big) var(--space-section)}
+.cs-close .cs-body{margin-top:clamp(2rem,5vw,3rem)}
+
+.cs-next{padding-block:clamp(2.5rem,6vw,3.5rem)}
+
+
+/* the case study cover */
+.cs-cover{
+  margin:0 auto;width:100%;max-width:var(--col);
+  padding:var(--space-top) var(--pad) 0;
+}
+.cs-cover img{
+  width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;
+  border:1px solid var(--hair);
+}
+
+
+/* ── Opal ────────────────────────────────────────────────────────────────── */
+
+/* three findings side by side instead of two */
+@media (min-width:44rem){.stats--3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* one screen, full column width */
+.shot{margin:clamp(2rem,5vw,2.75rem) 0 0}
+.shot img{
+  width:100%;height:auto;
+  border:1px solid var(--hair);
+}
+/* a portrait photo would run enormously tall at full column width */
+.shot--photo img{aspect-ratio:16/9;object-fit:cover;object-position:center 34%}
+.shot + .cs-body{margin-top:clamp(1.75rem,4vw,2.5rem)}
+
+/* the things you could do instead of picking the phone back up */
+.breaks{
+  display:flex;flex-wrap:wrap;gap:.6rem;
+  list-style:none;margin:clamp(1.75rem,4vw,2.5rem) 0 0;padding:0;
+}
+.breaks li{
+  font-family:var(--display);font-size:var(--t-small);letter-spacing:-.015em;
+  padding:.45rem .9rem;border:1px solid var(--hair);
+  font-variation-settings:'opsz' 16,'wdth' 94,'wght' 500;
+  transition:border-color .3s var(--ease),color .3s var(--ease);
+}
+.breaks li:hover{border-color:var(--blue);color:var(--blue)}
+
+
+/* ── IBM ─────────────────────────────────────────────────────────────────── */
+
+/* four facts instead of three */
+@media (min-width:44rem){.cs-facts--4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:64rem){.cs-facts--4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* links out of the page */
+.cs-links{
+  display:flex;flex-wrap:wrap;gap:1rem 2rem;
+  margin-top:clamp(1.5rem,3.5vw,2rem);
+}
+.cs-links a{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-family:var(--display);font-weight:600;font-size:var(--t-small);
+  letter-spacing:-.015em;text-decoration:none;
+  padding-bottom:.25rem;border-bottom:1.5px solid var(--ink);
+  font-variation-settings:'opsz' 16,'wdth' 96,'wght' 600;
+  transition:gap .35s var(--ease),color .3s var(--ease),border-color .3s var(--ease);
+}
+.cs-links a span{color:var(--blue)}
+.cs-links a:hover{gap:.95rem;color:var(--blue);border-bottom-color:var(--blue)}
+
+
+/* what the team said afterwards */
+.says{display:grid;gap:clamp(1.25rem,3vw,2rem);margin-top:clamp(2rem,5vw,2.75rem)}
+@media (min-width:52rem){.says{grid-template-columns:1fr 1fr}}
+.says .quote{display:block;align-self:start}
+.says cite{
+  display:block;margin-top:.7rem;font-style:normal;
+  font-family:var(--text);font-size:var(--t-micro);
+  letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);
+}
+
+</style>
+</head>
+<body class="no-js" data-page="slack">
+<script>document.body.classList.remove('no-js');</script>
+
+<a class="skip" href="#findings">Skip to the findings</a>
+
+<!-- Shared by every page — edit here, never in a page source. -->
+<header class="nav" id="nav">
+  <a class="nav__me" href="index.html">Brayden&nbsp;Wisniewski</a>
+  <nav class="nav__links" aria-label="Sections">
+    <a href="index.html#work">Work</a>
+    <a href="about.html">About</a>
+    <a href="#hello" class="nav__hi">Say hi</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<figure class="cs-cover">
+  <img src="images/slack-hero.jpg"
+       alt="The redesigned Slack interface: a Save for Me action, a Pin for All action, and a unified notification panel"
+       width="1920" height="1080">
+</figure>
+
+<!-- ═══ Opening ════════════════════════════════════════════════════════════ -->
+<section class="cs cs-open">
+  <h1 class="cs-title">
+    Studying what happens when work, messages, and 67 unread notifications collide.
+  </h1>
+
+  <dl class="cs-facts">
+    <div><dt>Role</dt><dd>Research Lead</dd></div>
+    <div><dt>Team</dt><dd>3 researchers</dd></div>
+    <div><dt>Duration</dt><dd>10 weeks</dd></div>
+  </dl>
+</section>
+
+
+<!-- ═══ The problem ════════════════════════════════════════════════════════ -->
+<section class="cs cs-sec" id="findings">
+  <h2 class="cs-h2">Slack hides its own state.</h2>
+
+  <div class="cs-body">
+    <p>
+      Slack has the features people need&mdash;but finding them and understanding what
+      they&rsquo;re doing isn&rsquo;t always easy.
+    </p>
+    <p>
+      We evaluated common Slack workflows and tested them with 8 participants.
+      Navigation worked. Two other everyday tasks didn&rsquo;t.
+    </p>
+  </div>
+
+  <dl class="stats">
+    <div class="stat">
+      <dt>3/8</dt>
+      <dd>successfully retrieved a saved message</dd>
+    </div>
+    <div class="stat">
+      <dt>2/8</dt>
+      <dd>successfully managed notifications</dd>
+    </div>
+  </dl>
+
+  <p class="cs-note">
+    We ran <strong>moderated user testing sessions</strong> to watch where each of
+    those workflows broke down, and why.
+  </p>
+</section>
+
+<!-- ═══ Method ═════════════════════════════════════════════════════════════ -->
+<section class="cs cs-sec">
+  <h2 class="cs-h2">Evaluate &rarr; Test &rarr; Design &rarr; Validate</h2>
+
+  <div class="cs-body">
+    <p>
+      We started by evaluating <strong>20 Slack workflows against Nielsen&rsquo;s 10 usability
+      heuristics</strong>. Four patterns kept appearing: hidden system states, weak feedback,
+      fragmented navigation, and unnecessary workflow friction.
+    </p>
+    <p>
+      Those findings shaped the tasks we took into moderated usability testing with
+      <strong>8 participants</strong>&mdash;then <strong>8 unmoderated sessions</strong>
+      once there was something to validate.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ Testing ════════════════════════════════════════════════════════════ -->
+<section class="cs cs-sec">
+  <h2 class="cs-h2">Three tasks. Two major failures.</h2>
+
+  <div class="tasks">
+    <article class="task">
+      <p class="task__no">01</p>
+      <h3 class="task__head">Finding your way around</h3>
+      <p class="task__score task__score--good"><b>8/8</b> successful</p>
+      <p>
+        Participants understood the channel structure immediately. It matched how they
+        expected a workplace tool to behave.
+      </p>
+      <blockquote class="quote">&ldquo;Ohhh Slack. I feel comfy here.&rdquo;</blockquote>
+      <p class="task__take">
+        <strong>Nothing to fix.</strong> When the interface met expectations, it
+        disappeared into the background.
+      </p>
+    </article>
+
+    <article class="task">
+      <p class="task__no">02</p>
+      <h3 class="task__head">Finding a saved message</h3>
+      <p class="task__score"><b>3/8</b> successful <i>Severity 4/4</i></p>
+      <p>
+        Participants couldn&rsquo;t separate <strong>Saved, Pinned, and Later</strong>.
+        Most searched several places before giving up or settling.
+      </p>
+      <blockquote class="quote">&ldquo;There is usually a saved button here. This is terribly confusing.&rdquo;</blockquote>
+      <p class="task__take">
+        The concept wasn&rsquo;t the problem.
+        <strong>Slack&rsquo;s language was.</strong>
+      </p>
+    </article>
+
+    <article class="task">
+      <p class="task__no">03</p>
+      <h3 class="task__head">Managing notifications</h3>
+      <p class="task__score"><b>2/8</b> successful <i>Severity 4/4</i></p>
+      <p>
+        Controls were spread across menus. Participants couldn&rsquo;t tell what was
+        active, why, or where to change it.
+      </p>
+      <blockquote class="quote">&ldquo;I have no idea where to even start with this.&rdquo;</blockquote>
+      <p class="task__take">
+        Before people could change the system,
+        <strong>they had to understand it.</strong>
+      </p>
+    </article>
+  </div>
+
+</section>
+
+<!-- ═══ The turn ═══════════════════════════════════════════════════════════ -->
+<section class="cs cs-turn">
+  <h2 class="cs-title cs-title--mid">So, we changed two things.</h2>
+  <p class="cs-lede">
+    Rather than redesigning Slack from scratch, we focused on the two moments where
+    testing showed the biggest breakdowns.
+  </p>
+</section>
+
+<!-- ═══ Fix 01 ═════════════════════════════════════════════════════════════ -->
+<section class="cs cs-sec fix">
+  <p class="fix__no">01</p>
+  <h2 class="cs-h2">Make ownership obvious.</h2>
+  <p class="fix__sub">Save for Me. Pin for Everyone.</p>
+
+  <div class="cs-body">
+    <p>
+      The existing experience asked people to understand the difference between Saved,
+      Pinned, and Later without clearly communicating who each action was for.
+    </p>
+  </div>
+
+  <div class="ba">
+    <figure>
+      <img src="images/slack-save-before.jpg" style="object-position:right center" alt="The original Slack message menu, showing Pin to channel among the other actions" width="1600" height="912" loading="lazy">
+      <figcaption><b>Before</b> Saved, Pinned, and Later made ownership and visibility unclear.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/slack-save-after.jpg" style="object-position:right center" alt="The redesigned message toolbar, showing a Pin for All action" width="1600" height="875" loading="lazy">
+      <figcaption><b>After</b> Users could understand where information would go before selecting an action.</figcaption>
+    </figure>
+  </div>
+
+  <p class="jump"><span class="jump__from">3/8</span><span class="jump__arrow" aria-hidden="true">&rarr;</span><span class="jump__to">8/8</span></p>
+  <p class="jump__note">
+    In validation testing, all 8 participants successfully completed the redesigned
+    message-retrieval task.
+  </p>
+</section>
+
+<!-- ═══ Fix 02 ═════════════════════════════════════════════════════════════ -->
+<section class="cs cs-sec fix">
+  <p class="fix__no">02</p>
+  <h2 class="cs-h2">Show what Slack is doing.</h2>
+  <p class="fix__sub">One place for notifications.</p>
+
+  <div class="cs-body">
+    <p>
+      The original experience spread notification controls across multiple locations while
+      giving users very little indication of their current state.
+    </p>
+    <p>
+      We introduced a persistent notification status and brought the related controls
+      into one place.
+    </p>
+  </div>
+
+  <div class="ba">
+    <figure>
+      <img src="images/slack-notif-before.jpg" alt="Slack's Preferences panel, with notification controls spread across a long settings list" width="1600" height="912" loading="lazy">
+      <figcaption><b>Before</b> The UI was hard to find, and nothing showed what was already on.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/slack-notif-after.jpg" style="object-position:right center" alt="The unified System Notifications panel, showing an overview count and per-channel controls" width="1600" height="873" loading="lazy">
+      <figcaption><b>After</b> Users could see what was active, understand why, and change it without searching across multiple menus.</figcaption>
+    </figure>
+  </div>
+
+  <p class="jump"><span class="jump__from">2/8</span><span class="jump__arrow" aria-hidden="true">&rarr;</span><span class="jump__to">8/8</span></p>
+  <p class="jump__note">
+    Every participant who completed the redesigned notification task during validation
+    was able to complete it successfully.
+  </p>
+</section>
+
+<!-- ═══ Validation ═════════════════════════════════════════════════════════ -->
+<section class="cs cs-sec">
+  <h2 class="cs-h2">Same problems. New designs. New cohort.</h2>
+
+  <div class="cs-body">
+    <p>
+      We tested the redesigned experiences with <strong>8 new participants through
+      UserTesting.com</strong>.
+    </p>
+    <p>
+      The goal wasn&rsquo;t to prove we had created the perfect solution. It was to see
+      whether the same failures still appeared in unmoderated sessions, where no
+      researcher was present to observe or ask follow-up questions.
+    </p>
+    <p class="cs-beat">They didn&rsquo;t.</p>
+  </div>
+
+  <dl class="stats">
+    <div class="stat">
+      <dt>37.5% &rarr; 100%</dt>
+      <dd>Message retrieval</dd>
+    </div>
+    <div class="stat">
+      <dt>25% &rarr; 100%</dt>
+      <dd>Notification management, among participants who completed the task</dd>
+    </div>
+  </dl>
+
+</section>
+
+<!-- ═══ Why ════════════════════════════════════════════════════════════════ -->
+<section class="cs cs-sec">
+  <h2 class="cs-h2">Why does this matter?</h2>
+
+  <div class="cs-body">
+    <p>
+      Slack is something people can interact with hundreds of times throughout a workweek.
+      Small moments of uncertainty can compound quickly.
+    </p>
+    <p>
+      Making system state, language, and controls easier to understand could mean less time
+      searching, easier feature discovery, and more confidence using the product.
+    </p>
+    <p>
+      The interface didn&rsquo;t need more functionality.
+      <strong>It needed to communicate the functionality it already had.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- ═══ Close ══════════════════════════════════════════════════════════════ -->
+<section class="cs cs-close">
+  <h2 class="cs-title cs-title--mid">Clear systems create confident users.</h2>
+
+  <div class="cs-body">
+    <p>
+      The biggest problems we found weren&rsquo;t caused by people misunderstanding what they
+      wanted to do. They came from Slack failing to communicate <strong>where things lived,
+      what was active, and what would happen next.</strong>
+    </p>
+    <p>
+      By making ownership clearer and system state visible, we turned two major points of
+      failure into experiences participants could successfully navigate.
+    </p>
+    <p>
+      And sometimes, making something easier doesn&rsquo;t mean adding more.
+    </p>
+    <p class="cs-beat">It means making what&rsquo;s already there make sense.</p>
+  </div>
+</section>
+
+<!-- ═══ Next ═══════════════════════════════════════════════════════════════ -->
+<section class="cs cs-next" id="hello">
+  <a class="say-hi" href="index.html#work">More work <span aria-hidden="true">&rarr;</span></a>
+  <nav class="ab-ends" aria-label="Elsewhere">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="mailto:brayden@braydenw.com">Email</a>
+  </nav>
+</section>
+
+</main>
+
+<!-- Shared by every page — edit here, never in a page source. -->
+<footer class="foot">
+  <span>&copy; <span id="year">2026</span> Brayden Wisniewski</span>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   braydenw.com — no libraries.
+
+   The one interaction lives in warp(): run a cursor across the word
+   "enjoyable." and each letter responds in proportion to how close you are.
+   Everything else here is housekeeping.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+(function () {
+  'use strict';
+
+  var calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = matchMedia('(pointer: fine)').matches;
+
+  /* ── "enjoyable." — one span per letter ──────────────────────────────── */
+  var joy = document.getElementById('joy');
+  var chars = [];
+
+  /* Split an element into per-letter spans. Words stay whole — only the
+     spaces between them are break points, otherwise a line could snap in
+     the middle of a word. */
+  function split(el) {
+    var out = [];
+    var phrase = el.dataset.word || el.textContent;
+
+    el.textContent = '';
+    el.setAttribute('aria-label', phrase);
+
+    phrase.split(' ').forEach(function (w, wi) {
+      if (wi) el.appendChild(document.createTextNode(' '));
+
+      var grp = document.createElement('span');
+      grp.className = 'word';
+
+      w.split('').forEach(function (c) {
+        var sp = document.createElement('span');
+        sp.className = 'ch';
+        sp.textContent = c;
+        sp.setAttribute('aria-hidden', 'true');
+        grp.appendChild(sp);
+        out.push(sp);
+      });
+
+      el.appendChild(grp);
+    });
+
+    return out;
+  }
+
+  if (joy) chars = split(joy);
+
+  var queued = false, mx = 0;
+
+  function warp() {
+    queued = false;
+    for (var i = 0; i < chars.length; i++) {
+      var b = chars[i].getBoundingClientRect();
+      var d = Math.abs((b.left + b.width / 2) - mx);
+      /* falls off over ~8rem, so two or three letters move at a time */
+      var n = Math.max(0, 1 - d / 130);
+      chars[i].style.setProperty('--n', n.toFixed(3));
+      chars[i].style.setProperty('--w', (96 - n * 14).toFixed(1));
+      chars[i].style.setProperty('--g', (600 - n * 240).toFixed(0));
+    }
+  }
+
+  function settle() {
+    chars.forEach(function (c) {
+      c.style.setProperty('--n', 0);
+      c.style.setProperty('--w', 96);
+      c.style.setProperty('--g', 600);
+    });
+  }
+
+  function pulse(c, on) {
+    c.style.setProperty('--n', on ? 1 : 0);
+    c.style.setProperty('--w', on ? 82 : 96);
+    c.style.setProperty('--g', on ? 360 : 600);
+  }
+
+  if (joy && chars.length && !calm) {
+    if (fine) {
+      /* Listen on the whole hero so the word reacts as you approach it. */
+      var field = document.querySelector('.hero') || document;
+      field.addEventListener('pointermove', function (e) {
+        mx = e.clientX;
+        if (!queued) { queued = true; requestAnimationFrame(warp); }
+      });
+      field.addEventListener('pointerleave', settle);
+    }
+
+    /* Tap or click it and it waves once, left to right. */
+    joy.addEventListener('click', function () {
+      chars.forEach(function (c, i) {
+        setTimeout(function () {
+          pulse(c, true);
+          setTimeout(function () { pulse(c, false); }, 260);
+        }, i * 45);
+      });
+    });
+  }
+
+  /* ── Mark the nav link for the page you're on ─────────────────────────
+     The nav is one shared partial, so nothing in the markup knows which
+     page it is. Links that point at a section (anything with a #) are
+     skipped — only whole-page links can be "current". */
+  var thisPage = location.pathname.split('/').pop() || 'index.html';
+
+  document.querySelectorAll('.nav__links a').forEach(function (a) {
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('#') > -1) return;
+    if (href === thisPage) a.setAttribute('aria-current', 'page');
+  });
+
+  var year = document.getElementById('year');
+  if (year) year.textContent = new Date().getFullYear();
+
+  console.log(
+    '%cHey.%c You opened the console, so we should probably talk.\nbrayden@braydenw.com',
+    'font:700 20px "Bricolage Grotesque",sans-serif;color:#1b4dff',
+    'font:14px/1.6 "Open Sans",system-ui;color:#1c1c1c'
+  );
+})();
+
+</script>
+</body>
+</html>
