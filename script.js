@@ -100,6 +100,68 @@
     });
   }
 
+  /* ── Mobile menu ──────────────────────────────────────────────────────
+     The panel only exists below 40rem; above that the links live in the bar
+     and this does nothing. Escape closes it, so does tapping a link or
+     anywhere outside, and focus goes back to the toggle on the way out. */
+  var burger = document.getElementById('burger');
+  var navBar = document.getElementById('nav');
+  var panel  = document.getElementById('nav-links');
+
+  if (burger && navBar && panel) {
+    var narrow = matchMedia('(max-width: 40rem)');
+
+    var setMenu = function (open) {
+      navBar.dataset.open = open ? 'true' : 'false';
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      /* stop the page scrolling behind the panel */
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+
+    var close = function (returnFocus) {
+      if (navBar.dataset.open !== 'true') return;
+      setMenu(false);
+      if (returnFocus) burger.focus();
+    };
+
+    burger.addEventListener('click', function () {
+      var open = navBar.dataset.open !== 'true';
+      setMenu(open);
+      if (!open) return;
+
+      /* The panel animates out of visibility:hidden, and a hidden element
+         can't take focus — so wait for the transition before moving it. */
+      var first = panel.querySelector('a');
+      if (!first) return;
+
+      if (calm) { first.focus(); return; }
+      var done = function () { first.focus(); panel.removeEventListener('transitionend', done); };
+      panel.addEventListener('transitionend', done);
+      setTimeout(done, 400);            /* in case transitionend never fires */
+    });
+
+    /* a link either navigates or jumps down the page — either way, close */
+    panel.addEventListener('click', function (e) {
+      if (e.target.closest('a')) close(false);
+    });
+
+    addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') close(true);
+    });
+
+    document.addEventListener('click', function (e) {
+      if (navBar.dataset.open !== 'true') return;
+      if (!navBar.contains(e.target)) close(false);
+    });
+
+    /* if the window grows past the breakpoint while it's open, the panel
+       stops existing — make sure the scroll lock goes with it */
+    var onWidth = function () { if (!narrow.matches) close(false); };
+    if (narrow.addEventListener) narrow.addEventListener('change', onWidth);
+    else narrow.addListener(onWidth);
+  }
+
   /* ── Mark the nav link for the page you're on ─────────────────────────
      The nav is one shared partial, so nothing in the markup knows which
      page it is. Links that point at a section (anything with a #) are

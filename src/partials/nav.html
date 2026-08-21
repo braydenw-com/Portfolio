@@ -1,7 +1,13 @@
 <!-- Shared by every page — edit here, never in a page source. -->
-<header class="nav" id="nav">
+<header class="nav" id="nav" data-open="false">
   <a class="nav__me" href="index.html">Brayden&nbsp;Wisniewski</a>
-  <nav class="nav__links" aria-label="Sections">
+
+  <button class="burger" id="burger" type="button"
+          aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+    <span class="burger__box" aria-hidden="true"><i></i><i></i></span>
+  </button>
+
+  <nav class="nav__links" id="nav-links" aria-label="Sections">
     <a href="index.html#work">Work</a>
     <a href="about.html">About</a>
     <a href="#hello" class="nav__hi">Say hi</a>

@@ -871,3 +871,57 @@ body[data-page="about"] .nav__links a[href="about.html"]::after{transform:scaleX
   transition:color .3s var(--ease);
 }
 .fact-link:hover{color:var(--blue)}
+
+
+/* ── Mobile menu ─────────────────────────────────────────────────────────
+   Below 40rem the three links fold into a panel behind a toggle. Above it
+   nothing changes — the toggle is hidden and the links sit in the bar. */
+.burger{display:none}
+
+@media (max-width:40rem){
+  .burger{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:44px;height:44px;margin-right:-.5rem;   /* optical, keeps the edge aligned */
+    margin-left:auto;
+  }
+  .burger__box{position:relative;display:block;width:20px;height:12px}
+  .burger__box i{
+    position:absolute;left:0;right:0;height:1.5px;background:var(--ink);
+    transition:transform .34s var(--ease),opacity .2s var(--ease);
+  }
+  .burger__box i:first-child{top:0}
+  .burger__box i:last-child{bottom:0}
+
+  .nav[data-open="true"] .burger__box i:first-child{transform:translateY(5.25px) rotate(45deg)}
+  .nav[data-open="true"] .burger__box i:last-child{transform:translateY(-5.25px) rotate(-45deg)}
+
+  .nav__links{
+    position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:0;
+    padding:0 var(--pad) .5rem;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:saturate(150%) blur(16px);
+    -webkit-backdrop-filter:saturate(150%) blur(16px);
+    border-bottom:1px solid var(--hair);
+    opacity:0;visibility:hidden;transform:translateY(-.5rem);
+    transition:opacity .28s var(--ease),transform .28s var(--ease),visibility .28s;
+  }
+  .nav[data-open="true"] .nav__links{opacity:1;visibility:visible;transform:none}
+
+  .nav__links a{
+    display:flex;align-items:center;min-height:60px;
+    padding:0;font-size:var(--t-body);letter-spacing:-.01em;
+    text-transform:none;font-weight:600;color:var(--ink);
+    border-bottom:1px solid var(--hair);
+  }
+  .nav__links a:last-child{border-bottom:0}
+  /* the divider and sliding underline belong to the desktop bar */
+  .nav__links a + a::before,
+  .nav__links a::after{content:none}
+  .nav__links a[aria-current="page"],
+  body[data-page="about"] .nav__links a[href="about.html"]{color:var(--blue)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .nav__links,.burger__box i{transition:none}
+}
