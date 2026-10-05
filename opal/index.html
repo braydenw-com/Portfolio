@@ -93,7 +93,7 @@ h1,h2{
 .skip:focus{left:.5rem;top:.5rem}
 
 /* Every block sits in the same column. That's the whole layout. */
-.hero,.work,.about,.hello-sec,.foot{
+.hero,.work,.now,.about,.hello-sec,.foot{
   width:100%;max-width:var(--col);
   margin-inline:auto;padding-inline:var(--pad);
 }
@@ -406,6 +406,18 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
 .piece--ibm .piece__fig img{aspect-ratio:21/9}
 .piece--ibm .piece__title{max-width:18ch}
 
+/* ── Currently ───────────────────────────────────────────────────────────── */
+.now{padding-block:var(--space-section);border-top:1px solid var(--hair)}
+.now__h2{
+  font-family:var(--display);font-weight:600;
+  font-size:var(--t-head);
+}
+.now__list{
+  list-style:none;margin:1.25rem 0 0;padding:0;
+  display:grid;gap:.6rem;
+  font-size:var(--t-body);line-height:1.6;color:var(--ink-2);
+}
+
 /* ── Contact ─────────────────────────────────────────────────────────────── */
 .hello-sec{padding-block:var(--space-big) var(--space-section);border-top:1px solid var(--hair)}
 .hello-sec__head{
@@ -515,6 +527,21 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
 
 /* ── Chapters ────────────────────────────────────────────────────────────── */
 .ab-chapter{padding-block:var(--space-section);border-top:1px solid var(--hair)}
+
+/* ── Things I believe ───────────────────────────────────────────────────── */
+.ab-believe{
+  display:grid;gap:clamp(1.75rem,4vw,2.5rem);
+  margin-top:clamp(1.5rem,3.5vw,2.25rem);
+}
+.ab-believe__item{border-top:2px solid var(--ink);padding-top:1.1rem}
+.ab-believe__item h3{
+  font-family:var(--display);font-weight:600;
+  font-size:var(--t-sub);line-height:1.2;letter-spacing:-.025em;margin:0 0 .55rem;
+  font-variation-settings:'opsz' 24,'wdth' 96,'wght' 600;
+}
+.ab-believe__item p{
+  font-size:var(--t-body);line-height:1.65;color:var(--ink-2);margin:0;max-width:58ch;
+}
 
 
 /* ── The four things outside design ──────────────────────────────────────── */
@@ -1018,59 +1045,17 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
 
 <!-- ═══ Landscape ══════════════════════════════════════════════════════════ -->
 <section class="cs cs-sec">
-  <h2 class="cs-h2">So we looked at what was already out there.</h2>
-
-  <div class="cs-body">
-    <p>We looked at three different approaches to focus.</p>
-  </div>
+  <h2 class="cs-h2">Focus apps were solving pieces of the problem.</h2>
 
   <dl class="facets">
-    <div class="facet"><dt>Forest</dt><dd>Great at blocking distractions.</dd></div>
-    <div class="facet"><dt>Finch</dt><dd>Made self-care rewarding.</dd></div>
-    <div class="facet"><dt>Focus Friend</dt><dd>Brought accountability into the experience.</dd></div>
+    <div class="facet"><dt>Forest</dt><dd>Blocks distractions.</dd></div>
+    <div class="facet"><dt>Finch</dt><dd>Makes self-care rewarding.</dd></div>
+    <div class="facet"><dt>Focus Friend</dt><dd>Adds accountability.</dd></div>
   </dl>
 
   <div class="cs-body">
-    <p style="margin-top:1.5rem">Each did something well. We saw an opening between them.</p>
-    <p class="cs-beat">What if focusing felt rewarding instead of restrictive?</p>
-  </div>
-</section>
-
-<!-- ═══ Directions ═════════════════════════════════════════════════════════ -->
-<section class="cs cs-sec">
-  <h2 class="cs-h2">Three things kept coming up.</h2>
-
-  <div class="cs-body">
-    <p>Research gave us three directions to design around.</p>
-  </div>
-
-  <div class="tasks tasks--4">
-    <article class="task">
-      <p class="task__no">01</p>
-      <h3 class="task__head">Help me know what to do.</h3>
-      <p>
-        Students were already using calendars and planners to organise their work.
-      </p>
-      <p class="task__take"><strong>Give focus some structure.</strong></p>
-    </article>
-
-    <article class="task">
-      <p class="task__no">02</p>
-      <h3 class="task__head">Give me a reason to keep going.</h3>
-      <p>
-        Students responded to progress and positive reinforcement far more than punishment.
-      </p>
-      <p class="task__take"><strong>Reward the behaviour we want to encourage.</strong></p>
-    </article>
-
-    <article class="task">
-      <p class="task__no">03</p>
-      <h3 class="task__head">Help me actually take a break.</h3>
-      <p>
-        Putting your phone down isn&rsquo;t much help if you pick it back up five minutes later.
-      </p>
-      <p class="task__take"><strong>Make time away from the screen feel worth it.</strong></p>
-    </article>
+    <p class="cs-beat">Students wanted pieces of all three.</p>
+    <p>That insight became the foundation for Opal.</p>
   </div>
 </section>
 

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Brayden Wisniewski</title>
-<meta name="description" content="Product designer interested in people, emerging technology, and the tiny interactions that make products feel good to use. Finishing UX at SCAD.">
+<meta name="description" content="Product designer interested in people, emerging technology, and the tiny interactions that make products feel good to use. Studying UX at SCAD, building design communities with Adobe and Framer.">
 
 <link rel="canonical" href="https://www.braydenw.com/">
 <meta property="og:url" content="https://www.braydenw.com/">
@@ -98,7 +98,7 @@ h1,h2{
 .skip:focus{left:.5rem;top:.5rem}
 
 /* Every block sits in the same column. That's the whole layout. */
-.hero,.work,.about,.hello-sec,.foot{
+.hero,.work,.now,.about,.hello-sec,.foot{
   width:100%;max-width:var(--col);
   margin-inline:auto;padding-inline:var(--pad);
 }
@@ -411,6 +411,18 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
 .piece--ibm .piece__fig img{aspect-ratio:21/9}
 .piece--ibm .piece__title{max-width:18ch}
 
+/* ── Currently ───────────────────────────────────────────────────────────── */
+.now{padding-block:var(--space-section);border-top:1px solid var(--hair)}
+.now__h2{
+  font-family:var(--display);font-weight:600;
+  font-size:var(--t-head);
+}
+.now__list{
+  list-style:none;margin:1.25rem 0 0;padding:0;
+  display:grid;gap:.6rem;
+  font-size:var(--t-body);line-height:1.6;color:var(--ink-2);
+}
+
 /* ── Contact ─────────────────────────────────────────────────────────────── */
 .hello-sec{padding-block:var(--space-big) var(--space-section);border-top:1px solid var(--hair)}
 .hello-sec__head{
@@ -520,6 +532,21 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
 
 /* ── Chapters ────────────────────────────────────────────────────────────── */
 .ab-chapter{padding-block:var(--space-section);border-top:1px solid var(--hair)}
+
+/* ── Things I believe ───────────────────────────────────────────────────── */
+.ab-believe{
+  display:grid;gap:clamp(1.75rem,4vw,2.5rem);
+  margin-top:clamp(1.5rem,3.5vw,2.25rem);
+}
+.ab-believe__item{border-top:2px solid var(--ink);padding-top:1.1rem}
+.ab-believe__item h3{
+  font-family:var(--display);font-weight:600;
+  font-size:var(--t-sub);line-height:1.2;letter-spacing:-.025em;margin:0 0 .55rem;
+  font-variation-settings:'opsz' 24,'wdth' 96,'wght' 600;
+}
+.ab-believe__item p{
+  font-size:var(--t-body);line-height:1.65;color:var(--ink-2);margin:0;max-width:58ch;
+}
 
 
 /* ── The four things outside design ──────────────────────────────────────── */
@@ -997,10 +1024,10 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
 
   <p class="hero__copy">
     Product designer interested in people, emerging technology, and the tiny
-    interactions that make products feel good to use. I&rsquo;m currently finishing my
-    BFA in User Experience Design at <!--
+    interactions that make products feel good to use. I&rsquo;m currently studying
+    UX at <!--
     Hover SCAD and the bee turns up.
- --><span class="peek">SCAD<img class="peek__bee" src="/images/scad-bee.webp" alt="" aria-hidden="true" width="1280" height="1280" loading="lazy"></span>, with experience designing enterprise
+ --><span class="peek">SCAD<img class="peek__bee" src="/images/scad-bee.webp" alt="" aria-hidden="true" width="1280" height="1280" loading="lazy"></span>, building design communities with Adobe and Framer on the side, with experience designing enterprise
     software at <!--
     Hover IBM and the logo bursts out of the word.
  --><span class="peek peek--ibm">IBM<span class="boom" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span> in Austin.
@@ -1068,6 +1095,17 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
     </p>
     <span class="piece__cta">My summer at IBM <i aria-hidden="true">&rarr;</i></span>
   </a>
+</section>
+
+<!-- ═══ Currently ══════════════════════════════════════════════════════════ -->
+<section class="now">
+  <h2 class="now__h2">Currently</h2>
+  <ul class="now__list">
+    <li>Researching cows 🐄</li>
+    <li>Making questionable ceramics</li>
+    <li>Thinking about AI agents</li>
+    <li>Probably at a coffee shop</li>
+  </ul>
 </section>
 
 <!-- ═══ Contact ════════════════════════════════════════════════════════════ -->
