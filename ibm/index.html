@@ -10,15 +10,15 @@
 <meta property="og:url" content="https://www.braydenw.com/ibm">
 <meta property="og:title" content="IBM — Product Design">
 <meta property="og:description" content="A summer designing at enterprise scale.">
-<meta property="og:type" content="article">
 <meta property="og:image" content="https://www.braydenw.com/images/ibm-cover.jpg">
+<meta property="og:type" content="article">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231b4dff'/%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:ital,wght@0,300..700;1,300..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:ital,wght@0,300..700;1,300..600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════════════════════
    braydenw.com
@@ -973,13 +973,15 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
   --g-pad:clamp(1rem,3vw,2.5rem);
   --h-ink:#04061a;
   --h-deep:#0a1440;
-  --h-text:#fff;
-  --h-soft:rgba(255,255,255,.72);
+  --h-text:#0b0d1a;
+  --h-soft:#5b5e70;
+  --h-line:rgba(11,13,26,.12);
+  --h-fill:#f4f5f8;
 }
-body.v2{background:var(--h-ink);color:var(--h-text)}
+body.v2{background:#fff;color:var(--h-text)}
 body.v2 .foot{color:var(--h-soft);border-top:0;max-width:var(--g-max);padding-inline:var(--g-pad)}
 
-.h-hero{position:relative;overflow:hidden;height:clamp(32rem,56vw,46rem);
+.h-hero{--h-text:#fff;--h-soft:rgba(255,255,255,.72);color:var(--h-text);position:relative;overflow:hidden;height:clamp(32rem,56vw,46rem);
   background:
     radial-gradient(130% 95% at 50% 152%,var(--h-deep) 58%,#cfdcff 62.5%,var(--blue) 64%,rgba(27,77,255,0) 82%),
     var(--h-ink)}
@@ -997,18 +999,18 @@ body.v2 .foot{color:var(--h-soft);border-top:0;max-width:var(--g-max);padding-in
 .h-pill-nav{position:fixed;z-index:60;left:50%;top:calc(env(safe-area-inset-top,0px) + .9rem);
   display:flex;align-items:center;gap:.15rem;padding:.3rem .3rem .3rem .45rem;border-radius:999px;
   font-family:var(--display);font-size:.98rem;
-  background:rgba(10,14,40,.58);border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.8);border:1px solid var(--h-line);
   -webkit-backdrop-filter:saturate(140%) blur(16px);backdrop-filter:saturate(140%) blur(16px);
-  box-shadow:0 12px 30px -12px rgba(0,0,0,.6);
+  box-shadow:0 12px 30px -14px rgba(10,20,60,.35);
   transform:translate(-50%,-160%);opacity:0;visibility:hidden;
   transition:transform .45s var(--ease),opacity .3s var(--ease),visibility 0s linear .45s}
 .h-pill-nav[hidden]{display:none}
 .h-pill-nav.is-on{transform:translate(-50%,0);opacity:1;visibility:visible;transition-delay:0s}
 .h-pill-nav a{text-decoration:none;white-space:nowrap;color:var(--h-soft);padding:.5rem .9rem;border-radius:999px;transition:color .2s,background .2s}
-.h-pill-nav a:hover,.h-pill-nav a:focus-visible{color:var(--h-text);background:rgba(255,255,255,.08)}
+.h-pill-nav a:hover,.h-pill-nav a:focus-visible{color:var(--h-text);background:var(--h-fill)}
 .h-pill-nav a[aria-current]{color:var(--h-text)}
-.h-pill-nav .h-pill-nav__hi{background:var(--h-text);color:var(--h-ink);font-weight:500;margin-left:.2rem}
-.h-pill-nav .h-pill-nav__hi:hover,.h-pill-nav .h-pill-nav__hi:focus-visible{background:#dfe6ff;color:var(--h-ink)}
+.h-pill-nav .h-pill-nav__hi{background:var(--h-text);color:#fff;font-weight:500;margin-left:.2rem}
+.h-pill-nav .h-pill-nav__hi:hover,.h-pill-nav .h-pill-nav__hi:focus-visible{background:var(--blue);color:#fff}
 
 .h-name{position:absolute;z-index:2;left:0;right:0;bottom:.1em;margin:0;
   padding-inline:clamp(.5rem,1.4vw,1.25rem);
@@ -1021,18 +1023,18 @@ body.v2 .foot{color:var(--h-soft);border-top:0;max-width:var(--g-max);padding-in
   font-family:var(--display)}
 .h-work__head{grid-column:1 / -1;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;
   gap:.5rem 2rem;padding:clamp(2rem,5vw,3.5rem) 0 clamp(.75rem,2vw,1.25rem)}
-.h-work__head h2{font-weight:600;font-size:clamp(1.4rem,2.6vw,2.2rem);letter-spacing:-.03em;line-height:1.1;
+.h-work__head h2{font-weight:500;font-size:clamp(1.8rem,3.4vw,2.8rem);letter-spacing:-.035em;line-height:1.08;
   max-width:24ch;text-wrap:balance}
 .h-work__head p{color:var(--h-soft)}
 .h-card{position:relative;display:block;aspect-ratio:16/10;border-radius:22px;overflow:hidden;
-  text-decoration:none;color:var(--h-text);background:var(--h-deep);isolation:isolate}
+  text-decoration:none;color:#fff;background:var(--h-deep);isolation:isolate}
 .h-card--wide{grid-column:1 / -1;aspect-ratio:21/9}
 .h-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
   transition:transform .8s var(--ease)}
 .h-card::after{content:'';position:absolute;inset:0;z-index:-1;
   background:linear-gradient(180deg,rgba(4,6,26,.45) 0%,rgba(4,6,26,0) 28%,rgba(4,6,26,.15) 55%,rgba(4,6,26,.88) 100%)}
 .h-card:hover img,.h-card:focus-visible img{transform:scale(1.035)}
-.h-card:focus-visible{outline:2px solid var(--h-text);outline-offset:3px}
+.h-card:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .h-card__head{position:absolute;top:clamp(1rem,2vw,1.6rem);left:clamp(1rem,2vw,1.6rem);right:clamp(1rem,2vw,1.6rem);
   display:flex;flex-wrap:wrap;gap:.45rem}
 .h-pill{font-size:clamp(.82rem,1.1vw,1rem);padding:.4rem .85rem;border-radius:10px;
@@ -1040,7 +1042,7 @@ body.v2 .foot{color:var(--h-soft);border-top:0;max-width:var(--g-max);padding-in
   -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
 .h-card__foot{position:absolute;left:clamp(1rem,2vw,1.6rem);right:clamp(1rem,2vw,1.6rem);bottom:clamp(1rem,2vw,1.6rem)}
 .h-card__title{margin:0 0 .4rem;font-weight:600;font-size:clamp(1.6rem,2.6vw,2.4rem);letter-spacing:-.03em;line-height:1}
-.h-card__line{max-width:46ch;font-size:clamp(.95rem,1.25vw,1.15rem);line-height:1.4;color:var(--h-soft)}
+.h-card__line{max-width:46ch;font-size:clamp(.95rem,1.25vw,1.15rem);line-height:1.4;color:rgba(255,255,255,.8)}
 
 /* ── About, in the same world ──────────────────────────────────────────── */
 .h-hero.h-hero--short{height:clamp(22rem,34vw,30rem)}
@@ -1048,7 +1050,7 @@ body.v2 .foot{color:var(--h-soft);border-top:0;max-width:var(--g-max);padding-in
 .a-intro,.a-sec,.a-end{max-width:var(--g-max);margin-inline:auto;padding-inline:var(--g-pad);
   font-family:var(--display)}
 .a-intro{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(1.5rem,5vw,5rem);
-  align-items:start;padding-block:clamp(2.5rem,6vw,5rem)}
+  align-items:start;padding-block:clamp(2rem,5vw,4rem) 0}
 .a-intro__fig{margin:0;border-radius:22px;overflow:hidden;background:var(--h-deep)}
 .a-intro__fig img{width:100%;aspect-ratio:1;object-fit:cover}
 .a-intro__words{max-width:40rem;display:grid;gap:1.15rem;font-size:clamp(1.05rem,1.3vw,1.2rem);
@@ -1062,27 +1064,26 @@ body.v2 .foot{color:var(--h-soft);border-top:0;max-width:var(--g-max);padding-in
 .a-ask{transition:opacity .35s var(--ease),transform .35s var(--ease)}
 .a-ask.is-out{opacity:0;transform:translateY(-.3em)}
 
-.a-sec{padding-block:clamp(2.5rem,6vw,4.5rem)}
+.a-sec{padding-block:clamp(2.5rem,5vw,4rem) 0}
 .a-sec__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.5rem 2rem;
   margin-bottom:clamp(1.5rem,3vw,2.5rem)}
-.a-sec__head h2{font-weight:400;font-size:clamp(2rem,4.6vw,4rem);letter-spacing:-.04em;line-height:1;
-  font-variation-settings:'opsz' 96,'wdth' 92,'wght' 400}
+.a-sec__head h2{font-weight:500;font-size:clamp(1.8rem,3.4vw,2.8rem);letter-spacing:-.035em;line-height:1.08}
 .a-sec__head p{color:var(--h-soft);max-width:30ch}
 
 .a-give{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(.9rem,1.6vw,1.4rem)}
 .a-give__item{display:flex;flex-direction:column;gap:.6rem;padding:clamp(1.25rem,2.4vw,2rem);border-radius:22px;
-  background:linear-gradient(180deg,rgba(27,77,255,.16),rgba(27,77,255,.04));border:1px solid rgba(255,255,255,.1);
+  background:linear-gradient(180deg,rgba(27,77,255,.16),rgba(27,77,255,.04));border:1px solid var(--h-line);
   text-decoration:none;color:var(--h-text);transition:border-color .2s,background .2s}
-a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,.3)}
+a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(11,13,26,.35)}
 .a-give__when{color:var(--h-soft);font-size:.9rem}
 .a-give__item h3{margin:0;font-weight:500;font-size:clamp(1.4rem,2.2vw,1.9rem);letter-spacing:-.025em;line-height:1.1}
 .a-give__item p:not(.a-give__when){color:var(--h-soft);line-height:1.55}
 .a-give__links{margin-top:auto;padding-top:.6rem;display:flex;gap:1.1rem}
-.a-give__links a{color:var(--h-text);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
+.a-give__links a{color:var(--h-text);text-decoration:none;border-bottom:1px solid rgba(11,13,26,.3)}
 .a-give__links a:hover,.a-give__links a:focus-visible{border-bottom-color:var(--h-text)}
 
 .a-life{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(.9rem,1.6vw,1.4rem)}
-.a-shot{position:relative;margin:0;border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:var(--h-deep);
+.a-shot{color:#fff;position:relative;margin:0;border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:var(--h-deep);
   isolation:isolate}
 .a-shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
   transition:transform .8s var(--ease)}
@@ -1091,16 +1092,16 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
 .a-shot:hover img{transform:scale(1.035)}
 .a-shot figcaption{position:absolute;left:1.25rem;right:1.25rem;bottom:1.1rem;font-size:1.05rem;line-height:1.3}
 
-.a-end{padding-block:clamp(3.5rem,8vw,6.5rem)}
+.a-end{padding-block:clamp(3rem,6vw,4.5rem)}
 .a-end h2{font-weight:400;font-size:clamp(2.4rem,6vw,5.2rem);letter-spacing:-.045em;line-height:1;
   font-variation-settings:'opsz' 96,'wdth' 92,'wght' 400}
 .a-end p{margin-top:1rem;color:var(--h-soft);font-size:1.1rem}
 .a-end__links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
 .a-end__links a{text-decoration:none;padding:.7rem 1.2rem;border-radius:999px;
-  border:1px solid rgba(255,255,255,.2);color:var(--h-text);transition:background .2s}
-.a-end__links a:hover,.a-end__links a:focus-visible{background:rgba(255,255,255,.08)}
-.a-end__links .a-end__primary{background:var(--h-text);color:var(--h-ink);border-color:var(--h-text)}
-.a-end__links .a-end__primary:hover{background:#dfe6ff}
+  border:1px solid var(--h-line);color:var(--h-text);transition:background .2s}
+.a-end__links a:hover,.a-end__links a:focus-visible{background:var(--h-fill)}
+.a-end__links .a-end__primary{background:var(--h-text);color:#fff;border-color:var(--h-text)}
+.a-end__links .a-end__primary:hover{background:var(--blue);border-color:var(--blue)}
 
 @media (max-width:760px){
   .h-hero.h-hero--short{height:clamp(16rem,70vw,22rem)}
@@ -1110,9 +1111,9 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
 }
 
 /* ── Case studies, in the same world ───────────────────────────────────── */
-.c-top{background:var(--h-ink);padding-bottom:1rem}
+.c-top{background:#fff;padding-bottom:.5rem}
 .c-open,.c-sec,.c-more{max-width:var(--g-max);margin-inline:auto;padding-inline:var(--g-pad);font-family:var(--display)}
-.c-open{padding-top:clamp(3rem,8vw,6rem)}
+.c-open{padding-top:clamp(2rem,5vw,4rem)}
 .c-eyebrow{color:var(--h-soft);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem}
 .c-open h1{font-weight:400;font-size:clamp(2.4rem,5.6vw,4.6rem);letter-spacing:-.045em;line-height:1;max-width:16ch;text-wrap:balance;
   font-variation-settings:'opsz' 96,'wdth' 92,'wght' 400}
@@ -1124,30 +1125,30 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
 .c-facts dd{margin:0;font-size:1rem;line-height:1.4}
 .c-tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.75rem}
 .c-tabs a{text-decoration:none;color:var(--h-soft);font-size:.95rem;padding:.45rem .9rem;border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);transition:color .2s,border-color .2s}
-.c-tabs a:hover,.c-tabs a:focus-visible{color:var(--h-text);border-color:rgba(255,255,255,.4)}
+  border:1px solid var(--h-line);transition:color .2s,border-color .2s}
+.c-tabs a:hover,.c-tabs a:focus-visible{color:var(--h-text);border-color:rgba(11,13,26,.35)}
 html{scroll-padding-top:5rem}
 .c-projects{margin-top:2rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
 .c-project{display:grid;gap:.35rem;padding:1.3rem 1.4rem;border-radius:18px;text-decoration:none;color:var(--h-text);
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);transition:border-color .2s}
-.c-project:hover,.c-project:focus-visible{border-color:rgba(255,255,255,.35)}
+  background:var(--h-fill);border:1px solid var(--h-line);transition:border-color .2s}
+.c-project:hover,.c-project:focus-visible{border-color:rgba(11,13,26,.35)}
 .c-project b{font-weight:500;font-size:1.25rem;letter-spacing:-.02em}
 .c-project span{color:var(--h-soft);line-height:1.5}
 .c-probs{list-style:none;margin:1rem 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
-.c-probs li{display:grid;gap:.3rem;padding:1.1rem 1.2rem;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
+.c-probs li{display:grid;gap:.3rem;padding:1.1rem 1.2rem;border-radius:18px;background:var(--h-fill);border:1px solid var(--h-line)}
 .c-probs b{font-weight:500}
 .c-probs span{color:var(--h-soft);font-size:.95rem;line-height:1.5}
 .c-cover{margin:clamp(2rem,4vw,3rem) 0 0;border-radius:22px;overflow:hidden;background:var(--h-deep)}
 .c-cover img{width:100%;aspect-ratio:16/9;object-fit:cover}
 
-.c-sec{padding-block:clamp(3rem,7vw,5.5rem);margin-top:clamp(1rem,3vw,2rem)}
+.c-sec{padding-block:clamp(2.5rem,5vw,4rem) 0}
 .c-sec + .c-sec{margin-top:0}
-.c-label{color:#7f9bff;font-size:.95rem;margin-bottom:.8rem}
-.c-sec h2{font-weight:500;font-size:clamp(1.8rem,3.6vw,2.9rem);letter-spacing:-.035em;line-height:1.08;max-width:22ch;
+.c-label{color:var(--blue);font-size:.95rem;margin-bottom:.8rem}
+.c-sec h2{font-weight:500;font-size:clamp(1.8rem,3.4vw,2.8rem);letter-spacing:-.035em;line-height:1.08;max-width:30ch;
   text-wrap:balance}
 .c-body{margin-top:1.1rem;max-width:44rem;font-size:clamp(1.05rem,1.3vw,1.2rem);line-height:1.6;color:var(--h-soft)}
 .c-stats{margin:2rem 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
-.c-stats div{padding:1.4rem;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
+.c-stats div{padding:1.4rem;border-radius:18px;background:var(--h-fill);border:1px solid var(--h-line)}
 .c-stats dt{font-size:clamp(2.6rem,6vw,4.2rem);font-weight:400;letter-spacing:-.04em;line-height:1;
   font-variant-numeric:tabular-nums}
 .c-stats dd{margin:.5rem 0 0;color:var(--h-soft)}
@@ -1157,11 +1158,11 @@ html{scroll-padding-top:5rem}
 .c-jump{margin-top:1.75rem;display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem .9rem;
   font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
 .c-jump span{color:var(--h-soft)}
-.c-jump i{font-style:normal;color:#7f9bff}
+.c-jump i{font-style:normal;color:var(--blue)}
 .c-jump b{font-weight:500}
 .c-jump small{font-size:.95rem;letter-spacing:0;color:var(--h-soft)}
 
-.c-more{padding-block:clamp(3rem,7vw,5rem) clamp(3rem,7vw,5rem);}
+.c-more{padding-block:clamp(3rem,6vw,4.5rem);}
 .c-more__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(.9rem,1.6vw,1.4rem);font-family:var(--display)}
 
 @media (max-width:760px){
@@ -1169,13 +1170,42 @@ html{scroll-padding-top:5rem}
   .c-more__grid,.c-stats,.c-projects,.c-probs{grid-template-columns:1fr}
 }
 
+.c-stats--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.c-beat{margin-top:1.5rem;max-width:30ch;font-size:clamp(1.4rem,2.4vw,2rem);letter-spacing:-.03em;line-height:1.2;text-wrap:balance;
+  font-family:var(--display)}
+.c-feats{margin-top:2rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.c-feat{margin:0;border-radius:18px;overflow:hidden;background:var(--h-fill);border:1px solid var(--h-line);display:flex;flex-direction:column}
+.c-feat img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.c-feat figcaption{padding:1.1rem 1.2rem 1.3rem;color:var(--h-soft);line-height:1.5;font-family:var(--display)}
+.c-feat figcaption b{display:block;color:var(--h-text);font-weight:500;font-size:1.15rem;letter-spacing:-.02em;margin-bottom:.3rem}
+.c-cover--flat{margin-top:2rem;background:var(--h-fill)}
+.c-cover--flat img{aspect-ratio:auto}
+.c-nda{margin-top:2rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem 2rem;
+  padding:1.4rem 1.6rem;border-radius:18px;background:var(--h-fill);border:1px solid var(--h-line);font-family:var(--display)}
+.c-nda b{display:block;font-weight:500;font-size:1.2rem;letter-spacing:-.02em}
+.c-nda p{margin-top:.3rem;color:var(--h-soft)}
+.c-copy{font:inherit;font-family:var(--display);cursor:pointer;padding:.7rem 1.2rem;border-radius:999px;border:0;
+  background:var(--h-text);color:#fff;transition:background .2s}
+.c-copy:hover,.c-copy:focus-visible{background:var(--blue)}
+.c-quotes{margin-top:2rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.c-quotes .c-quote{margin:0;max-width:none;padding:1.3rem 1.4rem;border-left:0;border-radius:18px;background:var(--h-fill);
+  border:1px solid var(--h-line);font-size:clamp(1.05rem,1.4vw,1.2rem);font-family:var(--display)}
+.c-links{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.6rem;font-family:var(--display)}
+.c-link{color:var(--h-text);text-decoration:none;border-bottom:1px solid rgba(11,13,26,.3)}
+.c-link:hover,.c-link:focus-visible{border-bottom-color:var(--h-text)}
+.c-links .c-link{border:1px solid var(--h-line);border-radius:999px;padding:.55rem 1rem}
+.c-links .c-link:hover,.c-links .c-link:focus-visible{border-color:rgba(11,13,26,.35)}
+@media (max-width:760px){
+  .c-stats--3,.c-feats,.c-quotes{grid-template-columns:1fr}
+}
+
 /* ── Slack demos: the redesigned UI, rebuilt live from the Figma Make files.
    Colors and type are Slack's own, so these stay light inside the dark page. */
 .sd{--sk-ink:#1D1C1D;--sk-mute:#616061;--sk-line:#DDDDDD;
   position:relative;margin-top:2rem;display:grid;grid-template-columns:4rem 13rem minmax(0,1fr) 21rem;
-  border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.12);
+  border-radius:22px;overflow:hidden;border:1px solid var(--h-line);
   background:#fff;color:var(--sk-ink);font-family:Lato,'Helvetica Neue',Arial,sans-serif;font-size:15px;line-height:1.46;
-  box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+  box-shadow:0 30px 60px -34px rgba(10,20,60,.35)}
 /* The Slack around each demo: there so it reads as Slack, dimmed so the
    changed element is what you see first. */
 .sk-rail{background:#3F0E40;display:flex;flex-direction:column;align-items:center;gap:.9rem;padding:.8rem 0;color:#CFC3CF}
@@ -1383,194 +1413,146 @@ html{scroll-padding-top:5rem}
 
 </style>
 </head>
-<body class="no-js" data-page="ibm">
+<body class="no-js v2" data-page="ibm">
 <script>document.body.classList.remove('no-js');</script>
 
-<a class="skip" href="#db2">Skip to the work</a>
+<a class="skip" href="#story">Skip to the story</a>
+<!-- Icon sprite (lucide), shared by every page that shows Slack UI. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-smile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></symbol><symbol id="i-msg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol><symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></symbol><symbol id="i-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></symbol><symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></symbol><symbol id="i-more" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></symbol><symbol id="i-hash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="9" y2="9"/><line x1="4" x2="20" y1="15" y2="15"/><line x1="10" x2="8" y1="3" y2="21"/><line x1="16" x2="14" y1="3" y2="21"/></symbol><symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></symbol><symbol id="i-belloff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M17 17H4a1 1 0 0 1-.74-1.673C4.59 13.956 6 12.499 6 8a6 6 0 0 1 .258-1.742"/><path d="m2 2 20 20"/><path d="M8.668 3.01A6 6 0 0 1 18 8c0 2.687.77 4.653 1.707 6.05"/></symbol><symbol id="i-vol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.364 18.364a9 9 0 0 0 0-12.728"/></symbol><symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol><symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol><symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol></svg>
 
-<!-- Shared by every page — edit here, never in a page source. -->
-<header class="nav" id="nav" data-open="false">
-  <a class="nav__me" href="/">Brayden&nbsp;Wisniewski</a>
-
-  <button class="burger" id="burger" type="button"
-          aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
-    <span class="burger__box" aria-hidden="true"><i></i><i></i></span>
-  </button>
-
-  <nav class="nav__links" id="nav-links" aria-label="Sections">
-    <a href="/#work">Work</a>
-    <a href="/about">About</a>
-    <a href="#hello" class="nav__hi">Say hi</a>
-  </nav>
+<header class="c-top">
+  <div class="h-bar" id="h-bar">
+    <a class="h-bar__name" href="/">Brayden Wisniewski</a>
+    <nav class="h-bar__links" aria-label="Sections">
+      <a href="/#work" aria-current="page">Work</a>
+      <a href="/about">About</a>
+      <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:brayden@braydenw.com">Contact</a>
+    </nav>
+  </div>
 </header>
+
+<nav class="h-pill-nav" id="h-pill-nav" aria-label="Sections, pinned" hidden>
+  <a href="/">Home</a>
+  <a href="/#work" aria-current="page">Work</a>
+  <a href="/about">About</a>
+  <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
+  <a class="h-pill-nav__hi" href="mailto:brayden@braydenw.com">Contact</a>
+</nav>
 
 <main id="top">
 
-<figure class="cs-cover">
-  <img src="/images/ibm-cover.jpg"
-       alt="Brayden pointing at a collaged IBM logo on an office gallery wall, wearing a visitor badge"
-       width="1280" height="960">
-</figure>
+<!-- ═══ Opening ══════════════════════════════════════════════════════════ -->
+<section class="c-open">
+  <p class="c-eyebrow">IBM &middot; Product Design Intern</p>
+  <h1>A summer designing at enterprise scale</h1>
+  <p class="c-sum">Twelve weeks on IBM&rsquo;s Core Software Data Design team in Austin. Most of it went to how people and AI agents learn complex products in Db2. Then came a side mission that ended up live on IBM.com.</p>
 
-<!-- ═══ Opening ════════════════════════════════════════════════════════════ -->
-<section class="cs cs-open">
-  <h1 class="cs-title">A summer designing at enterprise scale.</h1>
-
-  <dl class="cs-facts cs-facts--4">
+  <dl class="c-facts">
     <div><dt>Role</dt><dd>Product Design Intern</dd></div>
     <div><dt>Team</dt><dd>Core Software Data Design</dd></div>
     <div><dt>Location</dt><dd>Austin, Texas</dd></div>
-    <div><dt>Duration</dt><dd>12 weeks</dd></div>
+    <div><dt>Timeline</dt><dd>12 weeks, summer 2026</dd></div>
   </dl>
-</section>
 
-<!-- ═══ Db2 — the long thread ══════════════════════════════════════════════ -->
-<section class="cs cs-sec" id="db2">
-  <h2 class="cs-h2">How does a product teach both people and agents?</h2>
-  <p class="fix__sub">IBM Db2 &middot; Product Documentation</p>
-
-  <div class="cs-body">
-    <p>
-      Most of my summer went to exploring <strong>product guidance in IBM Db2</strong>,
-      looking at how both people and AI agents learn to use complex products.
-    </p>
-    <p>
-      The work took me through research, exploration, prototyping, and plenty of playbacks
-      with the team. I can&rsquo;t share the details publicly, but it shaped a lot of how I
-      think about
-      <strong>AI, agents, and the future of product guidance.</strong>
-    </p>
-  </div>
-
-  <p class="cs-note">
-    <strong>Want to hear more?</strong> I can talk through the project, my process, and my
-    contributions during an interview.
-  </p>
-
-  <p class="cs-links">
-    <a href="mailto:brayden@braydenw.com">Get in touch <span aria-hidden="true">&rarr;</span></a>
-  </p>
-</section>
-
-<!-- ═══ The turn ═══════════════════════════════════════════════════════════ -->
-<section class="cs cs-turn">
-  <h2 class="cs-title cs-title--mid">Then came a side mission.</h2>
-  <p class="cs-lede">
-    Near the end of my internship, my manager asked whether anyone had time to help
-    redesign <strong>three IBM Support pages</strong> that weren&rsquo;t showcasing the
-    offerings well. <strong>I said yes.</strong>
-  </p>
-</section>
-
-<!-- ═══ Sovereign Support ══════════════════════════════════════════════════ -->
-<section class="cs cs-sec">
-  <h2 class="cs-h2">Ask on Thursday. Presenting on Friday.</h2>
-  <p class="fix__sub">IBM Sovereign Support &middot; Design + Build</p>
-
-  <figure class="shot">
-    <img src="/images/ibm-platinum.jpg"
-         alt="One of the redesigned IBM Support pages, live on ibm.com"
-         width="1800" height="1013" loading="lazy">
-    <figcaption>Live on IBM.com</figcaption>
-  </figure>
-
-  <p class="jump">
-    <span class="jump__from">4 PM Thursday</span>
-    <span class="jump__arrow" aria-hidden="true">&rarr;</span>
-    <span class="jump__to">10 AM Friday</span>
-  </p>
-
-  <ul class="breaks">
-    <li>Ask</li>
-    <li>Design</li>
-    <li>Build</li>
-    <li>Present</li>
-  </ul>
-
-  <div class="cs-body" style="margin-top:clamp(1.75rem,4vw,2.5rem)">
-    <p>
-      I took my pages from design to build&mdash;starting in <strong>Figma</strong>, then
-      using <strong>IBM Bob</strong> to help translate the designs into code. The pages run
-      on <strong>Drupal</strong>, which set most of the constraints we designed inside.
-    </p>
-    <p>
-      The goal was to take a complex support offering and make it easier for customers to
-      understand <strong>what it is, why it matters, and how to get started.</strong>
-    </p>
-  </div>
-
-  <div class="cs-body" style="margin-top:clamp(1.75rem,4vw,2.5rem)">
-    <p>
-      That first version kept evolving, and the experience is now live on
-      <strong>IBM.com</strong>. I also contributed to another support offering experience.
-    </p>
-  </div>
-
-  <div class="says">
-    <blockquote class="quote">
-      &ldquo;Your contributions helped us transform ideas into modern, polished web
-      experiences that better showcase the value of our offerings.&rdquo;
-      <cite><b>Pepe Valiente</b> Strategy Lead, IBM Core Software</cite>
-    </blockquote>
-    <blockquote class="quote">
-      &ldquo;Your quick turnaround with the initial drafts and subsequent update requests
-      allowed us to publish these sooner than we would have.&rdquo;
-      <cite><b>Patti McAuliffe</b> WW Support Planning, IBM Core Software</cite>
-    </blockquote>
-  </div>
-
-  <p class="cs-links">
-    <a href="https://www.ibm.com/support/pages/sovereign-support" target="_blank" rel="noopener">View Sovereign Support <span aria-hidden="true">&rarr;</span></a>
-    <a href="https://www.ibm.com/support/pages/ibm-platinum-support-offering" target="_blank" rel="noopener">View IBM Platinum Support <span aria-hidden="true">&rarr;</span></a>
-  </p>
-</section>
-
-<!-- ═══ Close ══════════════════════════════════════════════════════════════ -->
-<section class="cs cs-close">
-  <h2 class="cs-title cs-title--mid">What I took with me.</h2>
-
-  <div class="cs-body">
-    <p>
-      I came to IBM wanting to understand what product design looked like at enterprise
-      scale.
-    </p>
-    <p>
-      I left more comfortable working inside complexity, sharing unfinished work, designing
-      within constraints, and knowing when to keep exploring versus when to make something
-      real.
-    </p>
-    <p>
-      I also learned to <strong>say yes when something interesting comes up</strong>.
-      Sometimes that means weeks exploring a complex product problem. Other times it means
-      raising your hand at 4 PM and having something to show by 10 the next
-      morning&mdash;without working all night to get there.
-    </p>
-    <p>And I left with a question I&rsquo;m still thinking about:</p>
-    <p class="cs-beat">
-      If products are learning to work with us, how should we design the way they learn?
-    </p>
-  </div>
-
-  <figure class="shot shot--photo">
-    <img src="/images/team-session.jpg"
-         alt="A design team working around a table in a high-rise office, sticky notes on the window"
-         width="1350" height="1800" loading="lazy">
-  </figure>
-
-  <p class="cs-note">
-    12 weeks, a lot of questions, and
-    <strong>a much better idea of the kind of designer I want to be.</strong>
-  </p>
-</section>
-
-<!-- ═══ Next ═══════════════════════════════════════════════════════════════ -->
-<section class="cs cs-next" id="hello">
-  <a class="say-hi" href="/#work">More work <span aria-hidden="true">&rarr;</span></a>
-  <nav class="ab-ends" aria-label="Elsewhere">
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="mailto:brayden@braydenw.com">Email</a>
+  <nav class="c-tabs" aria-label="On this page">
+    <a href="#story">Db2</a><a href="#support">Support pages</a><a href="#takeaway">Takeaway</a>
   </nav>
+
+  <figure class="c-cover">
+    <img src="/images/ibm-cover.jpg" width="1280" height="960" style="object-position:center 40%"
+         alt="Brayden pointing at a collaged IBM logo on an office gallery wall, wearing a visitor badge">
+  </figure>
+</section>
+
+<!-- ═══ Db2 ══════════════════════════════════════════════════════════════ -->
+<section class="c-sec" id="story">
+  <p class="c-label">IBM Db2 &middot; Product guidance</p>
+  <h2>How does a product teach both people and agents?</h2>
+  <div class="c-body">
+    <p>Most of my summer went to product guidance in Db2: research, exploration, prototyping, and a lot of playbacks with the team. It shaped how I think about AI, agents, and the future of product guidance.</p>
+  </div>
+  <div class="c-nda">
+    <div>
+      <b>This project is under NDA</b>
+      <p>I can walk through the work, my process, and what I contributed in an interview.</p>
+    </div>
+    <button class="c-copy" type="button" data-copy="brayden@braydenw.com">Copy email</button>
+  </div>
+</section>
+
+<!-- ═══ Support pages ════════════════════════════════════════════════════ -->
+<section class="c-sec" id="support">
+  <p class="c-label">IBM Support &middot; Design and build</p>
+  <h2>Ask on Thursday. Presenting on Friday.</h2>
+  <div class="c-body">
+    <p>Near the end of the internship, my manager asked if anyone had time to redesign three IBM Support pages that weren&rsquo;t showing their offerings well. I said yes, took them from Figma to code with IBM Bob, and worked inside Drupal&rsquo;s constraints.</p>
+  </div>
+  <p class="c-jump"><span>4 PM Thursday</span><i aria-hidden="true">&rarr;</i><b>10 AM Friday</b><small>ask, design, build, present</small></p>
+
+  <figure class="c-cover c-cover--flat">
+    <img src="/images/ibm-platinum.jpg" width="1800" height="1013" loading="lazy" alt="One of the redesigned IBM Support pages, live on ibm.com">
+  </figure>
+
+  <div class="c-quotes">
+    <blockquote class="c-quote">&ldquo;Your contributions helped us transform ideas into modern, polished web experiences that better showcase the value of our offerings.&rdquo;<cite>Pepe Valiente, Strategy Lead, IBM Core Software</cite></blockquote>
+    <blockquote class="c-quote">&ldquo;Your quick turnaround with the initial drafts and subsequent update requests allowed us to publish these sooner than we would have.&rdquo;<cite>Patti McAuliffe, WW Support Planning, IBM Core Software</cite></blockquote>
+  </div>
+
+  <p class="c-links">
+    <a class="c-link" href="https://www.ibm.com/support/pages/sovereign-support" target="_blank" rel="noopener">Sovereign Support &#8599;</a>
+    <a class="c-link" href="https://www.ibm.com/support/pages/ibm-platinum-support-offering" target="_blank" rel="noopener">IBM Platinum Support &#8599;</a>
+  </p>
+</section>
+
+<!-- ═══ Takeaway ═════════════════════════════════════════════════════════ -->
+<section class="c-sec c-sec--end" id="takeaway">
+  <p class="c-label">What I took away</p>
+  <h2>If products are learning to work with us, how should we design the way they learn?</h2>
+  <div class="c-body">
+    <p>I left more comfortable working inside complexity, sharing unfinished work, and knowing when to keep exploring versus when to make something real. And more likely to raise my hand when something interesting comes up.</p>
+  </div>
+</section>
+
+<!-- ═══ More work ════════════════════════════════════════════════════════ -->
+<section class="c-more">
+  <p class="c-label">View more</p>
+  <div class="c-more__grid">
+    <a class="h-card" href="/slack">
+      <div class="uh" aria-hidden="true">
+          <div class="uh__msg">
+            <div class="uh__bar">
+              <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-smile"/></svg></span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-msg"/></svg></span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-share"/></svg></span>
+              <span class="is-save"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bookmark"/></svg><em>Save for Me</em></span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg></span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-more"/></svg></span>
+            </div>
+            <div class="uh__row"><b class="uh__av" style="background:#E8A838">SC</b>
+              <div><p class="uh__meta"><strong>Sarah Chen</strong> 9:41 AM</p>
+              <p>Final specs for the onboarding flow are in Figma. Can everyone review before Thursday?</p></div></div>
+          </div>
+          <div class="uh__saved">
+            <p class="uh__title">Saved</p>
+            <p class="uh__tabs"><span class="is-on">Saved for Me</span><span>Pinned for All</span></p>
+            <div class="uh__item"><p class="uh__ch"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-hash"/></svg>design</p>
+              <div class="uh__row"><b class="uh__av uh__av--sm" style="background:#E8A838">SC</b>
+              <div><p class="uh__meta"><strong>Sarah Chen</strong> 9:41 AM</p><p>Final specs for the onboarding flow are in Figma.</p></div></div></div>
+          </div>
+          <div class="uh__notif">
+            <p class="uh__chan"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-hash"/></svg><strong>design</strong><span class="uh__pill"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg>Mentions</span></p>
+            <p class="uh__seg"><span>All</span><span class="is-on"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg>Mentions</span><span>Muted</span></p>
+          </div>
+          <p class="uh__toast">This message was saved for you</p>
+        </div>
+      <div class="h-card__head"><span class="h-pill">Research Lead</span><span class="h-pill">3/8 &rarr; 8/8</span></div>
+      <div class="h-card__foot"><h3 class="h-card__title">Slack</h3>
+        <p class="h-card__line">Making Slack&rsquo;s hidden state visible.</p></div>
+    </a>
+    <a class="h-card" href="/opal">
+      <img src="/images/opal-hero.jpg" width="2000" height="1110" loading="lazy" alt="The Opal focus app across several screens">
+      <div class="h-card__head"><span class="h-pill">Product Designer</span><span class="h-pill">Indigo Design Award</span></div>
+      <div class="h-card__foot"><h3 class="h-card__title">Opal</h3>
+        <p class="h-card__line">Helping students plan, focus, and take breaks worth taking.</p></div>
+    </a>
+  </div>
 </section>
 
 </main>
@@ -2026,6 +2008,20 @@ html{scroll-padding-top:5rem}
       }, 350);
     }, 3200);
   }
+
+  /* ── Copy-email buttons ───────────────────────────────────────────────── */
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    var label = b.textContent;
+    b.addEventListener('click', function () {
+      var done = function (ok) {
+        b.textContent = ok ? 'Copied' : b.dataset.copy;
+        setTimeout(function () { b.textContent = label; }, 2200);
+      };
+      if (navigator.clipboard && isSecureContext) {
+        navigator.clipboard.writeText(b.dataset.copy).then(function () { done(true); }, function () { done(false); });
+      } else { done(false); }
+    });
+  });
 
   console.log(
     '%cHey.%c You opened the console, so we should probably talk.\nbrayden@braydenw.com',

@@ -444,6 +444,20 @@
     }, 3200);
   }
 
+  /* ── Copy-email buttons ───────────────────────────────────────────────── */
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    var label = b.textContent;
+    b.addEventListener('click', function () {
+      var done = function (ok) {
+        b.textContent = ok ? 'Copied' : b.dataset.copy;
+        setTimeout(function () { b.textContent = label; }, 2200);
+      };
+      if (navigator.clipboard && isSecureContext) {
+        navigator.clipboard.writeText(b.dataset.copy).then(function () { done(true); }, function () { done(false); });
+      } else { done(false); }
+    });
+  });
+
   console.log(
     '%cHey.%c You opened the console, so we should probably talk.\nbrayden@braydenw.com',
     'font:700 20px "Bricolage Grotesque",sans-serif;color:#1b4dff',
