@@ -51,8 +51,9 @@
 
 <!-- ═══ Opening ══════════════════════════════════════════════════════════ -->
 <section class="c-open">
-  <h1>Slack</h1>
-  <p class="c-sum">Making Slack&rsquo;s hidden state visible. Two everyday tasks most people couldn&rsquo;t finish, and two small changes to language and system state that took success from 3/8 and 2/8 to 8/8.</p>
+  <p class="c-eyebrow">Slack &middot; UX Research</p>
+  <h1>Making Slack&rsquo;s hidden state visible</h1>
+  <p class="c-sum">As research lead on a team of three, I studied where everyday Slack tasks break down. Two of them failed for most people, and two small changes to language and system state took success from 3/8 and 2/8 to 8/8.</p>
 
   <dl class="c-facts">
     <div><dt>Role</dt><dd>Research Lead</dd></div>
@@ -60,6 +61,10 @@
     <div><dt>Timeline</dt><dd>10 weeks, 2026</dd></div>
     <div><dt>Methods</dt><dd>Heuristic review, moderated &amp; unmoderated testing</dd></div>
   </dl>
+
+  <nav class="c-tabs" aria-label="On this page">
+    <a href="#story">Overview</a><a href="#saved">Saved messages</a><a href="#notifications">Notifications</a><a href="#takeaway">Takeaway</a>
+  </nav>
 
   <figure class="c-cover c-cover--ui">
     <div class="uh" aria-hidden="true">
@@ -90,11 +95,23 @@
 
 <!-- ═══ The problem ══════════════════════════════════════════════════════ -->
 <section class="c-sec" id="story">
-  <p class="c-label">The problem</p>
+  <p class="c-label">Overview</p>
   <h2>Slack has the features. People can&rsquo;t find them.</h2>
   <div class="c-body">
     <p>We reviewed 20 Slack workflows against Nielsen&rsquo;s heuristics, then watched 8 people try the everyday ones. Getting around was fine. Two tasks fell apart, and most people thought they&rsquo;d finished.</p>
   </div>
+
+  <div class="c-projects">
+    <a class="c-project" href="#saved"><b>Saved messages</b><span>Making it obvious who a saved or pinned message is for.</span></a>
+    <a class="c-project" href="#notifications"><b>Notifications</b><span>Showing what Slack will alert you about, and why.</span></a>
+  </div>
+
+  <ul class="c-probs">
+    <li><b>Hidden state</b><span>People couldn&rsquo;t tell what was saved, pinned, or switched on.</span></li>
+    <li><b>Look-alike labels</b><span>Saved, Pinned, and Later all sounded the same.</span></li>
+    <li><b>Scattered controls</b><span>Notification settings lived across several menus.</span></li>
+  </ul>
+
   <dl class="c-stats">
     <div><dt>3/8</dt><dd>found a saved message</dd></div>
     <div><dt>2/8</dt><dd>managed their notifications</dd></div>
@@ -102,7 +119,7 @@
 </section>
 
 <!-- ═══ Fix 1 ════════════════════════════════════════════════════════════ -->
-<section class="c-sec">
+<section class="c-sec" id="saved">
   <p class="c-label">Saved messages</p>
   <h2>The concept wasn&rsquo;t the problem. The language was.</h2>
   <div class="c-body">
@@ -164,7 +181,7 @@
 </section>
 
 <!-- ═══ Fix 2 ════════════════════════════════════════════════════════════ -->
-<section class="c-sec">
+<section class="c-sec" id="notifications">
   <p class="c-label">Notifications</p>
   <h2>People can&rsquo;t change what they can&rsquo;t see.</h2>
   <div class="c-body">
@@ -241,7 +258,7 @@
 </section>
 
 <!-- ═══ Takeaway ═════════════════════════════════════════════════════════ -->
-<section class="c-sec c-sec--end">
+<section class="c-sec c-sec--end" id="takeaway">
   <p class="c-label">What I took away</p>
   <h2>The interface didn&rsquo;t need more features. It needed to explain the ones it had.</h2>
   <div class="c-body">
