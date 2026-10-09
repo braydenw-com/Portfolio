@@ -1050,7 +1050,7 @@ body.v2 .foot{color:var(--h-soft);border-top-color:rgba(255,255,255,.12)}
 .a-intro{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(1.5rem,5vw,5rem);
   align-items:start;padding-block:clamp(2.5rem,6vw,5rem)}
 .a-intro__fig{margin:0;border-radius:22px;overflow:hidden;background:var(--h-deep)}
-.a-intro__fig img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.a-intro__fig img{width:100%;aspect-ratio:1;object-fit:cover}
 .a-intro__words{max-width:40rem;display:grid;gap:1.15rem;font-size:clamp(1.05rem,1.3vw,1.2rem);
   line-height:1.6;color:var(--h-soft)}
 .a-intro__words .a-lede{font-size:clamp(1.6rem,2.8vw,2.4rem);line-height:1.15;letter-spacing:-.03em;
@@ -1072,6 +1072,7 @@ body.v2 .foot{color:var(--h-soft);border-top-color:rgba(255,255,255,.12)}
 .a-believe li{counter-increment:b;display:grid;grid-template-columns:4rem minmax(0,1fr) minmax(0,1fr);
   gap:1rem clamp(1rem,3vw,3rem);align-items:baseline;padding:clamp(1.1rem,2.2vw,1.6rem) 0;
   border-top:1px solid rgba(255,255,255,.14)}
+.a-believe--short li{grid-template-columns:4rem minmax(0,1fr)}
 .a-believe li:last-child{border-bottom:1px solid rgba(255,255,255,.14)}
 .a-believe li::before{content:counter(b,decimal-leading-zero);color:var(--blue);font-size:.95rem;
   filter:brightness(1.6)}
@@ -1092,7 +1093,7 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
 .a-give__go{margin-top:auto;padding-top:.6rem}
 
 .a-life{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(.9rem,1.6vw,1.4rem)}
-.a-shot{position:relative;margin:0;border-radius:22px;overflow:hidden;aspect-ratio:4/5;background:var(--h-deep);
+.a-shot{position:relative;margin:0;border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:var(--h-deep);
   isolation:isolate}
 .a-shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
   transition:transform .8s var(--ease)}
@@ -1174,21 +1175,13 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
   <div class="a-intro__words">
     <p class="a-lede">I&rsquo;m Brayden, a curious designer who documents the process out loud.</p>
     <p>
-      I&rsquo;m a UX design senior at SCAD in Savannah, graduating March 2027. I care
-      about human-centered design and AI, especially how people stay in control of
-      the AI agents they use.
-    </p>
-    <p>
-      This summer I interned on IBM&rsquo;s Db2 team in Austin, where my first design
-      shipped in July. Before that, SCADpro projects with Deloitte and Hartford
-      HealthCare, and campus roles with Framer and Adobe.
+      UX design senior at SCAD, graduating March 2027. I interned on IBM&rsquo;s Db2
+      team this summer, where my first design shipped in July.
     </p>
 
     <dl class="a-facts">
-      <div><dt>Now</dt><dd>Director of Partnerships at SCAD FLUX, plus roles in SCAD admissions and career &amp; alumni success</dd></div>
-      <div><dt>Senior project</dt><dd>Ag tech for cattle ranchers dealing with New World Screwworm</dd></div>
+      <div><dt>Now</dt><dd>Senior project on cattle and New World Screwworm</dd></div>
       <div><dt>Asking</dt><dd>How do people stay in control of the AI agents they use?</dd></div>
-      <div><dt>Off-screen</dt><dd>Pottery, coffee shops, and a lot of questions</dd></div>
     </dl>
   </div>
 </section>
@@ -1199,27 +1192,10 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
     <h2>Things I believe.</h2>
   </div>
 
-  <ol class="a-believe">
-    <li>
-      <h3>Good designers should have a life outside design.</h3>
-      <p>The things I do away from a screen usually make me better when I come back to one.</p>
-    </li>
-    <li>
-      <h3>Going into the field beats another hour in Figma.</h3>
-      <p>Seeing how people actually work, talk, improvise, and solve problems tells me more than assumptions ever could.</p>
-    </li>
-    <li>
-      <h3>The best networking usually doesn&rsquo;t feel like networking.</h3>
-      <p>Most of the relationships that have mattered started with curiosity, not asking someone for something.</p>
-    </li>
-    <li>
-      <h3>Complex products don&rsquo;t need to feel complex.</h3>
-      <p>Some of my favorite design problems are the ones where the system underneath is incredibly complicated, but the experience doesn&rsquo;t have to be.</p>
-    </li>
-    <li>
-      <h3>I&rsquo;ll probably say yes to the weird project.</h3>
-      <p>Those tend to be the ones I learn the most from.</p>
-    </li>
+  <ol class="a-believe a-believe--short">
+    <li><h3>Going into the field beats another hour in Figma.</h3></li>
+    <li><h3>Complex products don&rsquo;t need to feel complex.</h3></li>
+    <li><h3>I&rsquo;ll probably say yes to the weird project.</h3></li>
   </ol>
 </section>
 
@@ -1227,25 +1203,24 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
 <section class="a-sec">
   <div class="a-sec__head">
     <h2>Designers helping designers.</h2>
-    <p>The work I do for the design community, alongside school and product work.</p>
-  </div>
+      </div>
 
   <div class="a-give">
     <a class="a-give__item" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">
       <p class="a-give__when">Most Sundays</p>
       <h3>The Sunday list</h3>
-      <p>A list of open design roles, posted on LinkedIn. It&rsquo;s what people there know me for.</p>
+      <p>Open design roles, posted on LinkedIn.</p>
       <span class="a-give__go">Follow along &#8599;</span>
     </a>
     <div class="a-give__item">
       <p class="a-give__when">Now</p>
       <h3>SCAD FLUX</h3>
-      <p>As Director of Partnerships, I work on bringing companies and student designers together.</p>
+      <p>Director of Partnerships.</p>
     </div>
     <div class="a-give__item">
       <p class="a-give__when">Before</p>
       <h3>Framer &amp; Adobe</h3>
-      <p>Campus roles with both, building community around the tools designers actually use.</p>
+      <p>Former campus roles.</p>
     </div>
   </div>
 </section>
@@ -1254,7 +1229,6 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
 <section class="a-sec">
   <div class="a-sec__head">
     <h2>But design is only part of it.</h2>
-    <p>Things I do away from a screen.</p>
   </div>
 
   <div class="a-life">
@@ -1279,7 +1253,6 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
 <!-- ═══ Ending ═══════════════════════════════════════════════════════════ -->
 <section class="a-end" id="hello">
   <h2>Anyway, that&rsquo;s me.</h2>
-  <p>There&rsquo;s more to the story, but it&rsquo;s probably better over coffee.</p>
   <div class="a-end__links">
     <a class="a-end__primary" href="mailto:brayden@braydenw.com">brayden@braydenw.com</a>
     <a href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
