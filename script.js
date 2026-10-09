@@ -335,6 +335,104 @@
     }
   }
 
+  /* ── Slack case study: the live demos ─────────────────────────────────── */
+  var toastAt = {};
+  var toast = function (demo, text) {
+    var t = demo.querySelector('[data-toast]');
+    t.textContent = text;
+    t.classList.add('is-on');
+    clearTimeout(toastAt[demo.dataset.demo]);
+    toastAt[demo.dataset.demo] = setTimeout(function () { t.classList.remove('is-on'); }, 2600);
+  };
+
+  var save = document.querySelector('[data-demo="save"]');
+  if (save) {
+    var state = { save: false, pin: false }, tab = 'save';
+    var msg = save.querySelector('[data-msg]');
+    var item = save.querySelector('[data-item]');
+    var empty = save.querySelector('[data-empty]');
+    var renderSave = function () {
+      msg.classList.toggle('is-pin', state.pin);
+      msg.classList.toggle('is-save', state.save && !state.pin);
+      save.querySelectorAll('[data-act]').forEach(function (b) {
+        var on = state[b.dataset.act];
+        b.setAttribute('aria-pressed', String(on));
+        b.dataset.tip = b.dataset.act === 'save'
+          ? (on ? 'Remove from Saved for Me' : 'Save for Me')
+          : (on ? 'Unpin from channel' : 'Pin for All');
+      });
+      save.querySelectorAll('[data-tab]').forEach(function (b) {
+        b.setAttribute('aria-selected', String(b.dataset.tab === tab));
+      });
+      item.hidden = !state[tab];
+      item.classList.toggle('is-pin', tab === 'pin');
+      empty.hidden = state[tab];
+      empty.firstChild.textContent = tab === 'save' ? 'No Saved for Me messages yet' : 'No Pinned for All messages yet';
+      empty.querySelector('small').textContent = 'Click the ' + (tab === 'save' ? 'bookmark' : 'pin') + ' on the message to add it here';
+    };
+    save.querySelectorAll('[data-act]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var k = b.dataset.act;
+        state[k] = !state[k];
+        tab = k;
+        toast(save, k === 'save'
+          ? (state.save ? 'This message was saved for you' : 'Message removed from Saved for Me')
+          : (state.pin ? 'This message was pinned for everyone' : 'Message unpinned from channel'));
+        renderSave();
+      });
+    });
+    save.querySelectorAll('[data-tab]').forEach(function (b) {
+      b.addEventListener('click', function () { tab = b.dataset.tab; renderSave(); });
+    });
+    renderSave();
+  }
+
+  var notif = document.querySelector('[data-demo="notif"]');
+  if (notif) {
+    var levels = JSON.parse(notif.dataset.init);
+    var words = { all: 'All', mentions: 'Mentions', muted: 'Muted' };
+    var notes = {
+      all: 'You\u2019ll hear about every message in #design.',
+      mentions: 'You\u2019ll only hear from #design when someone mentions you.',
+      muted: 'You won\u2019t hear from #design at all until you unmute it.'
+    };
+    var pill = notif.querySelector('[data-pill]');
+    var pillIcon = pill.querySelector('use');
+    var renderNotif = function (changed) {
+      var counts = { all: 0, mentions: 0, muted: 0 };
+      notif.querySelectorAll('[data-ch]').forEach(function (row) {
+        var lv = levels[row.dataset.ch];
+        counts[lv]++;
+        row.dataset.lv = lv;
+        row.querySelectorAll('[data-lv]').forEach(function (b) {
+          b.setAttribute('aria-checked', String(b.dataset.lv === lv));
+        });
+      });
+      Object.keys(counts).forEach(function (k) {
+        var n = notif.querySelector('[data-n="' + k + '"]');
+        if (n.textContent !== String(counts[k]) && changed) {
+          n.classList.remove('is-bump'); void n.offsetWidth; n.classList.add('is-bump');
+        }
+        n.textContent = counts[k];
+      });
+      var d = levels.design;
+      pill.dataset.lv = d;
+      pill.lastElementChild.textContent = words[d];
+      pillIcon.setAttribute('href', d === 'all' ? '#i-vol' : d === 'muted' ? '#i-belloff' : '#i-bell');
+      notif.querySelector('[data-note]').textContent = notes[d];
+    };
+    notif.querySelectorAll('.sn-seg button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var ch = b.closest('[data-ch]').dataset.ch;
+        if (levels[ch] === b.dataset.lv) return;
+        levels[ch] = b.dataset.lv;
+        renderNotif(true);
+        toast(notif, 'Alerts updated for #' + ch);
+      });
+    });
+    renderNotif(false);
+  }
+
   console.log(
     '%cHey.%c You opened the console, so we should probably talk.\nbrayden@braydenw.com',
     'font:700 20px "Bricolage Grotesque",sans-serif;color:#1b4dff',
