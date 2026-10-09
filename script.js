@@ -259,10 +259,12 @@
         textW = Math.max(textW, range.getBoundingClientRect().width);
       });
       if (!textW) return;
-      var size = (hHero.clientWidth / 10) * (hHero.clientWidth - pad) / textW;
-      hHero.style.setProperty('--name-size', (size * .995) + 'px');
+      var size = (hHero.clientWidth / 10) * (hName.clientWidth - pad) / textW;
+      hHero.style.setProperty('--name-size', (size * .98) + 'px');
     };
     (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(fit);
+    addEventListener('load', fit);
+    if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', fit);
     addEventListener('resize', fit);
 
     /* The light: a horizon rim rising behind the name, drifting toward the

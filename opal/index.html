@@ -982,7 +982,7 @@ body.v2{background:#fff;color:var(--h-text)}
 body.v2 .foot{color:var(--h-soft);border-top:0;max-width:var(--g-max);padding-inline:var(--g-pad)}
 
 .h-hero{position:relative;overflow:hidden;color:var(--h-text);background:#fff;
-  height:clamp(26rem,44vw,40rem)}
+  height:100vh;height:100svh;min-height:24rem}
 .h-role{position:absolute;z-index:2;left:0;right:0;bottom:calc(var(--name-size,10vw) * 1.12);margin:0;
   max-width:var(--g-max);margin-inline:auto;padding-inline:var(--g-pad);font-family:var(--display);
   font-size:clamp(1rem,1.4vw,1.2rem);color:var(--h-soft)}
@@ -1013,8 +1013,8 @@ body.v2 .foot{color:var(--h-soft);border-top:0;max-width:var(--g-max);padding-in
 .h-pill-nav .h-pill-nav__hi{background:var(--h-text);color:#fff;font-weight:500;margin-left:.2rem}
 .h-pill-nav .h-pill-nav__hi:hover,.h-pill-nav .h-pill-nav__hi:focus-visible{background:var(--blue);color:#fff}
 
-.h-name{position:absolute;z-index:2;left:0;right:0;bottom:.1em;margin:0;
-  padding-inline:clamp(.5rem,1.4vw,1.25rem);
+.h-name{position:absolute;z-index:2;left:0;right:0;bottom:.1em;margin:0 auto;max-width:var(--g-max);
+  padding-inline:var(--g-pad);
   font-family:var(--display);font-weight:400;font-size:var(--name-size,10vw);line-height:1;
   letter-spacing:-.04em;white-space:nowrap;color:var(--h-text);
   font-variation-settings:'opsz' 96,'wdth' 92,'wght' 400}
@@ -1438,7 +1438,7 @@ html{scroll-padding-top:5rem}
   .h-card .ih .ih__art,.h-card--wide .ih .ih__art{width:62%;inset:auto auto 22% 2%}
 }
 @media (max-width:760px){
-  .h-hero{height:clamp(24rem,105vw,30rem)}
+  .h-hero{height:calc(100vh - 5.5rem);height:calc(100svh - 5.5rem);min-height:22rem}
   .h-role{bottom:calc(var(--name-size,10vw) * 2.05);line-height:1.4}
   /* Phones: one nav, docked at the bottom where the thumb is. */
   .h-bar__links{display:none}
@@ -1912,10 +1912,12 @@ html{scroll-padding-top:5rem}
         textW = Math.max(textW, range.getBoundingClientRect().width);
       });
       if (!textW) return;
-      var size = (hHero.clientWidth / 10) * (hHero.clientWidth - pad) / textW;
-      hHero.style.setProperty('--name-size', (size * .995) + 'px');
+      var size = (hHero.clientWidth / 10) * (hName.clientWidth - pad) / textW;
+      hHero.style.setProperty('--name-size', (size * .98) + 'px');
     };
     (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(fit);
+    addEventListener('load', fit);
+    if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', fit);
     addEventListener('resize', fit);
 
     /* The light: a horizon rim rising behind the name, drifting toward the
