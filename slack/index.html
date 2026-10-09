@@ -977,7 +977,7 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
 body[data-page="home"]{background:var(--h-ink);color:var(--h-text)}
 body[data-page="home"] .foot{color:var(--h-soft);border-top-color:rgba(255,255,255,.12)}
 
-.h-hero{position:relative;overflow:hidden;height:clamp(34rem,64vw,52rem);
+.h-hero{position:relative;overflow:hidden;height:clamp(32rem,56vw,46rem);
   background:
     radial-gradient(130% 95% at 50% 152%,var(--h-deep) 58%,#cfdcff 62.5%,var(--blue) 64%,rgba(27,77,255,0) 82%),
     var(--h-ink)}
@@ -1610,7 +1610,8 @@ body[data-page="home"] .foot{color:var(--h-soft);border-top-color:rgba(255,255,2
         ' vec2 q=(uv-vec2(res.x*.5+mx*res.x*.08,-res.y*.62))/res.y;',
         ' float r=length(q),a=atan(q.x,q.y);',
         ' float e=r-(1.06+.012*sin(t*.35));',
-        ' float halo=exp(-max(e,0.)*3.1),rim=exp(-abs(e)*34.);',
+        ' float halo=exp(-max(e,0.)*1.9),rim=exp(-abs(e)*34.);',
+        ' float rays=pow(n(vec2(a*11.+mx*.4,t*.05)),3.)*exp(-max(e,0.)*.8)*step(0.,e);',
         ' float beams=n(vec2(a*7.+mx*.6,t*.07))*.6+n(vec2(a*19.,t*.11))*.4;',
         ' float focus=exp(-abs(a-mx*.35)*2.2);',
         ' vec3 ink=vec3(.016,.024,.102),deep=vec3(.039,.078,.25);',
@@ -1619,6 +1620,7 @@ body[data-page="home"] .foot{color:var(--h-soft);border-top-color:rgba(255,255,2
         ' col+=coral*pow(halo,9.)*focus*.45;',
         ' col+=mix(vec3(.75,.85,1.),vec3(1.),focus)*rim*(.5+.55*focus);',
         ' col+=blue*(.5+.5*sin(r*120.-t*.5))*halo*.05;',
+        ' col+=mix(blue,vec3(.82,.88,1.),.4)*rays*.7;',
         ' col=mix(col,mix(deep,ink,smoothstep(-.02,-.6,e)),smoothstep(0.,-.18,e)*.94);',
         ' col+=(h(uv+t)-.5)*.035;',
         ' gl_FragColor=vec4(col,1.);',

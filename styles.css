@@ -955,7 +955,7 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
 body[data-page="home"]{background:var(--h-ink);color:var(--h-text)}
 body[data-page="home"] .foot{color:var(--h-soft);border-top-color:rgba(255,255,255,.12)}
 
-.h-hero{position:relative;overflow:hidden;height:clamp(34rem,64vw,52rem);
+.h-hero{position:relative;overflow:hidden;height:clamp(32rem,56vw,46rem);
   background:
     radial-gradient(130% 95% at 50% 152%,var(--h-deep) 58%,#cfdcff 62.5%,var(--blue) 64%,rgba(27,77,255,0) 82%),
     var(--h-ink)}
