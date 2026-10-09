@@ -223,6 +223,19 @@
   if (year) year.textContent = new Date().getFullYear();
 
   /* ── Home: the name, edge to edge, and the light behind it ─────────── */
+  /* Home: the pinned pill nav shows only once the top bar has scrolled away. */
+  var hBar = document.getElementById('h-bar');
+  var hPill = document.getElementById('h-pill-nav');
+  if (hBar && hPill && 'IntersectionObserver' in window) {
+    hPill.hidden = false;
+    new IntersectionObserver(function (es) {
+      var on = !es[0].isIntersecting;
+      hPill.classList.toggle('is-on', on);
+      hPill.setAttribute('aria-hidden', on ? 'false' : 'true');
+      hPill.querySelectorAll('a').forEach(function (a) { a.tabIndex = on ? 0 : -1; });
+    }).observe(hBar);
+  }
+
   var hHero = document.getElementById('h-hero');
   var hName = document.getElementById('h-name');
 
