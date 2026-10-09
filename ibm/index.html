@@ -1069,16 +1069,15 @@ body.v2 .foot{color:var(--h-soft);border-top:0;max-width:var(--g-max);padding-in
 .a-sec__head h2{font-weight:500;font-size:clamp(1.8rem,3.4vw,2.8rem);letter-spacing:-.035em;line-height:1.08}
 .a-sec__head p{color:var(--h-soft);max-width:30ch}
 
-.a-give{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(.9rem,1.6vw,1.4rem)}
-.a-give__item{display:flex;flex-direction:column;gap:.5rem;text-decoration:none;color:var(--h-text)}
-a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(11,13,26,.35)}
-.a-give__when{color:var(--h-soft);font-size:.9rem}
-.a-give__item h3{margin:0;font-weight:500;font-size:clamp(1.4rem,2.2vw,1.9rem);letter-spacing:-.025em;line-height:1.1}
-.a-give__item p:not(.a-give__when){color:var(--h-soft);line-height:1.55}
-.a-give__links{margin-top:auto;padding-top:.6rem;display:flex;gap:1.1rem}
-.a-give__links a{color:var(--h-text);text-decoration:none;border-bottom:1px solid rgba(11,13,26,.3)}
-.a-give__links a:hover,.a-give__links a:focus-visible{border-bottom-color:var(--h-text)}
-
+.a-give{list-style:none;margin:0;padding:0;display:grid;gap:1.6rem;font-family:var(--display)}
+.a-give li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:.4rem clamp(1.5rem,5vw,5rem);align-items:baseline}
+.a-give__who{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:1rem;align-items:baseline}
+.a-give__when{color:var(--h-soft);font-size:.95rem}
+.a-give b{font-weight:500;font-size:clamp(1.25rem,1.8vw,1.5rem);letter-spacing:-.02em}
+.a-give__what{color:var(--h-soft);line-height:1.55}
+.a-give__what a{color:var(--h-text);text-decoration:none;border-bottom:1px solid rgba(11,13,26,.3);white-space:nowrap}
+.a-give__what a:hover,.a-give__what a:focus-visible{border-bottom-color:var(--h-text)}
+@media (max-width:760px){.a-give li{grid-template-columns:1fr;gap:.25rem}.a-give__who{grid-template-columns:1fr;gap:.25rem}}
 .a-life{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(.9rem,1.6vw,1.4rem)}
 .a-shot{margin:0}
 .a-shot img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;display:block;background:var(--h-fill)}
@@ -1096,7 +1095,7 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(11,13,26,.35
 
 @media (max-width:760px){
   .a-intro{grid-template-columns:1fr}
-  .a-life,.a-give{grid-template-columns:1fr}
+  .a-life{grid-template-columns:1fr}
   .a-facts div{grid-template-columns:6.5rem 1fr}
 }
 
