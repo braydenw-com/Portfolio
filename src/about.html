@@ -27,8 +27,7 @@
 <a class="skip" href="#me">Skip to the writing</a>
 
 <!-- ═══ Opening — the same light as home, shorter, with the title edge to edge -->
-<header class="h-hero h-hero--short" id="h-hero">
-  <canvas class="h-light" id="h-light" aria-hidden="true"></canvas>
+<header class="c-top">
   <div class="h-bar" id="h-bar">
     <a class="h-bar__name" href="/">Brayden Wisniewski</a>
     <nav class="h-bar__links" aria-label="Sections">
@@ -38,7 +37,6 @@
       <a href="mailto:brayden@braydenw.com">Contact</a>
     </nav>
   </div>
-  <h1 class="h-name" id="h-name">A little more about me.</h1>
 </header>
 
 <nav class="h-pill-nav" id="h-pill-nav" aria-label="Sections, pinned" hidden>
@@ -52,6 +50,10 @@
 <main id="top">
 
 <!-- ═══ Who ══════════════════════════════════════════════════════════════ -->
+<section class="a-head">
+  <h1>A little more about me.</h1>
+</section>
+
 <section class="a-intro" id="me">
   <figure class="a-intro__fig">
     <img src="/images/about-lead.jpg" width="1200" height="1600"
@@ -67,7 +69,7 @@
 
     <dl class="a-facts">
       <div><dt>Now</dt><dd>Mapping student engagement at SCAD&rsquo;s career office, and working in ag tech for my capstone</dd></div>
-      <div><dt>Asking</dt><dd class="a-ask" data-ask='["How do people stay in control of the AI agents they use?","Can we get an iced coffee?","What makes a complex tool feel simple?","What bowl should I make next?","Why do the best interfaces feel quiet?","What are you working on?"]'>How do people stay in control of the AI agents they use?</dd></div>
+      <div><dt>Asking <button class="a-ask__pause" type="button" data-ask-toggle aria-pressed="false">Pause</button></dt><dd class="a-ask" data-ask='["How do people stay in control of the AI agents they use?","Can we get an iced coffee?","What bowl should I make next?","What are you working on?"]'>How do people stay in control of the AI agents they use?</dd></div>
     </dl>
   </div>
 </section>

@@ -443,9 +443,17 @@
 
   /* ── About: the Asking line cycles through questions ─────────────────── */
   var ask = document.querySelector('[data-ask]');
+  if (ask && calm) { var t0 = document.querySelector('[data-ask-toggle]'); if (t0) t0.hidden = true; }
   if (ask && !calm) {
-    var qs = JSON.parse(ask.dataset.ask), qi = 0;
+    var qs = JSON.parse(ask.dataset.ask), qi = 0, paused = false;
+    var toggle = document.querySelector('[data-ask-toggle]');
+    if (toggle) toggle.addEventListener('click', function () {
+      paused = !paused;
+      toggle.textContent = paused ? 'Play' : 'Pause';
+      toggle.setAttribute('aria-pressed', String(paused));
+    });
     setInterval(function () {
+      if (paused) return;
       ask.classList.add('is-out');
       setTimeout(function () {
         qi = (qi + 1) % qs.length;
