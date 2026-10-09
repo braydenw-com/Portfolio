@@ -430,6 +430,20 @@
     renderNotif();
   }
 
+  /* ── About: the Asking line cycles through questions ─────────────────── */
+  var ask = document.querySelector('[data-ask]');
+  if (ask && !calm) {
+    var qs = JSON.parse(ask.dataset.ask), qi = 0;
+    setInterval(function () {
+      ask.classList.add('is-out');
+      setTimeout(function () {
+        qi = (qi + 1) % qs.length;
+        ask.textContent = qs[qi];
+        ask.classList.remove('is-out');
+      }, 350);
+    }, 3200);
+  }
+
   console.log(
     '%cHey.%c You opened the console, so we should probably talk.\nbrayden@braydenw.com',
     'font:700 20px "Bricolage Grotesque",sans-serif;color:#1b4dff',

@@ -1037,6 +1037,8 @@ body.v2 .foot{color:var(--h-soft);border-top:0;max-width:var(--g-max);padding-in
 .a-facts div{display:grid;grid-template-columns:6.5rem 1fr;gap:1rem}
 .a-facts dt{color:var(--h-soft);font-size:.9rem;letter-spacing:.04em}
 .a-facts dd{margin:0;color:var(--h-text);font-size:1rem}
+.a-ask{transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.a-ask.is-out{opacity:0;transform:translateY(-.3em)}
 
 .a-sec{padding-block:clamp(2.5rem,6vw,4.5rem)}
 .a-sec__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.5rem 2rem;
