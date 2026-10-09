@@ -223,6 +223,26 @@
     if (target && target === thisPage) a.setAttribute('aria-current', 'page');
   });
 
+  /* Footer: the time in Savannah and what Brayden is probably doing. */
+  var fTime = document.getElementById('foot-time');
+  var fDoing = document.getElementById('foot-doing');
+  if (fTime && fDoing) {
+    var tick = function () {
+      var now = new Date();
+      fTime.textContent = now.toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour: 'numeric', minute: '2-digit' });
+      var h = Number(now.toLocaleString('en-US', { timeZone: 'America/New_York', hour: 'numeric', hourCycle: 'h23' }));
+      fDoing.textContent =
+        h < 6  ? 'probably asleep (or pretending to be)' :
+        h < 10 ? 'probably on my first iced coffee' :
+        h < 13 ? 'probably in the studio' :
+        h < 17 ? 'probably at a coffee shop' :
+        h < 20 ? 'probably throwing a ceramic' :
+                 'probably still pushing pixels';
+    };
+    tick();
+    setInterval(tick, 30000);
+  }
+
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
