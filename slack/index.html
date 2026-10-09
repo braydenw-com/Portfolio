@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Slack — Brayden Wisniewski</title>
-<meta name="description" content="A 10-week UX research study on Slack: heuristic evaluation, usability testing with 8 participants, two redesigns, and validation with a new cohort.">
+<meta name="description" content="Making Slack's hidden state visible. Two small changes to language and system state took two everyday tasks from 3/8 and 2/8 success to 8/8.">
 
 <link rel="canonical" href="https://www.braydenw.com/slack">
 <meta property="og:url" content="https://www.braydenw.com/slack">
 <meta property="og:title" content="Slack — UX Research">
-<meta property="og:description" content="Studying what happens when work, messages, and 67 unread notifications collide.">
+<meta property="og:description" content="Making Slack's hidden state visible.">
 <meta property="og:image" content="https://www.braydenw.com/images/slack-hero.jpg">
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary_large_image">
@@ -1108,6 +1108,54 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
   .a-facts div{grid-template-columns:6.5rem 1fr}
 }
 
+/* ── Case studies, in the same world ───────────────────────────────────── */
+.c-top{background:var(--h-ink);padding-bottom:1rem}
+.c-open,.c-sec,.c-more{max-width:64rem;margin-inline:auto;padding-inline:clamp(1rem,3vw,2.5rem);font-family:var(--display)}
+.c-open{padding-top:clamp(3rem,8vw,6rem)}
+.c-open h1{font-weight:400;font-size:clamp(3rem,9vw,7rem);letter-spacing:-.05em;line-height:.95;
+  font-variation-settings:'opsz' 96,'wdth' 92,'wght' 400}
+.c-sum{margin-top:1.25rem;max-width:40ch;font-size:clamp(1.2rem,2vw,1.6rem);line-height:1.35;letter-spacing:-.015em;
+  color:var(--h-text);text-wrap:pretty}
+.c-facts{margin:clamp(2rem,4vw,3rem) 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.25rem;
+  padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.14)}
+.c-facts dt{color:var(--h-soft);font-size:.88rem;margin-bottom:.3rem}
+.c-facts dd{margin:0;font-size:1rem;line-height:1.4}
+.c-cover{margin:clamp(2rem,4vw,3rem) 0 0;border-radius:22px;overflow:hidden;background:var(--h-deep)}
+.c-cover img{width:100%;aspect-ratio:16/9;object-fit:cover}
+
+.c-sec{padding-block:clamp(3rem,7vw,5.5rem);border-top:1px solid rgba(255,255,255,.1);margin-top:clamp(3rem,7vw,5.5rem)}
+.c-sec + .c-sec{margin-top:0}
+.c-label{color:#7f9bff;font-size:.95rem;margin-bottom:.8rem}
+.c-sec h2{font-weight:500;font-size:clamp(1.8rem,3.6vw,2.9rem);letter-spacing:-.035em;line-height:1.08;max-width:22ch;
+  text-wrap:balance}
+.c-body{margin-top:1.1rem;max-width:44rem;font-size:clamp(1.05rem,1.3vw,1.2rem);line-height:1.6;color:var(--h-soft)}
+.c-stats{margin:2rem 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.c-stats div{padding:1.4rem;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
+.c-stats dt{font-size:clamp(2.6rem,6vw,4.2rem);font-weight:400;letter-spacing:-.04em;line-height:1;
+  font-variant-numeric:tabular-nums}
+.c-stats dd{margin:.5rem 0 0;color:var(--h-soft)}
+.c-quote{margin:1.75rem 0 0;padding-left:1.1rem;border-left:2px solid var(--blue);font-size:clamp(1.1rem,1.6vw,1.35rem);
+  line-height:1.4;max-width:40ch}
+.c-quote cite{display:block;margin-top:.4rem;font-style:normal;font-size:.9rem;color:var(--h-soft)}
+.c-ba{margin-top:2rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.c-ba figure{margin:0}
+.c-ba img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:16px;background:var(--h-deep)}
+.c-ba figcaption{margin-top:.6rem;color:var(--h-soft);font-size:.92rem}
+.c-jump{margin-top:1.75rem;display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem .9rem;
+  font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.c-jump span{color:var(--h-soft)}
+.c-jump i{font-style:normal;color:#7f9bff}
+.c-jump b{font-weight:500}
+.c-jump small{font-size:.95rem;letter-spacing:0;color:var(--h-soft)}
+
+.c-more{padding-block:clamp(3rem,7vw,5rem) clamp(3rem,7vw,5rem);border-top:1px solid rgba(255,255,255,.1);max-width:110rem}
+.c-more__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(.9rem,1.6vw,1.4rem);font-family:var(--display)}
+
+@media (max-width:760px){
+  .c-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .c-ba,.c-more__grid,.c-stats{grid-template-columns:1fr}
+}
+
 @media (max-width:760px){
   .h-hero{height:clamp(30rem,120vw,40rem)}
   .h-bar{font-size:.95rem}
@@ -1121,306 +1169,126 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
 
 </style>
 </head>
-<body class="no-js" data-page="slack">
+<body class="no-js v2" data-page="slack">
 <script>document.body.classList.remove('no-js');</script>
 
-<a class="skip" href="#findings">Skip to the findings</a>
+<a class="skip" href="#story">Skip to the story</a>
 
-<!-- Shared by every page — edit here, never in a page source. -->
-<header class="nav" id="nav" data-open="false">
-  <a class="nav__me" href="/">Brayden&nbsp;Wisniewski</a>
-
-  <button class="burger" id="burger" type="button"
-          aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
-    <span class="burger__box" aria-hidden="true"><i></i><i></i></span>
-  </button>
-
-  <nav class="nav__links" id="nav-links" aria-label="Sections">
-    <a href="/#work">Work</a>
-    <a href="/about">About</a>
-    <a href="#hello" class="nav__hi">Say hi</a>
-  </nav>
+<header class="c-top">
+  <div class="h-bar" id="h-bar">
+    <a class="h-bar__name" href="/">Brayden Wisniewski</a>
+    <nav class="h-bar__links" aria-label="Sections">
+      <a href="/#work" aria-current="page">Work</a>
+      <a href="/about">About</a>
+      <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:brayden@braydenw.com">Contact</a>
+    </nav>
+  </div>
 </header>
+
+<nav class="h-pill-nav" id="h-pill-nav" aria-label="Sections, pinned" hidden>
+  <a class="h-pill-nav__home" href="/" aria-label="Home"><span aria-hidden="true"></span></a>
+  <a href="/#work" aria-current="page">Work</a>
+  <a href="/about">About</a>
+  <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
+  <a class="h-pill-nav__hi" href="mailto:brayden@braydenw.com">Contact</a>
+</nav>
 
 <main id="top">
 
-<figure class="cs-cover">
-  <img src="/images/slack-hero.jpg"
-       alt="The redesigned Slack interface: a Save for Me action, a Pin for All action, and a unified notification panel"
-       width="1920" height="1080">
-</figure>
+<!-- ═══ Opening ══════════════════════════════════════════════════════════ -->
+<section class="c-open">
+  <h1>Slack</h1>
+  <p class="c-sum">Making Slack&rsquo;s hidden state visible. Two everyday tasks most people couldn&rsquo;t finish, and two small changes to language and system state that took success from 3/8 and 2/8 to 8/8.</p>
 
-<!-- ═══ Opening ════════════════════════════════════════════════════════════ -->
-<section class="cs cs-open">
-  <h1 class="cs-title">
-    Studying what happens when work, messages, and 67 unread notifications collide.
-  </h1>
-
-  <dl class="cs-facts">
+  <dl class="c-facts">
     <div><dt>Role</dt><dd>Research Lead</dd></div>
     <div><dt>Team</dt><dd>3 researchers</dd></div>
-    <div><dt>Duration</dt><dd>10 weeks</dd></div>
+    <div><dt>Timeline</dt><dd>10 weeks, 2026</dd></div>
+    <div><dt>Methods</dt><dd>Heuristic review, moderated &amp; unmoderated testing</dd></div>
+  </dl>
+
+  <figure class="c-cover">
+    <img src="/images/slack-hero.jpg" width="1920" height="1080"
+         alt="The redesigned Slack interface: a Save for Me action, a Pin for All action, and a unified notification panel">
+  </figure>
+</section>
+
+<!-- ═══ The problem ══════════════════════════════════════════════════════ -->
+<section class="c-sec" id="story">
+  <p class="c-label">The problem</p>
+  <h2>Slack has the features. People can&rsquo;t find them.</h2>
+  <div class="c-body">
+    <p>We reviewed 20 Slack workflows against Nielsen&rsquo;s heuristics, then watched 8 people try the everyday ones. Getting around was fine. Two tasks fell apart, and most people thought they&rsquo;d finished.</p>
+  </div>
+  <dl class="c-stats">
+    <div><dt>3/8</dt><dd>found a saved message</dd></div>
+    <div><dt>2/8</dt><dd>managed their notifications</dd></div>
   </dl>
 </section>
 
-
-<!-- ═══ The problem ════════════════════════════════════════════════════════ -->
-<section class="cs cs-sec" id="findings">
-  <h2 class="cs-h2">Slack hides its own state.</h2>
-
-  <div class="cs-body">
-    <p>
-      Slack has the features people need&mdash;but finding them and understanding what
-      they&rsquo;re doing isn&rsquo;t always easy.
-    </p>
-    <p>
-      We evaluated common Slack workflows and tested them with 8 participants.
-      Navigation worked. Two other everyday tasks didn&rsquo;t.
-    </p>
+<!-- ═══ Fix 1 ════════════════════════════════════════════════════════════ -->
+<section class="c-sec">
+  <p class="c-label">Saved messages</p>
+  <h2>The concept wasn&rsquo;t the problem. The language was.</h2>
+  <div class="c-body">
+    <p>Saved, Pinned, and Later all sounded alike, and none said who could see what. We renamed the actions around ownership: Save for Me, Pin for Everyone.</p>
   </div>
-
-  <dl class="stats">
-    <div class="stat">
-      <dt>3/8</dt>
-      <dd>successfully retrieved a saved message</dd>
-    </div>
-    <div class="stat">
-      <dt>2/8</dt>
-      <dd>successfully managed notifications</dd>
-    </div>
-  </dl>
-
-  <p class="cs-note">
-    We ran <strong>moderated user testing sessions</strong> to watch where each of
-    those workflows broke down, and why.
-  </p>
+  <blockquote class="c-quote">&ldquo;There is usually a saved button here. This is terribly confusing.&rdquo;<cite>Participant</cite></blockquote>
+  <div class="c-ba">
+    <figure><img src="/images/slack-save-before.jpg" width="1600" height="912" loading="lazy" style="object-position:right center"
+      alt="The original Slack message menu, showing Pin to channel among the other actions"><figcaption>Before</figcaption></figure>
+    <figure><img src="/images/slack-save-after.jpg" width="1600" height="875" loading="lazy" style="object-position:right center"
+      alt="The redesigned message toolbar, showing a Pin for All action"><figcaption>After</figcaption></figure>
+  </div>
+  <p class="c-jump"><span>3/8</span><i aria-hidden="true">&rarr;</i><b>8/8</b><small>in validation testing</small></p>
 </section>
 
-<!-- ═══ Method ═════════════════════════════════════════════════════════════ -->
-<section class="cs cs-sec">
-  <h2 class="cs-h2">Evaluate &rarr; Test &rarr; Design &rarr; Validate</h2>
+<!-- ═══ Fix 2 ════════════════════════════════════════════════════════════ -->
+<section class="c-sec">
+  <p class="c-label">Notifications</p>
+  <h2>People can&rsquo;t change what they can&rsquo;t see.</h2>
+  <div class="c-body">
+    <p>Notification controls were spread across menus, with no sign of what was already on. We added a persistent status and put every control in one place.</p>
+  </div>
+  <blockquote class="c-quote">&ldquo;I have no idea where to even start with this.&rdquo;<cite>Participant</cite></blockquote>
+  <div class="c-ba">
+    <figure><img src="/images/slack-notif-before.jpg" width="1600" height="912" loading="lazy"
+      alt="Slack's Preferences panel, with notification controls spread across a long settings list"><figcaption>Before</figcaption></figure>
+    <figure><img src="/images/slack-notif-after.jpg" width="1600" height="873" loading="lazy" style="object-position:right center"
+      alt="The unified System Notifications panel, showing an overview count and per-channel controls"><figcaption>After</figcaption></figure>
+  </div>
+  <p class="c-jump"><span>2/8</span><i aria-hidden="true">&rarr;</i><b>8/8</b><small>among people who finished the task</small></p>
+</section>
 
-  <div class="cs-body">
-    <p>
-      We started by evaluating <strong>20 Slack workflows against Nielsen&rsquo;s 10 usability
-      heuristics</strong>. Four patterns kept appearing: hidden system states, weak feedback,
-      fragmented navigation, and unnecessary workflow friction.
-    </p>
-    <p>
-      Those findings shaped the tasks we took into moderated usability testing with
-      <strong>8 participants</strong>&mdash;then <strong>8 unmoderated sessions</strong>
-      once there was something to validate.
-    </p>
+<!-- ═══ Takeaway ═════════════════════════════════════════════════════════ -->
+<section class="c-sec c-sec--end">
+  <p class="c-label">What I took away</p>
+  <h2>The interface didn&rsquo;t need more features. It needed to explain the ones it had.</h2>
+  <div class="c-body">
+    <p>We validated both changes with 8 new people on UserTesting, with no researcher in the room. The same failures didn&rsquo;t come back.</p>
   </div>
 </section>
 
-<!-- ═══ Testing ════════════════════════════════════════════════════════════ -->
-<section class="cs cs-sec">
-  <h2 class="cs-h2">Three tasks. Two major failures.</h2>
-
-  <div class="tasks">
-    <article class="task">
-      <p class="task__no">01</p>
-      <h3 class="task__head">Finding your way around</h3>
-      <p class="task__score task__score--good"><b>8/8</b> successful</p>
-      <p>
-        Participants understood the channel structure immediately. It matched how they
-        expected a workplace tool to behave.
-      </p>
-      <blockquote class="quote">&ldquo;Ohhh Slack. I feel comfy here.&rdquo;</blockquote>
-      <p class="task__take">
-        <strong>Nothing to fix.</strong> When the interface met expectations, it
-        disappeared into the background.
-      </p>
-    </article>
-
-    <article class="task">
-      <p class="task__no">02</p>
-      <h3 class="task__head">Finding a saved message</h3>
-      <p class="task__score"><b>3/8</b> successful <i>Severity 4/4</i></p>
-      <p>
-        Participants couldn&rsquo;t separate <strong>Saved, Pinned, and Later</strong>.
-        Most searched several places before giving up or settling.
-      </p>
-      <blockquote class="quote">&ldquo;There is usually a saved button here. This is terribly confusing.&rdquo;</blockquote>
-      <p class="task__take">
-        The concept wasn&rsquo;t the problem.
-        <strong>Slack&rsquo;s language was.</strong>
-      </p>
-    </article>
-
-    <article class="task">
-      <p class="task__no">03</p>
-      <h3 class="task__head">Managing notifications</h3>
-      <p class="task__score"><b>2/8</b> successful <i>Severity 4/4</i></p>
-      <p>
-        Controls were spread across menus. Participants couldn&rsquo;t tell what was
-        active, why, or where to change it.
-      </p>
-      <blockquote class="quote">&ldquo;I have no idea where to even start with this.&rdquo;</blockquote>
-      <p class="task__take">
-        Before people could change the system,
-        <strong>they had to understand it.</strong>
-      </p>
-    </article>
+<!-- ═══ More work ════════════════════════════════════════════════════════ -->
+<section class="c-more">
+  <p class="c-label">View more</p>
+  <div class="c-more__grid">
+    <a class="h-card" href="/opal">
+      <img src="/images/opal-hero.jpg" width="2000" height="1110" loading="lazy"
+           alt="The Opal focus app across several screens">
+      <div class="h-card__head"><span class="h-pill">Product Designer</span><span class="h-pill">Indigo Design Award</span></div>
+      <div class="h-card__foot"><h3 class="h-card__title">Opal</h3>
+        <p class="h-card__line">Helping students plan, focus, and take breaks worth taking.</p></div>
+    </a>
+    <a class="h-card" href="/ibm">
+      <img src="/images/ibm-cover.jpg" width="1280" height="960" loading="lazy" style="object-position:center 45%"
+           alt="Brayden pointing at a collaged IBM logo on an office gallery wall">
+      <div class="h-card__head"><span class="h-pill">Design Intern, Db2</span><span class="h-pill">Shipped on ibm.com</span></div>
+      <div class="h-card__foot"><h3 class="h-card__title">IBM</h3>
+        <p class="h-card__line">A summer in Austin on how people and AI agents learn complex products.</p></div>
+    </a>
   </div>
-
-</section>
-
-<!-- ═══ The turn ═══════════════════════════════════════════════════════════ -->
-<section class="cs cs-turn">
-  <h2 class="cs-title cs-title--mid">So, we changed two things.</h2>
-  <p class="cs-lede">
-    Rather than redesigning Slack from scratch, we focused on the two moments where
-    testing showed the biggest breakdowns.
-  </p>
-</section>
-
-<!-- ═══ Fix 01 ═════════════════════════════════════════════════════════════ -->
-<section class="cs cs-sec fix">
-  <p class="fix__no">01</p>
-  <h2 class="cs-h2">Make ownership obvious.</h2>
-  <p class="fix__sub">Save for Me. Pin for Everyone.</p>
-
-  <div class="cs-body">
-    <p>
-      The existing experience asked people to understand the difference between Saved,
-      Pinned, and Later without clearly communicating who each action was for.
-    </p>
-  </div>
-
-  <div class="ba">
-    <figure>
-      <img src="/images/slack-save-before.jpg" style="object-position:right center" alt="The original Slack message menu, showing Pin to channel among the other actions" width="1600" height="912" loading="lazy">
-      <figcaption><b>Before</b> Saved, Pinned, and Later made ownership and visibility unclear.</figcaption>
-    </figure>
-    <figure>
-      <img src="/images/slack-save-after.jpg" style="object-position:right center" alt="The redesigned message toolbar, showing a Pin for All action" width="1600" height="875" loading="lazy">
-      <figcaption><b>After</b> Users could understand where information would go before selecting an action.</figcaption>
-    </figure>
-  </div>
-
-  <p class="jump"><span class="jump__from">3/8</span><span class="jump__arrow" aria-hidden="true">&rarr;</span><span class="jump__to">8/8</span></p>
-  <p class="jump__note">
-    In validation testing, all 8 participants successfully completed the redesigned
-    message-retrieval task.
-  </p>
-</section>
-
-<!-- ═══ Fix 02 ═════════════════════════════════════════════════════════════ -->
-<section class="cs cs-sec fix">
-  <p class="fix__no">02</p>
-  <h2 class="cs-h2">Show what Slack is doing.</h2>
-  <p class="fix__sub">One place for notifications.</p>
-
-  <div class="cs-body">
-    <p>
-      The original experience spread notification controls across multiple locations while
-      giving users very little indication of their current state.
-    </p>
-    <p>
-      We introduced a persistent notification status and brought the related controls
-      into one place.
-    </p>
-  </div>
-
-  <div class="ba">
-    <figure>
-      <img src="/images/slack-notif-before.jpg" alt="Slack's Preferences panel, with notification controls spread across a long settings list" width="1600" height="912" loading="lazy">
-      <figcaption><b>Before</b> The UI was hard to find, and nothing showed what was already on.</figcaption>
-    </figure>
-    <figure>
-      <img src="/images/slack-notif-after.jpg" style="object-position:right center" alt="The unified System Notifications panel, showing an overview count and per-channel controls" width="1600" height="873" loading="lazy">
-      <figcaption><b>After</b> Users could see what was active, understand why, and change it without searching across multiple menus.</figcaption>
-    </figure>
-  </div>
-
-  <p class="jump"><span class="jump__from">2/8</span><span class="jump__arrow" aria-hidden="true">&rarr;</span><span class="jump__to">8/8</span></p>
-  <p class="jump__note">
-    Every participant who completed the redesigned notification task during validation
-    was able to complete it successfully.
-  </p>
-</section>
-
-<!-- ═══ Validation ═════════════════════════════════════════════════════════ -->
-<section class="cs cs-sec">
-  <h2 class="cs-h2">Same problems. New designs. New cohort.</h2>
-
-  <div class="cs-body">
-    <p>
-      We tested the redesigned experiences with <strong>8 new participants through
-      UserTesting.com</strong>.
-    </p>
-    <p>
-      The goal wasn&rsquo;t to prove we had created the perfect solution. It was to see
-      whether the same failures still appeared in unmoderated sessions, where no
-      researcher was present to observe or ask follow-up questions.
-    </p>
-    <p class="cs-beat">They didn&rsquo;t.</p>
-  </div>
-
-  <dl class="stats">
-    <div class="stat">
-      <dt>37.5% &rarr; 100%</dt>
-      <dd>Message retrieval</dd>
-    </div>
-    <div class="stat">
-      <dt>25% &rarr; 100%</dt>
-      <dd>Notification management, among participants who completed the task</dd>
-    </div>
-  </dl>
-
-</section>
-
-<!-- ═══ Why ════════════════════════════════════════════════════════════════ -->
-<section class="cs cs-sec">
-  <h2 class="cs-h2">Why does this matter?</h2>
-
-  <div class="cs-body">
-    <p>
-      Slack is something people can interact with hundreds of times throughout a workweek.
-      Small moments of uncertainty can compound quickly.
-    </p>
-    <p>
-      Making system state, language, and controls easier to understand could mean less time
-      searching, easier feature discovery, and more confidence using the product.
-    </p>
-    <p>
-      The interface didn&rsquo;t need more functionality.
-      <strong>It needed to communicate the functionality it already had.</strong>
-    </p>
-  </div>
-</section>
-
-<!-- ═══ Close ══════════════════════════════════════════════════════════════ -->
-<section class="cs cs-close">
-  <h2 class="cs-title cs-title--mid">Clear systems create confident users.</h2>
-
-  <div class="cs-body">
-    <p>
-      The biggest problems we found weren&rsquo;t caused by people misunderstanding what they
-      wanted to do. They came from Slack failing to communicate <strong>where things lived,
-      what was active, and what would happen next.</strong>
-    </p>
-    <p>
-      By making ownership clearer and system state visible, we turned two major points of
-      failure into experiences participants could successfully navigate.
-    </p>
-    <p>
-      And sometimes, making something easier doesn&rsquo;t mean adding more.
-    </p>
-    <p class="cs-beat">It means making what&rsquo;s already there make sense.</p>
-  </div>
-</section>
-
-<!-- ═══ Next ═══════════════════════════════════════════════════════════════ -->
-<section class="cs cs-next" id="hello">
-  <a class="say-hi" href="/#work">More work <span aria-hidden="true">&rarr;</span></a>
-  <nav class="ab-ends" aria-label="Elsewhere">
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="mailto:brayden@braydenw.com">Email</a>
-  </nav>
 </section>
 
 </main>

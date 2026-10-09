@@ -1113,6 +1113,54 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
   .a-facts div{grid-template-columns:6.5rem 1fr}
 }
 
+/* ── Case studies, in the same world ───────────────────────────────────── */
+.c-top{background:var(--h-ink);padding-bottom:1rem}
+.c-open,.c-sec,.c-more{max-width:64rem;margin-inline:auto;padding-inline:clamp(1rem,3vw,2.5rem);font-family:var(--display)}
+.c-open{padding-top:clamp(3rem,8vw,6rem)}
+.c-open h1{font-weight:400;font-size:clamp(3rem,9vw,7rem);letter-spacing:-.05em;line-height:.95;
+  font-variation-settings:'opsz' 96,'wdth' 92,'wght' 400}
+.c-sum{margin-top:1.25rem;max-width:40ch;font-size:clamp(1.2rem,2vw,1.6rem);line-height:1.35;letter-spacing:-.015em;
+  color:var(--h-text);text-wrap:pretty}
+.c-facts{margin:clamp(2rem,4vw,3rem) 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.25rem;
+  padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.14)}
+.c-facts dt{color:var(--h-soft);font-size:.88rem;margin-bottom:.3rem}
+.c-facts dd{margin:0;font-size:1rem;line-height:1.4}
+.c-cover{margin:clamp(2rem,4vw,3rem) 0 0;border-radius:22px;overflow:hidden;background:var(--h-deep)}
+.c-cover img{width:100%;aspect-ratio:16/9;object-fit:cover}
+
+.c-sec{padding-block:clamp(3rem,7vw,5.5rem);border-top:1px solid rgba(255,255,255,.1);margin-top:clamp(3rem,7vw,5.5rem)}
+.c-sec + .c-sec{margin-top:0}
+.c-label{color:#7f9bff;font-size:.95rem;margin-bottom:.8rem}
+.c-sec h2{font-weight:500;font-size:clamp(1.8rem,3.6vw,2.9rem);letter-spacing:-.035em;line-height:1.08;max-width:22ch;
+  text-wrap:balance}
+.c-body{margin-top:1.1rem;max-width:44rem;font-size:clamp(1.05rem,1.3vw,1.2rem);line-height:1.6;color:var(--h-soft)}
+.c-stats{margin:2rem 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.c-stats div{padding:1.4rem;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
+.c-stats dt{font-size:clamp(2.6rem,6vw,4.2rem);font-weight:400;letter-spacing:-.04em;line-height:1;
+  font-variant-numeric:tabular-nums}
+.c-stats dd{margin:.5rem 0 0;color:var(--h-soft)}
+.c-quote{margin:1.75rem 0 0;padding-left:1.1rem;border-left:2px solid var(--blue);font-size:clamp(1.1rem,1.6vw,1.35rem);
+  line-height:1.4;max-width:40ch}
+.c-quote cite{display:block;margin-top:.4rem;font-style:normal;font-size:.9rem;color:var(--h-soft)}
+.c-ba{margin-top:2rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.c-ba figure{margin:0}
+.c-ba img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:16px;background:var(--h-deep)}
+.c-ba figcaption{margin-top:.6rem;color:var(--h-soft);font-size:.92rem}
+.c-jump{margin-top:1.75rem;display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem .9rem;
+  font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.c-jump span{color:var(--h-soft)}
+.c-jump i{font-style:normal;color:#7f9bff}
+.c-jump b{font-weight:500}
+.c-jump small{font-size:.95rem;letter-spacing:0;color:var(--h-soft)}
+
+.c-more{padding-block:clamp(3rem,7vw,5rem) clamp(3rem,7vw,5rem);border-top:1px solid rgba(255,255,255,.1);max-width:110rem}
+.c-more__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(.9rem,1.6vw,1.4rem);font-family:var(--display)}
+
+@media (max-width:760px){
+  .c-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .c-ba,.c-more__grid,.c-stats{grid-template-columns:1fr}
+}
+
 @media (max-width:760px){
   .h-hero{height:clamp(30rem,120vw,40rem)}
   .h-bar{font-size:.95rem}
