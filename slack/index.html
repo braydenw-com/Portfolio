@@ -18,7 +18,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:ital,wght@0,300..700;1,300..600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:ital,wght@0,300..700;1,300..600&family=Lato:wght@400;700;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Serif:wght@300;400&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════════════════════
    braydenw.com
@@ -1401,6 +1401,53 @@ html{scroll-padding-top:5rem}
 }
 .h-card:hover .uh{transform:scale(1.035)}
 
+/* ── IBM hero: pieces of Brayden's shipped IBM Support pages (the real
+   Platinum illustration, the Platinum hero copy and buttons, a Sovereign
+   feature tile) set on IBM blue in Carbon's square, flat style. */
+.ih{position:absolute;inset:0;overflow:hidden;z-index:-2;font-size:1.6cqw;line-height:1.4;color:#161616;
+  background:radial-gradient(90% 120% at 15% 0%,#4589ff 0%,#0f62fe 40%,#002d9c 100%);font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif}
+.ih p{margin:0}
+.ih .ih__art{position:absolute;width:44%;height:auto;aspect-ratio:auto;object-fit:contain;inset:auto auto 5% 4%}
+.ih__card{position:absolute;background:#fff;padding:1.4em 1.5em;box-shadow:0 1.6em 3.5em -1em rgba(0,20,80,.55)}
+.ih__eyebrow{font-size:.7em;color:#525252;margin-bottom:.6em!important}
+.ih__card--plat{right:5%;top:8%;width:40%;background:#f4f4f4}
+.ih__h{font-family:'IBM Plex Serif',Georgia,serif;font-weight:400;font-size:2.1em;line-height:1.08;letter-spacing:-.01em}
+.ih__h span{display:block;white-space:nowrap}
+.ih__p{margin-top:.7em!important;font-size:.78em;line-height:1.55;color:#393939}
+.ih__btns{margin-top:1.2em!important;display:flex;gap:.6em}
+.ih__btn{display:inline-flex;align-items:center;gap:2.4em;padding:.75em 1em;background:#0f62fe;color:#fff;font-size:.72em;border:1px solid #0f62fe}
+.ih__btn i{font-style:normal}
+.ih__btn--ghost{background:none;color:#0f62fe}
+.ih__card--sov{right:10%;bottom:7%;width:30%}
+.ih__t{font-size:1.1em;line-height:1.25}
+.ih__tags{display:flex;gap:.4em;margin-top:1em!important}
+.ih__tags span{font-size:.62em;padding:.3em .8em;border-radius:999px;background:#d0e2ff;color:#0043ce}
+.ih__card--fast{left:47%;bottom:30%;width:14%;padding:1em 1.1em;display:grid;gap:.7em}
+.ih__card--fast svg{width:1.8em;height:1.8em;fill:none;stroke:#161616;stroke-width:1.3;stroke-linecap:round}
+.ih__card--fast .ih__t{font-size:.85em}
+.h-card:has(.ih){container-type:inline-size}
+.h-card .ih{transition:transform .8s var(--ease);font-size:1.3cqw}
+.h-card:hover .ih{transform:scale(1.035)}
+.h-card .ih .ih__art{z-index:auto;transition:none;inset:auto auto -2% 3%;width:46%;height:auto;position:absolute}
+.h-card:hover .ih .ih__art{transform:none}
+.h-card .ih__card--sov,.h-card .ih__card--fast{display:none}
+.h-card .ih__card--plat{top:20%}
+.h-card--wide .ih .ih__art{inset:auto 6% 4% auto;width:40%}
+.h-card--wide .ih__card--plat{right:auto;left:3%;top:20%;width:36%}
+.h-card--wide .ih__card--plat .ih__p{display:none}
+.h-card:not(.h-card--wide) .ih{font-size:2cqw}
+.h-card:not(.h-card--wide) .ih__card--plat{width:50%;top:22%;right:4%}
+.h-card:not(.h-card--wide) .ih__card--plat .ih__p,.h-card:not(.h-card--wide) .ih__btn--ghost{display:none}
+@media (max-width:760px){
+  .c-cover--ui .ih{font-size:3cqw}
+  .c-cover--ui .ih__card--sov,.c-cover--ui .ih__card--fast{display:none}
+  .c-cover--ui .ih__card--plat{width:58%;top:10%}
+  .c-cover--ui .ih .ih__art{width:48%;inset:auto auto 4% 3%}
+  .h-card .ih,.h-card--wide .ih{font-size:3.4cqw}
+  .h-card .ih__card--plat,.h-card--wide .ih__card--plat{width:70%;top:18%;left:auto;right:4%}
+  .h-card .ih__card--plat .ih__p,.h-card .ih__btn--ghost{display:none}
+  .h-card .ih .ih__art,.h-card--wide .ih .ih__art{width:62%;inset:auto auto 22% 2%}
+}
 @media (max-width:760px){
   .h-hero{height:clamp(30rem,120vw,40rem)}
   .h-bar{font-size:.95rem}
@@ -1672,9 +1719,26 @@ html{scroll-padding-top:5rem}
         <p class="h-card__line">Helping students plan, focus, and take breaks worth taking.</p></div>
     </a>
     <a class="h-card" href="/ibm">
-      <img src="/images/ibm-platinum-hero.jpg" width="1501" height="668" style="object-position:left center" alt="The IBM Platinum Experience page Brayden designed, live on ibm.com">
+      <div class="ih" aria-hidden="true">
+      <img class="ih__art" src="/images/ibm-platinum-art.png" width="900" height="704" alt="">
+      <div class="ih__card ih__card--plat">
+        <p class="ih__h"><span>IBM Platinum</span> <span>Experience</span></p>
+        <p class="ih__p">A premium partnership with your needs at the center of your IBM Software experience.</p>
+        <p class="ih__btns"><span class="ih__btn">Sign up now <i>&rarr;</i></span><span class="ih__btn ih__btn--ghost">Webinar <i>&rarr;</i></span></p>
+      </div>
+      <div class="ih__card ih__card--sov">
+        <p class="ih__eyebrow">IBM Sovereign Support</p>
+        <p class="ih__t">Keep data in-region</p>
+        <p class="ih__p">Support cases, personnel, and diagnostic data handling are all bound to your sovereign environment.</p>
+        <p class="ih__tags"><span>Data sovereignty</span><span>Control</span></p>
+      </div>
+      <div class="ih__card ih__card--fast">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 13l3-4M10 2h4M12 2v3"/></svg>
+        <p class="ih__t">Fastest response times</p>
+      </div>
+    </div>
       <div class="h-card__head"><span class="h-pill">Design Intern, Db2</span><span class="h-pill">Shipped on ibm.com</span></div>
-      <div class="h-card__foot"><h3 class="h-card__title">IBM Core Software</h3>
+      <div class="h-card__foot"><h3 class="h-card__title">IBM Support</h3>
         <p class="h-card__line">A summer in Austin on how people and AI agents learn complex products.</p></div>
     </a>
   </div>

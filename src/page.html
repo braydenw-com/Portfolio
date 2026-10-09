@@ -23,7 +23,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:ital,wght@0,300..700;1,300..600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:ital,wght@0,300..700;1,300..600&family=Lato:wght@400;700;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Serif:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body class="no-js v2" data-page="home">
@@ -114,12 +114,29 @@
   </a>
 
   <a class="h-card h-card--wide" href="/ibm">
-    <img src="/images/ibm-platinum-hero.jpg" width="1501" height="668" style="object-position:left center" alt="The IBM Platinum Experience page Brayden designed, live on ibm.com">
+    <div class="ih" aria-hidden="true">
+      <img class="ih__art" src="/images/ibm-platinum-art.png" width="900" height="704" alt="">
+      <div class="ih__card ih__card--plat">
+        <p class="ih__h"><span>IBM Platinum</span> <span>Experience</span></p>
+        <p class="ih__p">A premium partnership with your needs at the center of your IBM Software experience.</p>
+        <p class="ih__btns"><span class="ih__btn">Sign up now <i>&rarr;</i></span><span class="ih__btn ih__btn--ghost">Webinar <i>&rarr;</i></span></p>
+      </div>
+      <div class="ih__card ih__card--sov">
+        <p class="ih__eyebrow">IBM Sovereign Support</p>
+        <p class="ih__t">Keep data in-region</p>
+        <p class="ih__p">Support cases, personnel, and diagnostic data handling are all bound to your sovereign environment.</p>
+        <p class="ih__tags"><span>Data sovereignty</span><span>Control</span></p>
+      </div>
+      <div class="ih__card ih__card--fast">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 13l3-4M10 2h4M12 2v3"/></svg>
+        <p class="ih__t">Fastest response times</p>
+      </div>
+    </div>
     <div class="h-card__head">
       <span class="h-pill">Design Intern, Db2</span><span class="h-pill">Shipped on ibm.com</span>
     </div>
     <div class="h-card__foot">
-      <h3 class="h-card__title">IBM Core Software</h3>
+      <h3 class="h-card__title">IBM Support</h3>
       <p class="h-card__line">A summer in Austin on how people and AI agents learn complex products.</p>
     </div>
   </a>
