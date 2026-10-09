@@ -18,7 +18,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:ital,wght@0,300..700;1,300..600&family=Lato:wght@400;700;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Serif:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:ital,wght@0,300..700;1,300..600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════════════════════
    braydenw.com
@@ -1401,41 +1401,6 @@ html{scroll-padding-top:5rem}
 }
 .h-card:hover .uh{transform:scale(1.035)}
 
-/* ── IBM hero: Brayden's shipped Platinum Experience hero on ibm.com,
-   rebuilt to match the live page: Plex Serif headline, Plex Sans body,
-   Carbon buttons, the illustration filling the right. */
-.ih{position:absolute;inset:0;overflow:hidden;z-index:-2;display:grid;grid-template-columns:.85fr 1.15fr;align-items:center;
-  gap:2em;padding:0 3em 0 4.5em;font-size:1.45cqw;line-height:1.4;color:#161616;background:#f4f4f4;
-  font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif}
-.ih p{margin:0}
-.ih__h{font-family:'IBM Plex Serif',Georgia,serif;font-weight:400;font-size:3.6em;line-height:1.08;letter-spacing:-.01em}
-.ih__h span{display:block;white-space:nowrap}
-.ih__p{margin-top:1.1em!important;font-size:1.05em;line-height:1.6;max-width:24em}
-.ih__btns{margin-top:2.2em!important;display:flex;gap:1em}
-.ih__btn{display:inline-flex;align-items:center;gap:3em;padding:.85em 1.1em;background:#0f62fe;color:#fff;font-size:.95em;
-  border:1px solid #0f62fe}
-.ih__btn i{font-style:normal}
-.ih__btn--ghost{background:none;color:#0f62fe}
-.ih__art{width:100%;height:auto;display:block}
-.h-card:has(.ih){container-type:inline-size}
-.h-card .ih{transition:transform .8s var(--ease)}
-.h-card:hover .ih{transform:scale(1.035)}
-.h-card .ih{grid-template-columns:1fr;padding:5.5em 0 0}
-.h-card .ih__copy{display:none}
-.h-card--wide .ih .ih__art{width:44%;justify-self:end;margin-right:6%;align-self:start}
-.h-card .ih .ih__art{position:static;inset:auto;width:100%;height:auto;object-fit:contain;z-index:auto;transition:none}
-.h-card:hover .ih .ih__art{transform:none}
-.h-card:has(.ih)::after{background:linear-gradient(180deg,rgba(4,6,26,0) 55%,rgba(4,6,26,.82) 100%)}
-.h-card:not(.h-card--wide) .ih{grid-template-columns:1fr;font-size:1.9cqw;padding:5em 2em 0}
-.h-card:not(.h-card--wide) .ih__copy{display:none}
-.h-card:not(.h-card--wide) .ih__art{width:78%;justify-self:center;align-self:start}
-@media (max-width:760px){
-  .c-cover--ui .ih{grid-template-columns:1fr;font-size:2.6cqw;padding:2.5em 3em}
-  .c-cover--ui .ih__art{display:none}
-  .h-card--wide .ih{grid-template-columns:1fr;font-size:1.9cqw;padding:5em 2em 0}
-  .h-card--wide .ih__copy{display:none}
-  .h-card--wide .ih__art{width:85%;justify-self:center;align-self:start}
-}
 @media (max-width:760px){
   .h-hero{height:clamp(30rem,120vw,40rem)}
   .h-bar{font-size:.95rem}
@@ -1480,15 +1445,8 @@ html{scroll-padding-top:5rem}
 
 <!-- ═══ Opening ══════════════════════════════════════════════════════════ -->
 <section class="c-open">
-  <figure class="c-cover c-cover--top c-cover--ui">
-    <div class="ih" aria-hidden="true">
-      <div class="ih__copy">
-        <p class="ih__h"><span>IBM Platinum</span> <span>Experience</span></p>
-        <p class="ih__p">A premium partnership with your needs at the center of your IBM Software experience.</p>
-        <p class="ih__btns"><span class="ih__btn">Sign up now <i>&rarr;</i></span><span class="ih__btn ih__btn--ghost">Webinar <i>&rarr;</i></span></p>
-      </div>
-      <img class="ih__art" src="/images/ibm-platinum-art.png" width="900" height="704" alt="">
-    </div>
+  <figure class="c-cover c-cover--top">
+    <img src="/images/ibm-platinum-hero.jpg" width="1501" height="668" style="aspect-ratio:auto" alt="The IBM Platinum Experience page Brayden designed, live on ibm.com">
   </figure>
   <p class="c-eyebrow">IBM &middot; Product Design Intern</p>
   <h1>A summer designing at enterprise scale</h1>
