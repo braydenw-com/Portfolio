@@ -10,6 +10,10 @@
   'use strict';
 
   var calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* A new page always opens at the top, never at a remembered scroll spot. */
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (!location.hash) scrollTo(0, 0);
   var fine = matchMedia('(pointer: fine)').matches;
 
   /* ── "enjoyable." — one span per letter ──────────────────────────────── */
