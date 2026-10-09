@@ -974,8 +974,8 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
   --h-text:#fff;
   --h-soft:rgba(255,255,255,.72);
 }
-body[data-page="home"]{background:var(--h-ink);color:var(--h-text)}
-body[data-page="home"] .foot{color:var(--h-soft);border-top-color:rgba(255,255,255,.12)}
+body.v2{background:var(--h-ink);color:var(--h-text)}
+body.v2 .foot{color:var(--h-soft);border-top-color:rgba(255,255,255,.12)}
 
 .h-hero{position:relative;overflow:hidden;height:clamp(32rem,56vw,46rem);
   background:
@@ -988,7 +988,7 @@ body[data-page="home"] .foot{color:var(--h-soft);border-top-color:rgba(255,255,2
 .h-bar__name{font-weight:500;letter-spacing:-.01em}
 .h-bar__links{display:flex;gap:clamp(1.1rem,2.6vw,2.2rem)}
 .h-bar__links a{color:var(--h-soft);transition:color .2s}
-.h-bar__links a:hover,.h-bar__links a:focus-visible{color:var(--h-text)}
+.h-bar__links a:hover,.h-bar__links a:focus-visible,.h-bar__links a[aria-current]{color:var(--h-text)}
 
 /* The pinned version: a glass capsule that drops in once the bar above is
    gone, and leaves again when you're back at the top. */
@@ -1004,6 +1004,7 @@ body[data-page="home"] .foot{color:var(--h-soft);border-top-color:rgba(255,255,2
 .h-pill-nav.is-on{transform:translate(-50%,0);opacity:1;visibility:visible;transition-delay:0s}
 .h-pill-nav a{text-decoration:none;white-space:nowrap;color:var(--h-soft);padding:.5rem .9rem;border-radius:999px;transition:color .2s,background .2s}
 .h-pill-nav a:hover,.h-pill-nav a:focus-visible{color:var(--h-text);background:rgba(255,255,255,.08)}
+.h-pill-nav a[aria-current]{color:var(--h-text)}
 .h-pill-nav__home{display:grid;place-items:center;padding:.5rem .7rem!important}
 .h-pill-nav__home span{width:.75rem;height:.75rem;background:var(--blue);box-shadow:0 0 12px var(--blue)}
 .h-pill-nav .h-pill-nav__hi{background:var(--h-text);color:var(--h-ink);font-weight:500;margin-left:.2rem}
@@ -1041,6 +1042,72 @@ body[data-page="home"] .foot{color:var(--h-soft);border-top-color:rgba(255,255,2
 .h-card__title{margin:0 0 .4rem;font-weight:600;font-size:clamp(1.6rem,2.6vw,2.4rem);letter-spacing:-.03em;line-height:1}
 .h-card__line{max-width:46ch;font-size:clamp(.95rem,1.25vw,1.15rem);line-height:1.4;color:var(--h-soft)}
 
+/* ── About, in the same world ──────────────────────────────────────────── */
+.h-hero.h-hero--short{height:clamp(22rem,34vw,30rem)}
+
+.a-intro,.a-sec,.a-end{max-width:110rem;margin-inline:auto;padding-inline:clamp(1rem,3vw,2.5rem);
+  font-family:var(--display)}
+.a-intro{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(1.5rem,5vw,5rem);
+  align-items:start;padding-block:clamp(2.5rem,6vw,5rem)}
+.a-intro__fig{margin:0;border-radius:22px;overflow:hidden;background:var(--h-deep)}
+.a-intro__fig img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.a-intro__words{max-width:40rem;display:grid;gap:1.15rem;font-size:clamp(1.05rem,1.3vw,1.2rem);
+  line-height:1.6;color:var(--h-soft)}
+.a-intro__words .a-lede{font-size:clamp(1.6rem,2.8vw,2.4rem);line-height:1.15;letter-spacing:-.03em;
+  color:var(--h-text);text-wrap:balance;margin-bottom:.4rem}
+.a-facts{margin:1rem 0 0;display:grid;border-top:1px solid rgba(255,255,255,.14)}
+.a-facts div{display:grid;grid-template-columns:6.5rem 1fr;gap:1rem;padding:.85rem 0;
+  border-bottom:1px solid rgba(255,255,255,.14)}
+.a-facts dt{color:var(--h-soft);font-size:.9rem;letter-spacing:.04em}
+.a-facts dd{margin:0;color:var(--h-text);font-size:1rem}
+
+.a-sec{padding-block:clamp(2.5rem,6vw,4.5rem);border-top:1px solid rgba(255,255,255,.1)}
+.a-sec__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.5rem 2rem;
+  margin-bottom:clamp(1.5rem,3vw,2.5rem)}
+.a-sec__head h2{font-weight:400;font-size:clamp(2rem,4.6vw,4rem);letter-spacing:-.04em;line-height:1;
+  font-variation-settings:'opsz' 96,'wdth' 92,'wght' 400}
+.a-sec__head p{color:var(--h-soft);max-width:30ch}
+
+.a-believe{list-style:none;margin:0;padding:0;counter-reset:b}
+.a-believe li{counter-increment:b;display:grid;grid-template-columns:4rem minmax(0,1fr) minmax(0,1fr);
+  gap:1rem clamp(1rem,3vw,3rem);align-items:baseline;padding:clamp(1.1rem,2.2vw,1.6rem) 0;
+  border-top:1px solid rgba(255,255,255,.14)}
+.a-believe li:last-child{border-bottom:1px solid rgba(255,255,255,.14)}
+.a-believe li::before{content:counter(b,decimal-leading-zero);color:var(--blue);font-size:.95rem;
+  filter:brightness(1.6)}
+.a-believe h3{margin:0;font-weight:500;font-size:clamp(1.2rem,1.9vw,1.6rem);letter-spacing:-.02em;line-height:1.2;
+  text-wrap:balance}
+.a-believe p{color:var(--h-soft);line-height:1.55;max-width:44ch}
+
+.a-life{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(.9rem,1.6vw,1.4rem)}
+.a-shot{position:relative;margin:0;border-radius:22px;overflow:hidden;aspect-ratio:4/5;background:var(--h-deep);
+  isolation:isolate}
+.a-shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+  transition:transform .8s var(--ease)}
+.a-shot::after{content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(4,6,26,0) 55%,rgba(4,6,26,.85) 100%)}
+.a-shot:hover img{transform:scale(1.035)}
+.a-shot figcaption{position:absolute;left:1.25rem;right:1.25rem;bottom:1.1rem;font-size:1.05rem;line-height:1.3}
+
+.a-end{padding-block:clamp(3.5rem,8vw,6.5rem);border-top:1px solid rgba(255,255,255,.1)}
+.a-end h2{font-weight:400;font-size:clamp(2.4rem,6vw,5.2rem);letter-spacing:-.045em;line-height:1;
+  font-variation-settings:'opsz' 96,'wdth' 92,'wght' 400}
+.a-end p{margin-top:1rem;color:var(--h-soft);font-size:1.1rem}
+.a-end__links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
+.a-end__links a{text-decoration:none;padding:.7rem 1.2rem;border-radius:999px;
+  border:1px solid rgba(255,255,255,.2);color:var(--h-text);transition:background .2s}
+.a-end__links a:hover,.a-end__links a:focus-visible{background:rgba(255,255,255,.08)}
+.a-end__links .a-end__primary{background:var(--h-text);color:var(--h-ink);border-color:var(--h-text)}
+.a-end__links .a-end__primary:hover{background:#dfe6ff}
+
+@media (max-width:760px){
+  .h-hero.h-hero--short{height:clamp(16rem,70vw,22rem)}
+  .a-intro{grid-template-columns:1fr}
+  .a-believe li{grid-template-columns:2.5rem minmax(0,1fr)}
+  .a-believe p{grid-column:2}
+  .a-life{grid-template-columns:1fr}
+}
+
 @media (max-width:760px){
   .h-hero{height:clamp(30rem,120vw,40rem)}
   .h-bar{font-size:.95rem}
@@ -1054,152 +1121,135 @@ body[data-page="home"] .foot{color:var(--h-soft);border-top-color:rgba(255,255,2
 
 </style>
 </head>
-<body class="no-js" data-page="about">
+<body class="no-js v2" data-page="about">
 <script>document.body.classList.remove('no-js');</script>
 
-<a class="skip" href="#curious">Skip to the writing</a>
+<a class="skip" href="#me">Skip to the writing</a>
 
-<!-- Shared by every page — edit here, never in a page source. -->
-<header class="nav" id="nav" data-open="false">
-  <a class="nav__me" href="/">Brayden&nbsp;Wisniewski</a>
-
-  <button class="burger" id="burger" type="button"
-          aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
-    <span class="burger__box" aria-hidden="true"><i></i><i></i></span>
-  </button>
-
-  <nav class="nav__links" id="nav-links" aria-label="Sections">
-    <a href="/#work">Work</a>
-    <a href="/about">About</a>
-    <a href="#hello" class="nav__hi">Say hi</a>
-  </nav>
+<!-- ═══ Opening — the same light as home, shorter, with the title edge to edge -->
+<header class="h-hero h-hero--short" id="h-hero">
+  <canvas class="h-light" id="h-light" aria-hidden="true"></canvas>
+  <div class="h-bar" id="h-bar">
+    <a class="h-bar__name" href="/">Brayden Wisniewski</a>
+    <nav class="h-bar__links" aria-label="Sections">
+      <a href="/#work">Work</a>
+      <a href="/about" aria-current="page">About</a>
+      <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:brayden@braydenw.com">Contact</a>
+    </nav>
+  </div>
+  <h1 class="h-name" id="h-name">A little more about me.</h1>
 </header>
+
+<nav class="h-pill-nav" id="h-pill-nav" aria-label="Sections, pinned" hidden>
+  <a class="h-pill-nav__home" href="/" aria-label="Home"><span aria-hidden="true"></span></a>
+  <a href="/#work">Work</a>
+  <a href="/about" aria-current="page">About</a>
+  <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
+  <a class="h-pill-nav__hi" href="mailto:brayden@braydenw.com">Contact</a>
+</nav>
 
 <main id="top">
 
-<!-- ═══ Opening ════════════════════════════════════════════════════════════ -->
-<section class="ab ab-open">
-  <div class="ab-intro">
-    <figure class="ab-intro__fig">
-      <img src="/images/about-lead.jpg" alt="Brayden holding his Config badge outside the conference in San Francisco"
-           width="1200" height="1600">
-    </figure>
+<!-- ═══ Who ══════════════════════════════════════════════════════════════ -->
+<section class="a-intro" id="me">
+  <figure class="a-intro__fig">
+    <img src="/images/about-lead.jpg" width="1200" height="1600"
+         alt="Brayden holding his Config badge outside the conference in San Francisco">
+  </figure>
 
-    <div class="ab-intro__words">
-      <h1 class="ab-title">A little more about me.</h1>
+  <div class="a-intro__words">
+    <p class="a-lede">I&rsquo;m Brayden, a UX design senior at SCAD in Savannah, graduating March 2027.</p>
+    <p>
+      I&rsquo;m a curious designer who likes documenting the process out loud,
+      focused on human-centered design and where AI fits into it. Lately I&rsquo;ve
+      been especially interested in how people stay in control of the AI agents
+      they use.
+    </p>
+    <p>
+      Previously, I interned at IBM in Austin on the Db2 team, where my first
+      design shipped in July, and worked on SCADpro projects with Deloitte and
+      Hartford HealthCare. I&rsquo;ve also held campus roles with Framer and Adobe.
+    </p>
+    <p>
+      Right now I&rsquo;m Director of Partnerships at SCAD FLUX, plus two other SCAD
+      roles in admissions and career &amp; alumni success. My senior project is an
+      ag-tech solution helping cattle ranchers deal with New World Screwworm. Most
+      Sundays, I post a list of open design roles on LinkedIn.
+    </p>
 
-      <div class="ab-text">
-        <p>
-          I&rsquo;m Brayden, a UX design senior at
-          <span class="peek">SCAD<img class="peek__bee" src="/images/scad-bee.webp" alt="" aria-hidden="true" width="1280" height="1280" loading="lazy"></span>
-          in Savannah, graduating March 2027.
-        </p>
-        <p>
-          I&rsquo;m a curious designer who likes documenting the process out loud,
-          focused on human-centered design and where AI fits into it &mdash; lately
-          I&rsquo;ve been especially interested in how people stay in control of the
-          AI agents they use.
-        </p>
-        <p>
-          Previously, I interned at IBM in Austin on the Db2 team, where my first
-          design shipped in July, and worked on SCADpro projects with Deloitte and
-          Hartford HealthCare. I&rsquo;ve also held campus roles with Framer and Adobe.
-        </p>
-        <p>
-          Right now I&rsquo;m Director of Partnerships at SCAD FLUX, plus two other
-          SCAD roles in admissions and career &amp; alumni success. My senior project
-          is an ag-tech solution helping cattle ranchers deal with New World
-          Screwworm &mdash; and most Sundays, I post a list of open design roles on
-          LinkedIn.
-        </p>
-        <p>
-          I like making complicated things feel a little more understandable, useful,
-          and human. Outside of all that: pottery, coffee shops, and asking a lot of
-          questions.
-        </p>
-      </div>
-    </div>
+    <dl class="a-facts">
+      <div><dt>Now</dt><dd>SCAD FLUX, Director of Partnerships</dd></div>
+      <div><dt>Before</dt><dd>IBM Db2 &middot; SCADpro &middot; Framer &middot; Adobe</dd></div>
+      <div><dt>Asking</dt><dd>How do people stay in control of their AI agents?</dd></div>
+    </dl>
   </div>
 </section>
 
-<!-- ═══ Things I believe ═══════════════════════════════════════════════════ -->
-<section class="ab ab-chapter">
-  <h2 class="ab-h2">Things I believe.</h2>
+<!-- ═══ Things I believe ═════════════════════════════════════════════════ -->
+<section class="a-sec">
+  <div class="a-sec__head">
+    <h2>Things I believe.</h2>
+  </div>
 
-  <div class="ab-believe">
-    <article class="ab-believe__item">
+  <ol class="a-believe">
+    <li>
       <h3>Good designers should have a life outside design.</h3>
       <p>The things I do away from a screen usually make me better when I come back to one.</p>
-    </article>
-
-    <article class="ab-believe__item">
+    </li>
+    <li>
       <h3>Going into the field beats another hour in Figma.</h3>
       <p>Seeing how people actually work, talk, improvise, and solve problems tells me more than assumptions ever could.</p>
-    </article>
-
-    <article class="ab-believe__item">
+    </li>
+    <li>
       <h3>The best networking usually doesn&rsquo;t feel like networking.</h3>
       <p>Most of the relationships that have mattered started with curiosity, not asking someone for something.</p>
-    </article>
-
-    <article class="ab-believe__item">
+    </li>
+    <li>
       <h3>Complex products don&rsquo;t need to feel complex.</h3>
       <p>Some of my favorite design problems are the ones where the system underneath is incredibly complicated, but the experience doesn&rsquo;t have to be.</p>
-    </article>
-
-    <article class="ab-believe__item">
+    </li>
+    <li>
       <h3>I&rsquo;ll probably say yes to the weird project.</h3>
       <p>Those tend to be the ones I learn the most from.</p>
-    </article>
-  </div>
+    </li>
+  </ol>
 </section>
 
-<!-- ═══ Outside design ═════════════════════════════════════════════════════ -->
-<section class="ab ab-chapter">
-  <h2 class="ab-h2">But design is only part of it.</h2>
+<!-- ═══ Outside design ═══════════════════════════════════════════════════ -->
+<section class="a-sec">
+  <div class="a-sec__head">
+    <h2>But design is only part of it.</h2>
+    <p>Pottery, coffee shops, somewhere new, and asking a lot of questions.</p>
+  </div>
 
-  <p class="ab-summary">
-    going somewhere new, making things away from a screen, finding really good food,
-    and spending time with good people.
-  </p>
-
-  <div class="ab-grid">
-    <figure>
-      <img src="/images/travel.jpg" style="object-position:center 42%"
-           alt="Brayden and a friend outside a bagel shop in New York, holding coffee and paper bags"
-           width="1050" height="1400" loading="lazy">
+  <div class="a-life">
+    <figure class="a-shot">
+      <img src="/images/travel.jpg" width="1050" height="1400" loading="lazy" style="object-position:center 42%"
+           alt="Brayden and a friend outside a bagel shop in New York, holding coffee and paper bags">
       <figcaption>I love going somewhere new.</figcaption>
     </figure>
-    <figure>
-      <img src="/images/ceramics.jpg" style="object-position:center 50%"
-           alt="A stack of just-thrown ceramic bowls held over a studio floor"
-           width="1400" height="1050" loading="lazy">
+    <figure class="a-shot">
+      <img src="/images/ceramics.jpg" width="1400" height="1050" loading="lazy"
+           alt="A stack of just-thrown ceramic bowls held over a studio floor">
       <figcaption>My favorite way to get away from a screen.</figcaption>
     </figure>
-    <figure>
-      <img src="/images/food.jpg" style="object-position:center 40%"
-           alt="Brayden eating a turkey leg at a fair at night"
-           width="1400" height="1050" loading="lazy">
+    <figure class="a-shot">
+      <img src="/images/food.jpg" width="1400" height="1050" loading="lazy" style="object-position:center 40%"
+           alt="Brayden eating a turkey leg at a fair at night">
       <figcaption>I will absolutely plan a day around food.</figcaption>
     </figure>
   </div>
-
 </section>
 
-<!-- ═══ Ending — no rule above it; it just keeps talking ═══════════════════ -->
-<section class="ab ab-last" id="hello">
-  <h2 class="ab-title ab-title--end">Anyway, that&rsquo;s me.</h2>
-
-  <p class="ab-outro">
-    There&rsquo;s more to the story, but it&rsquo;s probably better over coffee.
-  </p>
-
-  <a class="say-hi" href="mailto:brayden@braydenw.com">Say hi <span aria-hidden="true">&rarr;</span></a>
-
-  <nav class="ab-ends" aria-label="Elsewhere">
+<!-- ═══ Ending ═══════════════════════════════════════════════════════════ -->
+<section class="a-end" id="hello">
+  <h2>Anyway, that&rsquo;s me.</h2>
+  <p>There&rsquo;s more to the story, but it&rsquo;s probably better over coffee.</p>
+  <div class="a-end__links">
+    <a class="a-end__primary" href="mailto:brayden@braydenw.com">brayden@braydenw.com</a>
     <a href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="mailto:brayden@braydenw.com">Email</a>
-  </nav>
+  </div>
 </section>
 
 </main>

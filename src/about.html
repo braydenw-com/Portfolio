@@ -21,138 +21,135 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:ital,wght@0,300..700;1,300..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body class="no-js" data-page="about">
+<body class="no-js v2" data-page="about">
 <script>document.body.classList.remove('no-js');</script>
 
-<a class="skip" href="#curious">Skip to the writing</a>
+<a class="skip" href="#me">Skip to the writing</a>
 
-<!-- @include nav -->
+<!-- ═══ Opening — the same light as home, shorter, with the title edge to edge -->
+<header class="h-hero h-hero--short" id="h-hero">
+  <canvas class="h-light" id="h-light" aria-hidden="true"></canvas>
+  <div class="h-bar" id="h-bar">
+    <a class="h-bar__name" href="/">Brayden Wisniewski</a>
+    <nav class="h-bar__links" aria-label="Sections">
+      <a href="/#work">Work</a>
+      <a href="/about" aria-current="page">About</a>
+      <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:brayden@braydenw.com">Contact</a>
+    </nav>
+  </div>
+  <h1 class="h-name" id="h-name">A little more about me.</h1>
+</header>
+
+<nav class="h-pill-nav" id="h-pill-nav" aria-label="Sections, pinned" hidden>
+  <a class="h-pill-nav__home" href="/" aria-label="Home"><span aria-hidden="true"></span></a>
+  <a href="/#work">Work</a>
+  <a href="/about" aria-current="page">About</a>
+  <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
+  <a class="h-pill-nav__hi" href="mailto:brayden@braydenw.com">Contact</a>
+</nav>
 
 <main id="top">
 
-<!-- ═══ Opening ════════════════════════════════════════════════════════════ -->
-<section class="ab ab-open">
-  <div class="ab-intro">
-    <figure class="ab-intro__fig">
-      <img src="/images/about-lead.jpg" alt="Brayden holding his Config badge outside the conference in San Francisco"
-           width="1200" height="1600">
-    </figure>
+<!-- ═══ Who ══════════════════════════════════════════════════════════════ -->
+<section class="a-intro" id="me">
+  <figure class="a-intro__fig">
+    <img src="/images/about-lead.jpg" width="1200" height="1600"
+         alt="Brayden holding his Config badge outside the conference in San Francisco">
+  </figure>
 
-    <div class="ab-intro__words">
-      <h1 class="ab-title">A little more about me.</h1>
+  <div class="a-intro__words">
+    <p class="a-lede">I&rsquo;m Brayden, a UX design senior at SCAD in Savannah, graduating March 2027.</p>
+    <p>
+      I&rsquo;m a curious designer who likes documenting the process out loud,
+      focused on human-centered design and where AI fits into it. Lately I&rsquo;ve
+      been especially interested in how people stay in control of the AI agents
+      they use.
+    </p>
+    <p>
+      Previously, I interned at IBM in Austin on the Db2 team, where my first
+      design shipped in July, and worked on SCADpro projects with Deloitte and
+      Hartford HealthCare. I&rsquo;ve also held campus roles with Framer and Adobe.
+    </p>
+    <p>
+      Right now I&rsquo;m Director of Partnerships at SCAD FLUX, plus two other SCAD
+      roles in admissions and career &amp; alumni success. My senior project is an
+      ag-tech solution helping cattle ranchers deal with New World Screwworm. Most
+      Sundays, I post a list of open design roles on LinkedIn.
+    </p>
 
-      <div class="ab-text">
-        <p>
-          I&rsquo;m Brayden, a UX design senior at
-          <span class="peek">SCAD<img class="peek__bee" src="/images/scad-bee.webp" alt="" aria-hidden="true" width="1280" height="1280" loading="lazy"></span>
-          in Savannah, graduating March 2027.
-        </p>
-        <p>
-          I&rsquo;m a curious designer who likes documenting the process out loud,
-          focused on human-centered design and where AI fits into it &mdash; lately
-          I&rsquo;ve been especially interested in how people stay in control of the
-          AI agents they use.
-        </p>
-        <p>
-          Previously, I interned at IBM in Austin on the Db2 team, where my first
-          design shipped in July, and worked on SCADpro projects with Deloitte and
-          Hartford HealthCare. I&rsquo;ve also held campus roles with Framer and Adobe.
-        </p>
-        <p>
-          Right now I&rsquo;m Director of Partnerships at SCAD FLUX, plus two other
-          SCAD roles in admissions and career &amp; alumni success. My senior project
-          is an ag-tech solution helping cattle ranchers deal with New World
-          Screwworm &mdash; and most Sundays, I post a list of open design roles on
-          LinkedIn.
-        </p>
-        <p>
-          I like making complicated things feel a little more understandable, useful,
-          and human. Outside of all that: pottery, coffee shops, and asking a lot of
-          questions.
-        </p>
-      </div>
-    </div>
+    <dl class="a-facts">
+      <div><dt>Now</dt><dd>SCAD FLUX, Director of Partnerships</dd></div>
+      <div><dt>Before</dt><dd>IBM Db2 &middot; SCADpro &middot; Framer &middot; Adobe</dd></div>
+      <div><dt>Asking</dt><dd>How do people stay in control of their AI agents?</dd></div>
+    </dl>
   </div>
 </section>
 
-<!-- ═══ Things I believe ═══════════════════════════════════════════════════ -->
-<section class="ab ab-chapter">
-  <h2 class="ab-h2">Things I believe.</h2>
+<!-- ═══ Things I believe ═════════════════════════════════════════════════ -->
+<section class="a-sec">
+  <div class="a-sec__head">
+    <h2>Things I believe.</h2>
+  </div>
 
-  <div class="ab-believe">
-    <article class="ab-believe__item">
+  <ol class="a-believe">
+    <li>
       <h3>Good designers should have a life outside design.</h3>
       <p>The things I do away from a screen usually make me better when I come back to one.</p>
-    </article>
-
-    <article class="ab-believe__item">
+    </li>
+    <li>
       <h3>Going into the field beats another hour in Figma.</h3>
       <p>Seeing how people actually work, talk, improvise, and solve problems tells me more than assumptions ever could.</p>
-    </article>
-
-    <article class="ab-believe__item">
+    </li>
+    <li>
       <h3>The best networking usually doesn&rsquo;t feel like networking.</h3>
       <p>Most of the relationships that have mattered started with curiosity, not asking someone for something.</p>
-    </article>
-
-    <article class="ab-believe__item">
+    </li>
+    <li>
       <h3>Complex products don&rsquo;t need to feel complex.</h3>
       <p>Some of my favorite design problems are the ones where the system underneath is incredibly complicated, but the experience doesn&rsquo;t have to be.</p>
-    </article>
-
-    <article class="ab-believe__item">
+    </li>
+    <li>
       <h3>I&rsquo;ll probably say yes to the weird project.</h3>
       <p>Those tend to be the ones I learn the most from.</p>
-    </article>
-  </div>
+    </li>
+  </ol>
 </section>
 
-<!-- ═══ Outside design ═════════════════════════════════════════════════════ -->
-<section class="ab ab-chapter">
-  <h2 class="ab-h2">But design is only part of it.</h2>
+<!-- ═══ Outside design ═══════════════════════════════════════════════════ -->
+<section class="a-sec">
+  <div class="a-sec__head">
+    <h2>But design is only part of it.</h2>
+    <p>Pottery, coffee shops, somewhere new, and asking a lot of questions.</p>
+  </div>
 
-  <p class="ab-summary">
-    going somewhere new, making things away from a screen, finding really good food,
-    and spending time with good people.
-  </p>
-
-  <div class="ab-grid">
-    <figure>
-      <img src="/images/travel.jpg" style="object-position:center 42%"
-           alt="Brayden and a friend outside a bagel shop in New York, holding coffee and paper bags"
-           width="1050" height="1400" loading="lazy">
+  <div class="a-life">
+    <figure class="a-shot">
+      <img src="/images/travel.jpg" width="1050" height="1400" loading="lazy" style="object-position:center 42%"
+           alt="Brayden and a friend outside a bagel shop in New York, holding coffee and paper bags">
       <figcaption>I love going somewhere new.</figcaption>
     </figure>
-    <figure>
-      <img src="/images/ceramics.jpg" style="object-position:center 50%"
-           alt="A stack of just-thrown ceramic bowls held over a studio floor"
-           width="1400" height="1050" loading="lazy">
+    <figure class="a-shot">
+      <img src="/images/ceramics.jpg" width="1400" height="1050" loading="lazy"
+           alt="A stack of just-thrown ceramic bowls held over a studio floor">
       <figcaption>My favorite way to get away from a screen.</figcaption>
     </figure>
-    <figure>
-      <img src="/images/food.jpg" style="object-position:center 40%"
-           alt="Brayden eating a turkey leg at a fair at night"
-           width="1400" height="1050" loading="lazy">
+    <figure class="a-shot">
+      <img src="/images/food.jpg" width="1400" height="1050" loading="lazy" style="object-position:center 40%"
+           alt="Brayden eating a turkey leg at a fair at night">
       <figcaption>I will absolutely plan a day around food.</figcaption>
     </figure>
   </div>
-
 </section>
 
-<!-- ═══ Ending — no rule above it; it just keeps talking ═══════════════════ -->
-<section class="ab ab-last" id="hello">
-  <h2 class="ab-title ab-title--end">Anyway, that&rsquo;s me.</h2>
-
-  <p class="ab-outro">
-    There&rsquo;s more to the story, but it&rsquo;s probably better over coffee.
-  </p>
-
-  <a class="say-hi" href="mailto:brayden@braydenw.com">Say hi <span aria-hidden="true">&rarr;</span></a>
-
-  <nav class="ab-ends" aria-label="Elsewhere">
+<!-- ═══ Ending ═══════════════════════════════════════════════════════════ -->
+<section class="a-end" id="hello">
+  <h2>Anyway, that&rsquo;s me.</h2>
+  <p>There&rsquo;s more to the story, but it&rsquo;s probably better over coffee.</p>
+  <div class="a-end__links">
+    <a class="a-end__primary" href="mailto:brayden@braydenw.com">brayden@braydenw.com</a>
     <a href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="mailto:brayden@braydenw.com">Email</a>
-  </nav>
+  </div>
 </section>
 
 </main>
