@@ -128,7 +128,7 @@
           <button type="button" data-tip="Add reaction" tabindex="-1"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-smile"/></svg></button>
           <button type="button" data-tip="Reply in thread" tabindex="-1"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-msg"/></svg></button>
           <button type="button" data-tip="Share message" tabindex="-1"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-share"/></svg></button>
-          <span class="sd-key sd-key--bar" data-new="New"><button type="button" class="sd-bar__save" data-act="save" data-tip="Save for Me" aria-pressed="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bookmark"/></svg></button>
+          <span class="sd-key sd-key--bar"><button type="button" class="sd-bar__save" data-act="save" data-tip="Save for Me" aria-pressed="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bookmark"/></svg></button>
           <button type="button" class="sd-bar__pin" data-act="pin" data-tip="Pin for All" aria-pressed="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg></button></span>
           <button type="button" data-tip="More actions" tabindex="-1"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-more"/></svg></button>
         </div>
@@ -143,7 +143,7 @@
     </div>
     <div class="sd__saved">
       <div class="sd__savedhead">Saved</div>
-      <div class="sd-tabs sd-key" data-new="Renamed" role="tablist">
+      <div class="sd-tabs sd-key" role="tablist">
         <button type="button" role="tab" aria-selected="true" data-tab="save">Saved for Me</button>
         <button type="button" role="tab" aria-selected="false" data-tab="pin">Pinned for All</button>
       </div>
@@ -180,7 +180,7 @@
     </div>
     <div class="sd__chan">
       <div class="sd__head"><svg class="i i--hd" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-hash"/></svg><b>design</b>
-        <span class="sn-pill sd-key" data-new="New" data-pill><svg class="i i--sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg><span>Mentions</span></span>
+        <span class="sn-pill sd-key" data-pill><svg class="i i--sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg><span>Mentions</span></span>
       </div>
       <div class="sd-msg sd-msg--quiet">
         <div class="sd-av" style="background:#E01E5A">JK</div>
@@ -193,12 +193,12 @@
     </div>
     <div class="sn-panel">
       <div class="sn-panel__head"><b>System Notifications</b><span>Control how and when you&rsquo;re notified</span></div>
-      <div class="sn-over">
-        <div class="sn-tile sn-tile--all"><svg class="i i--sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-vol"/></svg><small>ALL</small><b data-n="all">0</b></div>
-        <div class="sn-tile sn-tile--men"><svg class="i i--sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg><small>MENTIONS</small><b data-n="mentions">0</b></div>
-        <div class="sn-tile sn-tile--mut"><svg class="i i--sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-belloff"/></svg><small>MUTED</small><b data-n="muted">0</b></div>
-      </div>
-      <div class="sd-key sd-key--rows" data-new="New">
+      <p class="sn-sum">
+        <span class="sn-sum--all"><svg class="i i--sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-vol"/></svg><b data-n="all">0</b> on All</span>
+        <span class="sn-sum--men"><svg class="i i--sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg><b data-n="mentions">0</b> on Mentions</span>
+        <span class="sn-sum--mut"><svg class="i i--sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-belloff"/></svg><b data-n="muted">0</b> muted</span>
+      </p>
+      <div class="sd-key sd-key--rows">
       <p class="sn-sub"><b>By Channel</b>Choose which messages trigger alerts for each channel.</p>
         <div class="sn-row" data-ch="general">
           <span class="sn-row__name">#general</span>

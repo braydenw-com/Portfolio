@@ -1177,15 +1177,10 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
 .sd-ctx{opacity:.38;filter:saturate(.7);transition:opacity .3s}
 .sd:hover .sd-ctx{opacity:.6}
 
-.sd-key{position:relative;border-radius:10px;box-shadow:0 0 0 2px #fff,0 0 0 4px #1b4dff,0 0 24px 4px rgba(27,77,255,.45)}
-.sd-key::before{content:attr(data-new);position:absolute;top:-.7rem;left:.6rem;z-index:4;padding:.08rem .45rem;border-radius:999px;
-  background:#1b4dff;color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.sd-key{position:relative;border-radius:10px;box-shadow:0 0 0 2px #1b4dff}
 .sd-key--bar{display:flex;border-radius:6px}
-.sd-key--bar::before{top:auto;bottom:-1.35rem;left:50%;translate:-50% 0}
 .sd-tabs.sd-key{border-radius:4px;margin:.5rem .6rem 0;padding:0 .4rem}
-.sd-tabs.sd-key::before{left:auto;right:.4rem}
-.sn-pill.sd-key{box-shadow:0 0 0 2px #fff,0 0 0 4px #1b4dff,0 0 18px 3px rgba(27,77,255,.45);border-radius:999px}
-.sn-pill.sd-key::before{top:auto;bottom:-1.25rem;left:50%;translate:-50% 0}
+.sn-pill.sd-key{box-shadow:0 0 0 2px #fff,0 0 0 3.5px #1b4dff;border-radius:999px}
 .sd-key--rows{margin:.4rem .6rem 0;padding-bottom:.4rem}
 .sd-key--rows .sn-sub{padding-left:.5rem}
 .sd-key--rows .sn-row{padding-inline:.5rem}
@@ -1218,7 +1213,6 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
 .sd-bar__save[aria-pressed="true"] .i{fill:currentColor}
 .sd-bar__pin[aria-pressed="true"]{background:#FFF4E5;color:#E8A530}
 .sd-bar__pin[aria-pressed="true"] .i{fill:currentColor}
-.sd-bar__save,.sd-bar__pin{box-shadow:inset 0 0 0 1.5px rgba(18,100,163,.35)}
 .sd [data-tip]::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
   background:var(--sk-ink);color:#fff;font-size:12px;font-weight:400;padding:.35rem .6rem;border-radius:4px;white-space:nowrap;
   box-shadow:0 4px 12px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:opacity .12s;z-index:5}
@@ -1258,15 +1252,11 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
 .sn-panel__head{padding:.7rem 1.1rem;border-bottom:1px solid var(--sk-line)}
 .sn-panel__head b{display:block;font-size:17px}
 .sn-panel__head span{font-size:12px;color:var(--sk-mute)}
-.sn-over{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;padding:.9rem 1.1rem;border-bottom:1px solid #EEE}
-.sn-tile{border-radius:8px;padding:.55rem;border:1px solid;display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:.3rem}
-.sn-tile small{font-size:10px;font-weight:700}
-.sn-tile b{grid-column:1 / -1;font-size:20px;color:var(--sk-ink);font-variant-numeric:tabular-nums}
-.sn-tile--all{background:#FAF8FF;border-color:#E0D9F3;color:#611F69}
-.sn-tile--men{background:#F0F8FF;border-color:#D0E7FF;color:#1264A3}
-.sn-tile--mut{background:#F5F5F5;border-color:var(--sk-line);color:var(--sk-mute)}
-.sn-tile b.is-bump{animation:snbump .35s}
-@keyframes snbump{40%{transform:scale(1.18)}}
+.sn-sum{display:flex;flex-wrap:wrap;gap:.35rem .9rem;padding:.8rem 1.1rem;border-bottom:1px solid #EEE;font-size:13px;color:var(--sk-mute)}
+.sn-sum span{display:inline-flex;align-items:center;gap:.3rem}
+.sn-sum b{color:var(--sk-ink);font-variant-numeric:tabular-nums}
+.sn-sum--all .i{color:#611F69}
+.sn-sum--men .i{color:#1264A3}
 .sn-sub{padding:.8rem 1.1rem .4rem;font-size:12px;color:var(--sk-mute)}
 .sn-sub b{display:block;font-size:13px;color:var(--sk-ink)}
 .sn-row{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.3rem 1.1rem}
@@ -1289,7 +1279,6 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
 @media (max-width:760px){
   .sd{grid-template-columns:1fr;width:auto;left:auto;translate:none}
   .sk-rail,.sk-side{display:none}
-  .sd-key--bar::before{bottom:auto;top:-1.3rem}
   .sd-msg:not(.sd-msg--quiet){padding-top:3.2rem}
   .sn-panel{border-left:0;border-top:1px solid var(--sk-line)}
   .sd-msg:not(.sd-msg--quiet){padding-top:2.9rem}
@@ -1311,7 +1300,7 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
 .uh__bar{position:absolute;top:-1.4em;right:1.4em;display:flex;background:#fff;border:1px solid #DDD;border-radius:.6em;
   box-shadow:0 .3em 1em rgba(0,0,0,.18);padding:.15em}
 .uh__bar span{position:relative;width:2.3em;height:2.3em;display:grid;place-items:center;border-radius:.45em;color:#616061}
-.uh__bar .is-save{background:#E8F5FA;color:#1D9BD1;box-shadow:0 0 0 .15em #1b4dff,0 0 1.4em .2em rgba(27,77,255,.5)}
+.uh__bar .is-save{background:#E8F5FA;color:#1D9BD1}
 .uh__bar .is-save .i{fill:currentColor}
 .uh__bar em{position:absolute;bottom:calc(100% + .7em);left:50%;translate:-50% 0;white-space:nowrap;font-style:normal;
   background:#1D1C1D;color:#fff;font-size:.95em;padding:.35em .7em;border-radius:.35em}
@@ -1483,7 +1472,7 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
           <button type="button" data-tip="Add reaction" tabindex="-1"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-smile"/></svg></button>
           <button type="button" data-tip="Reply in thread" tabindex="-1"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-msg"/></svg></button>
           <button type="button" data-tip="Share message" tabindex="-1"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-share"/></svg></button>
-          <span class="sd-key sd-key--bar" data-new="New"><button type="button" class="sd-bar__save" data-act="save" data-tip="Save for Me" aria-pressed="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bookmark"/></svg></button>
+          <span class="sd-key sd-key--bar"><button type="button" class="sd-bar__save" data-act="save" data-tip="Save for Me" aria-pressed="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bookmark"/></svg></button>
           <button type="button" class="sd-bar__pin" data-act="pin" data-tip="Pin for All" aria-pressed="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg></button></span>
           <button type="button" data-tip="More actions" tabindex="-1"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-more"/></svg></button>
         </div>
@@ -1498,7 +1487,7 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
     </div>
     <div class="sd__saved">
       <div class="sd__savedhead">Saved</div>
-      <div class="sd-tabs sd-key" data-new="Renamed" role="tablist">
+      <div class="sd-tabs sd-key" role="tablist">
         <button type="button" role="tab" aria-selected="true" data-tab="save">Saved for Me</button>
         <button type="button" role="tab" aria-selected="false" data-tab="pin">Pinned for All</button>
       </div>
@@ -1535,7 +1524,7 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
     </div>
     <div class="sd__chan">
       <div class="sd__head"><svg class="i i--hd" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-hash"/></svg><b>design</b>
-        <span class="sn-pill sd-key" data-new="New" data-pill><svg class="i i--sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg><span>Mentions</span></span>
+        <span class="sn-pill sd-key" data-pill><svg class="i i--sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg><span>Mentions</span></span>
       </div>
       <div class="sd-msg sd-msg--quiet">
         <div class="sd-av" style="background:#E01E5A">JK</div>
@@ -1548,12 +1537,12 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
     </div>
     <div class="sn-panel">
       <div class="sn-panel__head"><b>System Notifications</b><span>Control how and when you&rsquo;re notified</span></div>
-      <div class="sn-over">
-        <div class="sn-tile sn-tile--all"><svg class="i i--sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-vol"/></svg><small>ALL</small><b data-n="all">0</b></div>
-        <div class="sn-tile sn-tile--men"><svg class="i i--sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg><small>MENTIONS</small><b data-n="mentions">0</b></div>
-        <div class="sn-tile sn-tile--mut"><svg class="i i--sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-belloff"/></svg><small>MUTED</small><b data-n="muted">0</b></div>
-      </div>
-      <div class="sd-key sd-key--rows" data-new="New">
+      <p class="sn-sum">
+        <span class="sn-sum--all"><svg class="i i--sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-vol"/></svg><b data-n="all">0</b> on All</span>
+        <span class="sn-sum--men"><svg class="i i--sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg><b data-n="mentions">0</b> on Mentions</span>
+        <span class="sn-sum--mut"><svg class="i i--sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-belloff"/></svg><b data-n="muted">0</b> muted</span>
+      </p>
+      <div class="sd-key sd-key--rows">
       <p class="sn-sub"><b>By Channel</b>Choose which messages trigger alerts for each channel.</p>
         <div class="sn-row" data-ch="general">
           <span class="sn-row__name">#general</span>
@@ -2033,7 +2022,7 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
     };
     var pill = notif.querySelector('[data-pill]');
     var pillIcon = pill.querySelector('use');
-    var renderNotif = function (changed) {
+    var renderNotif = function () {
       var counts = { all: 0, mentions: 0, muted: 0 };
       notif.querySelectorAll('[data-ch]').forEach(function (row) {
         var lv = levels[row.dataset.ch];
@@ -2045,9 +2034,6 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
       });
       Object.keys(counts).forEach(function (k) {
         var n = notif.querySelector('[data-n="' + k + '"]');
-        if (n.textContent !== String(counts[k]) && changed) {
-          n.classList.remove('is-bump'); void n.offsetWidth; n.classList.add('is-bump');
-        }
         n.textContent = counts[k];
       });
       var d = levels.design;
@@ -2061,11 +2047,11 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
         var ch = b.closest('[data-ch]').dataset.ch;
         if (levels[ch] === b.dataset.lv) return;
         levels[ch] = b.dataset.lv;
-        renderNotif(true);
+        renderNotif();
         toast(notif, 'Alerts updated for #' + ch);
       });
     });
-    renderNotif(false);
+    renderNotif();
   }
 
   console.log(

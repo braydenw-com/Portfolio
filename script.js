@@ -398,7 +398,7 @@
     };
     var pill = notif.querySelector('[data-pill]');
     var pillIcon = pill.querySelector('use');
-    var renderNotif = function (changed) {
+    var renderNotif = function () {
       var counts = { all: 0, mentions: 0, muted: 0 };
       notif.querySelectorAll('[data-ch]').forEach(function (row) {
         var lv = levels[row.dataset.ch];
@@ -410,9 +410,6 @@
       });
       Object.keys(counts).forEach(function (k) {
         var n = notif.querySelector('[data-n="' + k + '"]');
-        if (n.textContent !== String(counts[k]) && changed) {
-          n.classList.remove('is-bump'); void n.offsetWidth; n.classList.add('is-bump');
-        }
         n.textContent = counts[k];
       });
       var d = levels.design;
@@ -426,11 +423,11 @@
         var ch = b.closest('[data-ch]').dataset.ch;
         if (levels[ch] === b.dataset.lv) return;
         levels[ch] = b.dataset.lv;
-        renderNotif(true);
+        renderNotif();
         toast(notif, 'Alerts updated for #' + ch);
       });
     });
-    renderNotif(false);
+    renderNotif();
   }
 
   console.log(
