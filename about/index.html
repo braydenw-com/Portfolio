@@ -1068,20 +1068,6 @@ body.v2 .foot{color:var(--h-soft);border-top-color:rgba(255,255,255,.12)}
   font-variation-settings:'opsz' 96,'wdth' 92,'wght' 400}
 .a-sec__head p{color:var(--h-soft);max-width:30ch}
 
-.a-believe{list-style:none;margin:0;padding:0;counter-reset:b}
-.a-believe li{counter-increment:b;display:grid;grid-template-columns:4rem minmax(0,1fr) minmax(0,1fr);
-  gap:1rem clamp(1rem,3vw,3rem);align-items:baseline;padding:clamp(1.1rem,2.2vw,1.6rem) 0;
-  border-top:1px solid rgba(255,255,255,.14)}
-.a-believe--short li{grid-template-columns:4rem minmax(0,1fr)}
-.a-believe li:last-child{border-bottom:1px solid rgba(255,255,255,.14)}
-.a-believe li::before{content:counter(b,decimal-leading-zero);color:var(--blue);font-size:.95rem;
-  filter:brightness(1.6)}
-.a-believe h3{margin:0;font-weight:500;font-size:clamp(1.2rem,1.9vw,1.6rem);letter-spacing:-.02em;line-height:1.2;
-  text-wrap:balance}
-.a-believe p{color:var(--h-soft);line-height:1.55;max-width:44ch}
-
-.a-facts div{grid-template-columns:8rem 1fr}
-
 .a-give{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(.9rem,1.6vw,1.4rem)}
 .a-give__item{display:flex;flex-direction:column;gap:.6rem;padding:clamp(1.25rem,2.4vw,2rem);border-radius:22px;
   background:linear-gradient(180deg,rgba(27,77,255,.16),rgba(27,77,255,.04));border:1px solid rgba(255,255,255,.1);
@@ -1090,7 +1076,9 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
 .a-give__when{color:var(--h-soft);font-size:.9rem}
 .a-give__item h3{margin:0;font-weight:500;font-size:clamp(1.4rem,2.2vw,1.9rem);letter-spacing:-.025em;line-height:1.1}
 .a-give__item p:not(.a-give__when){color:var(--h-soft);line-height:1.55}
-.a-give__go{margin-top:auto;padding-top:.6rem}
+.a-give__links{margin-top:auto;padding-top:.6rem;display:flex;gap:1.1rem}
+.a-give__links a{color:var(--h-text);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
+.a-give__links a:hover,.a-give__links a:focus-visible{border-bottom-color:var(--h-text)}
 
 .a-life{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(.9rem,1.6vw,1.4rem)}
 .a-shot{position:relative;margin:0;border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:var(--h-deep);
@@ -1116,8 +1104,6 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
 @media (max-width:760px){
   .h-hero.h-hero--short{height:clamp(16rem,70vw,22rem)}
   .a-intro{grid-template-columns:1fr}
-  .a-believe li{grid-template-columns:2.5rem minmax(0,1fr)}
-  .a-believe p{grid-column:2}
   .a-life,.a-give{grid-template-columns:1fr}
   .a-facts div{grid-template-columns:6.5rem 1fr}
 }
@@ -1186,32 +1172,21 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
   </div>
 </section>
 
-<!-- ═══ Things I believe ═════════════════════════════════════════════════ -->
-<section class="a-sec">
-  <div class="a-sec__head">
-    <h2>Things I believe.</h2>
-  </div>
-
-  <ol class="a-believe a-believe--short">
-    <li><h3>Going into the field beats another hour in Figma.</h3></li>
-    <li><h3>Complex products don&rsquo;t need to feel complex.</h3></li>
-    <li><h3>I&rsquo;ll probably say yes to the weird project.</h3></li>
-  </ol>
-</section>
-
 <!-- ═══ Designers helping designers ══════════════════════════════════════ -->
 <section class="a-sec">
   <div class="a-sec__head">
     <h2>Designers helping designers.</h2>
-      </div>
+  </div>
 
   <div class="a-give">
-    <a class="a-give__item" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">
-      <p class="a-give__when">Most Sundays</p>
-      <h3>The Sunday list</h3>
-      <p>Open design roles, posted on LinkedIn.</p>
-      <span class="a-give__go">Follow along &#8599;</span>
-    </a>
+    <div class="a-give__item">
+      <p class="a-give__when">Ongoing</p>
+      <h3>Sharing my journey</h3>
+      <p>Documenting design, school, and what I&rsquo;m learning, out loud.</p>
+      <p class="a-give__links">
+        <a href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+      </p>
+    </div>
     <div class="a-give__item">
       <p class="a-give__when">Now</p>
       <h3>SCAD FLUX</h3>
@@ -1219,8 +1194,8 @@ a.a-give__item:hover,a.a-give__item:focus-visible{border-color:rgba(255,255,255,
     </div>
     <div class="a-give__item">
       <p class="a-give__when">Before</p>
-      <h3>Framer &amp; Adobe</h3>
-      <p>Former campus roles.</p>
+      <h3>Adobe &amp; Framer</h3>
+      <p>Building community for companies like Adobe and Framer.</p>
     </div>
   </div>
 </section>
