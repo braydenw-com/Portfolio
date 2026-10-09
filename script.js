@@ -232,8 +232,9 @@
   var hPill = document.getElementById('h-pill-nav');
   if (hBar && hPill && 'IntersectionObserver' in window) {
     hPill.hidden = false;
+    var dock = matchMedia('(max-width: 760px)');
     new IntersectionObserver(function (es) {
-      var on = !es[0].isIntersecting;
+      var on = dock.matches || !es[0].isIntersecting;
       hPill.classList.toggle('is-on', on);
       hPill.setAttribute('aria-hidden', on ? 'false' : 'true');
       hPill.querySelectorAll('a').forEach(function (a) { a.tabIndex = on ? 0 : -1; });
@@ -248,9 +249,15 @@
     var fit = function () {
       hHero.style.setProperty('--name-size', '10vw');
       var pad = parseFloat(getComputedStyle(hName).paddingLeft) * 2;
-      var range = document.createRange();
-      range.selectNodeContents(hName);
-      var textW = range.getBoundingClientRect().width;
+      /* When the name breaks onto two lines (phones), fit the longer line. */
+      var parts = hName.querySelectorAll('span');
+      var stacked = parts.length > 1 && getComputedStyle(parts[0]).display === 'block';
+      var textW = 0;
+      (stacked ? Array.prototype.slice.call(parts) : [hName]).forEach(function (el) {
+        var range = document.createRange();
+        range.selectNodeContents(el);
+        textW = Math.max(textW, range.getBoundingClientRect().width);
+      });
       if (!textW) return;
       var size = (hHero.clientWidth / 10) * (hHero.clientWidth - pad) / textW;
       hHero.style.setProperty('--name-size', (size * .995) + 'px');

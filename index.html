@@ -1455,6 +1455,15 @@ html{scroll-padding-top:5rem}
 }
 @media (max-width:760px){
   .h-hero{height:clamp(30rem,120vw,40rem)}
+  /* Phones: one nav, docked at the bottom where the thumb is. */
+  .h-bar__links{display:none}
+  .h-pill-nav{top:auto;bottom:calc(env(safe-area-inset-bottom,0px) + .9rem);transform:translate(-50%,0);opacity:1;visibility:visible;
+    font-size:.95rem;box-shadow:0 10px 30px -8px rgba(10,20,60,.45)}
+  .h-pill-nav[hidden]{display:flex}
+  .h-pill-nav a{padding:.65rem .85rem}
+  body.v2{padding-bottom:5rem}
+  .h-name--split span{display:block;width:max-content}
+  .h-name--split{line-height:.92}
   .h-bar{font-size:.95rem}
   .h-bar__wide{display:none}
   .h-pill-nav{font-size:.9rem}
@@ -1487,7 +1496,7 @@ html{scroll-padding-top:5rem}
       <a href="mailto:brayden@braydenw.com">Contact</a>
     </nav>
   </div>
-  <h1 class="h-name" id="h-name">Brayden Wisniewski</h1>
+  <h1 class="h-name h-name--split" id="h-name"><span>Brayden</span> <span>Wisniewski</span></h1>
 </header>
 
 <nav class="h-pill-nav" id="h-pill-nav" aria-label="Sections, pinned" hidden>
@@ -1825,8 +1834,9 @@ html{scroll-padding-top:5rem}
   var hPill = document.getElementById('h-pill-nav');
   if (hBar && hPill && 'IntersectionObserver' in window) {
     hPill.hidden = false;
+    var dock = matchMedia('(max-width: 760px)');
     new IntersectionObserver(function (es) {
-      var on = !es[0].isIntersecting;
+      var on = dock.matches || !es[0].isIntersecting;
       hPill.classList.toggle('is-on', on);
       hPill.setAttribute('aria-hidden', on ? 'false' : 'true');
       hPill.querySelectorAll('a').forEach(function (a) { a.tabIndex = on ? 0 : -1; });
@@ -1841,9 +1851,15 @@ html{scroll-padding-top:5rem}
     var fit = function () {
       hHero.style.setProperty('--name-size', '10vw');
       var pad = parseFloat(getComputedStyle(hName).paddingLeft) * 2;
-      var range = document.createRange();
-      range.selectNodeContents(hName);
-      var textW = range.getBoundingClientRect().width;
+      /* When the name breaks onto two lines (phones), fit the longer line. */
+      var parts = hName.querySelectorAll('span');
+      var stacked = parts.length > 1 && getComputedStyle(parts[0]).display === 'block';
+      var textW = 0;
+      (stacked ? Array.prototype.slice.call(parts) : [hName]).forEach(function (el) {
+        var range = document.createRange();
+        range.selectNodeContents(el);
+        textW = Math.max(textW, range.getBoundingClientRect().width);
+      });
       if (!textW) return;
       var size = (hHero.clientWidth / 10) * (hHero.clientWidth - pad) / textW;
       hHero.style.setProperty('--name-size', (size * .995) + 'px');
