@@ -222,6 +222,104 @@
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
+  /* ── Home: the name, edge to edge, and the light behind it ─────────── */
+  var hHero = document.getElementById('h-hero');
+  var hName = document.getElementById('h-name');
+
+  if (hHero && hName) {
+    /* Size the name so it spans the hero exactly, whatever the font. */
+    var fit = function () {
+      hHero.style.setProperty('--name-size', '10vw');
+      var pad = parseFloat(getComputedStyle(hName).paddingLeft) * 2;
+      var range = document.createRange();
+      range.selectNodeContents(hName);
+      var textW = range.getBoundingClientRect().width;
+      if (!textW) return;
+      var size = (hHero.clientWidth / 10) * (hHero.clientWidth - pad) / textW;
+      hHero.style.setProperty('--name-size', (size * .995) + 'px');
+    };
+    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(fit);
+    addEventListener('resize', fit);
+
+    /* The light: a horizon rim rising behind the name, drifting toward the
+       cursor. Without WebGL the CSS gradient on .h-hero stands in. */
+    var cv = document.getElementById('h-light');
+    var gl = cv && cv.getContext('webgl', { antialias: false });
+    if (cv && !gl) cv.remove();
+
+    if (gl) {
+      var fsrc = [
+        'precision highp float;',
+        'uniform vec2 res;uniform float t;uniform float mx;',
+        'float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
+        'float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);',
+        ' return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}',
+        'void main(){',
+        ' vec2 uv=gl_FragCoord.xy;',
+        ' vec2 q=(uv-vec2(res.x*.5+mx*res.x*.08,-res.y*.62))/res.y;',
+        ' float r=length(q),a=atan(q.x,q.y);',
+        ' float e=r-(1.06+.012*sin(t*.35));',
+        ' float halo=exp(-max(e,0.)*3.1),rim=exp(-abs(e)*34.);',
+        ' float beams=n(vec2(a*7.+mx*.6,t*.07))*.6+n(vec2(a*19.,t*.11))*.4;',
+        ' float focus=exp(-abs(a-mx*.35)*2.2);',
+        ' vec3 ink=vec3(.016,.024,.102),deep=vec3(.039,.078,.25);',
+        ' vec3 blue=vec3(.106,.302,1.),coral=vec3(1.,.416,.302);',
+        ' vec3 col=ink+blue*halo*(.5+.5*beams)*.9;',
+        ' col+=coral*pow(halo,9.)*focus*.45;',
+        ' col+=mix(vec3(.75,.85,1.),vec3(1.),focus)*rim*(.5+.55*focus);',
+        ' col+=blue*(.5+.5*sin(r*120.-t*.5))*halo*.05;',
+        ' col=mix(col,mix(deep,ink,smoothstep(-.02,-.6,e)),smoothstep(0.,-.18,e)*.94);',
+        ' col+=(h(uv+t)-.5)*.035;',
+        ' gl_FragColor=vec4(col,1.);',
+        '}'
+      ].join('\n');
+      var shader = function (type, src) { var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
+      var prog = gl.createProgram();
+      gl.attachShader(prog, shader(gl.VERTEX_SHADER, 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}'));
+      gl.attachShader(prog, shader(gl.FRAGMENT_SHADER, fsrc));
+      gl.linkProgram(prog);
+
+      if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+        cv.remove();
+      } else {
+        gl.useProgram(prog);
+        gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+        var loc = gl.getAttribLocation(prog, 'p');
+        gl.enableVertexAttribArray(loc);
+        gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+        var uRes = gl.getUniformLocation(prog, 'res'), uT = gl.getUniformLocation(prog, 't'), uM = gl.getUniformLocation(prog, 'mx');
+
+        var dpr = Math.min(devicePixelRatio || 1, 1.5), lx = 0, tx = 0, onScreen = true;
+        var draw = function (ms) {
+          lx += (tx - lx) * .04;
+          gl.uniform2f(uRes, cv.width, cv.height);
+          gl.uniform1f(uT, ms / 1000);
+          gl.uniform1f(uM, lx);
+          gl.drawArrays(gl.TRIANGLES, 0, 3);
+        };
+        var resize = function () {
+          cv.width = hHero.clientWidth * dpr;
+          cv.height = hHero.clientHeight * dpr;
+          gl.viewport(0, 0, cv.width, cv.height);
+          if (calm) draw(0);
+        };
+        resize();
+        addEventListener('resize', resize);
+
+        if (!calm) {
+          hHero.addEventListener('pointermove', function (e) {
+            var r = hHero.getBoundingClientRect();
+            tx = ((e.clientX - r.left) / r.width - .5) * 2;
+          });
+          hHero.addEventListener('pointerleave', function () { tx = 0; });
+          new IntersectionObserver(function (es) { onScreen = es[0].isIntersecting; }).observe(hHero);
+          (function loop(ms) { if (onScreen) draw(ms); requestAnimationFrame(loop); })(0);
+        }
+      }
+    }
+  }
+
   console.log(
     '%cHey.%c You opened the console, so we should probably talk.\nbrayden@braydenw.com',
     'font:700 20px "Bricolage Grotesque",sans-serif;color:#1b4dff',

@@ -98,7 +98,7 @@ h1,h2{
 .skip:focus{left:.5rem;top:.5rem}
 
 /* Every block sits in the same column. That's the whole layout. */
-.hero,.work,.now,.about,.hello-sec,.foot{
+.hero,.work,.about,.hello-sec,.foot{
   width:100%;max-width:var(--col);
   margin-inline:auto;padding-inline:var(--pad);
 }
@@ -410,18 +410,6 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
 .piece--ibm{border-top:1px solid var(--hair);padding-top:clamp(2.5rem,6vw,4rem)}
 .piece--ibm .piece__fig img{aspect-ratio:21/9}
 .piece--ibm .piece__title{max-width:18ch}
-
-/* ── Currently ───────────────────────────────────────────────────────────── */
-.now{padding-block:var(--space-section);border-top:1px solid var(--hair)}
-.now__h2{
-  font-family:var(--display);font-weight:600;
-  font-size:var(--t-head);
-}
-.now__list{
-  list-style:none;margin:1.25rem 0 0;padding:0;
-  display:grid;gap:.6rem;
-  font-size:var(--t-body);line-height:1.6;color:var(--ink-2);
-}
 
 /* ── Contact ─────────────────────────────────────────────────────────────── */
 .hello-sec{padding-block:var(--space-big) var(--space-section);border-top:1px solid var(--hair)}
@@ -980,6 +968,80 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
   .nav__links,.burger__box i{transition:none}
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   Home — the name over a horizon of light, then the work as proof cards.
+   Its own dark world; everything is prefixed h- so the rest of the site's
+   rules never reach it.
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root{
+  --h-ink:#04061a;
+  --h-deep:#0a1440;
+  --h-text:#fff;
+  --h-soft:rgba(255,255,255,.72);
+}
+body[data-page="home"]{background:var(--h-ink);color:var(--h-text)}
+body[data-page="home"] .foot{color:var(--h-soft);border-top-color:rgba(255,255,255,.12)}
+
+.h-hero{position:relative;overflow:hidden;height:clamp(34rem,64vw,52rem);
+  background:
+    radial-gradient(130% 95% at 50% 152%,var(--h-deep) 58%,#cfdcff 62.5%,var(--blue) 64%,rgba(27,77,255,0) 82%),
+    var(--h-ink)}
+.h-light{position:absolute;inset:0;width:100%;height:100%;display:block}
+.h-top{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:start;gap:1rem;padding:1.6rem clamp(1rem,3vw,2.5rem) 0;font-family:var(--display)}
+.h-who{display:flex;gap:.75rem;align-items:flex-start;font-size:1.02rem;line-height:1.35}
+.h-who span{color:var(--h-soft)}
+.h-mark{flex:none;width:.85rem;height:.85rem;margin-top:.3rem;background:var(--blue);
+  box-shadow:0 0 0 1px rgba(255,255,255,.5),0 0 18px var(--blue)}
+.h-nav{display:flex;gap:clamp(1rem,2.4vw,2.2rem);font-size:1.02rem}
+.h-nav a{text-decoration:none;color:var(--h-soft);padding-bottom:.25rem;border-bottom:1px solid transparent}
+.h-nav a:hover,.h-nav a:focus-visible{color:var(--h-text)}
+.h-nav a[aria-current]{color:var(--h-text);border-bottom-color:var(--h-text)}
+.h-say{justify-self:end;font-size:1.02rem;text-decoration:none;padding:.45rem .95rem;border-radius:999px;
+  background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background .2s}
+.h-say:hover{background:rgba(255,255,255,.24)}
+.h-name{position:absolute;z-index:2;left:0;right:0;bottom:.1em;margin:0;
+  padding-inline:clamp(.5rem,1.4vw,1.25rem);
+  font-family:var(--display);font-weight:400;font-size:var(--name-size,10vw);line-height:1;
+  letter-spacing:-.04em;white-space:nowrap;color:var(--h-text);
+  font-variation-settings:'opsz' 96,'wdth' 92,'wght' 400}
+
+.h-work{max-width:110rem;margin-inline:auto;padding:0 clamp(1rem,2vw,1.5rem) 4rem;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(.9rem,1.6vw,1.4rem);
+  font-family:var(--display)}
+.h-work__head{grid-column:1 / -1;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;
+  gap:.5rem 2rem;padding:clamp(2rem,5vw,3.5rem) .25rem clamp(.75rem,2vw,1.25rem)}
+.h-work__head h2{font-weight:600;font-size:clamp(1.4rem,2.6vw,2.2rem);letter-spacing:-.03em;line-height:1.1;
+  max-width:24ch;text-wrap:balance}
+.h-work__head p{color:var(--h-soft)}
+.h-card{position:relative;display:block;aspect-ratio:16/10;border-radius:22px;overflow:hidden;
+  text-decoration:none;color:var(--h-text);background:var(--h-deep);isolation:isolate}
+.h-card--wide{grid-column:1 / -1;aspect-ratio:21/9}
+.h-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+  transition:transform .8s var(--ease)}
+.h-card::after{content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(4,6,26,.45) 0%,rgba(4,6,26,0) 28%,rgba(4,6,26,.15) 55%,rgba(4,6,26,.88) 100%)}
+.h-card:hover img,.h-card:focus-visible img{transform:scale(1.035)}
+.h-card:focus-visible{outline:2px solid var(--h-text);outline-offset:3px}
+.h-card__head{position:absolute;top:clamp(1rem,2vw,1.6rem);left:clamp(1rem,2vw,1.6rem);right:clamp(1rem,2vw,1.6rem);
+  display:flex;flex-wrap:wrap;gap:.45rem}
+.h-pill{font-size:clamp(.82rem,1.1vw,1rem);padding:.4rem .85rem;border-radius:10px;
+  background:rgba(4,6,26,.55);border:1px solid rgba(255,255,255,.16);white-space:nowrap;
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.h-card__foot{position:absolute;left:clamp(1rem,2vw,1.6rem);right:clamp(1rem,2vw,1.6rem);bottom:clamp(1rem,2vw,1.6rem)}
+.h-card__title{margin:0 0 .4rem;font-weight:600;font-size:clamp(1.6rem,2.6vw,2.4rem);letter-spacing:-.03em;line-height:1}
+.h-card__line{max-width:46ch;font-size:clamp(.95rem,1.25vw,1.15rem);line-height:1.4;color:var(--h-soft)}
+
+@media (max-width:760px){
+  .h-hero{height:clamp(30rem,120vw,40rem)}
+  .h-top{grid-template-columns:1fr auto;row-gap:1.1rem}
+  .h-nav{grid-column:1 / -1;grid-row:2;flex-wrap:wrap;gap:.4rem 1.1rem;font-size:.95rem}
+  .h-work{grid-template-columns:1fr}
+  .h-card,.h-card--wide{aspect-ratio:4/5}
+  .h-pill:first-child{display:none}
+}
+
 </style>
 </head>
 <body class="no-js" data-page="home">
@@ -987,143 +1049,73 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
 
 <a class="skip" href="#work">Skip to the work</a>
 
-<!-- ═══ Nav ════════════════════════════════════════════════════════════════ -->
-<!-- Shared by every page — edit here, never in a page source. -->
-<header class="nav" id="nav" data-open="false">
-  <a class="nav__me" href="/">Brayden&nbsp;Wisniewski</a>
-
-  <button class="burger" id="burger" type="button"
-          aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
-    <span class="burger__box" aria-hidden="true"><i></i><i></i></span>
-  </button>
-
-  <nav class="nav__links" id="nav-links" aria-label="Sections">
-    <a href="/#work">Work</a>
-    <a href="/about">About</a>
-    <a href="#hello" class="nav__hi">Say hi</a>
-  </nav>
+<!-- ═══ Hero ═══════════════════════════════════════════════════════════════
+     The name, edge to edge, over a horizon of light. Move the cursor and the
+     light follows it. -->
+<header class="h-hero" id="h-hero">
+  <canvas class="h-light" id="h-light" aria-hidden="true"></canvas>
+  <div class="h-top">
+    <div class="h-who">
+      <span class="h-mark" aria-hidden="true"></span>
+      <p>Product designer, SCAD &rsquo;27<br><span>Savannah, Georgia</span></p>
+    </div>
+    <nav class="h-nav" aria-label="Sections">
+      <a href="/" aria-current="page">Home</a>
+      <a href="#work">Work</a>
+      <a href="/about">About</a>
+      <a href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+    <a class="h-say" href="mailto:brayden@braydenw.com">Say hi</a>
+  </div>
+  <h1 class="h-name" id="h-name">Brayden Wisniewski</h1>
 </header>
 
 <main id="top">
 
-<!-- ═══ Hero ═══════════════════════════════════════════════════════════════
-     Photo, hello, statement, one paragraph. Then straight into the work. -->
-<section class="hero">
-  <img class="hero__face" src="/images/brayden-headshot.jpg" alt="Brayden Wisniewski" width="1000" height="1000">
-
-  <!-- Hover it: the letters wave, and so does the hand. -->
-  <p class="hero__hey">
-    Hey, I&rsquo;m Brayden.<span class="hand" aria-hidden="true">👋</span>
-  </p>
-
-  <h1 class="hero__statement">
-    Making everyday things
-    <!-- The one interaction. Move your cursor across this word. -->
-    <span class="joy" id="joy" data-word="a little more enjoyable.">a little more enjoyable.</span>
-  </h1>
-
-  <p class="hero__copy">
-    Product designer interested in people, emerging technology, and the tiny
-    interactions that make products feel good to use. I&rsquo;m a UX design senior at <!--
-    Hover SCAD and the bee turns up.
- --><span class="peek">SCAD<img class="peek__bee" src="/images/scad-bee.webp" alt="" aria-hidden="true" width="1280" height="1280" loading="lazy"></span>, graduating March 2027, with past campus roles at Framer and Adobe, and
-    design experience at <!--
-    Hover IBM and the logo bursts out of the word.
- --><span class="peek peek--ibm">IBM<span class="boom" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span> in Austin.
-  </p>
-
-</section>
-
 <!-- ═══ Work ═══════════════════════════════════════════════════════════════
-     Three stacked pieces. Same rhythm, deliberately different weights:
-     Nest leads, LACK is quieter, IBM reads as an experience rather than
-     a case study. -->
-<section class="work" id="work">
+     Proof first: every card carries the role and the result before you
+     open it. -->
+<section class="h-work" id="work">
+  <div class="h-work__head">
+    <h2>Making everyday things a little more enjoyable.</h2>
+    <p>Selected work, 2025&ndash;26</p>
+  </div>
 
-  <!-- ── Opal ─────────────────────────────────────────────────────────── -->
-  <a class="piece" href="/opal">
-    <figure class="piece__fig">
-      <img src="/images/opal-hero.jpg"
-           alt="The Opal focus app across several screens, showing planning, blocking, and break suggestions"
-           width="2000" height="1110" loading="lazy">
-    </figure>
-
-    <p class="piece__meta"><span>2025</span><span>Product Design</span></p>
-    <h2 class="piece__title">Making focus feel a little easier.</h2>
-    <p class="piece__desc">
-      Students don&rsquo;t need another app telling them to focus. A 10-week project on
-      planning, motivation, and breaks worth taking&mdash;built from a 30-student survey
-      and tested with 23 more. Indigo Design Award winner.
-    </p>
-    <span class="piece__cta">See what happened <i aria-hidden="true">&rarr;</i></span>
+  <a class="h-card" href="/opal">
+    <img src="/images/opal-hero.jpg" width="2000" height="1110"
+         alt="The Opal focus app across several screens, showing planning, blocking, and break suggestions">
+    <div class="h-card__head">
+      <span class="h-pill">Product Designer</span><span class="h-pill">Indigo Design Award</span>
+    </div>
+    <div class="h-card__foot">
+      <h3 class="h-card__title">Opal</h3>
+      <p class="h-card__line">Helping students plan, focus, and take breaks worth taking. Built from a 30-student survey, tested with 23 more.</p>
+    </div>
   </a>
 
-  <!-- ── Slack ────────────────────────────────────────────────────────── -->
-  <a class="piece" href="/slack">
-    <figure class="piece__fig">
-      <img src="/images/slack-hero.jpg"
-           alt="The redesigned Slack interface: a Save for Me action, a Pin for All action, and a unified notification panel"
-           width="1920" height="1080" loading="lazy">
-    </figure>
-
-    <p class="piece__meta"><span>2026</span><span>UX Research</span></p>
-    <h2 class="piece__title">Slack hides its own state.</h2>
-    <p class="piece__desc">
-      A 10-week study of two everyday Slack tasks most participants couldn&rsquo;t finish&mdash;
-      and often thought they had. Two small changes to language and system state took
-      success rates from 3/8 and 2/8 to 8/8.
-    </p>
-    <span class="piece__cta">Read the study <i aria-hidden="true">&rarr;</i></span>
+  <a class="h-card" href="/slack">
+    <img src="/images/slack-hero.jpg" width="1920" height="1080" loading="lazy"
+         alt="The redesigned Slack interface: a Save for Me action, a Pin for All action, and a unified notification panel">
+    <div class="h-card__head">
+      <span class="h-pill">Research Lead</span><span class="h-pill">3/8 &rarr; 8/8</span>
+    </div>
+    <div class="h-card__foot">
+      <h3 class="h-card__title">Slack</h3>
+      <p class="h-card__line">Two everyday tasks most people couldn&rsquo;t finish. Two small changes to language and state fixed both.</p>
+    </div>
   </a>
 
-  <!-- ── IBM ──────────────────────────────────────────────────────────── -->
-  <a class="piece piece--ibm" href="/ibm">
-    <figure class="piece__fig">
-      <img src="/images/team-session.jpg"
-           alt="A design team working around a table in a high-rise office, sticky notes on the window"
-           width="1350" height="1800" loading="lazy">
-    </figure>
-
-    <p class="piece__meta"><span>Summer 2026</span><span>Product Design &middot; Enterprise</span><span class="piece__where">Austin, TX</span></p>
-    <h2 class="piece__title">A summer designing enterprise software.</h2>
-    <p class="piece__desc">
-      Designing within an existing product, team, and design system taught me what
-      happens when design has to survive contact with the real world &mdash; constraints
-      I didn&rsquo;t choose, systems that already had opinions, and engineers with
-      good reasons.
-    </p>
-    <span class="piece__cta">My summer at IBM <i aria-hidden="true">&rarr;</i></span>
+  <a class="h-card h-card--wide" href="/ibm">
+    <img src="/images/ibm-cover.jpg" width="1280" height="960" loading="lazy" style="object-position:center 45%"
+         alt="Brayden pointing at a collaged IBM logo on an office gallery wall">
+    <div class="h-card__head">
+      <span class="h-pill">Design Intern, Db2</span><span class="h-pill">Shipped on ibm.com</span>
+    </div>
+    <div class="h-card__foot">
+      <h3 class="h-card__title">IBM</h3>
+      <p class="h-card__line">A summer in Austin on how people and AI agents learn complex products. My first design shipped in July.</p>
+    </div>
   </a>
-</section>
-
-<!-- ═══ Currently ══════════════════════════════════════════════════════════ -->
-<section class="now">
-  <h2 class="now__h2">Currently</h2>
-  <ul class="now__list">
-    <li>Researching cows 🐄</li>
-    <li>Making questionable ceramics</li>
-    <li>Thinking about AI agents</li>
-    <li>Probably at a coffee shop</li>
-  </ul>
-</section>
-
-<!-- ═══ Contact ════════════════════════════════════════════════════════════ -->
-<section class="hello-sec" id="hello">
-  <h2 class="hello-sec__head">
-    Okay, enough about me.<br>
-    <span class="hello-sec__q">What are you working on?</span>
-  </h2>
-
-  <!-- Click it and it copies. -->
-  <button class="mail" id="mail" type="button" data-mail="brayden@braydenw.com">
-    <span class="mail__text">brayden@braydenw.com</span>
-    <span class="mail__note" id="mail-note" aria-live="polite">click to copy</span>
-  </button>
-
-  <nav class="ends" aria-label="Elsewhere">
-    <a href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="mailto:brayden@braydenw.com">Email</a>
-  </nav>
 </section>
 
 </main>
@@ -1357,6 +1349,104 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
 
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
+
+  /* ── Home: the name, edge to edge, and the light behind it ─────────── */
+  var hHero = document.getElementById('h-hero');
+  var hName = document.getElementById('h-name');
+
+  if (hHero && hName) {
+    /* Size the name so it spans the hero exactly, whatever the font. */
+    var fit = function () {
+      hHero.style.setProperty('--name-size', '10vw');
+      var pad = parseFloat(getComputedStyle(hName).paddingLeft) * 2;
+      var range = document.createRange();
+      range.selectNodeContents(hName);
+      var textW = range.getBoundingClientRect().width;
+      if (!textW) return;
+      var size = (hHero.clientWidth / 10) * (hHero.clientWidth - pad) / textW;
+      hHero.style.setProperty('--name-size', (size * .995) + 'px');
+    };
+    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(fit);
+    addEventListener('resize', fit);
+
+    /* The light: a horizon rim rising behind the name, drifting toward the
+       cursor. Without WebGL the CSS gradient on .h-hero stands in. */
+    var cv = document.getElementById('h-light');
+    var gl = cv && cv.getContext('webgl', { antialias: false });
+    if (cv && !gl) cv.remove();
+
+    if (gl) {
+      var fsrc = [
+        'precision highp float;',
+        'uniform vec2 res;uniform float t;uniform float mx;',
+        'float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
+        'float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);',
+        ' return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}',
+        'void main(){',
+        ' vec2 uv=gl_FragCoord.xy;',
+        ' vec2 q=(uv-vec2(res.x*.5+mx*res.x*.08,-res.y*.62))/res.y;',
+        ' float r=length(q),a=atan(q.x,q.y);',
+        ' float e=r-(1.06+.012*sin(t*.35));',
+        ' float halo=exp(-max(e,0.)*3.1),rim=exp(-abs(e)*34.);',
+        ' float beams=n(vec2(a*7.+mx*.6,t*.07))*.6+n(vec2(a*19.,t*.11))*.4;',
+        ' float focus=exp(-abs(a-mx*.35)*2.2);',
+        ' vec3 ink=vec3(.016,.024,.102),deep=vec3(.039,.078,.25);',
+        ' vec3 blue=vec3(.106,.302,1.),coral=vec3(1.,.416,.302);',
+        ' vec3 col=ink+blue*halo*(.5+.5*beams)*.9;',
+        ' col+=coral*pow(halo,9.)*focus*.45;',
+        ' col+=mix(vec3(.75,.85,1.),vec3(1.),focus)*rim*(.5+.55*focus);',
+        ' col+=blue*(.5+.5*sin(r*120.-t*.5))*halo*.05;',
+        ' col=mix(col,mix(deep,ink,smoothstep(-.02,-.6,e)),smoothstep(0.,-.18,e)*.94);',
+        ' col+=(h(uv+t)-.5)*.035;',
+        ' gl_FragColor=vec4(col,1.);',
+        '}'
+      ].join('\n');
+      var shader = function (type, src) { var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
+      var prog = gl.createProgram();
+      gl.attachShader(prog, shader(gl.VERTEX_SHADER, 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}'));
+      gl.attachShader(prog, shader(gl.FRAGMENT_SHADER, fsrc));
+      gl.linkProgram(prog);
+
+      if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+        cv.remove();
+      } else {
+        gl.useProgram(prog);
+        gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+        var loc = gl.getAttribLocation(prog, 'p');
+        gl.enableVertexAttribArray(loc);
+        gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+        var uRes = gl.getUniformLocation(prog, 'res'), uT = gl.getUniformLocation(prog, 't'), uM = gl.getUniformLocation(prog, 'mx');
+
+        var dpr = Math.min(devicePixelRatio || 1, 1.5), lx = 0, tx = 0, onScreen = true;
+        var draw = function (ms) {
+          lx += (tx - lx) * .04;
+          gl.uniform2f(uRes, cv.width, cv.height);
+          gl.uniform1f(uT, ms / 1000);
+          gl.uniform1f(uM, lx);
+          gl.drawArrays(gl.TRIANGLES, 0, 3);
+        };
+        var resize = function () {
+          cv.width = hHero.clientWidth * dpr;
+          cv.height = hHero.clientHeight * dpr;
+          gl.viewport(0, 0, cv.width, cv.height);
+          if (calm) draw(0);
+        };
+        resize();
+        addEventListener('resize', resize);
+
+        if (!calm) {
+          hHero.addEventListener('pointermove', function (e) {
+            var r = hHero.getBoundingClientRect();
+            tx = ((e.clientX - r.left) / r.width - .5) * 2;
+          });
+          hHero.addEventListener('pointerleave', function () { tx = 0; });
+          new IntersectionObserver(function (es) { onScreen = es[0].isIntersecting; }).observe(hHero);
+          (function loop(ms) { if (onScreen) draw(ms); requestAnimationFrame(loop); })(0);
+        }
+      }
+    }
+  }
 
   console.log(
     '%cHey.%c You opened the console, so we should probably talk.\nbrayden@braydenw.com',
