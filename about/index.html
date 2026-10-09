@@ -14,7 +14,9 @@
 <meta property="og:image" content="https://www.braydenw.com/images/about-lead.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231b4dff'/%3E%3C/svg%3E">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/images/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -980,6 +982,19 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
 }
 body.v2{background:#fff;color:var(--h-text)}
 body.v2 .foot{color:var(--h-soft);border-top:0;max-width:var(--g-max);padding-inline:var(--g-pad)}
+body.v2 .foot{display:grid;justify-content:stretch;gap:1.4rem;padding-block:clamp(3rem,6vw,5rem) 2.5rem;font-family:var(--display)}
+.foot__now{margin:0;display:flex;align-items:baseline;gap:.7rem;font-size:clamp(1.25rem,2.4vw,2rem);letter-spacing:-.025em;
+  line-height:1.25;color:var(--h-text);max-width:34ch;text-wrap:balance}
+.foot__now b{font-weight:500;color:var(--blue);font-variant-numeric:tabular-nums}
+.foot__dot{flex:none;width:.55em;height:.55em;border-radius:50%;background:#2fbf71;translate:0 -.08em;
+  box-shadow:0 0 0 0 rgba(47,191,113,.5);animation:footPulse 2.4s ease-out infinite}
+@keyframes footPulse{70%{box-shadow:0 0 0 .5em rgba(47,191,113,0)}100%{box-shadow:0 0 0 0 rgba(47,191,113,0)}}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.6rem 2rem;font-size:.95rem}
+.foot__top{color:var(--h-soft);text-decoration:none;min-height:44px;display:inline-flex;align-items:center;gap:.35rem;transition:color .2s}
+.foot__top:hover,.foot__top:focus-visible{color:var(--blue)}
+.foot__top span{display:inline-block;transition:transform .25s var(--ease)}
+.foot__top:hover span{transform:translateY(-3px)}
+@media (prefers-reduced-motion:reduce){.foot__dot{animation:none}}
 
 .h-hero{position:relative;overflow:hidden;color:var(--h-text);background:#fff;
   height:100vh;height:100svh;min-height:24rem}
@@ -1567,7 +1582,14 @@ html{scroll-padding-top:5rem}
 
 <!-- Shared by every page — edit here, never in a page source. -->
 <footer class="foot">
-  <span>&copy; <span id="year">2026</span> Brayden Wisniewski</span>
+  <p class="foot__now">
+    <span class="foot__dot" aria-hidden="true"></span>
+    <span>It&rsquo;s <b id="foot-time">evening</b> in Savannah, so I&rsquo;m <span id="foot-doing">probably at a coffee shop</span>.</span>
+  </p>
+  <div class="foot__row">
+    <span>&copy; <span id="year">2026</span> Brayden Wisniewski</span>
+    <a class="foot__top" href="#top">Back to top <span aria-hidden="true">&uarr;</span></a>
+  </div>
 </footer>
 
 <script>
@@ -1795,6 +1817,26 @@ html{scroll-padding-top:5rem}
     var target = trim(href);
     if (target && target === thisPage) a.setAttribute('aria-current', 'page');
   });
+
+  /* Footer: the time in Savannah and what Brayden is probably doing. */
+  var fTime = document.getElementById('foot-time');
+  var fDoing = document.getElementById('foot-doing');
+  if (fTime && fDoing) {
+    var tick = function () {
+      var now = new Date();
+      fTime.textContent = now.toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour: 'numeric', minute: '2-digit' });
+      var h = Number(now.toLocaleString('en-US', { timeZone: 'America/New_York', hour: 'numeric', hourCycle: 'h23' }));
+      fDoing.textContent =
+        h < 6  ? 'probably asleep (or pretending to be)' :
+        h < 10 ? 'probably on my first iced coffee' :
+        h < 13 ? 'probably in the studio' :
+        h < 17 ? 'probably at a coffee shop' :
+        h < 20 ? 'probably throwing a ceramic' :
+                 'probably still pushing pixels';
+    };
+    tick();
+    setInterval(tick, 30000);
+  }
 
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
