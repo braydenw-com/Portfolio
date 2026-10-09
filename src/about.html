@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About — Brayden Wisniewski</title>
-<meta name="description" content="A little more about Brayden Wisniewski — product designer finishing a BFA in User Experience Design at SCAD.">
+<meta name="description" content="A little more about Brayden Wisniewski — UX design senior at SCAD, graduating March 2027. Curious about human-centered design and AI.">
 
 <link rel="canonical" href="https://www.braydenw.com/about">
 <meta property="og:url" content="https://www.braydenw.com/about">
@@ -21,90 +21,107 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:ital,wght@0,300..700;1,300..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body class="no-js" data-page="about">
+<body class="no-js v2" data-page="about">
 <script>document.body.classList.remove('no-js');</script>
 
-<a class="skip" href="#curious">Skip to the writing</a>
+<a class="skip" href="#me">Skip to the writing</a>
 
-<!-- @include nav -->
+<!-- ═══ Opening — the same light as home, shorter, with the title edge to edge -->
+<header class="c-top">
+  <div class="h-bar" id="h-bar">
+    <a class="h-bar__name" href="/">Brayden Wisniewski</a>
+    <nav class="h-bar__links" aria-label="Sections">
+      <a href="/">Work</a>
+      <a href="/about" aria-current="page">About</a>
+      <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:brayden@braydenw.com">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="h-pill-nav" id="h-pill-nav" aria-label="Sections, pinned" hidden>
+  <a href="/">Home</a>
+  <a href="/">Work</a>
+  <a href="/about" aria-current="page">About</a>
+  <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
+  <a class="h-pill-nav__hi" href="mailto:brayden@braydenw.com">Contact</a>
+</nav>
 
 <main id="top">
 
-<!-- ═══ Opening ════════════════════════════════════════════════════════════ -->
-<section class="ab ab-open">
-  <div class="ab-intro">
-    <figure class="ab-intro__fig">
-      <img src="/images/about-lead.jpg" alt="Brayden holding his Config badge outside the conference in San Francisco"
-           width="1200" height="1600">
-    </figure>
+<!-- ═══ Who ══════════════════════════════════════════════════════════════ -->
+<section class="a-head">
+  <h1>A little more about me.</h1>
+</section>
 
-    <div class="ab-intro__words">
-      <h1 class="ab-title">A little more about me.</h1>
+<section class="a-intro" id="me">
+  <figure class="a-intro__fig">
+    <img src="/images/about-lead.jpg" width="1200" height="1600"
+         alt="Brayden holding his Config badge outside the conference in San Francisco">
+  </figure>
 
-      <div class="ab-text">
-        <p>
-          I&rsquo;m a product designer finishing my BFA in User Experience Design at
-          <span class="peek">SCAD<img class="peek__bee" src="/images/scad-bee.webp" alt="" aria-hidden="true" width="1280" height="1280" loading="lazy"></span>.
-        </p>
-        <p>
-          I enjoy the complexity of B2B and the everyday impact of B2C, especially when
-          there&rsquo;s a messy problem to make a little simpler.
-        </p>
-        <p>
-          I&rsquo;m most curious about where people and emerging technology meet, and how
-          we can turn new technology into something people actually want to use.
-        </p>
-      </div>
-    </div>
+  <div class="a-intro__words">
+    <p class="a-lede">I&rsquo;m Brayden, a curious designer who documents the process out loud.</p>
+    <p>
+      UX design senior at SCAD, graduating March 2027. I interned on IBM&rsquo;s Db2
+      team in Austin this summer.
+    </p>
+
+    <dl class="a-facts">
+      <div><dt>Now</dt><dd>Mapping student engagement at SCAD&rsquo;s career office, and working in ag tech for my capstone</dd></div>
+      <div><dt>Asking</dt><dd class="a-ask" data-ask='["How do people stay in control of the AI agents they use?","Can we get an iced coffee?","What ceramic should I make next?","What are you working on?"]'>How do people stay in control of the AI agents they use?</dd></div>
+    </dl>
   </div>
 </section>
 
-<!-- ═══ Outside design ═════════════════════════════════════════════════════ -->
-<section class="ab ab-chapter">
-  <h2 class="ab-h2">But design is only part of it.</h2>
+<!-- ═══ Designers helping designers ══════════════════════════════════════ -->
+<section class="a-sec">
+  <div class="a-sec__head">
+    <h2>Designers helping designers.</h2>
+  </div>
 
-  <p class="ab-summary">
-    going somewhere new, making things away from a screen, finding really good food,
-    and spending time with good people.
-  </p>
+  <ul class="a-give">
+    <li><span class="a-give__who"><span class="a-give__when">Ongoing</span><b>Sharing my journey</b></span>
+      <span class="a-give__what">Documenting design, school, and what I&rsquo;m learning, out loud on <a href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn&nbsp;&#8599;</a></span></li>
+    <li><span class="a-give__who"><span class="a-give__when">Now</span><b>SCAD FLUX</b></span>
+      <span class="a-give__what">Director of Partnerships.</span></li>
+    <li><span class="a-give__who"><span class="a-give__when">Before</span><b>Adobe &amp; Framer</b></span>
+      <span class="a-give__what">Building community for companies like Adobe and Framer.</span></li>
+  </ul>
+</section>
 
-  <div class="ab-grid">
-    <figure>
-      <img src="/images/travel.jpg" style="object-position:center 42%"
-           alt="Brayden and a friend outside a bagel shop in New York, holding coffee and paper bags"
-           width="1050" height="1400" loading="lazy">
+<!-- ═══ Outside design ═══════════════════════════════════════════════════ -->
+<section class="a-sec">
+  <div class="a-sec__head">
+    <h2>But design is only part of it.</h2>
+  </div>
+
+  <div class="a-life">
+    <figure class="a-shot">
+      <img src="/images/travel.jpg" width="1050" height="1400" loading="lazy" style="object-position:center 42%"
+           alt="Brayden and a friend outside a bagel shop in New York, holding coffee and paper bags">
       <figcaption>I love going somewhere new.</figcaption>
     </figure>
-    <figure>
-      <img src="/images/ceramics.jpg" style="object-position:center 50%"
-           alt="A stack of just-thrown ceramic bowls held over a studio floor"
-           width="1400" height="1050" loading="lazy">
+    <figure class="a-shot">
+      <img src="/images/ceramics.jpg" width="1400" height="1050" loading="lazy"
+           alt="A stack of just-thrown ceramic bowls held over a studio floor">
       <figcaption>My favorite way to get away from a screen.</figcaption>
     </figure>
-    <figure>
-      <img src="/images/food.jpg" style="object-position:center 40%"
-           alt="Brayden eating a turkey leg at a fair at night"
-           width="1400" height="1050" loading="lazy">
+    <figure class="a-shot">
+      <img src="/images/food.jpg" width="1400" height="1050" loading="lazy" style="object-position:center 40%"
+           alt="Brayden eating a turkey leg at a fair at night">
       <figcaption>I will absolutely plan a day around food.</figcaption>
     </figure>
   </div>
-
 </section>
 
-<!-- ═══ Ending — no rule above it; it just keeps talking ═══════════════════ -->
-<section class="ab ab-last" id="hello">
-  <h2 class="ab-title ab-title--end">Anyway, that&rsquo;s me.</h2>
-
-  <p class="ab-outro">
-    There&rsquo;s more to the story, but it&rsquo;s probably better over coffee.
-  </p>
-
-  <a class="say-hi" href="mailto:brayden@braydenw.com">Say hi <span aria-hidden="true">&rarr;</span></a>
-
-  <nav class="ab-ends" aria-label="Elsewhere">
+<!-- ═══ Ending ═══════════════════════════════════════════════════════════ -->
+<section class="a-end" id="hello">
+  <h2>Anyway, that&rsquo;s me.</h2>
+  <div class="a-end__links">
+    <a class="a-end__primary" href="mailto:brayden@braydenw.com">brayden@braydenw.com</a>
     <a href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="mailto:brayden@braydenw.com">Email</a>
-  </nav>
+  </div>
 </section>
 
 </main>
