@@ -1471,7 +1471,68 @@ html{scroll-padding-top:5rem}
   .h-card__media,.h-card--wide .h-card__media{aspect-ratio:4/3}
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   Home, v3: loud blue hello, plain white sections headed in Brayden's own
+   words, a big blue "say hi". The type, the blue and the real photos carry it.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.n-big{margin:0;font-family:var(--display);font-weight:700;letter-spacing:-.045em;line-height:.92;
+  font-variation-settings:'opsz' 96,'wdth' 85,'wght' 700;text-wrap:balance}
+.n-hello{background:#fff;color:var(--h-text);min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+.n-hello .h-bar{width:100%}
+.n-hello .h-bar__links a:hover,.n-hello .h-bar__links a:focus-visible{color:var(--blue)}
+.n-hello__body{flex:1;width:100%;max-width:var(--g-max);margin-inline:auto;padding:0 var(--g-pad) clamp(2.5rem,6vw,4.5rem);
+  display:flex;flex-direction:column;justify-content:flex-end;font-family:var(--display)}
+.n-hello h1{font-size:clamp(4rem,13.5vw,13rem)}
+.n-big em{font-style:normal;color:var(--blue)}
+.n-hello__who{margin:clamp(1.2rem,2.5vw,2rem) 0 0;font-size:clamp(1.8rem,4.2vw,3.6rem);font-weight:500;letter-spacing:-.03em;line-height:1.05}
+.n-hello__info{margin:1.2rem 0 0;font-size:clamp(1rem,1.3vw,1.15rem);color:var(--h-soft)}
+.n-btns{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.7rem}
+.n-btn{font-family:var(--display);font-size:1.05rem;font-weight:500;text-decoration:none;padding:1rem 1.4rem;min-height:48px;
+  display:inline-flex;align-items:center;border-radius:999px;background:var(--blue);color:#fff;transition:transform .15s}
+.n-btn--line{background:transparent;color:var(--blue);box-shadow:inset 0 0 0 2px var(--blue)}
+.n-btn--blue{background:var(--blue);color:#fff}
+.n-btn:hover{transform:translateY(-2px)}
+.n-btn:focus-visible{outline:3px solid var(--h-text);outline-offset:3px}
 
+.n-sec{max-width:var(--g-max);margin-inline:auto;padding:clamp(5rem,10vw,8rem) var(--g-pad) 0;font-family:var(--display)}
+.n-sec h2{font-size:clamp(2.6rem,6.5vw,6rem);max-width:16ch}
+.n-lede{margin:1.2rem 0 0;max-width:40ch;font-size:clamp(1.15rem,1.6vw,1.4rem);line-height:1.45;color:var(--h-soft)}
+
+.n-work{margin-top:clamp(2rem,4vw,3rem);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(2.5rem,5vw,4rem) clamp(1rem,2vw,1.6rem)}
+.n-card{display:block;text-decoration:none;color:var(--h-text)}
+.n-card--wide{grid-column:1/-1}
+.n-card__img{aspect-ratio:16/10;overflow:hidden;border-radius:14px;background:var(--h-fill)}
+.n-card--wide .n-card__img{aspect-ratio:21/9}
+.n-card__img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease)}
+.n-card:hover .n-card__img img{transform:scale(1.025)}
+.n-card__tag{display:inline-block;margin-top:1rem;font-size:.92rem;font-weight:500;color:var(--blue)}
+.n-card h3{margin:.3rem 0 0;font-size:clamp(1.6rem,2.6vw,2.3rem);font-weight:600;letter-spacing:-.03em;transition:color .2s}
+.n-card:hover h3{color:var(--blue)}
+.n-card p{margin:.4rem 0 0;max-width:50ch;font-size:1.08rem;line-height:1.5;color:var(--h-soft)}
+.n-card:focus-visible{outline:3px solid var(--blue);outline-offset:4px;border-radius:14px}
+
+.n-loud{margin-top:clamp(2rem,4vw,3rem);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.5rem 3rem;align-items:end;
+  padding:clamp(1.6rem,3vw,2.6rem);border-radius:20px;background:var(--h-fill)}
+.n-loud__day{margin:0;font-size:.95rem;font-weight:500;color:var(--blue)}
+.n-loud__what{margin:.4rem 0 0;font-size:clamp(1.4rem,2.4vw,2rem);font-weight:600;letter-spacing:-.025em;line-height:1.15;max-width:26ch}
+
+.n-life{margin-top:clamp(2rem,4vw,3rem);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(.6rem,1.2vw,1rem)}
+.n-life figure{margin:0}
+.n-life img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:14px;display:block;background:var(--h-fill)}
+.n-life figcaption{margin-top:.5rem;font-size:.95rem;color:var(--h-soft)}
+
+.n-hi{margin-top:clamp(2rem,4vw,3rem);background:#fff;color:var(--h-text);font-family:var(--display)}
+.n-hi__in{max-width:var(--g-max);margin-inline:auto;padding:clamp(4rem,9vw,7rem) var(--g-pad)}
+.n-hi h2{font-size:clamp(3.4rem,10vw,9rem)}
+.n-hi p{margin:1.2rem 0 0;max-width:36ch;font-size:clamp(1.15rem,1.7vw,1.5rem);line-height:1.4;color:var(--h-soft)}
+
+@media (max-width:760px){
+  .n-hello{min-height:calc(100vh - 5.5rem);min-height:calc(100svh - 5.5rem)}
+  .n-work{grid-template-columns:1fr}
+  .n-card__img,.n-card--wide .n-card__img{aspect-ratio:4/3}
+  .n-loud{grid-template-columns:1fr}
+  .n-life{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 
 </style>
 </head>
