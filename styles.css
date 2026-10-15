@@ -7,6 +7,8 @@
 @font-face{font-family:'Geist';src:url(/fonts/Geist-Variable.woff2) format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
 @font-face{font-family:'Geist';src:url(/fonts/Geist-Italic-Variable.woff2) format('woff2');font-weight:100 900;font-style:italic;font-display:swap}
 
+@font-face{font-family:'Instrument Sans';src:url(/fonts/InstrumentSans-Variable.woff2) format('woff2');font-weight:400 700;font-stretch:75% 100%;font-style:normal;font-display:swap}
+
 :root{
   --paper:#fff;
   --ink:#1c1c1c;
@@ -1666,3 +1668,35 @@ body:has(.g-hello) .foot{font-family:'Geist','Helvetica Neue',Arial,sans-serif}
 .g-hello,.g-wrap{--g-mono:var(--g-sans)}
 .g-p__meta,.g-p--photo figcaption,.g-p--quote figcaption,.g-p__win,.g-hello__row p,.g-with,.g-with b{letter-spacing:-.005em}
 body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-serif}
+
+/* Desktop: the hello is a fixed left rail, the gallery fills the rest and is
+   there on load. Phones and tablets keep the stacked hello. */
+@media (min-width:1001px){
+  body:has(.g-hello){--side:clamp(19rem,25vw,25rem)}
+  .g-hello{position:fixed;inset:0 auto 0 0;width:var(--side);z-index:5;overflow-y:auto;
+    border-right:1px solid var(--h-line);padding:clamp(1.4rem,2.4vw,2rem)}
+  .g-hello .h-bar{order:2;padding:0;margin-top:1.6rem;display:block;background:none;position:static}
+  .g-hello .h-bar__name{display:none}
+  .g-hello .h-bar__links{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+  .g-hello .h-bar__links a{min-height:36px;display:inline-flex;align-items:center;font-size:1rem;color:var(--h-text)}
+  .g-hello .h-bar__links a:hover{color:var(--blue)}
+  .g-hello__body{order:1;flex:1;padding:0;max-width:none;margin:0;justify-content:flex-start}
+  .g-mark{order:-1;font-size:clamp(2.2rem,2.9vw,3rem)!important;line-height:1;margin-bottom:1.2rem}
+  .g-hey{font-size:1.25rem;line-height:1.3;margin-bottom:1.4rem}
+  .g-hello__row{margin-top:0;grid-template-columns:1fr;gap:1rem}
+  .g-hello__row .n-btns{display:flex;flex-direction:column;align-items:stretch;gap:.5rem;margin-top:.4rem}
+  .g-hello__row .n-btn{justify-content:center}
+  .g-hello__body{display:flex;flex-direction:column}
+  .g-wrap{margin-left:var(--side);max-width:none;padding:clamp(1.4rem,2.4vw,2rem)}
+  body:has(.g-hello) .foot{margin-left:var(--side);width:auto;max-width:none;padding-inline:clamp(1.4rem,2.4vw,2rem)}
+  body:has(.g-hello) .h-pill-nav{display:none}
+}
+
+/* Instrument Sans is primary (name, headings, quotes); Geist is secondary
+   (intro line, labels, body, buttons). */
+.g-hello,.g-wrap{--g-serif:'Instrument Sans','Helvetica Neue',Arial,sans-serif}
+.g-mark{font-weight:600;letter-spacing:-.035em}
+.g-p h2{font-weight:600;letter-spacing:-.03em}
+.g-p--quote blockquote{font-weight:500;letter-spacing:-.02em}
+.g-p--life h2{font-size:clamp(1.8rem,2.6vw,2.8rem);overflow-wrap:break-word}
+@media (min-width:1001px){.g-hello .h-bar__links a{min-height:44px}}
