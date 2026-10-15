@@ -27,7 +27,7 @@
 <link rel="preload" href="/fonts/InstrumentSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Lato:wght@400;700;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Serif:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body class="no-js v2" data-page="home">
@@ -36,6 +36,8 @@
 <a class="skip" href="#work">Skip to the work</a>
 
 <!-- ═══ Hello ══════════════════════════════════════════════════════════════ -->
+<!-- @include icons -->
+
 <header class="g-hello">
   <div class="h-bar" id="h-bar">
     <a class="h-bar__name" href="/">Brayden Wisniewski</a>
@@ -69,13 +71,28 @@
 <section class="g-grid" id="work" aria-label="Work and life">
 
   <a class="g-p g-p--work g-a" href="/ibm">
-    <div class="g-p__img"><img src="/images/ibm-platinum-hero.jpg" width="1501" height="668" style="object-position:left center"
-      alt="The IBM Platinum Experience page Brayden designed, live on ibm.com"></div>
-    <div class="g-p__cap">
-      <p class="g-p__meta">Internship &middot; Product Design Intern &middot; 12 weeks</p>
-      <h2>IBM Software</h2>
-      <p class="g-p__win">Live on ibm.com</p>
+    <div class="g-p__media">
+    <div class="ih" aria-hidden="true">
+      <img class="ih__art" src="/images/ibm-platinum-art.png" width="900" height="704" alt="">
+      <div class="ih__card ih__card--plat">
+        <p class="ih__h"><span>IBM Platinum</span> <span>Experience</span></p>
+        <p class="ih__p">A premium partnership with your needs at the center of your IBM Software experience.</p>
+        <p class="ih__btns"><span class="ih__btn">Sign up now <i>&rarr;</i></span><span class="ih__btn ih__btn--ghost">Webinar <i>&rarr;</i></span></p>
+      </div>
+      <div class="ih__card ih__card--sov">
+        <p class="ih__eyebrow">IBM Sovereign Support</p>
+        <p class="ih__t">Keep data in-region</p>
+        <p class="ih__p">Support cases, personnel, and diagnostic data handling are all bound to your sovereign environment.</p>
+        <p class="ih__tags"><span>Data sovereignty</span><span>Control</span></p>
+      </div>
+      <div class="ih__card ih__card--fast">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 13l3-4M10 2h4M12 2v3"/></svg>
+        <p class="ih__t">Fastest response times</p>
+      </div>
     </div>
+    </div>
+    <div class="g-p__top"><span class="g-logo g-logo--ibm" aria-hidden="true">IBM</span><span class="g-pills"><span>Design Intern</span><span>Shipped on ibm.com</span></span></div>
+    <div class="g-p__cap"><h2>IBM Software</h2><p>A summer in Austin on how people and AI agents learn complex products.</p></div>
   </a>
 
   <figure class="g-p g-p--quote g-b">
@@ -84,13 +101,11 @@
   </figure>
 
   <a class="g-p g-p--work g-c" href="/opal">
-    <div class="g-p__img"><img src="/images/opal-hero.jpg" width="2000" height="1110" loading="lazy"
-      alt="The Opal focus app across several screens"></div>
-    <div class="g-p__cap">
-      <p class="g-p__meta">Team project &middot; Product Designer</p>
-      <h2>Opal</h2>
-      <p class="g-p__win">Indigo Design Award</p>
+    <div class="g-p__media">
+    <img src="/images/opal-hero.jpg" width="2000" height="1110" loading="lazy" alt="The Opal focus app across several screens, showing planning, blocking, and break suggestions">
     </div>
+    <div class="g-p__top"><span class="g-logo g-logo--opal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M12 21 8 9l4-6 4 6z"/></svg></span><span class="g-pills"><span>Product Designer</span><span>Indigo Design Award</span></span></div>
+    <div class="g-p__cap"><h2>Opal</h2><p>Helping students plan, focus, and take breaks worth taking.</p></div>
   </a>
 
   <figure class="g-p g-p--photo g-d">
@@ -99,19 +114,39 @@
   </figure>
 
   <a class="g-p g-p--work g-e" href="/slack">
-    <div class="g-p__img"><img src="/images/slack-hero.jpg" width="1920" height="1080" loading="lazy"
-      alt="The redesigned Slack interface"></div>
-    <div class="g-p__cap">
-      <p class="g-p__meta">Research study &middot; Research Lead</p>
-      <h2>Slack</h2>
-      <p class="g-p__win">3/8 &rarr; 8/8 task success</p>
+    <div class="g-p__media">
+    <div class="uh" aria-hidden="true">
+        <div class="uh__msg">
+          <div class="uh__bar">
+            <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-smile"/></svg></span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-msg"/></svg></span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-share"/></svg></span>
+            <span class="is-save"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bookmark"/></svg><em>Save for Me</em></span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg></span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-more"/></svg></span>
+          </div>
+          <div class="uh__row"><b class="uh__av" style="background:#E8A838">SC</b>
+            <div><p class="uh__meta"><strong>Sarah Chen</strong> 9:41 AM</p>
+            <p>Final specs for the onboarding flow are in Figma. Can everyone review before Thursday?</p></div></div>
+        </div>
+        <div class="uh__saved">
+          <p class="uh__title">Saved</p>
+          <p class="uh__tabs"><span class="is-on">Saved for Me</span><span>Pinned for All</span></p>
+          <div class="uh__item"><p class="uh__ch"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-hash"/></svg>design</p>
+            <div class="uh__row"><b class="uh__av uh__av--sm" style="background:#E8A838">SC</b>
+            <div><p class="uh__meta"><strong>Sarah Chen</strong> 9:41 AM</p><p>Final specs for the onboarding flow are in Figma.</p></div></div></div>
+        </div>
+        <div class="uh__notif">
+          <p class="uh__chan"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-hash"/></svg><strong>design</strong><span class="uh__pill"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg>Mentions</span></p>
+          <p class="uh__seg"><span>All</span><span class="is-on"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg>Mentions</span><span>Muted</span></p>
+        </div>
+        <p class="uh__toast">This message was saved for you</p>
+      </div>
     </div>
+    <div class="g-p__top"><span class="g-logo g-logo--slack" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><use href="#i-hash"/></svg></span><span class="g-pills"><span>Research Lead</span><span>3/8 &rarr; 8/8 task success</span></span></div>
+    <div class="g-p__cap"><h2>Slack</h2><p>Two everyday tasks most people couldn&rsquo;t finish. Two small changes fixed both.</p></div>
   </a>
 
   <div class="g-p g-p--loud g-f">
     <h2>Chronically on LinkedIn.</h2>
-    <p>I share my design journey out loud, and post a list of open design roles for anyone looking.</p>
-    <a class="n-btn" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">Follow along &rarr;</a>
+    <p>I share my design journey out loud, and post a lot. Follow along!</p>
+    <a class="n-btn" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn &rarr;</a>
   </div>
 
   <figure class="g-p g-p--photo g-g">

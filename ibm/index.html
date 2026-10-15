@@ -1729,6 +1729,89 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 
 .g-p--hi p{max-width:none}
 
+/* ═══ Home cards, v5: the work fills the card (after Jon Rodriguez):
+   logo top left, role and result as pills top right, title over the
+   bottom. Text tiles are light; no big blocks of flat blue. ═══════════ */
+.g-p--work{display:block;position:relative;background:#0b0d1a;isolation:isolate;min-height:0}
+.g-p__media{position:absolute;inset:0;z-index:0;isolation:isolate;container-type:inline-size;overflow:hidden}
+.g-p__media>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.g-p--work:hover .g-p__media>img{transform:scale(1.03)}
+.g-p__media .ih,.g-p__media .uh{transition:transform .8s var(--ease)}
+.g-p--work:hover .g-p__media .ih,.g-p--work:hover .g-p__media .uh{transform:scale(1.03)}
+/* IBM scene, wide-card arrangement */
+.g-p__media .ih{font-size:1.3cqw}
+.g-p__media .ih .ih__art{position:absolute;inset:auto 5% 18% auto;width:40%;height:auto;z-index:auto}
+.g-p__media .ih__card--sov,.g-p__media .ih__card--fast{display:none}
+.g-p__media .ih__card--plat{right:auto;left:4%;top:22%;width:36%}
+/* Slack scene, card arrangement */
+.g-p__media .uh{font-size:1.8cqw}
+.g-p__media .uh__notif,.g-p__media .uh__toast{display:none}
+.g-p__media .uh__msg{top:34%;left:5%;width:56%}
+.g-p__media .uh__saved{top:24%;right:4%;width:35%}
+.g-p__top{position:absolute;z-index:2;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:flex-start;gap:.8rem;padding:clamp(.9rem,1.6vw,1.3rem)}
+.g-logo{flex:none;width:2.6rem;height:2.6rem;border-radius:10px;display:grid;place-items:center;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.g-logo svg{width:1.4rem;height:1.4rem;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linejoin:round}
+.g-logo--ibm{background:#fff;color:#0f62fe;font:700 .82rem/1 'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;letter-spacing:.04em}
+.g-logo--opal{background:#fff;color:#0b0d1a}
+.g-logo--slack{background:#fff;color:#4A154B}
+.g-logo--slack svg{stroke-width:2.4}
+.g-pills{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:.4rem}
+.g-pills span{padding:.45rem .75rem;border-radius:8px;background:rgba(255,255,255,.16);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  color:#fff;font-family:var(--g-sans);font-size:.88rem;line-height:1.2;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);white-space:nowrap}
+.g-p--work .g-p__cap{position:absolute;z-index:1;left:0;right:0;bottom:0;padding:4.5rem clamp(1rem,1.8vw,1.5rem) clamp(1rem,1.8vw,1.4rem);
+  background:linear-gradient(to top,rgba(5,7,18,.82),rgba(5,7,18,.55) 55%,rgba(5,7,18,0));color:#fff}
+.g-p--work .g-p__cap h2{font-size:clamp(1.7rem,2.6vw,2.4rem)}
+.g-p--work .g-p__cap p{margin:.35rem 0 0;max-width:46ch;font-family:var(--g-sans);font-size:clamp(.98rem,1.2vw,1.1rem);line-height:1.4;color:rgba(255,255,255,.88)}
+.g-p--work:hover h2{color:#fff}
+/* light text tiles */
+.g-p--quote,.g-p--quote-dark{background:var(--h-fill);color:var(--h-text)}
+.g-p--quote figcaption{color:var(--h-soft)}
+.g-p--quote figcaption b{color:var(--h-text)}
+.g-p--hi{background:var(--h-fill);color:var(--h-text)}
+.g-p--hi h2{color:var(--blue)}
+.g-p--hi p{color:var(--h-soft)}
+.g-p--hi .n-btn--white{background:var(--blue);color:#fff}
+.g-p--hi .n-btn--ghost{color:var(--blue);box-shadow:inset 0 0 0 2px var(--blue)}
+
+/* placement: named areas, auto rows sized by each tile */
+.g-grid{grid-auto-rows:auto!important;grid-template-areas:
+  "a a a a a a a a b b b b"
+  "a a a a a a a a j j j j"
+  "c c c c c c e e e e e e"
+  "d d d g g g h h h k k k"
+  "f f f f f f f i i i i i"
+  "l l l l l l l l l l l l"}
+.g-a{grid-area:a!important}.g-b{grid-area:b!important}.g-j{grid-area:j!important}.g-c{grid-area:c!important}.g-e{grid-area:e!important}
+.g-d{grid-area:d!important}.g-g{grid-area:g!important}.g-h{grid-area:h!important}.g-k{grid-area:k!important}
+.g-f{grid-area:f!important}.g-i{grid-area:i!important}.g-l{grid-area:l!important}
+.g-a{aspect-ratio:16/9}
+.g-c,.g-e{aspect-ratio:16/11}
+.g-d,.g-g,.g-h,.g-k{aspect-ratio:4/5}
+.g-l{min-height:clamp(16rem,26vw,22rem)}
+@media (max-width:1000px){
+  .g-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-areas:"a a" "b j" "c c" "e e" "d g" "h k" "f f" "i i" "l l"}
+  .g-a,.g-c,.g-e{aspect-ratio:16/11}
+}
+@media (max-width:620px){
+  .g-grid{grid-template-areas:"a a" "b b" "j j" "c c" "e e" "d g" "h k" "f f" "i i" "l l"}
+  .g-a,.g-c,.g-e{aspect-ratio:4/5}
+  .g-p__media .ih{font-size:2.6cqw}
+  .g-p__media .ih__card--plat{left:6%;right:auto;top:20%;width:72%}
+  .g-p__media .ih .ih__art{inset:auto -6% 26% auto;width:78%}
+  .g-p__media .uh{font-size:3.4cqw}
+  .g-p__media .uh__msg{top:20%;width:86%}
+  .g-p__media .uh__saved{top:44%;width:66%;right:5%}
+  .g-p__media .uh__item p:not(.uh__meta):not(.uh__ch){display:none}
+  .g-p__media>img{object-position:center 30%}
+  .g-pills span{font-size:.8rem;padding:.4rem .6rem}
+}
+@media (min-width:1001px){
+  .g-a{aspect-ratio:auto;min-height:24rem}
+  .g-p--quote{gap:1rem}
+  .g-p--quote blockquote{font-size:clamp(1.1rem,1.45vw,1.35rem)}
+}
+@media (max-width:620px){.g-p__media .uh__saved{top:52%}}
+
 </style>
 </head>
 <body class="no-js v2" data-page="ibm">

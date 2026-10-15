@@ -27,7 +27,7 @@
 <link rel="preload" href="/fonts/InstrumentSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Lato:wght@400;700;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Serif:wght@300;400&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════════════════════
    braydenw.com
@@ -1736,6 +1736,89 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 
 .g-p--hi p{max-width:none}
 
+/* ═══ Home cards, v5: the work fills the card (after Jon Rodriguez):
+   logo top left, role and result as pills top right, title over the
+   bottom. Text tiles are light; no big blocks of flat blue. ═══════════ */
+.g-p--work{display:block;position:relative;background:#0b0d1a;isolation:isolate;min-height:0}
+.g-p__media{position:absolute;inset:0;z-index:0;isolation:isolate;container-type:inline-size;overflow:hidden}
+.g-p__media>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.g-p--work:hover .g-p__media>img{transform:scale(1.03)}
+.g-p__media .ih,.g-p__media .uh{transition:transform .8s var(--ease)}
+.g-p--work:hover .g-p__media .ih,.g-p--work:hover .g-p__media .uh{transform:scale(1.03)}
+/* IBM scene, wide-card arrangement */
+.g-p__media .ih{font-size:1.3cqw}
+.g-p__media .ih .ih__art{position:absolute;inset:auto 5% 18% auto;width:40%;height:auto;z-index:auto}
+.g-p__media .ih__card--sov,.g-p__media .ih__card--fast{display:none}
+.g-p__media .ih__card--plat{right:auto;left:4%;top:22%;width:36%}
+/* Slack scene, card arrangement */
+.g-p__media .uh{font-size:1.8cqw}
+.g-p__media .uh__notif,.g-p__media .uh__toast{display:none}
+.g-p__media .uh__msg{top:34%;left:5%;width:56%}
+.g-p__media .uh__saved{top:24%;right:4%;width:35%}
+.g-p__top{position:absolute;z-index:2;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:flex-start;gap:.8rem;padding:clamp(.9rem,1.6vw,1.3rem)}
+.g-logo{flex:none;width:2.6rem;height:2.6rem;border-radius:10px;display:grid;place-items:center;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.g-logo svg{width:1.4rem;height:1.4rem;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linejoin:round}
+.g-logo--ibm{background:#fff;color:#0f62fe;font:700 .82rem/1 'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;letter-spacing:.04em}
+.g-logo--opal{background:#fff;color:#0b0d1a}
+.g-logo--slack{background:#fff;color:#4A154B}
+.g-logo--slack svg{stroke-width:2.4}
+.g-pills{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:.4rem}
+.g-pills span{padding:.45rem .75rem;border-radius:8px;background:rgba(255,255,255,.16);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  color:#fff;font-family:var(--g-sans);font-size:.88rem;line-height:1.2;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);white-space:nowrap}
+.g-p--work .g-p__cap{position:absolute;z-index:1;left:0;right:0;bottom:0;padding:4.5rem clamp(1rem,1.8vw,1.5rem) clamp(1rem,1.8vw,1.4rem);
+  background:linear-gradient(to top,rgba(5,7,18,.82),rgba(5,7,18,.55) 55%,rgba(5,7,18,0));color:#fff}
+.g-p--work .g-p__cap h2{font-size:clamp(1.7rem,2.6vw,2.4rem)}
+.g-p--work .g-p__cap p{margin:.35rem 0 0;max-width:46ch;font-family:var(--g-sans);font-size:clamp(.98rem,1.2vw,1.1rem);line-height:1.4;color:rgba(255,255,255,.88)}
+.g-p--work:hover h2{color:#fff}
+/* light text tiles */
+.g-p--quote,.g-p--quote-dark{background:var(--h-fill);color:var(--h-text)}
+.g-p--quote figcaption{color:var(--h-soft)}
+.g-p--quote figcaption b{color:var(--h-text)}
+.g-p--hi{background:var(--h-fill);color:var(--h-text)}
+.g-p--hi h2{color:var(--blue)}
+.g-p--hi p{color:var(--h-soft)}
+.g-p--hi .n-btn--white{background:var(--blue);color:#fff}
+.g-p--hi .n-btn--ghost{color:var(--blue);box-shadow:inset 0 0 0 2px var(--blue)}
+
+/* placement: named areas, auto rows sized by each tile */
+.g-grid{grid-auto-rows:auto!important;grid-template-areas:
+  "a a a a a a a a b b b b"
+  "a a a a a a a a j j j j"
+  "c c c c c c e e e e e e"
+  "d d d g g g h h h k k k"
+  "f f f f f f f i i i i i"
+  "l l l l l l l l l l l l"}
+.g-a{grid-area:a!important}.g-b{grid-area:b!important}.g-j{grid-area:j!important}.g-c{grid-area:c!important}.g-e{grid-area:e!important}
+.g-d{grid-area:d!important}.g-g{grid-area:g!important}.g-h{grid-area:h!important}.g-k{grid-area:k!important}
+.g-f{grid-area:f!important}.g-i{grid-area:i!important}.g-l{grid-area:l!important}
+.g-a{aspect-ratio:16/9}
+.g-c,.g-e{aspect-ratio:16/11}
+.g-d,.g-g,.g-h,.g-k{aspect-ratio:4/5}
+.g-l{min-height:clamp(16rem,26vw,22rem)}
+@media (max-width:1000px){
+  .g-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-areas:"a a" "b j" "c c" "e e" "d g" "h k" "f f" "i i" "l l"}
+  .g-a,.g-c,.g-e{aspect-ratio:16/11}
+}
+@media (max-width:620px){
+  .g-grid{grid-template-areas:"a a" "b b" "j j" "c c" "e e" "d g" "h k" "f f" "i i" "l l"}
+  .g-a,.g-c,.g-e{aspect-ratio:4/5}
+  .g-p__media .ih{font-size:2.6cqw}
+  .g-p__media .ih__card--plat{left:6%;right:auto;top:20%;width:72%}
+  .g-p__media .ih .ih__art{inset:auto -6% 26% auto;width:78%}
+  .g-p__media .uh{font-size:3.4cqw}
+  .g-p__media .uh__msg{top:20%;width:86%}
+  .g-p__media .uh__saved{top:44%;width:66%;right:5%}
+  .g-p__media .uh__item p:not(.uh__meta):not(.uh__ch){display:none}
+  .g-p__media>img{object-position:center 30%}
+  .g-pills span{font-size:.8rem;padding:.4rem .6rem}
+}
+@media (min-width:1001px){
+  .g-a{aspect-ratio:auto;min-height:24rem}
+  .g-p--quote{gap:1rem}
+  .g-p--quote blockquote{font-size:clamp(1.1rem,1.45vw,1.35rem)}
+}
+@media (max-width:620px){.g-p__media .uh__saved{top:52%}}
+
 </style>
 </head>
 <body class="no-js v2" data-page="home">
@@ -1744,6 +1827,9 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 <a class="skip" href="#work">Skip to the work</a>
 
 <!-- ═══ Hello ══════════════════════════════════════════════════════════════ -->
+<!-- Icon sprite (lucide), shared by every page that shows Slack UI. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-smile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></symbol><symbol id="i-msg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol><symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></symbol><symbol id="i-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></symbol><symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></symbol><symbol id="i-more" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></symbol><symbol id="i-hash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="9" y2="9"/><line x1="4" x2="20" y1="15" y2="15"/><line x1="10" x2="8" y1="3" y2="21"/><line x1="16" x2="14" y1="3" y2="21"/></symbol><symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></symbol><symbol id="i-belloff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M17 17H4a1 1 0 0 1-.74-1.673C4.59 13.956 6 12.499 6 8a6 6 0 0 1 .258-1.742"/><path d="m2 2 20 20"/><path d="M8.668 3.01A6 6 0 0 1 18 8c0 2.687.77 4.653 1.707 6.05"/></symbol><symbol id="i-vol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.364 18.364a9 9 0 0 0 0-12.728"/></symbol><symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol><symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol><symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol></svg>
+
 <header class="g-hello">
   <div class="h-bar" id="h-bar">
     <a class="h-bar__name" href="/">Brayden Wisniewski</a>
@@ -1777,13 +1863,28 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 <section class="g-grid" id="work" aria-label="Work and life">
 
   <a class="g-p g-p--work g-a" href="/ibm">
-    <div class="g-p__img"><img src="/images/ibm-platinum-hero.jpg" width="1501" height="668" style="object-position:left center"
-      alt="The IBM Platinum Experience page Brayden designed, live on ibm.com"></div>
-    <div class="g-p__cap">
-      <p class="g-p__meta">Internship &middot; Product Design Intern &middot; 12 weeks</p>
-      <h2>IBM Software</h2>
-      <p class="g-p__win">Live on ibm.com</p>
+    <div class="g-p__media">
+    <div class="ih" aria-hidden="true">
+      <img class="ih__art" src="/images/ibm-platinum-art.png" width="900" height="704" alt="">
+      <div class="ih__card ih__card--plat">
+        <p class="ih__h"><span>IBM Platinum</span> <span>Experience</span></p>
+        <p class="ih__p">A premium partnership with your needs at the center of your IBM Software experience.</p>
+        <p class="ih__btns"><span class="ih__btn">Sign up now <i>&rarr;</i></span><span class="ih__btn ih__btn--ghost">Webinar <i>&rarr;</i></span></p>
+      </div>
+      <div class="ih__card ih__card--sov">
+        <p class="ih__eyebrow">IBM Sovereign Support</p>
+        <p class="ih__t">Keep data in-region</p>
+        <p class="ih__p">Support cases, personnel, and diagnostic data handling are all bound to your sovereign environment.</p>
+        <p class="ih__tags"><span>Data sovereignty</span><span>Control</span></p>
+      </div>
+      <div class="ih__card ih__card--fast">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 13l3-4M10 2h4M12 2v3"/></svg>
+        <p class="ih__t">Fastest response times</p>
+      </div>
     </div>
+    </div>
+    <div class="g-p__top"><span class="g-logo g-logo--ibm" aria-hidden="true">IBM</span><span class="g-pills"><span>Design Intern</span><span>Shipped on ibm.com</span></span></div>
+    <div class="g-p__cap"><h2>IBM Software</h2><p>A summer in Austin on how people and AI agents learn complex products.</p></div>
   </a>
 
   <figure class="g-p g-p--quote g-b">
@@ -1792,13 +1893,11 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
   </figure>
 
   <a class="g-p g-p--work g-c" href="/opal">
-    <div class="g-p__img"><img src="/images/opal-hero.jpg" width="2000" height="1110" loading="lazy"
-      alt="The Opal focus app across several screens"></div>
-    <div class="g-p__cap">
-      <p class="g-p__meta">Team project &middot; Product Designer</p>
-      <h2>Opal</h2>
-      <p class="g-p__win">Indigo Design Award</p>
+    <div class="g-p__media">
+    <img src="/images/opal-hero.jpg" width="2000" height="1110" loading="lazy" alt="The Opal focus app across several screens, showing planning, blocking, and break suggestions">
     </div>
+    <div class="g-p__top"><span class="g-logo g-logo--opal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M12 21 8 9l4-6 4 6z"/></svg></span><span class="g-pills"><span>Product Designer</span><span>Indigo Design Award</span></span></div>
+    <div class="g-p__cap"><h2>Opal</h2><p>Helping students plan, focus, and take breaks worth taking.</p></div>
   </a>
 
   <figure class="g-p g-p--photo g-d">
@@ -1807,19 +1906,39 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
   </figure>
 
   <a class="g-p g-p--work g-e" href="/slack">
-    <div class="g-p__img"><img src="/images/slack-hero.jpg" width="1920" height="1080" loading="lazy"
-      alt="The redesigned Slack interface"></div>
-    <div class="g-p__cap">
-      <p class="g-p__meta">Research study &middot; Research Lead</p>
-      <h2>Slack</h2>
-      <p class="g-p__win">3/8 &rarr; 8/8 task success</p>
+    <div class="g-p__media">
+    <div class="uh" aria-hidden="true">
+        <div class="uh__msg">
+          <div class="uh__bar">
+            <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-smile"/></svg></span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-msg"/></svg></span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-share"/></svg></span>
+            <span class="is-save"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bookmark"/></svg><em>Save for Me</em></span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg></span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-more"/></svg></span>
+          </div>
+          <div class="uh__row"><b class="uh__av" style="background:#E8A838">SC</b>
+            <div><p class="uh__meta"><strong>Sarah Chen</strong> 9:41 AM</p>
+            <p>Final specs for the onboarding flow are in Figma. Can everyone review before Thursday?</p></div></div>
+        </div>
+        <div class="uh__saved">
+          <p class="uh__title">Saved</p>
+          <p class="uh__tabs"><span class="is-on">Saved for Me</span><span>Pinned for All</span></p>
+          <div class="uh__item"><p class="uh__ch"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-hash"/></svg>design</p>
+            <div class="uh__row"><b class="uh__av uh__av--sm" style="background:#E8A838">SC</b>
+            <div><p class="uh__meta"><strong>Sarah Chen</strong> 9:41 AM</p><p>Final specs for the onboarding flow are in Figma.</p></div></div></div>
+        </div>
+        <div class="uh__notif">
+          <p class="uh__chan"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-hash"/></svg><strong>design</strong><span class="uh__pill"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg>Mentions</span></p>
+          <p class="uh__seg"><span>All</span><span class="is-on"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg>Mentions</span><span>Muted</span></p>
+        </div>
+        <p class="uh__toast">This message was saved for you</p>
+      </div>
     </div>
+    <div class="g-p__top"><span class="g-logo g-logo--slack" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><use href="#i-hash"/></svg></span><span class="g-pills"><span>Research Lead</span><span>3/8 &rarr; 8/8 task success</span></span></div>
+    <div class="g-p__cap"><h2>Slack</h2><p>Two everyday tasks most people couldn&rsquo;t finish. Two small changes fixed both.</p></div>
   </a>
 
   <div class="g-p g-p--loud g-f">
     <h2>Chronically on LinkedIn.</h2>
-    <p>I share my design journey out loud, and post a list of open design roles for anyone looking.</p>
-    <a class="n-btn" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">Follow along &rarr;</a>
+    <p>I share my design journey out loud, and post a lot. Follow along!</p>
+    <a class="n-btn" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn &rarr;</a>
   </div>
 
   <figure class="g-p g-p--photo g-g">
