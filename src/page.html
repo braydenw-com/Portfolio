@@ -25,7 +25,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Gloock&family=Geist:wght@300..800&family=Geist+Mono:wght@400..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body class="no-js v2" data-page="home">
@@ -34,7 +34,7 @@
 <a class="skip" href="#work">Skip to the work</a>
 
 <!-- ═══ Hello ══════════════════════════════════════════════════════════════ -->
-<header class="n-hello">
+<header class="g-hello">
   <div class="h-bar" id="h-bar">
     <a class="h-bar__name" href="/">Brayden Wisniewski</a>
     <nav class="h-bar__links" aria-label="Sections">
@@ -44,14 +44,13 @@
       <a href="#hi">Say hi</a>
     </nav>
   </div>
-  <div class="n-hello__body">
-    <h1 class="n-big">Hey, I&rsquo;m <em>Brayden.</em></h1>
-    <p class="n-hello__who">Designer. People person. Kinda tall.</p>
-    <p class="n-hello__info">UX at SCAD, graduating 2027 &middot; Open to design roles</p>
-    <p class="n-hello__with">Worked with <b>IBM</b> <b>Deloitte</b> <b>Hartford HealthCare</b> <b>Adobe</b> <b>Framer</b></p>
-    <div class="n-btns">
-      <a class="n-btn" href="#work">See my work</a>
-      <a class="n-btn n-btn--line" href="mailto:brayden@braydenw.com">Grab an iced coffee with me</a>
+  <div class="g-hello__body">
+    <p class="g-hey">Hey, I&rsquo;m Brayden. Designer. People person. Kinda tall.</p>
+    <h1 class="g-mark" id="g-mark"><span>Brayden</span> <span>Wisniewski</span></h1>
+    <div class="g-hello__row">
+      <p>UX at SCAD, graduating 2027<br>Open to design roles</p>
+      <p class="g-with">Worked with <b>IBM</b> <b>Deloitte</b> <b>Hartford HealthCare</b> <b>Adobe</b> <b>Framer</b></p>
+      <div class="n-btns"><a class="n-btn" href="#work">See my work</a><a class="n-btn n-btn--line" href="mailto:brayden@braydenw.com">Grab an iced coffee with me</a></div>
     </div>
   </div>
 </header>
@@ -64,89 +63,89 @@
   <a class="h-pill-nav__hi" href="#hi">Say hi</a>
 </nav>
 
-<main id="top">
+<main id="top" class="g-wrap">
 
-<!-- ═══ Work ═══════════════════════════════════════════════════════════════ -->
-<section class="n-sec" id="work">
-  <h2 class="n-big">Stuff I&rsquo;ve made</h2>
-  <div class="n-work">
-    <a class="n-card n-card--wide" href="/ibm">
-      <div class="n-card__img"><img src="/images/ibm-platinum-hero.jpg" width="1501" height="668" style="object-position:left center"
-        alt="The IBM Platinum Experience page Brayden designed, live on ibm.com"></div>
-      <p class="n-card__meta">Internship &middot; Product Design Intern &middot; 12 weeks</p>
-      <h3>IBM Software</h3>
-      <p class="n-card__win">Live on ibm.com</p>
-      <p>Spent the summer in Austin on IBM&rsquo;s Db2 team. Then got asked on a Thursday afternoon to redesign three support pages, and presented them Friday morning. They&rsquo;re live.</p>
-    </a>
-    <a class="n-card" href="/opal">
-      <div class="n-card__img"><img src="/images/opal-hero.jpg" width="2000" height="1110" loading="lazy"
-        alt="The Opal focus app across several screens, showing planning, blocking, and break suggestions"></div>
-      <p class="n-card__meta">Team project &middot; Product Designer &middot; 10 weeks</p>
-      <h3>Opal</h3>
-      <p class="n-card__win">Indigo Design Award</p>
-      <p>A focus app for students who don&rsquo;t need another app telling them to focus.</p>
-    </a>
-    <a class="n-card" href="/slack">
-      <div class="n-card__img"><img src="/images/slack-hero.jpg" width="1920" height="1080" loading="lazy"
-        alt="The redesigned Slack interface: a Save for Me action, a Pin for All action, and a unified notification panel"></div>
-      <p class="n-card__meta">Research study &middot; Research Lead &middot; 10 weeks</p>
-      <h3>Slack</h3>
-      <p class="n-card__win">3/8 &rarr; 8/8 task success</p>
-      <p>Found two everyday Slack tasks most people couldn&rsquo;t finish. Fixed them with better words.</p>
-    </a>
-  </div>
-</section>
+<!-- ═══ The gallery: work, people, and life, in one grid ═══════════════════ -->
+<section class="g-grid" id="work" aria-label="Work and life">
 
-<!-- ═══ Kind words ═════════════════════════════════════════════════════════ -->
-<section class="n-sec">
-  <h2 class="n-big">Nice things people said.</h2>
-  <div class="n-quotes">
-    <blockquote>
-      <p>&ldquo;Your contributions helped us transform ideas into modern, polished web experiences that better showcase the value of our offerings.&rdquo;</p>
-      <footer><b>Pepe Valiente</b>Strategy Lead, IBM Core Software</footer>
-    </blockquote>
-    <blockquote>
-      <p>&ldquo;Your quick turnaround with the initial drafts and subsequent update requests allowed us to publish these sooner than we would have.&rdquo;</p>
-      <footer><b>Patti McAuliffe</b>WW Support Planning, IBM Core Software</footer>
-    </blockquote>
-  </div>
-</section>
-
-<!-- ═══ Out loud ═══════════════════════════════════════════════════════════ -->
-<section class="n-sec">
-  <h2 class="n-big">Chronically on LinkedIn.</h2>
-  <p class="n-lede">I share my design journey out loud. And every Sunday I post a list of open design roles for anyone looking.</p>
-  <div class="n-loud">
-    <div>
-      <p class="n-loud__day">Every Sunday</p>
-      <p class="n-loud__what">Open design roles, rounded up and posted for anyone looking.</p>
+  <a class="g-p g-p--work g-a" href="/ibm">
+    <div class="g-p__img"><img src="/images/ibm-platinum-hero.jpg" width="1501" height="668" style="object-position:left center"
+      alt="The IBM Platinum Experience page Brayden designed, live on ibm.com"></div>
+    <div class="g-p__cap">
+      <p class="g-p__meta">Internship &middot; Product Design Intern &middot; 12 weeks</p>
+      <h2>IBM Software</h2>
+      <p class="g-p__win">Live on ibm.com</p>
     </div>
-    <a class="n-btn n-btn--blue" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">Follow along on LinkedIn &rarr;</a>
-  </div>
-</section>
+  </a>
 
-<!-- ═══ Life ═══════════════════════════════════════════════════════════════ -->
-<section class="n-sec">
-  <h2 class="n-big">I love to shut my computer and live my life.</h2>
-  <p class="n-lede">Usually that means iced coffee, the pottery wheel, or wherever my friends are headed.</p>
-  <div class="n-life">
-    <figure><img src="/images/ceramics.jpg" width="1400" height="1050" loading="lazy" alt="A stack of just-thrown ceramic bowls"><figcaption>The wheel</figcaption></figure>
-    <figure><img src="/images/travel.jpg" width="1050" height="1400" loading="lazy" alt="Brayden and a friend outside a bagel shop in New York"><figcaption>Somewhere new</figcaption></figure>
-    <figure><img src="/images/food.jpg" width="1400" height="1050" loading="lazy" alt="Brayden eating a turkey leg at a fair at night"><figcaption>Fair food</figcaption></figure>
-    <figure><img src="/images/about-lead.jpg" width="1200" height="1600" loading="lazy" alt="Brayden holding his Config badge in San Francisco"><figcaption>Config</figcaption></figure>
-  </div>
-</section>
+  <figure class="g-p g-p--quote g-b">
+    <blockquote>&ldquo;Your contributions helped us transform ideas into modern, polished web experiences.&rdquo;</blockquote>
+    <figcaption><b>Pepe Valiente</b>Strategy Lead, IBM Core Software</figcaption>
+  </figure>
 
-<!-- ═══ Say hi ═════════════════════════════════════════════════════════════ -->
-<section class="n-hi" id="hi">
-  <div class="n-hi__in">
-    <h2 class="n-big">I love to <em>chat.</em></h2>
+  <a class="g-p g-p--work g-c" href="/opal">
+    <div class="g-p__img"><img src="/images/opal-hero.jpg" width="2000" height="1110" loading="lazy"
+      alt="The Opal focus app across several screens"></div>
+    <div class="g-p__cap">
+      <p class="g-p__meta">Team project &middot; Product Designer</p>
+      <h2>Opal</h2>
+      <p class="g-p__win">Indigo Design Award</p>
+    </div>
+  </a>
+
+  <figure class="g-p g-p--photo g-d">
+    <img src="/images/ceramics.jpg" width="1400" height="1050" loading="lazy" alt="A stack of just-thrown ceramic bowls">
+    <figcaption>Off the wheel</figcaption>
+  </figure>
+
+  <a class="g-p g-p--work g-e" href="/slack">
+    <div class="g-p__img"><img src="/images/slack-hero.jpg" width="1920" height="1080" loading="lazy"
+      alt="The redesigned Slack interface"></div>
+    <div class="g-p__cap">
+      <p class="g-p__meta">Research study &middot; Research Lead</p>
+      <h2>Slack</h2>
+      <p class="g-p__win">3/8 &rarr; 8/8 task success</p>
+    </div>
+  </a>
+
+  <div class="g-p g-p--loud g-f">
+    <p class="g-p__meta">Every Sunday</p>
+    <h2>Chronically on LinkedIn.</h2>
+    <p>I share my design journey out loud, and post a list of open design roles for anyone looking.</p>
+    <a class="n-btn" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">Follow along &rarr;</a>
+  </div>
+
+  <figure class="g-p g-p--photo g-g">
+    <img src="/images/about-lead.jpg" width="1200" height="1600" loading="lazy" alt="Brayden holding his Config badge in San Francisco">
+    <figcaption>Config, San Francisco</figcaption>
+  </figure>
+
+  <figure class="g-p g-p--photo g-h">
+    <img src="/images/travel.jpg" width="1050" height="1400" loading="lazy" alt="Brayden and a friend outside a bagel shop in New York">
+    <figcaption>Somewhere new</figcaption>
+  </figure>
+
+  <div class="g-p g-p--life g-i">
+    <h2>I love to shut my computer and live my life.</h2>
+    <p>Usually that means iced coffee, the pottery wheel, or wherever my friends are headed.</p>
+  </div>
+
+  <figure class="g-p g-p--quote g-p--quote-dark g-j">
+    <blockquote>&ldquo;Your quick turnaround allowed us to publish these sooner than we would have.&rdquo;</blockquote>
+    <figcaption><b>Patti McAuliffe</b>WW Support Planning, IBM Core Software</figcaption>
+  </figure>
+
+  <figure class="g-p g-p--photo g-k">
+    <img src="/images/food.jpg" width="1400" height="1050" loading="lazy" alt="Brayden eating a turkey leg at a fair at night">
+    <figcaption>Fair food</figcaption>
+  </figure>
+
+  <div class="g-p g-p--hi g-l" id="hi">
+    <h2>I love to chat.</h2>
     <p>Seriously. Ask me about design, AI, ceramics, or how tall I am.</p>
-    <div class="n-btns">
-      <a class="n-btn" href="mailto:brayden@braydenw.com">brayden@braydenw.com</a>
-      <a class="n-btn n-btn--line" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
+    <div class="n-btns"><a class="n-btn n-btn--white" href="mailto:brayden@braydenw.com">brayden@braydenw.com</a><a class="n-btn n-btn--ghost" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a></div>
   </div>
+
 </section>
 
 </main>
