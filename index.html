@@ -1734,44 +1734,6 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 .g-hey{text-wrap:balance}@media (max-width:1000px){.g-mark{margin-bottom:.9rem}}
 @media (min-width:1001px){.g-hello .h-bar__links{flex-direction:row;flex-wrap:wrap;gap:0 1.3rem}}
 
-/* "I'm a" filter: a bubble top right; picks which tiles show. */
-.g-for{position:fixed;z-index:20;top:clamp(.8rem,1.6vw,1.2rem);right:clamp(.8rem,1.6vw,1.2rem);display:flex;align-items:center;gap:2px;
-  padding:4px;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  box-shadow:0 0 0 1px var(--h-line),0 8px 24px rgba(11,13,26,.1);font-family:'Geist','Helvetica Neue',Arial,sans-serif;font-size:.9rem}
-.g-for__label{padding:0 .5rem 0 .7rem;color:var(--h-soft)}
-.g-for button{all:unset;cursor:pointer;min-height:36px;padding:0 .85rem;border-radius:999px;display:inline-flex;align-items:center;color:var(--h-text);transition:background .2s,color .2s}
-.g-for button:hover{background:var(--h-fill)}
-.g-for button[aria-pressed=true]{background:var(--blue);color:#fff}
-.g-for button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
-.g-p[hidden]{display:none!important}
-.g-grid.is-filtered{grid-auto-flow:dense}
-.g-grid.is-filtered>.g-p{grid-row:auto!important}
-.g-grid.is-filtered>.g-p--work{grid-row:span 4!important}
-.g-grid.is-filtered>.g-p--quote,.g-grid.is-filtered>.g-p--photo{grid-row:span 2!important}
-.g-grid.is-filtered>.g-p--loud,.g-grid.is-filtered>.g-p--life,.g-grid.is-filtered>.g-p--hi{grid-row:span 3!important}
-.g-grid.is-filtered>.g-p{animation:g-in .4s var(--ease) both}
-@keyframes g-in{from{opacity:0;transform:translateY(8px)}}
-@media (min-width:1001px){
-  .g-grid.is-filtered>.g-a,.g-grid.is-filtered>.g-c,.g-grid.is-filtered>.g-e{grid-column:span 6}
-  .g-grid.is-filtered>.g-b,.g-grid.is-filtered>.g-j{grid-column:span 6}
-  .g-grid.is-filtered>.g-d,.g-grid.is-filtered>.g-g,.g-grid.is-filtered>.g-h,.g-grid.is-filtered>.g-k{grid-column:span 3}
-  .g-grid.is-filtered>.g-f,.g-grid.is-filtered>.g-i{grid-column:span 6}
-  .g-grid.is-filtered>.g-l{grid-column:1/-1}
-}
-@media (max-width:1000px){
-  .g-for{position:sticky;top:.75rem;margin:0 0 .8rem auto;width:max-content;max-width:100%;overflow-x:auto}
-}
-@media (max-width:620px){
-  .g-for{font-size:.82rem}.g-for__label{display:none}.g-for button{padding:0 .7rem;min-height:40px}
-}
-@media (prefers-reduced-motion:reduce){.g-grid.is-filtered>.g-p{animation:none}}
-@media (min-width:1001px){
-  .g-for{position:sticky;top:clamp(.8rem,1.6vw,1.2rem);right:auto;margin:0 0 clamp(.6rem,1.1vw,1rem) auto;width:max-content}
-}
-@media (max-width:620px){
-  .g-grid.is-filtered>.g-p--loud,.g-grid.is-filtered>.g-p--life,.g-grid.is-filtered>.g-p--hi,.g-grid.is-filtered>.g-p--quote{grid-row:auto!important}
-}
-.g-for button{min-height:44px!important}
 .g-p--hi p{max-width:none}
 
 </style>
@@ -1812,17 +1774,9 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 <main id="top" class="g-wrap">
 
 <!-- ═══ The gallery: work, people, and life, in one grid ═══════════════════ -->
-<div class="g-for" role="group" aria-label="Show me what matters to">
-  <span class="g-for__label">I&rsquo;m a</span>
-  <button type="button" data-show="all" aria-pressed="true">Everyone</button>
-  <button type="button" data-show="recruiter" aria-pressed="false">Recruiter</button>
-  <button type="button" data-show="designer" aria-pressed="false">Designer</button>
-  <button type="button" data-show="student" aria-pressed="false">Student</button>
-</div>
-
 <section class="g-grid" id="work" aria-label="Work and life">
 
-  <a class="g-p g-p--work g-a" data-for="recruiter designer student" href="/ibm">
+  <a class="g-p g-p--work g-a" href="/ibm">
     <div class="g-p__img"><img src="/images/ibm-platinum-hero.jpg" width="1501" height="668" style="object-position:left center"
       alt="The IBM Platinum Experience page Brayden designed, live on ibm.com"></div>
     <div class="g-p__cap">
@@ -1832,12 +1786,12 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
     </div>
   </a>
 
-  <figure class="g-p g-p--quote g-b" data-for="recruiter">
+  <figure class="g-p g-p--quote g-b">
     <blockquote>&ldquo;Your contributions helped us transform ideas into modern, polished web experiences.&rdquo;</blockquote>
     <figcaption><b>Pepe Valiente</b>Strategy Lead, IBM Core Software</figcaption>
   </figure>
 
-  <a class="g-p g-p--work g-c" data-for="recruiter designer student" href="/opal">
+  <a class="g-p g-p--work g-c" href="/opal">
     <div class="g-p__img"><img src="/images/opal-hero.jpg" width="2000" height="1110" loading="lazy"
       alt="The Opal focus app across several screens"></div>
     <div class="g-p__cap">
@@ -1847,12 +1801,12 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
     </div>
   </a>
 
-  <figure class="g-p g-p--photo g-d" data-for="designer student">
+  <figure class="g-p g-p--photo g-d">
     <img src="/images/ceramics.jpg" width="1400" height="1050" loading="lazy" alt="A stack of just-thrown ceramic bowls">
     <figcaption>Off the wheel</figcaption>
   </figure>
 
-  <a class="g-p g-p--work g-e" data-for="recruiter designer student" href="/slack">
+  <a class="g-p g-p--work g-e" href="/slack">
     <div class="g-p__img"><img src="/images/slack-hero.jpg" width="1920" height="1080" loading="lazy"
       alt="The redesigned Slack interface"></div>
     <div class="g-p__cap">
@@ -1862,38 +1816,38 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
     </div>
   </a>
 
-  <div class="g-p g-p--loud g-f" data-for="designer student">
+  <div class="g-p g-p--loud g-f">
     <h2>Chronically on LinkedIn.</h2>
     <p>I share my design journey out loud, and post a list of open design roles for anyone looking.</p>
     <a class="n-btn" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">Follow along &rarr;</a>
   </div>
 
-  <figure class="g-p g-p--photo g-g" data-for="designer student">
+  <figure class="g-p g-p--photo g-g">
     <img src="/images/about-lead.jpg" width="1200" height="1600" loading="lazy" alt="Brayden holding his Config badge in San Francisco">
     <figcaption>Config, San Francisco</figcaption>
   </figure>
 
-  <figure class="g-p g-p--photo g-h" data-for="student">
+  <figure class="g-p g-p--photo g-h">
     <img src="/images/travel.jpg" width="1050" height="1400" loading="lazy" alt="Brayden and a friend outside a bagel shop in New York">
     <figcaption>Somewhere new</figcaption>
   </figure>
 
-  <div class="g-p g-p--life g-i" data-for="designer student">
+  <div class="g-p g-p--life g-i">
     <h2>I love to shut my computer and live my life.</h2>
     <p>Usually that means iced coffee, the pottery wheel, or wherever my friends are headed.</p>
   </div>
 
-  <figure class="g-p g-p--quote g-p--quote-dark g-j" data-for="recruiter">
+  <figure class="g-p g-p--quote g-p--quote-dark g-j">
     <blockquote>&ldquo;Your quick turnaround allowed us to publish these sooner than we would have.&rdquo;</blockquote>
     <figcaption><b>Patti McAuliffe</b>WW Support Planning, IBM Core Software</figcaption>
   </figure>
 
-  <figure class="g-p g-p--photo g-k" data-for="student">
+  <figure class="g-p g-p--photo g-k">
     <img src="/images/food.jpg" width="1400" height="1050" loading="lazy" alt="Brayden eating a turkey leg at a fair at night">
     <figcaption>Fair food</figcaption>
   </figure>
 
-  <div class="g-p g-p--hi g-l" data-for="recruiter designer student" id="hi">
+  <div class="g-p g-p--hi g-l" id="hi">
     <h2>I love to chat.</h2>
     <p>Seriously. Ask me about design, AI, ceramics, or how tall I am.</p>
     <div class="n-btns"><a class="n-btn n-btn--white" href="mailto:brayden@braydenw.com">brayden@braydenw.com</a><a class="n-btn n-btn--ghost" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a></div>
@@ -2411,30 +2365,6 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
       } else { done(false); }
     });
   });
-
-  /* "I'm a" filter: show the tiles for recruiters, designers or students.
-     The pick rides along in the URL (?for=recruiter) so it can be shared. */
-  var gFor = document.querySelector('.g-for');
-  var gGrid = document.querySelector('.g-grid');
-  if (gFor && gGrid) {
-    var tiles = gGrid.querySelectorAll('[data-for]');
-    var show = function (who, push) {
-      if (!gFor.querySelector('[data-show="' + who + '"]')) who = 'all';
-      gFor.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.show === who); });
-      tiles.forEach(function (t) { t.hidden = who !== 'all' && t.dataset.for.split(' ').indexOf(who) < 0; });
-      gGrid.classList.toggle('is-filtered', who !== 'all');
-      if (push) {
-        var u = new URL(location.href);
-        if (who === 'all') u.searchParams.delete('for'); else u.searchParams.set('for', who);
-        history.replaceState(null, '', u);
-      }
-    };
-    gFor.addEventListener('click', function (e) {
-      var b = e.target.closest('button[data-show]');
-      if (b) show(b.dataset.show, true);
-    });
-    show(new URLSearchParams(location.search).get('for') || 'all', false);
-  }
 
   console.log(
     '%cHey.%c You opened the console, so we should probably talk.\nbrayden@braydenw.com',
