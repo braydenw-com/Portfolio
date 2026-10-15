@@ -1672,6 +1672,17 @@ body:has(.g-hello) .foot{font-family:'Geist','Helvetica Neue',Arial,sans-serif}
 .g-hello .h-bar,.g-hello__row p,.g-with,.g-with b{font-size:.8rem}
 .g-p__meta,.g-p--photo figcaption,.g-p--quote figcaption{font-size:.74rem}
 .g-hey{letter-spacing:-.03em}
+/* No all caps; the name sits at a normal headline size on one line. */
+.g-hello,.g-wrap,.g-hello *,.g-wrap *{text-transform:none!important}
+.g-mark{font-size:clamp(3rem,7.5vw,7.5rem)!important;line-height:.95;letter-spacing:-.025em;width:auto}
+.g-mark span{display:inline;width:auto}
+.g-hey{margin-bottom:.9rem}
+.g-hello .h-bar,.g-hello__row p,.g-with,.g-with b{font-size:.85rem}
+.g-p__meta,.g-p--photo figcaption,.g-p--quote figcaption{font-size:.8rem}
+.g-hello .n-btn,.g-wrap .n-btn{font-size:.9rem}
+.g-hello{min-height:0!important}
+.g-hello__body{padding-top:clamp(5rem,16vh,11rem)}
+.g-hello .h-bar,.g-hello .n-btn,.g-wrap .n-btn{font-family:var(--g-sans);font-size:.95rem;letter-spacing:-.005em}
 
 </style>
 </head>
@@ -2305,22 +2316,6 @@ body:has(.g-hello) .foot{font-family:'Geist','Helvetica Neue',Arial,sans-serif}
       } else { done(false); }
     });
   });
-
-  /* Home wordmark: fit the longer line to the column. */
-  var gMark = document.getElementById('g-mark');
-  if (gMark) {
-    var fitMark = function () {
-      gMark.style.setProperty('--mark', '100px');
-      var w = 0;
-      gMark.querySelectorAll('span').forEach(function (s) { w = Math.max(w, s.getBoundingClientRect().width); });
-      if (w) gMark.style.setProperty('--mark', (100 * gMark.clientWidth / w * .995) + 'px');
-    };
-    fitMark();
-    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(fitMark);
-    if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', fitMark);
-    addEventListener('load', fitMark);
-    addEventListener('resize', fitMark);
-  }
 
   console.log(
     '%cHey.%c You opened the console, so we should probably talk.\nbrayden@braydenw.com',

@@ -494,22 +494,6 @@
     });
   });
 
-  /* Home wordmark: fit the longer line to the column. */
-  var gMark = document.getElementById('g-mark');
-  if (gMark) {
-    var fitMark = function () {
-      gMark.style.setProperty('--mark', '100px');
-      var w = 0;
-      gMark.querySelectorAll('span').forEach(function (s) { w = Math.max(w, s.getBoundingClientRect().width); });
-      if (w) gMark.style.setProperty('--mark', (100 * gMark.clientWidth / w * .995) + 'px');
-    };
-    fitMark();
-    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(fitMark);
-    if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', fitMark);
-    addEventListener('load', fitMark);
-    addEventListener('resize', fitMark);
-  }
-
   console.log(
     '%cHey.%c You opened the console, so we should probably talk.\nbrayden@braydenw.com',
     'font:700 20px "Bricolage Grotesque",sans-serif;color:#1b4dff',
