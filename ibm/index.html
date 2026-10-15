@@ -1727,6 +1727,45 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 .g-hey{text-wrap:balance}@media (max-width:1000px){.g-mark{margin-bottom:.9rem}}
 @media (min-width:1001px){.g-hello .h-bar__links{flex-direction:row;flex-wrap:wrap;gap:0 1.3rem}}
 
+/* "I'm a" filter: a bubble top right; picks which tiles show. */
+.g-for{position:fixed;z-index:20;top:clamp(.8rem,1.6vw,1.2rem);right:clamp(.8rem,1.6vw,1.2rem);display:flex;align-items:center;gap:2px;
+  padding:4px;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  box-shadow:0 0 0 1px var(--h-line),0 8px 24px rgba(11,13,26,.1);font-family:'Geist','Helvetica Neue',Arial,sans-serif;font-size:.9rem}
+.g-for__label{padding:0 .5rem 0 .7rem;color:var(--h-soft)}
+.g-for button{all:unset;cursor:pointer;min-height:36px;padding:0 .85rem;border-radius:999px;display:inline-flex;align-items:center;color:var(--h-text);transition:background .2s,color .2s}
+.g-for button:hover{background:var(--h-fill)}
+.g-for button[aria-pressed=true]{background:var(--blue);color:#fff}
+.g-for button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.g-p[hidden]{display:none!important}
+.g-grid.is-filtered{grid-auto-flow:dense}
+.g-grid.is-filtered>.g-p{grid-row:auto!important}
+.g-grid.is-filtered>.g-p--work{grid-row:span 4!important}
+.g-grid.is-filtered>.g-p--quote,.g-grid.is-filtered>.g-p--photo{grid-row:span 2!important}
+.g-grid.is-filtered>.g-p--loud,.g-grid.is-filtered>.g-p--life,.g-grid.is-filtered>.g-p--hi{grid-row:span 3!important}
+.g-grid.is-filtered>.g-p{animation:g-in .4s var(--ease) both}
+@keyframes g-in{from{opacity:0;transform:translateY(8px)}}
+@media (min-width:1001px){
+  .g-grid.is-filtered>.g-a,.g-grid.is-filtered>.g-c,.g-grid.is-filtered>.g-e{grid-column:span 6}
+  .g-grid.is-filtered>.g-b,.g-grid.is-filtered>.g-j{grid-column:span 6}
+  .g-grid.is-filtered>.g-d,.g-grid.is-filtered>.g-g,.g-grid.is-filtered>.g-h,.g-grid.is-filtered>.g-k{grid-column:span 3}
+  .g-grid.is-filtered>.g-f,.g-grid.is-filtered>.g-i{grid-column:span 6}
+  .g-grid.is-filtered>.g-l{grid-column:1/-1}
+}
+@media (max-width:1000px){
+  .g-for{position:sticky;top:.75rem;margin:0 0 .8rem auto;width:max-content;max-width:100%;overflow-x:auto}
+}
+@media (max-width:620px){
+  .g-for{font-size:.82rem}.g-for__label{display:none}.g-for button{padding:0 .7rem;min-height:40px}
+}
+@media (prefers-reduced-motion:reduce){.g-grid.is-filtered>.g-p{animation:none}}
+@media (min-width:1001px){
+  .g-for{position:sticky;top:clamp(.8rem,1.6vw,1.2rem);right:auto;margin:0 0 clamp(.6rem,1.1vw,1rem) auto;width:max-content}
+}
+@media (max-width:620px){
+  .g-grid.is-filtered>.g-p--loud,.g-grid.is-filtered>.g-p--life,.g-grid.is-filtered>.g-p--hi,.g-grid.is-filtered>.g-p--quote{grid-row:auto!important}
+}
+.g-for button{min-height:44px!important}
+
 </style>
 </head>
 <body class="no-js v2" data-page="ibm">
@@ -2399,6 +2438,30 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
       } else { done(false); }
     });
   });
+
+  /* "I'm a" filter: show the tiles for recruiters, designers or students.
+     The pick rides along in the URL (?for=recruiter) so it can be shared. */
+  var gFor = document.querySelector('.g-for');
+  var gGrid = document.querySelector('.g-grid');
+  if (gFor && gGrid) {
+    var tiles = gGrid.querySelectorAll('[data-for]');
+    var show = function (who, push) {
+      if (!gFor.querySelector('[data-show="' + who + '"]')) who = 'all';
+      gFor.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.show === who); });
+      tiles.forEach(function (t) { t.hidden = who !== 'all' && t.dataset.for.split(' ').indexOf(who) < 0; });
+      gGrid.classList.toggle('is-filtered', who !== 'all');
+      if (push) {
+        var u = new URL(location.href);
+        if (who === 'all') u.searchParams.delete('for'); else u.searchParams.set('for', who);
+        history.replaceState(null, '', u);
+      }
+    };
+    gFor.addEventListener('click', function (e) {
+      var b = e.target.closest('button[data-show]');
+      if (b) show(b.dataset.show, true);
+    });
+    show(new URLSearchParams(location.search).get('for') || 'all', false);
+  }
 
   console.log(
     '%cHey.%c You opened the console, so we should probably talk.\nbrayden@braydenw.com',

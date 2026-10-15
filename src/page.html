@@ -66,9 +66,17 @@
 <main id="top" class="g-wrap">
 
 <!-- ═══ The gallery: work, people, and life, in one grid ═══════════════════ -->
+<div class="g-for" role="group" aria-label="Show me what matters to">
+  <span class="g-for__label">I&rsquo;m a</span>
+  <button type="button" data-show="all" aria-pressed="true">Everyone</button>
+  <button type="button" data-show="recruiter" aria-pressed="false">Recruiter</button>
+  <button type="button" data-show="designer" aria-pressed="false">Designer</button>
+  <button type="button" data-show="student" aria-pressed="false">Student</button>
+</div>
+
 <section class="g-grid" id="work" aria-label="Work and life">
 
-  <a class="g-p g-p--work g-a" href="/ibm">
+  <a class="g-p g-p--work g-a" data-for="recruiter designer student" href="/ibm">
     <div class="g-p__img"><img src="/images/ibm-platinum-hero.jpg" width="1501" height="668" style="object-position:left center"
       alt="The IBM Platinum Experience page Brayden designed, live on ibm.com"></div>
     <div class="g-p__cap">
@@ -78,12 +86,12 @@
     </div>
   </a>
 
-  <figure class="g-p g-p--quote g-b">
+  <figure class="g-p g-p--quote g-b" data-for="recruiter">
     <blockquote>&ldquo;Your contributions helped us transform ideas into modern, polished web experiences.&rdquo;</blockquote>
     <figcaption><b>Pepe Valiente</b>Strategy Lead, IBM Core Software</figcaption>
   </figure>
 
-  <a class="g-p g-p--work g-c" href="/opal">
+  <a class="g-p g-p--work g-c" data-for="recruiter designer student" href="/opal">
     <div class="g-p__img"><img src="/images/opal-hero.jpg" width="2000" height="1110" loading="lazy"
       alt="The Opal focus app across several screens"></div>
     <div class="g-p__cap">
@@ -93,12 +101,12 @@
     </div>
   </a>
 
-  <figure class="g-p g-p--photo g-d">
+  <figure class="g-p g-p--photo g-d" data-for="designer student">
     <img src="/images/ceramics.jpg" width="1400" height="1050" loading="lazy" alt="A stack of just-thrown ceramic bowls">
     <figcaption>Off the wheel</figcaption>
   </figure>
 
-  <a class="g-p g-p--work g-e" href="/slack">
+  <a class="g-p g-p--work g-e" data-for="recruiter designer student" href="/slack">
     <div class="g-p__img"><img src="/images/slack-hero.jpg" width="1920" height="1080" loading="lazy"
       alt="The redesigned Slack interface"></div>
     <div class="g-p__cap">
@@ -108,38 +116,38 @@
     </div>
   </a>
 
-  <div class="g-p g-p--loud g-f">
+  <div class="g-p g-p--loud g-f" data-for="designer student">
     <h2>Chronically on LinkedIn.</h2>
     <p>I share my design journey out loud, and post a list of open design roles for anyone looking.</p>
     <a class="n-btn" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">Follow along &rarr;</a>
   </div>
 
-  <figure class="g-p g-p--photo g-g">
+  <figure class="g-p g-p--photo g-g" data-for="designer student">
     <img src="/images/about-lead.jpg" width="1200" height="1600" loading="lazy" alt="Brayden holding his Config badge in San Francisco">
     <figcaption>Config, San Francisco</figcaption>
   </figure>
 
-  <figure class="g-p g-p--photo g-h">
+  <figure class="g-p g-p--photo g-h" data-for="student">
     <img src="/images/travel.jpg" width="1050" height="1400" loading="lazy" alt="Brayden and a friend outside a bagel shop in New York">
     <figcaption>Somewhere new</figcaption>
   </figure>
 
-  <div class="g-p g-p--life g-i">
+  <div class="g-p g-p--life g-i" data-for="designer student">
     <h2>I love to shut my computer and live my life.</h2>
     <p>Usually that means iced coffee, the pottery wheel, or wherever my friends are headed.</p>
   </div>
 
-  <figure class="g-p g-p--quote g-p--quote-dark g-j">
+  <figure class="g-p g-p--quote g-p--quote-dark g-j" data-for="recruiter">
     <blockquote>&ldquo;Your quick turnaround allowed us to publish these sooner than we would have.&rdquo;</blockquote>
     <figcaption><b>Patti McAuliffe</b>WW Support Planning, IBM Core Software</figcaption>
   </figure>
 
-  <figure class="g-p g-p--photo g-k">
+  <figure class="g-p g-p--photo g-k" data-for="student">
     <img src="/images/food.jpg" width="1400" height="1050" loading="lazy" alt="Brayden eating a turkey leg at a fair at night">
     <figcaption>Fair food</figcaption>
   </figure>
 
-  <div class="g-p g-p--hi g-l" id="hi">
+  <div class="g-p g-p--hi g-l" data-for="recruiter designer student" id="hi">
     <h2>I love to chat.</h2>
     <p>Seriously. Ask me about design, AI, ceramics, or how tall I am.</p>
     <div class="n-btns"><a class="n-btn n-btn--white" href="mailto:brayden@braydenw.com">brayden@braydenw.com</a><a class="n-btn n-btn--ghost" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a></div>

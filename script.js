@@ -494,6 +494,30 @@
     });
   });
 
+  /* "I'm a" filter: show the tiles for recruiters, designers or students.
+     The pick rides along in the URL (?for=recruiter) so it can be shared. */
+  var gFor = document.querySelector('.g-for');
+  var gGrid = document.querySelector('.g-grid');
+  if (gFor && gGrid) {
+    var tiles = gGrid.querySelectorAll('[data-for]');
+    var show = function (who, push) {
+      if (!gFor.querySelector('[data-show="' + who + '"]')) who = 'all';
+      gFor.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.show === who); });
+      tiles.forEach(function (t) { t.hidden = who !== 'all' && t.dataset.for.split(' ').indexOf(who) < 0; });
+      gGrid.classList.toggle('is-filtered', who !== 'all');
+      if (push) {
+        var u = new URL(location.href);
+        if (who === 'all') u.searchParams.delete('for'); else u.searchParams.set('for', who);
+        history.replaceState(null, '', u);
+      }
+    };
+    gFor.addEventListener('click', function (e) {
+      var b = e.target.closest('button[data-show]');
+      if (b) show(b.dataset.show, true);
+    });
+    show(new URLSearchParams(location.search).get('for') || 'all', false);
+  }
+
   console.log(
     '%cHey.%c You opened the console, so we should probably talk.\nbrayden@braydenw.com',
     'font:700 20px "Bricolage Grotesque",sans-serif;color:#1b4dff',
