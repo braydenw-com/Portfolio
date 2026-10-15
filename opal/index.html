@@ -1505,12 +1505,20 @@ html{scroll-padding-top:5rem}
 .n-card--wide .n-card__img{aspect-ratio:21/9}
 .n-card__img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease)}
 .n-card:hover .n-card__img img{transform:scale(1.025)}
-.n-card__tag{display:inline-block;margin-top:1rem;font-size:.92rem;font-weight:500;color:var(--blue)}
-.n-card h3{margin:.3rem 0 0;font-size:clamp(1.6rem,2.6vw,2.3rem);font-weight:600;letter-spacing:-.03em;transition:color .2s}
+.n-card__meta{margin:1rem 0 0;font-size:.92rem;color:var(--h-soft)}
+.n-card__win{margin:.35rem 0 0!important;font-size:clamp(1.15rem,1.6vw,1.4rem)!important;font-weight:600;letter-spacing:-.02em;color:var(--blue)!important}
+.n-card h3{margin:.2rem 0 0;font-size:clamp(1.6rem,2.6vw,2.3rem);font-weight:600;letter-spacing:-.03em;transition:color .2s}
 .n-card:hover h3{color:var(--blue)}
 .n-card p{margin:.4rem 0 0;max-width:50ch;font-size:1.08rem;line-height:1.5;color:var(--h-soft)}
 .n-card:focus-visible{outline:3px solid var(--blue);outline-offset:4px;border-radius:14px}
 
+.n-hello__with{margin:1.6rem 0 0;display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem 1.4rem;font-size:clamp(.95rem,1.2vw,1.05rem);color:var(--h-soft)}
+.n-hello__with b{font-weight:600;font-size:clamp(1.05rem,1.4vw,1.25rem);letter-spacing:-.01em;color:var(--h-text)}
+.n-quotes{margin-top:clamp(2rem,4vw,3rem);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1.5rem,3vw,3rem)}
+.n-quotes blockquote{margin:0}
+.n-quotes p{margin:0;font-size:clamp(1.3rem,2.2vw,1.9rem);font-weight:500;letter-spacing:-.025em;line-height:1.25;text-wrap:pretty}
+.n-quotes footer{margin-top:1.2rem;font-size:.98rem;color:var(--h-soft)}
+.n-quotes footer b{display:block;color:var(--h-text);font-weight:600}
 .n-loud{margin-top:clamp(2rem,4vw,3rem);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.5rem 3rem;align-items:end;
   padding:clamp(1.6rem,3vw,2.6rem);border-radius:20px;background:var(--h-fill)}
 .n-loud__day{margin:0;font-size:.95rem;font-weight:500;color:var(--blue)}
@@ -1530,7 +1538,7 @@ html{scroll-padding-top:5rem}
   .n-hello{min-height:calc(100vh - 5.5rem);min-height:calc(100svh - 5.5rem)}
   .n-work{grid-template-columns:1fr}
   .n-card__img,.n-card--wide .n-card__img{aspect-ratio:4/3}
-  .n-loud{grid-template-columns:1fr}
+  .n-loud,.n-quotes{grid-template-columns:1fr}
   .n-life{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 

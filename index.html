@@ -1510,12 +1510,20 @@ html{scroll-padding-top:5rem}
 .n-card--wide .n-card__img{aspect-ratio:21/9}
 .n-card__img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease)}
 .n-card:hover .n-card__img img{transform:scale(1.025)}
-.n-card__tag{display:inline-block;margin-top:1rem;font-size:.92rem;font-weight:500;color:var(--blue)}
-.n-card h3{margin:.3rem 0 0;font-size:clamp(1.6rem,2.6vw,2.3rem);font-weight:600;letter-spacing:-.03em;transition:color .2s}
+.n-card__meta{margin:1rem 0 0;font-size:.92rem;color:var(--h-soft)}
+.n-card__win{margin:.35rem 0 0!important;font-size:clamp(1.15rem,1.6vw,1.4rem)!important;font-weight:600;letter-spacing:-.02em;color:var(--blue)!important}
+.n-card h3{margin:.2rem 0 0;font-size:clamp(1.6rem,2.6vw,2.3rem);font-weight:600;letter-spacing:-.03em;transition:color .2s}
 .n-card:hover h3{color:var(--blue)}
 .n-card p{margin:.4rem 0 0;max-width:50ch;font-size:1.08rem;line-height:1.5;color:var(--h-soft)}
 .n-card:focus-visible{outline:3px solid var(--blue);outline-offset:4px;border-radius:14px}
 
+.n-hello__with{margin:1.6rem 0 0;display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem 1.4rem;font-size:clamp(.95rem,1.2vw,1.05rem);color:var(--h-soft)}
+.n-hello__with b{font-weight:600;font-size:clamp(1.05rem,1.4vw,1.25rem);letter-spacing:-.01em;color:var(--h-text)}
+.n-quotes{margin-top:clamp(2rem,4vw,3rem);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1.5rem,3vw,3rem)}
+.n-quotes blockquote{margin:0}
+.n-quotes p{margin:0;font-size:clamp(1.3rem,2.2vw,1.9rem);font-weight:500;letter-spacing:-.025em;line-height:1.25;text-wrap:pretty}
+.n-quotes footer{margin-top:1.2rem;font-size:.98rem;color:var(--h-soft)}
+.n-quotes footer b{display:block;color:var(--h-text);font-weight:600}
 .n-loud{margin-top:clamp(2rem,4vw,3rem);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.5rem 3rem;align-items:end;
   padding:clamp(1.6rem,3vw,2.6rem);border-radius:20px;background:var(--h-fill)}
 .n-loud__day{margin:0;font-size:.95rem;font-weight:500;color:var(--blue)}
@@ -1535,7 +1543,7 @@ html{scroll-padding-top:5rem}
   .n-hello{min-height:calc(100vh - 5.5rem);min-height:calc(100svh - 5.5rem)}
   .n-work{grid-template-columns:1fr}
   .n-card__img,.n-card--wide .n-card__img{aspect-ratio:4/3}
-  .n-loud{grid-template-columns:1fr}
+  .n-loud,.n-quotes{grid-template-columns:1fr}
   .n-life{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
@@ -1561,6 +1569,7 @@ html{scroll-padding-top:5rem}
     <h1 class="n-big">Hey, I&rsquo;m <em>Brayden.</em></h1>
     <p class="n-hello__who">Designer. People person. Kinda tall.</p>
     <p class="n-hello__info">UX at SCAD, graduating 2027 &middot; Open to design roles</p>
+    <p class="n-hello__with">Worked with <b>IBM</b> <b>Deloitte</b> <b>Hartford HealthCare</b> <b>Adobe</b> <b>Framer</b></p>
     <div class="n-btns">
       <a class="n-btn" href="#work">See my work</a>
       <a class="n-btn n-btn--line" href="mailto:brayden@braydenw.com">Grab an iced coffee with me</a>
@@ -1585,24 +1594,42 @@ html{scroll-padding-top:5rem}
     <a class="n-card n-card--wide" href="/ibm">
       <div class="n-card__img"><img src="/images/ibm-platinum-hero.jpg" width="1501" height="668" style="object-position:left center"
         alt="The IBM Platinum Experience page Brayden designed, live on ibm.com"></div>
-      <span class="n-card__tag">Shipped on ibm.com</span>
+      <p class="n-card__meta">Internship &middot; Product Design Intern &middot; 12 weeks</p>
       <h3>IBM Software</h3>
+      <p class="n-card__win">Live on ibm.com</p>
       <p>Spent the summer in Austin on IBM&rsquo;s Db2 team. Then got asked on a Thursday afternoon to redesign three support pages, and presented them Friday morning. They&rsquo;re live.</p>
     </a>
     <a class="n-card" href="/opal">
       <div class="n-card__img"><img src="/images/opal-hero.jpg" width="2000" height="1110" loading="lazy"
         alt="The Opal focus app across several screens, showing planning, blocking, and break suggestions"></div>
-      <span class="n-card__tag">Indigo Design Award</span>
+      <p class="n-card__meta">Team project &middot; Product Designer &middot; 10 weeks</p>
       <h3>Opal</h3>
+      <p class="n-card__win">Indigo Design Award</p>
       <p>A focus app for students who don&rsquo;t need another app telling them to focus.</p>
     </a>
     <a class="n-card" href="/slack">
       <div class="n-card__img"><img src="/images/slack-hero.jpg" width="1920" height="1080" loading="lazy"
         alt="The redesigned Slack interface: a Save for Me action, a Pin for All action, and a unified notification panel"></div>
-      <span class="n-card__tag">3/8 &rarr; 8/8</span>
+      <p class="n-card__meta">Research study &middot; Research Lead &middot; 10 weeks</p>
       <h3>Slack</h3>
+      <p class="n-card__win">3/8 &rarr; 8/8 task success</p>
       <p>Found two everyday Slack tasks most people couldn&rsquo;t finish. Fixed them with better words.</p>
     </a>
+  </div>
+</section>
+
+<!-- ═══ Kind words ═════════════════════════════════════════════════════════ -->
+<section class="n-sec">
+  <h2 class="n-big">Nice things people said.</h2>
+  <div class="n-quotes">
+    <blockquote>
+      <p>&ldquo;Your contributions helped us transform ideas into modern, polished web experiences that better showcase the value of our offerings.&rdquo;</p>
+      <footer><b>Pepe Valiente</b>Strategy Lead, IBM Core Software</footer>
+    </blockquote>
+    <blockquote>
+      <p>&ldquo;Your quick turnaround with the initial drafts and subsequent update requests allowed us to publish these sooner than we would have.&rdquo;</p>
+      <footer><b>Patti McAuliffe</b>WW Support Planning, IBM Core Software</footer>
+    </blockquote>
   </div>
 </section>
 
