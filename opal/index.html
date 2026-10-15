@@ -28,6 +28,9 @@
    Bricolage Grotesque for the loud parts, Open Sans for everything read.
    ═══════════════════════════════════════════════════════════════════════════ */
 
+@font-face{font-family:'Geist';src:url(/fonts/Geist-Variable.woff2) format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:'Geist';src:url(/fonts/Geist-Italic-Variable.woff2) format('woff2');font-weight:100 900;font-style:italic;font-display:swap}
+
 :root{
   --paper:#fff;
   --ink:#1c1c1c;
@@ -1678,6 +1681,15 @@ body:has(.g-hello) .foot{font-family:'Geist','Helvetica Neue',Arial,sans-serif}
 .g-hello{min-height:0!important}
 .g-hello__body{padding-top:clamp(5rem,16vh,11rem)}
 .g-hello .h-bar,.g-hello .n-btn,.g-wrap .n-btn{font-family:var(--g-sans);font-size:.95rem;letter-spacing:-.005em}
+/* All Geist: the name and headings too. */
+.g-hello,.g-wrap{--g-serif:'Geist','Helvetica Neue',Arial,sans-serif}
+.g-mark{font-weight:600;letter-spacing:-.05em;line-height:1}
+.g-p h2{font-weight:600;letter-spacing:-.04em;line-height:1.02}
+.g-p--quote blockquote{font-weight:500;letter-spacing:-.025em;line-height:1.25}
+/* One family: Geist everywhere on the home page, labels included. */
+.g-hello,.g-wrap{--g-mono:var(--g-sans)}
+.g-p__meta,.g-p--photo figcaption,.g-p--quote figcaption,.g-p__win,.g-hello__row p,.g-with,.g-with b{letter-spacing:-.005em}
+body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-serif}
 
 </style>
 </head>
