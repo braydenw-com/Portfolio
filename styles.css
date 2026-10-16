@@ -1989,3 +1989,9 @@ main.cs{width:auto;font-family:var(--g-sans)}
   .g-p--awards .aw td:nth-child(3){order:4;display:inline;flex:1 1 0;min-width:8rem}
   .g-p--awards .aw td:nth-child(2)::after{content:"\00a0\00b7\00a0"}
 }
+
+/* Fun scroll: project cards start a little small and tilted, and straighten
+   out as they scroll into view. Driven by --tilt (1 → 0) from script.js. */
+.js-tilt{--tilt:0;transform:perspective(1200px) translateY(calc(var(--tilt) * 40px)) scale(calc(1 - var(--tilt) * .07)) rotate(calc(var(--tilt) * var(--tilt-dir,-3deg)));
+  transform-origin:50% 100%;will-change:transform}
+@media (prefers-reduced-motion:reduce){.js-tilt{transform:none!important}}

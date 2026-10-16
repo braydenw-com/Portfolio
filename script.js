@@ -533,6 +533,26 @@
     });
   });
 
+  /* Fun scroll: project cards straighten out as they come into view. */
+  var tilters = document.querySelectorAll('.g-p--work');
+  if (tilters.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    tilters.forEach(function (c, i) { c.classList.add('js-tilt'); c.style.setProperty('--tilt-dir', (i % 2 ? 3 : -3) + 'deg'); });
+    var ticking = false;
+    var tilt = function () {
+      ticking = false;
+      var vh = window.innerHeight;
+      tilters.forEach(function (c) {
+        var top = c.getBoundingClientRect().top;
+        var t = Math.min(1, Math.max(0, (top - vh * 0.35) / (vh * 0.6)));
+        c.style.setProperty('--tilt', t.toFixed(3));
+      });
+    };
+    var onScroll = function () { if (!ticking) { ticking = true; requestAnimationFrame(tilt); } };
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('resize', onScroll);
+    tilt();
+  }
+
   console.log(
     '%cHey.%c You opened the console, so we should probably talk.\nbrayden@braydenw.com',
     'font:700 20px "Bricolage Grotesque",sans-serif;color:#1b4dff',
