@@ -18,6 +18,8 @@
 <link rel="icon" href="/images/icon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
+<link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/InstrumentSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:ital,wght@0,300..700;1,300..600&family=Lato:wght@400;700;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Serif:wght@300;400&display=swap" rel="stylesheet">
@@ -29,27 +31,34 @@
 <a class="skip" href="#story">Skip to the story</a>
 <!-- @include icons -->
 
-<header class="c-top">
+<header class="g-hello">
   <div class="h-bar" id="h-bar">
     <a class="h-bar__name" href="/">Brayden Wisniewski</a>
     <nav class="h-bar__links" aria-label="Sections">
-      <a href="/" aria-current="page">Work</a>
+      <a href="/#work" aria-current="page">Work</a>
       <a href="/about">About</a>
       <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:brayden@braydenw.com">Contact</a>
+      <a href="#hello">Say hello</a>
     </nav>
+  </div>
+  <div class="g-hello__body">
+    <a class="g-mark g-mark--link" href="/"><span>Brayden</span> <span>Wisniewski</span></a>
+    <p class="g-hey">Designer. People person. Kinda tall.</p>
+    <div class="g-hello__row">
+      <p>UX at SCAD, graduating 2027<br>Open to design roles</p>
+    </div>
   </div>
 </header>
 
 <nav class="h-pill-nav" id="h-pill-nav" aria-label="Sections, pinned" hidden>
   <a href="/">Home</a>
-  <a href="/" aria-current="page">Work</a>
+  <a href="/#work" aria-current="page">Work</a>
   <a href="/about">About</a>
   <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
-  <a class="h-pill-nav__hi" href="mailto:brayden@braydenw.com">Contact</a>
+  <a class="h-pill-nav__hi" href="#hello">Say hello</a>
 </nav>
 
-<main id="top">
+<main id="top" class="g-wrap cs">
 
 <!-- ═══ Opening ══════════════════════════════════════════════════════════ -->
 <section class="c-open">
@@ -72,6 +81,8 @@
         <p class="ih__t">Fastest response times</p>
       </div>
     </div>
+  
+    <div class="g-p__top"><span class="g-logo g-logo--ibm" aria-hidden="true"><img src="/images/ibm-logo-1924.png" width="160" height="152" alt=""></span><span class="g-pills"><span>Product Design Intern</span><span>Shipped on ibm.com</span></span></div>
   </figure>
   <p class="c-eyebrow">IBM Software &middot; Product Design Intern</p>
   <h1>A summer designing at enterprise scale</h1>
