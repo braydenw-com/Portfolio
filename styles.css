@@ -1867,3 +1867,24 @@ main.cs{width:auto;font-family:var(--g-sans)}
   body:has(main.cs) .g-hello__body{display:none}
   body:has(main.cs) .g-hello .h-bar{display:flex}
 }
+
+/* Case-study covers use the same arrangement as the homepage cards. */
+.cs .c-cover--top.c-cover--ui{aspect-ratio:16/9}
+.cs .c-cover--top .ih{font-size:1.3cqw}
+.cs .c-cover--top .ih .ih__art{position:absolute;inset:auto 5% 18% auto;width:40%;height:auto;z-index:auto}
+.cs .c-cover--top .ih__card--sov,.cs .c-cover--top .ih__card--fast{display:none}
+.cs .c-cover--top .ih__card--plat{right:auto;left:4%;top:22%;width:36%}
+.cs .c-cover--top .uh{font-size:1.8cqw}
+.cs .c-cover--top .uh__notif,.cs .c-cover--top .uh__toast{display:none}
+.cs .c-cover--top .uh__msg{top:34%;left:5%;width:56%}
+.cs .c-cover--top .uh__saved{top:24%;right:4%;width:35%}
+@media (max-width:620px){
+  .cs .c-cover--top.c-cover--ui{aspect-ratio:4/5}
+  .cs .c-cover--top .ih{font-size:2.6cqw}
+  .cs .c-cover--top .ih__card--plat{left:6%;right:auto;top:20%;width:72%}
+  .cs .c-cover--top .ih .ih__art{inset:auto -6% 26% auto;width:78%}
+  .cs .c-cover--top .uh{font-size:3.4cqw}
+  .cs .c-cover--top .uh__msg{top:20%;width:86%}
+  .cs .c-cover--top .uh__saved{top:52%;width:66%;right:5%}
+  .cs .c-cover--top .uh__item p:not(.uh__meta):not(.uh__ch){display:none}
+}
