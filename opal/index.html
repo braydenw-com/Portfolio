@@ -1741,15 +1741,7 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 .g-p__media .ih,.g-p__media .uh{transition:transform .8s var(--ease)}
 .g-p--work:hover .g-p__media .ih,.g-p--work:hover .g-p__media .uh{transform:scale(1.03)}
 /* IBM scene, wide-card arrangement */
-.g-p__media .ih{font-size:1.3cqw}
-.g-p__media .ih .ih__art{position:absolute;inset:auto 5% 18% auto;width:40%;height:auto;z-index:auto}
-.g-p__media .ih__card--sov,.g-p__media .ih__card--fast{display:none}
-.g-p__media .ih__card--plat{right:auto;left:4%;top:22%;width:36%}
 /* Slack scene, card arrangement */
-.g-p__media .uh{font-size:1.8cqw}
-.g-p__media .uh__notif,.g-p__media .uh__toast{display:none}
-.g-p__media .uh__msg{top:34%;left:5%;width:56%}
-.g-p__media .uh__saved{top:24%;right:4%;width:35%}
 .g-p__top{position:absolute;z-index:2;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:flex-start;gap:.8rem;padding:clamp(.9rem,1.6vw,1.3rem)}
 .g-logo{flex:none;width:2.6rem;height:2.6rem;border-radius:10px;display:grid;place-items:center;box-shadow:0 4px 14px rgba(0,0,0,.25)}
 .g-logo svg{width:1.4rem;height:1.4rem;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linejoin:round}
@@ -1894,26 +1886,6 @@ main.cs{width:auto;font-family:var(--g-sans)}
   body:has(main.cs) .g-hello .h-bar{display:flex}
 }
 
-/* Case-study covers use the same arrangement as the homepage cards. */
-.cs .c-cover--top.c-cover--ui{aspect-ratio:16/9}
-.cs .c-cover--top .ih{font-size:1.3cqw}
-.cs .c-cover--top .ih .ih__art{position:absolute;inset:auto 5% 18% auto;width:40%;height:auto;z-index:auto}
-.cs .c-cover--top .ih__card--sov,.cs .c-cover--top .ih__card--fast{display:none}
-.cs .c-cover--top .ih__card--plat{right:auto;left:4%;top:22%;width:36%}
-.cs .c-cover--top .uh{font-size:1.8cqw}
-.cs .c-cover--top .uh__notif,.cs .c-cover--top .uh__toast{display:none}
-.cs .c-cover--top .uh__msg{top:34%;left:5%;width:56%}
-.cs .c-cover--top .uh__saved{top:24%;right:4%;width:35%}
-@media (max-width:620px){
-  .cs .c-cover--top.c-cover--ui{aspect-ratio:4/5}
-  .cs .c-cover--top .ih{font-size:2.6cqw}
-  .cs .c-cover--top .ih__card--plat{left:6%;right:auto;top:20%;width:72%}
-  .cs .c-cover--top .ih .ih__art{inset:auto -6% 26% auto;width:78%}
-  .cs .c-cover--top .uh{font-size:3.4cqw}
-  .cs .c-cover--top .uh__msg{top:20%;width:86%}
-  .cs .c-cover--top .uh__saved{top:52%;width:66%;right:5%}
-  .cs .c-cover--top .uh__item p:not(.uh__meta):not(.uh__ch){display:none}
-}
 
 /* About: the lead photo slowly crossfades through a few moments. */
 .ab-rot img{opacity:0;transition:opacity 1.1s var(--ease)}
@@ -1921,6 +1893,25 @@ main.cs{width:auto;font-family:var(--g-sans)}
 .ab-rot figcaption{z-index:1;transition:opacity .4s var(--ease)}
 .ab-rot figcaption.is-out{opacity:0}
 @media (prefers-reduced-motion:reduce){.ab-rot img,.ab-rot figcaption{transition:none}}
+
+/* Homepage cards use the full case-study cover scenes. */
+.g-p__media .ih .ih__art{position:absolute;width:44%;height:auto;inset:auto auto 5% 4%;z-index:auto}
+/* Cards: the scene on top, a dark strip below with title, line and pills. */
+.g-p--work{display:flex;flex-direction:column}
+.g-p--work .g-p__media{position:relative;inset:auto;flex:1;min-height:15rem}
+.g-p--work .g-p__cap{position:relative;inset:auto;background:#0b0d1a;padding:clamp(1rem,1.6vw,1.3rem) clamp(1rem,1.8vw,1.5rem);
+  display:flex;justify-content:space-between;align-items:flex-end;gap:.6rem 1.2rem;flex-wrap:wrap}
+.g-p__words{min-width:0;flex:1 1 18rem}
+.g-p--work .g-p__cap .g-pills{flex:0 1 auto}
+.g-p--work .g-p__cap .g-pills span{background:rgba(255,255,255,.1);backdrop-filter:none;-webkit-backdrop-filter:none}
+@media (min-width:1001px){.g-a{min-height:31rem}}
+.g-c,.g-e{aspect-ratio:5/4}
+@media (max-width:1000px){.g-a,.g-c,.g-e{aspect-ratio:auto}.g-p--work .g-p__media{min-height:0;aspect-ratio:16/10}}
+@media (max-width:620px){
+  .g-p--work .g-p__media{aspect-ratio:4/5}
+  .g-p__media .uh__notif,.g-p__media .uh__toast{display:none}
+  .g-p--work .g-p__cap .g-pills{justify-content:flex-start}
+}
 
 </style>
 </head>
