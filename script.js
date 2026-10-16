@@ -237,7 +237,7 @@
         h < 9  ? 'probably sleeping in' :
         h < 12 ? 'probably out on a bagel run' :
         h < 17 ? 'probably touching grass, professionally' :
-                 'probably wherever my friends are headed'
+                 'probably still pushing pixels'
       ) :
         h < 6  ? 'probably asleep, or doom-scrolling LinkedIn' :
         h < 9  ? 'probably hunting down an everything bagel' :
