@@ -1936,6 +1936,8 @@ main.cs{width:auto;font-family:var(--g-sans)}
 .ab-grid.g-grid img{filter:none;aspect-ratio:auto;height:100%}
 .ab-grid.g-grid figure:hover img{filter:none}
 .ab-grid.g-grid figcaption{margin-top:0;font-style:normal}
+/* Smaller screens: the big name is right there, so drop the small one in the bar. */
+@media (max-width:1000px){.g-hello .h-bar__name{display:none}.g-hello .h-bar{justify-content:flex-end}}
 
 </style>
 </head>
