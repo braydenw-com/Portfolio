@@ -1870,19 +1870,18 @@ main.cs{width:auto;font-family:var(--g-sans)}
 
 /* Homepage cards use the full case-study cover scenes. */
 .g-p__media .ih .ih__art{position:absolute;width:44%;height:auto;inset:auto auto 5% 4%;z-index:auto}
-/* Cards: the scene on top, a dark strip below with title, line and pills. */
-.g-p--work{display:flex;flex-direction:column}
-.g-p--work .g-p__media{position:relative;inset:auto;flex:1;min-height:15rem}
-.g-p--work .g-p__cap{position:relative;inset:auto;background:#0b0d1a;padding:clamp(1rem,1.6vw,1.3rem) clamp(1rem,1.8vw,1.5rem);
-  display:flex;justify-content:space-between;align-items:flex-end;gap:.6rem 1.2rem;flex-wrap:wrap}
-.g-p__words{min-width:0;flex:1 1 18rem}
-.g-p--work .g-p__cap .g-pills{flex:0 1 auto}
-.g-p--work .g-p__cap .g-pills span{background:rgba(255,255,255,.1);backdrop-filter:none;-webkit-backdrop-filter:none}
-@media (min-width:1001px){.g-a{min-height:31rem}}
+/* Cards (after Lucien on jon.design): the scene fills the card, a deep
+   fade at the bottom carries the title and line, pills sit top right. */
+.g-p__top--end{justify-content:flex-end}
+.g-p--work .g-p__cap{padding:7rem clamp(1.1rem,2vw,1.8rem) clamp(1.1rem,2vw,1.6rem);
+  background:linear-gradient(to top,rgba(6,8,20,.94) 0%,rgba(6,8,20,.82) 38%,rgba(6,8,20,.4) 70%,rgba(6,8,20,0) 100%)}
+.g-p--work .g-p__cap h2{font-size:clamp(1.8rem,2.8vw,2.6rem)}
+.g-p--work .g-p__cap p{font-size:clamp(1rem,1.35vw,1.2rem);color:rgba(255,255,255,.9)}
+@media (min-width:1001px){.g-a{min-height:30rem}}
 .g-c,.g-e{aspect-ratio:5/4}
-@media (max-width:1000px){.g-a,.g-c,.g-e{aspect-ratio:auto}.g-p--work .g-p__media{min-height:0;aspect-ratio:16/10}}
+@media (max-width:1000px){.g-a,.g-c,.g-e{aspect-ratio:16/11}}
 @media (max-width:620px){
-  .g-p--work .g-p__media{aspect-ratio:4/5}
+  .g-a,.g-c,.g-e{aspect-ratio:4/5}
   .g-p__media .uh__notif,.g-p__media .uh__toast{display:none}
-  .g-p--work .g-p__cap .g-pills{justify-content:flex-start}
 }
+.g-p--work .g-pills span{background:rgba(11,13,26,.55);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
