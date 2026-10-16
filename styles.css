@@ -1833,3 +1833,4 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 @media (min-width:1001px){.ab-p{aspect-ratio:auto}}
 .g-p--photo figcaption{font-style:normal}
 .ab-e h2{font-size:clamp(2.4rem,4.2vw,4.2rem)}
+.ab-e h2{color:var(--h-text)}
