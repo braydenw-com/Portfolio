@@ -1925,6 +1925,7 @@ main.cs{width:auto;font-family:var(--g-sans)}
 .cs .cs-card{aspect-ratio:5/4;border-radius:10px}
 .cs .cs-card .g-p__cap h2{font-size:clamp(1.5rem,2.2vw,2rem)}
 @media (max-width:620px){.cs .c-more__grid{grid-template-columns:1fr}.cs .cs-card{aspect-ratio:4/5}}
+.ab-rot[data-rotate=hover]{cursor:pointer}
 
 </style>
 </head>
@@ -2053,7 +2054,7 @@ main.cs{width:auto;font-family:var(--g-sans)}
     <figcaption>Config, San Francisco</figcaption>
   </figure>
 
-  <figure class="g-p g-p--photo g-h ab-rot" data-rotate>
+  <figure class="g-p g-p--photo g-h ab-rot" data-rotate="hover">
     <img src="/images/travel.jpg" width="1050" height="1400" style="object-position:center 42%" class="is-on" loading="lazy" data-cap="Visiting New York" alt="Brayden and a friend outside a bagel shop in New York">
     <img src="/images/visit-mfah.jpg" width="900" height="1200" style="object-position:center 35%" loading="lazy" data-cap="Visiting the Houston MFAH" alt="Brayden inside a huge orange and red rope installation at the Museum of Fine Arts, Houston">
     <img src="/images/visit-salesforce-park.jpg" width="900" height="1200" style="object-position:center 40%" loading="lazy" data-cap="Visiting Salesforce Park" alt="Brayden smiling in Salesforce Park with the Salesforce Tower behind him">
@@ -2072,7 +2073,7 @@ main.cs{width:auto;font-family:var(--g-sans)}
     <figcaption><b>Patti McAuliffe</b>WW Support Planning, IBM Core Software</figcaption>
   </figure>
 
-  <figure class="g-p g-p--photo g-k ab-rot" data-rotate>
+  <figure class="g-p g-p--photo g-k ab-rot" data-rotate="hover">
     <img src="/images/bagel-1.jpg" width="900" height="1200" class="is-on" loading="lazy" data-cap="Bagel obsessed" alt="A smoked salmon bagel on a sunny wooden table">
     <img src="/images/bagel-2.jpg" width="900" height="1200" loading="lazy" data-cap="Bagel obsessed" alt="A stacked breakfast bagel with egg, cheese, sausage and bacon, held up in foil">
     <img src="/images/bagel-3.jpg" width="900" height="1200" loading="lazy" data-cap="Bagel obsessed" alt="A bacon, egg and cheese bagel in foil on a wooden table">
@@ -2600,24 +2601,33 @@ main.cs{width:auto;font-family:var(--g-sans)}
     });
   });
 
-  /* Rotating photos (About lead, home "Visiting"): crossfade every few seconds; pauses on
-     hover and when the tab is hidden. */
+  /* Rotating photos. The About lead drifts slowly on its own; the homepage
+     tiles (data-rotate="hover") hold still until you hover them, or tap
+     them on a phone, so the page isn't all moving at once. */
   document.querySelectorAll('[data-rotate]').forEach(function (rot) {
-    var shots = rot.querySelectorAll('img'), cap = rot.querySelector('figcaption'), at = 0, held = false;
+    var shots = rot.querySelectorAll('img'), cap = rot.querySelector('figcaption'), at = 0, timer = null;
+    var onHover = rot.dataset.rotate === 'hover';
     shots.forEach(function (im) { im.loading = 'eager'; });
     var step = function () {
-      if (held || document.hidden) return;
+      if (document.hidden) return;
       shots[at].classList.remove('is-on');
       at = (at + 1) % shots.length;
       shots[at].classList.add('is-on');
-      if (cap) {
+      if (cap && cap.textContent !== shots[at].dataset.cap) {
         cap.classList.add('is-out');
         setTimeout(function () { cap.textContent = shots[at].dataset.cap; cap.classList.remove('is-out'); }, 400);
       }
     };
-    rot.addEventListener('mouseenter', function () { held = true; });
-    rot.addEventListener('mouseleave', function () { held = false; });
-    setInterval(step, 4000);
+    if (onHover) {
+      rot.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { step(); timer = setInterval(step, 1600); } });
+      rot.addEventListener('pointerleave', function () { clearInterval(timer); });
+      rot.addEventListener('pointerup', function (e) { if (e.pointerType !== 'mouse') step(); });
+    } else {
+      var held = false;
+      rot.addEventListener('mouseenter', function () { held = true; });
+      rot.addEventListener('mouseleave', function () { held = false; });
+      setInterval(function () { if (!held) step(); }, 6000);
+    }
   });
 
   console.log(

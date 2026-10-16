@@ -494,24 +494,33 @@
     });
   });
 
-  /* Rotating photos (About lead, home "Visiting"): crossfade every few seconds; pauses on
-     hover and when the tab is hidden. */
+  /* Rotating photos. The About lead drifts slowly on its own; the homepage
+     tiles (data-rotate="hover") hold still until you hover them, or tap
+     them on a phone, so the page isn't all moving at once. */
   document.querySelectorAll('[data-rotate]').forEach(function (rot) {
-    var shots = rot.querySelectorAll('img'), cap = rot.querySelector('figcaption'), at = 0, held = false;
+    var shots = rot.querySelectorAll('img'), cap = rot.querySelector('figcaption'), at = 0, timer = null;
+    var onHover = rot.dataset.rotate === 'hover';
     shots.forEach(function (im) { im.loading = 'eager'; });
     var step = function () {
-      if (held || document.hidden) return;
+      if (document.hidden) return;
       shots[at].classList.remove('is-on');
       at = (at + 1) % shots.length;
       shots[at].classList.add('is-on');
-      if (cap) {
+      if (cap && cap.textContent !== shots[at].dataset.cap) {
         cap.classList.add('is-out');
         setTimeout(function () { cap.textContent = shots[at].dataset.cap; cap.classList.remove('is-out'); }, 400);
       }
     };
-    rot.addEventListener('mouseenter', function () { held = true; });
-    rot.addEventListener('mouseleave', function () { held = false; });
-    setInterval(step, 4000);
+    if (onHover) {
+      rot.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { step(); timer = setInterval(step, 1600); } });
+      rot.addEventListener('pointerleave', function () { clearInterval(timer); });
+      rot.addEventListener('pointerup', function (e) { if (e.pointerType !== 'mouse') step(); });
+    } else {
+      var held = false;
+      rot.addEventListener('mouseenter', function () { held = true; });
+      rot.addEventListener('mouseleave', function () { held = false; });
+      setInterval(function () { if (!held) step(); }, 6000);
+    }
   });
 
   console.log(
