@@ -494,10 +494,9 @@
     });
   });
 
-  /* About photo: crossfade through the shots every few seconds; pauses on
+  /* Rotating photos (About lead, home "Visiting"): crossfade every few seconds; pauses on
      hover and when the tab is hidden. */
-  var rot = document.querySelector('[data-rotate]');
-  if (rot) {
+  document.querySelectorAll('[data-rotate]').forEach(function (rot) {
     var shots = rot.querySelectorAll('img'), cap = rot.querySelector('figcaption'), at = 0, held = false;
     shots.forEach(function (im) { im.loading = 'eager'; });
     var step = function () {
@@ -513,7 +512,7 @@
     rot.addEventListener('mouseenter', function () { held = true; });
     rot.addEventListener('mouseleave', function () { held = false; });
     setInterval(step, 4000);
-  }
+  });
 
   console.log(
     '%cHey.%c You opened the console, so we should probably talk.\nbrayden@braydenw.com',
