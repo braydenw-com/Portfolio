@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Brayden Wisniewski</title>
-<meta name="description" content="Product designer and UX design senior at SCAD, graduating March 2027. Curious about human-centered design and AI, with past campus roles at Framer and Adobe and design experience at IBM.">
+<meta name="description" content="Hey, I'm Brayden. Designer, people person, kinda tall. UX at SCAD, graduating 2027, and open to design roles.">
 
 <link rel="canonical" href="https://www.braydenw.com/">
 <meta property="og:url" content="https://www.braydenw.com/">
 <meta property="og:title" content="Brayden Wisniewski">
-<meta property="og:description" content="Making everyday things a little more enjoyable.">
+<meta property="og:description" content="Designer. People person. Kinda tall.">
 <meta property="og:type" content="website">
 <!-- Share card — never rendered on the page, only unfurled by
      Messages, LinkedIn, Slack, and the like. -->
@@ -23,15 +23,22 @@
 <link rel="icon" href="/images/icon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
+<link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/InstrumentSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:ital,wght@0,300..700;1,300..600&family=Lato:wght@400;700;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Serif:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Lato:wght@400;700;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Serif:wght@300;400&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════════════════════
    braydenw.com
    One calm column. White paper, #1c1c1c type, one blue.
    Bricolage Grotesque for the loud parts, Open Sans for everything read.
    ═══════════════════════════════════════════════════════════════════════════ */
+
+@font-face{font-family:'Geist';src:url(/fonts/Geist-Variable.woff2) format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:'Geist';src:url(/fonts/Geist-Italic-Variable.woff2) format('woff2');font-weight:100 900;font-style:italic;font-display:swap}
+
+@font-face{font-family:'Instrument Sans';src:url(/fonts/InstrumentSans-Variable.woff2) format('woff2');font-weight:400 700;font-stretch:75% 100%;font-style:normal;font-display:swap}
 
 :root{
   --paper:#fff;
@@ -991,9 +998,9 @@ body.v2 .foot{display:grid;justify-content:stretch;gap:1.4rem;padding-block:clam
 .foot__now{margin:0;display:flex;align-items:baseline;gap:.7rem;font-size:clamp(1.25rem,2.4vw,2rem);letter-spacing:-.025em;
   line-height:1.25;color:var(--h-text);max-width:34ch;text-wrap:balance}
 .foot__now b{font-weight:500;color:var(--blue);font-variant-numeric:tabular-nums}
-.foot__dot{flex:none;width:.55em;height:.55em;border-radius:50%;background:#2fbf71;translate:0 -.08em;
-  box-shadow:0 0 0 0 rgba(47,191,113,.5);animation:footPulse 2.4s ease-out infinite}
-@keyframes footPulse{70%{box-shadow:0 0 0 .5em rgba(47,191,113,0)}100%{box-shadow:0 0 0 0 rgba(47,191,113,0)}}
+.foot__dot{flex:none;width:.55em;height:.55em;border-radius:50%;background:var(--blue);translate:0 -.08em;
+  box-shadow:0 0 0 0 rgba(27,77,255,.45);animation:footPulse 2.4s ease-out infinite}
+@keyframes footPulse{70%{box-shadow:0 0 0 .5em rgba(27,77,255,0)}100%{box-shadow:0 0 0 0 rgba(27,77,255,0)}}
 .foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.6rem 2rem;font-size:.95rem}
 .foot__top{color:var(--h-soft);text-decoration:none;min-height:44px;display:inline-flex;align-items:center;gap:.35rem;transition:color .2s}
 .foot__top:hover,.foot__top:focus-visible{color:var(--blue)}
@@ -1476,7 +1483,582 @@ html{scroll-padding-top:5rem}
   .h-card__media,.h-card--wide .h-card__media{aspect-ratio:4/3}
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   Home, v3: loud blue hello, plain white sections headed in Brayden's own
+   words, a big blue "say hi". The type, the blue and the real photos carry it.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.n-big{margin:0;font-family:var(--display);font-weight:700;letter-spacing:-.045em;line-height:.92;
+  font-variation-settings:'opsz' 96,'wdth' 85,'wght' 700;text-wrap:balance}
+.n-hello{background:#fff;color:var(--h-text);min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+.n-hello .h-bar{width:100%}
+.n-hello .h-bar__links a:hover,.n-hello .h-bar__links a:focus-visible{color:var(--blue)}
+.n-hello__body{flex:1;width:100%;max-width:var(--g-max);margin-inline:auto;padding:0 var(--g-pad) clamp(2.5rem,6vw,4.5rem);
+  display:flex;flex-direction:column;justify-content:flex-end;font-family:var(--display)}
+.n-hello h1{font-size:clamp(4rem,13.5vw,13rem)}
+.n-big em{font-style:normal;color:var(--blue)}
+.n-hello__who{margin:clamp(1.2rem,2.5vw,2rem) 0 0;font-size:clamp(1.8rem,4.2vw,3.6rem);font-weight:500;letter-spacing:-.03em;line-height:1.05}
+.n-hello__info{margin:1.2rem 0 0;font-size:clamp(1rem,1.3vw,1.15rem);color:var(--h-soft)}
+.n-btns{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.7rem}
+.n-btn{font-family:var(--display);font-size:1.05rem;font-weight:500;text-decoration:none;padding:1rem 1.4rem;min-height:48px;
+  display:inline-flex;align-items:center;border-radius:999px;background:var(--blue);color:#fff;transition:transform .15s}
+.n-btn--line{background:transparent;color:var(--blue);box-shadow:inset 0 0 0 2px var(--blue)}
+.n-btn--blue{background:var(--blue);color:#fff}
+.n-btn:hover{transform:translateY(-2px)}
+.n-btn:focus-visible{outline:3px solid var(--h-text);outline-offset:3px}
 
+.n-sec{max-width:var(--g-max);margin-inline:auto;padding:clamp(5rem,10vw,8rem) var(--g-pad) 0;font-family:var(--display)}
+.n-sec h2{font-size:clamp(2.6rem,6.5vw,6rem);max-width:16ch}
+.n-lede{margin:1.2rem 0 0;max-width:40ch;font-size:clamp(1.15rem,1.6vw,1.4rem);line-height:1.45;color:var(--h-soft)}
+
+.n-work{margin-top:clamp(2rem,4vw,3rem);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(2.5rem,5vw,4rem) clamp(1rem,2vw,1.6rem)}
+.n-card{display:block;text-decoration:none;color:var(--h-text)}
+.n-card--wide{grid-column:1/-1}
+.n-card__img{aspect-ratio:16/10;overflow:hidden;border-radius:14px;background:var(--h-fill)}
+.n-card--wide .n-card__img{aspect-ratio:21/9}
+.n-card__img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease)}
+.n-card:hover .n-card__img img{transform:scale(1.025)}
+.n-card__meta{margin:1rem 0 0;font-size:.92rem;color:var(--h-soft)}
+.n-card__win{margin:.35rem 0 0!important;font-size:clamp(1.15rem,1.6vw,1.4rem)!important;font-weight:600;letter-spacing:-.02em;color:var(--blue)!important}
+.n-card h3{margin:.2rem 0 0;font-size:clamp(1.6rem,2.6vw,2.3rem);font-weight:600;letter-spacing:-.03em;transition:color .2s}
+.n-card:hover h3{color:var(--blue)}
+.n-card p{margin:.4rem 0 0;max-width:50ch;font-size:1.08rem;line-height:1.5;color:var(--h-soft)}
+.n-card:focus-visible{outline:3px solid var(--blue);outline-offset:4px;border-radius:14px}
+
+.n-hello__with{margin:1.6rem 0 0;display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem 1.4rem;font-size:clamp(.95rem,1.2vw,1.05rem);color:var(--h-soft)}
+.n-hello__with b{font-weight:600;font-size:clamp(1.05rem,1.4vw,1.25rem);letter-spacing:-.01em;color:var(--h-text)}
+.n-quotes{margin-top:clamp(2rem,4vw,3rem);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1.5rem,3vw,3rem)}
+.n-quotes blockquote{margin:0}
+.n-quotes p{margin:0;font-size:clamp(1.3rem,2.2vw,1.9rem);font-weight:500;letter-spacing:-.025em;line-height:1.25;text-wrap:pretty}
+.n-quotes footer{margin-top:1.2rem;font-size:.98rem;color:var(--h-soft)}
+.n-quotes footer b{display:block;color:var(--h-text);font-weight:600}
+.n-loud{margin-top:clamp(2rem,4vw,3rem);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.5rem 3rem;align-items:end;
+  padding:clamp(1.6rem,3vw,2.6rem);border-radius:20px;background:var(--h-fill)}
+.n-loud__day{margin:0;font-size:.95rem;font-weight:500;color:var(--blue)}
+.n-loud__what{margin:.4rem 0 0;font-size:clamp(1.4rem,2.4vw,2rem);font-weight:600;letter-spacing:-.025em;line-height:1.15;max-width:26ch}
+
+.n-life{margin-top:clamp(2rem,4vw,3rem);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(.6rem,1.2vw,1rem)}
+.n-life figure{margin:0}
+.n-life img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:14px;display:block;background:var(--h-fill)}
+.n-life figcaption{margin-top:.5rem;font-size:.95rem;color:var(--h-soft)}
+
+.n-hi{margin-top:clamp(2rem,4vw,3rem);background:#fff;color:var(--h-text);font-family:var(--display)}
+.n-hi__in{max-width:var(--g-max);margin-inline:auto;padding:clamp(4rem,9vw,7rem) var(--g-pad)}
+.n-hi h2{font-size:clamp(3.4rem,10vw,9rem)}
+.n-hi p{margin:1.2rem 0 0;max-width:36ch;font-size:clamp(1.15rem,1.7vw,1.5rem);line-height:1.4;color:var(--h-soft)}
+
+@media (max-width:760px){
+  .n-hello{min-height:calc(100vh - 5.5rem);min-height:calc(100svh - 5.5rem)}
+  .n-work{grid-template-columns:1fr}
+  .n-card__img,.n-card--wide .n-card__img{aspect-ratio:4/3}
+  .n-loud,.n-quotes{grid-template-columns:1fr}
+  .n-life{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Home, v4: a wordmark hello and one art-directed gallery of panels mixing
+   the work (dark, result-first), the people (quotes), and the life (photos).
+   ═══════════════════════════════════════════════════════════════════════════ */
+.g-hello{background:#fff;color:var(--h-text);min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+.g-hello .h-bar{width:100%}
+.g-hello__body{flex:1;width:100%;max-width:var(--g-max);margin-inline:auto;padding:0 var(--g-pad) clamp(2rem,4vw,3rem);
+  display:flex;flex-direction:column;justify-content:flex-end;font-family:var(--display)}
+.g-hey{margin:0 0 .6rem;font-size:clamp(1.3rem,2.6vw,2.4rem);font-weight:500;letter-spacing:-.025em;line-height:1.15}
+.g-mark{margin:0;font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.84;letter-spacing:-.04em;
+  font-size:var(--mark,13vw);font-variation-settings:'opsz' 96,'wdth' 75,'wght' 800;color:var(--blue);min-width:0;width:100%}
+.g-mark span{display:block;width:max-content}
+.g-hello__row{margin-top:clamp(1.6rem,3vw,2.4rem);display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:1.2rem 3rem}
+.g-hello__row p{margin:0;font-size:1rem;line-height:1.45;color:var(--h-soft)}
+.g-with{display:flex;flex-wrap:wrap;align-items:baseline;gap:.3rem 1.1rem}
+.g-with b{font-weight:600;font-size:1.08rem;color:var(--h-text)}
+.g-hello__row .n-btns{margin:0}
+.n-btn--white{background:#fff;color:var(--blue)}
+.n-btn--ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px #fff}
+
+.g-wrap{max-width:var(--g-max);margin-inline:auto;padding:clamp(1rem,2vw,1.5rem) var(--g-pad) clamp(3rem,6vw,5rem);font-family:var(--display)}
+.g-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:minmax(8rem,auto);gap:clamp(.6rem,1.1vw,1rem)}
+.g-p{position:relative;margin:0;border-radius:10px;overflow:hidden;min-width:0}
+.g-p h2{margin:0;font-weight:700;letter-spacing:-.035em;line-height:.98;font-variation-settings:'opsz' 96,'wdth' 85,'wght' 700}
+
+/* work panels: image above a solid dark caption */
+.g-p--work{display:flex;flex-direction:column;background:#0b0d1a;color:#fff;text-decoration:none}
+.g-p__img{flex:1;min-height:12rem;overflow:hidden;background:#1a1d2b}
+.g-p__img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s var(--ease)}
+.g-p--work:hover .g-p__img img{transform:scale(1.03)}
+.g-p__cap{padding:clamp(1rem,1.8vw,1.5rem)}
+.g-p__meta{margin:0 0 .4rem;font-size:.88rem;color:rgba(255,255,255,.62)}
+.g-p--work h2{font-size:clamp(1.6rem,2.6vw,2.4rem)}
+.g-p__win{margin:.45rem 0 0;font-size:clamp(1.05rem,1.5vw,1.3rem);font-weight:600;color:#8fa8ff}
+.g-p--work:hover h2{color:#8fa8ff}
+.g-p--work:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+
+/* quotes */
+.g-p--quote{background:var(--blue);color:#fff;padding:clamp(1.2rem,2.2vw,2rem);display:flex;flex-direction:column;justify-content:space-between;gap:1.5rem}
+.g-p--quote-dark{background:#0b0d1a}
+.g-p--quote blockquote{margin:0;font-size:clamp(1.2rem,1.9vw,1.65rem);font-weight:500;letter-spacing:-.02em;line-height:1.25}
+.g-p--quote figcaption{font-size:.9rem;color:rgba(255,255,255,.75)}
+.g-p--quote figcaption b{display:block;color:#fff;font-weight:600}
+
+/* photos */
+.g-p--photo{background:var(--h-fill)}
+.g-p--photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.g-p--photo figcaption{position:absolute;left:.7rem;bottom:.7rem;padding:.35rem .65rem;border-radius:6px;background:#fff;color:var(--h-text);
+  font-size:.88rem;font-weight:500}
+
+/* words */
+.g-p--loud{background:var(--h-fill);padding:clamp(1.2rem,2.4vw,2.2rem);display:flex;flex-direction:column;gap:.8rem;align-items:flex-start}
+.g-p--loud .g-p__meta{color:var(--blue);font-weight:500}
+.g-p--loud h2{font-size:clamp(1.9rem,3.4vw,3.2rem)}
+.g-p--loud p:not(.g-p__meta){margin:0;max-width:34ch;color:var(--h-soft);line-height:1.5}
+.g-p--loud .n-btn{margin-top:auto}
+.g-p--life{background:#fff;box-shadow:inset 0 0 0 1px var(--h-line);padding:clamp(1.2rem,2.4vw,2.2rem);display:flex;flex-direction:column;justify-content:flex-end;gap:.8rem}
+.g-p--life h2{font-size:clamp(1.9rem,3.4vw,3.2rem);color:var(--blue)}
+.g-p--life p{margin:0;max-width:34ch;color:var(--h-soft);line-height:1.5}
+.g-p--hi{background:var(--blue);color:#fff;padding:clamp(1.4rem,3vw,2.8rem);display:flex;flex-direction:column;justify-content:flex-end;gap:1rem}
+.g-p--hi h2{font-size:clamp(2.6rem,6vw,5.6rem)}
+.g-p--hi p{margin:0;max-width:34ch;font-size:clamp(1.05rem,1.4vw,1.25rem);line-height:1.45;color:rgba(255,255,255,.9)}
+.g-p--hi .n-btns{margin-top:.6rem}
+
+/* placement (desktop) */
+.g-a{grid-column:1/9;grid-row:span 4}
+.g-b{grid-column:9/13;grid-row:span 2}
+.g-j{grid-column:9/13;grid-row:span 2}
+.g-c{grid-column:1/5;grid-row:span 4}
+.g-d{grid-column:5/9;grid-row:span 2}
+.g-e{grid-column:9/13;grid-row:span 4}
+.g-g{grid-column:5/7;grid-row:span 2}
+.g-h{grid-column:7/9;grid-row:span 2}
+.g-f{grid-column:1/7;grid-row:span 3}
+.g-i{grid-column:7/10;grid-row:span 3}
+.g-k{grid-column:10/13;grid-row:span 3}
+.g-l{grid-column:1/13;grid-row:span 3}
+/* order in the DOM is a-b-c-d-e-f-g-h-i-j-k-l; this lays them out a,b/j,c,d,e,g,h,f,i,k,l */
+.g-j{grid-row:3/5}
+@media (max-width:1000px){
+  .g-hello__row{grid-template-columns:1fr}
+  .g-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .g-a,.g-l,.g-f{grid-column:1/-1}
+  .g-b,.g-j,.g-i{grid-column:span 3;grid-row:span 2}
+  .g-c,.g-e{grid-column:span 3;grid-row:span 4}
+  .g-d,.g-g,.g-h,.g-k{grid-column:span 3;grid-row:span 2}
+  .g-j{grid-row:auto / span 2}
+}
+@media (max-width:620px){
+  .g-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(7rem,auto)}
+  .g-a,.g-c,.g-e,.g-f,.g-i,.g-l,.g-b,.g-j{grid-column:1/-1;grid-row:auto}
+  .g-p--work .g-p__img{min-height:13rem}
+  .g-d,.g-g,.g-h,.g-k{grid-column:span 1;grid-row:span 2}
+  .g-hello{min-height:calc(100vh - 5.5rem);min-height:calc(100svh - 5.5rem)}
+}
+
+/* Home type: an editorial serif for the big words, small caps-style
+   uppercase grotesk for labels (after Chi's "What's in my bag"). */
+.g-hello,.g-wrap,.g-hello+.h-pill-nav~.foot{--g-serif:'Gloock','Times New Roman',serif;--g-sans:'Geist','Helvetica Neue',Arial,sans-serif}
+.g-hello,.g-wrap{font-family:var(--g-sans)}
+.g-hello .h-bar{font-family:var(--g-sans);text-transform:uppercase;font-size:.85rem;letter-spacing:.01em}
+.g-mark{font-family:var(--g-serif);font-weight:400;font-variation-settings:normal;letter-spacing:-.02em;line-height:.86}
+.g-hey{font-family:var(--g-sans);font-weight:500;letter-spacing:-.02em}
+.g-hello__row p,.g-with,.g-with b{font-size:.85rem;text-transform:uppercase;letter-spacing:.01em;line-height:1.5}
+.g-with b{font-weight:500}
+.g-hello .n-btn,.g-wrap .n-btn{font-family:var(--g-sans);text-transform:uppercase;font-size:.85rem;letter-spacing:.02em}
+.g-p h2{font-family:var(--g-serif);font-weight:400;font-variation-settings:normal;letter-spacing:-.015em;line-height:1}
+.g-p__meta,.g-p--photo figcaption,.g-p--quote figcaption{font-family:var(--g-sans);text-transform:uppercase;font-size:.78rem;letter-spacing:.02em}
+.g-p--photo figcaption{border-radius:0;background:#0b0d1a;color:#fff;padding:.2rem .45rem}
+.g-p__win{font-family:var(--g-sans);text-transform:uppercase;font-size:.9rem;letter-spacing:.02em;font-weight:500}
+.g-p--quote blockquote{font-family:var(--g-serif);font-weight:400;letter-spacing:-.01em;line-height:1.2}
+.g-p--hi h2{font-size:clamp(3rem,8vw,7.5rem)}
+@media (min-width:1001px){
+  .g-a{grid-row:1/5}.g-b{grid-row:1/3}.g-j{grid-row:3/5}
+  .g-c{grid-row:5/9}.g-d{grid-row:5/7}.g-g,.g-h{grid-row:7/9}.g-e{grid-row:5/9}
+  .g-f,.g-i,.g-k{grid-row:9/12}.g-l{grid-row:12/15}
+}
+@media (max-width:1000px){.g-grid{grid-auto-flow:dense}}
+body:has(.g-hello) .foot{font-family:'Geist','Helvetica Neue',Arial,sans-serif}
+.g-hello,.g-wrap{--g-mono:'Geist Mono',ui-monospace,Menlo,monospace}
+.g-hello .h-bar,.g-hello__row p,.g-with,.g-with b,.g-hello .n-btn,.g-wrap .n-btn,
+.g-p__meta,.g-p--photo figcaption,.g-p--quote figcaption,.g-p__win{font-family:var(--g-mono);letter-spacing:0}
+.g-hello .h-bar,.g-hello__row p,.g-with,.g-with b{font-size:.8rem}
+.g-p__meta,.g-p--photo figcaption,.g-p--quote figcaption{font-size:.74rem}
+.g-hey{letter-spacing:-.03em}
+/* No all caps; the name sits at a normal headline size on one line. */
+.g-hello,.g-wrap,.g-hello *,.g-wrap *{text-transform:none!important}
+.g-mark{font-size:clamp(3rem,7.5vw,7.5rem)!important;line-height:.95;letter-spacing:-.025em;width:auto}
+.g-mark span{display:inline;width:auto}
+.g-hey{margin-bottom:.9rem}
+.g-hello .h-bar,.g-hello__row p,.g-with,.g-with b{font-size:.85rem}
+.g-p__meta,.g-p--photo figcaption,.g-p--quote figcaption{font-size:.8rem}
+.g-hello .n-btn,.g-wrap .n-btn{font-size:.9rem}
+.g-hello{min-height:0!important}
+.g-hello__body{padding-top:clamp(5rem,16vh,11rem)}
+.g-hello .h-bar,.g-hello .n-btn,.g-wrap .n-btn{font-family:var(--g-sans);font-size:.95rem;letter-spacing:-.005em}
+/* All Geist: the name and headings too. */
+.g-hello,.g-wrap{--g-serif:'Geist','Helvetica Neue',Arial,sans-serif}
+.g-mark{font-weight:600;letter-spacing:-.05em;line-height:1}
+.g-p h2{font-weight:600;letter-spacing:-.04em;line-height:1.02}
+.g-p--quote blockquote{font-weight:500;letter-spacing:-.025em;line-height:1.25}
+/* One family: Geist everywhere on the home page, labels included. */
+.g-hello,.g-wrap{--g-mono:var(--g-sans)}
+.g-p__meta,.g-p--photo figcaption,.g-p--quote figcaption,.g-p__win,.g-hello__row p,.g-with,.g-with b{letter-spacing:-.005em}
+body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-serif}
+
+/* Desktop: the hello is a fixed left rail, the gallery fills the rest and is
+   there on load. Phones and tablets keep the stacked hello. */
+@media (min-width:1001px){
+  body:has(.g-hello){--side:clamp(19rem,25vw,25rem)}
+  .g-hello{position:fixed;inset:0 auto 0 0;width:var(--side);z-index:5;overflow-y:auto;
+    border-right:1px solid var(--h-line);padding:clamp(1.4rem,2.4vw,2rem)}
+  .g-hello .h-bar{order:2;padding:0;margin-top:1.6rem;display:block;background:none;position:static}
+  .g-hello .h-bar__name{display:none}
+  .g-hello .h-bar__links{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+  .g-hello .h-bar__links a{min-height:36px;display:inline-flex;align-items:center;font-size:1rem;color:var(--h-text)}
+  .g-hello .h-bar__links a:hover{color:var(--blue)}
+  .g-hello__body{order:1;flex:1;padding:0;max-width:none;margin:0;justify-content:flex-start}
+  .g-mark{order:-1;font-size:clamp(2.2rem,2.9vw,3rem)!important;line-height:1;margin-bottom:1.2rem}
+  .g-hey{font-size:1.25rem;line-height:1.3;margin-bottom:1.4rem}
+  .g-hello__row{margin-top:0;grid-template-columns:1fr;gap:1rem}
+  .g-hello__row .n-btns{display:flex;flex-direction:column;align-items:stretch;gap:.5rem;margin-top:.4rem}
+  .g-hello__row .n-btn{justify-content:center}
+  .g-hello__body{display:flex;flex-direction:column}
+  .g-wrap{margin-left:var(--side);max-width:none;padding:clamp(1.4rem,2.4vw,2rem)}
+  body:has(.g-hello) .foot{margin-left:var(--side);width:auto;max-width:none;padding-inline:clamp(1.4rem,2.4vw,2rem)}
+  body:has(.g-hello) .h-pill-nav{display:none}
+}
+
+/* Instrument Sans is primary (name, headings, quotes); Geist is secondary
+   (intro line, labels, body, buttons). */
+.g-hello,.g-wrap{--g-serif:'Instrument Sans','Helvetica Neue',Arial,sans-serif}
+.g-mark{font-weight:600;letter-spacing:-.035em}
+.g-p h2{font-weight:600;letter-spacing:-.03em}
+.g-p--quote blockquote{font-weight:500;letter-spacing:-.02em}
+.g-p--life h2{font-size:clamp(1.8rem,2.6vw,2.8rem);overflow-wrap:break-word}
+@media (min-width:1001px){.g-hello .h-bar__links a{min-height:44px}}
+.g-hey{text-wrap:balance}@media (max-width:1000px){.g-mark{margin-bottom:.9rem}}
+@media (min-width:1001px){.g-hello .h-bar__links{flex-direction:row;flex-wrap:wrap;gap:0 1.3rem}}
+
+.g-p--hi p{max-width:none}
+
+/* ═══ Home cards, v5: the work fills the card (after Jon Rodriguez):
+   logo top left, role and result as pills top right, title over the
+   bottom. Text tiles are light; no big blocks of flat blue. ═══════════ */
+.g-p--work{display:block;position:relative;background:#0b0d1a;isolation:isolate;min-height:0}
+.g-p__media{position:absolute;inset:0;z-index:0;isolation:isolate;container-type:inline-size;overflow:hidden}
+.g-p__media>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.g-p--work:hover .g-p__media>img{transform:scale(1.03)}
+.g-p__media .ih,.g-p__media .uh{transition:transform .8s var(--ease)}
+.g-p--work:hover .g-p__media .ih,.g-p--work:hover .g-p__media .uh{transform:scale(1.03)}
+/* IBM scene, wide-card arrangement */
+/* Slack scene, card arrangement */
+.g-p__top{position:absolute;z-index:2;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:flex-start;gap:.8rem;padding:clamp(.9rem,1.6vw,1.3rem)}
+.g-logo{flex:none;width:2.6rem;height:2.6rem;border-radius:10px;display:grid;place-items:center;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.g-logo svg{width:1.4rem;height:1.4rem;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linejoin:round}
+.g-logo--ibm{background:#fff;color:#0f62fe;font:700 .82rem/1 'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;letter-spacing:.04em}
+.g-logo--opal{background:#fff;color:#0b0d1a}
+.g-logo--slack{background:#fff;color:#4A154B}
+.g-logo--slack svg{stroke-width:2.4}
+.g-pills{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:.4rem}
+.g-pills span{padding:.45rem .75rem;border-radius:8px;background:rgba(255,255,255,.16);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  color:#fff;font-family:var(--g-sans);font-size:.88rem;line-height:1.2;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);white-space:nowrap}
+.g-p--work .g-p__cap{position:absolute;z-index:1;left:0;right:0;bottom:0;padding:4.5rem clamp(1rem,1.8vw,1.5rem) clamp(1rem,1.8vw,1.4rem);
+  background:linear-gradient(to top,rgba(5,7,18,.82),rgba(5,7,18,.55) 55%,rgba(5,7,18,0));color:#fff}
+.g-p--work .g-p__cap h2{font-size:clamp(1.7rem,2.6vw,2.4rem)}
+.g-p--work .g-p__cap p{margin:.35rem 0 0;max-width:46ch;font-family:var(--g-sans);font-size:clamp(.98rem,1.2vw,1.1rem);line-height:1.4;color:rgba(255,255,255,.88)}
+.g-p--work:hover h2{color:#fff}
+/* light text tiles */
+.g-p--quote,.g-p--quote-dark{background:var(--h-fill);color:var(--h-text)}
+.g-p--quote figcaption{color:var(--h-soft)}
+.g-p--quote figcaption b{color:var(--h-text)}
+.g-p--hi{background:var(--h-fill);color:var(--h-text)}
+.g-p--hi h2{color:var(--blue)}
+.g-p--hi p{color:var(--h-soft)}
+.g-p--hi .n-btn--white{background:var(--blue);color:#fff}
+.g-p--hi .n-btn--ghost{color:var(--blue);box-shadow:inset 0 0 0 2px var(--blue)}
+
+/* placement: named areas, auto rows sized by each tile */
+.g-grid{grid-auto-rows:auto!important;grid-template-areas:
+  "a a a a a a a a b b b b"
+  "a a a a a a a a j j j j"
+  "c c c c c c e e e e e e"
+  "d d d g g g h h h k k k"
+  "f f f f f f f f w w w w"
+  "l l l l l l l l l l l l"}
+.g-a{grid-area:a!important}.g-b{grid-area:b!important}.g-j{grid-area:j!important}.g-c{grid-area:c!important}.g-e{grid-area:e!important}
+.g-d{grid-area:d!important}.g-g{grid-area:g!important}.g-h{grid-area:h!important}.g-k{grid-area:k!important}
+.g-f{grid-area:f!important}.g-i{grid-area:i!important}.g-l{grid-area:l!important}
+.g-a{aspect-ratio:16/9}
+.g-c,.g-e{aspect-ratio:16/11}
+.g-d,.g-g,.g-h,.g-k{aspect-ratio:4/5}
+.g-l{min-height:clamp(16rem,26vw,22rem)}
+@media (max-width:1000px){
+  .g-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-areas:"a a" "b j" "c c" "e e" "d g" "h k" "f f" "w w" "l l"}
+  .g-a,.g-c,.g-e{aspect-ratio:16/11}
+}
+@media (max-width:620px){
+  .g-grid{grid-template-areas:"a a" "b b" "j j" "c c" "e e" "d g" "h k" "f f" "w w" "l l"}
+  .g-a,.g-c,.g-e{aspect-ratio:4/5}
+  .g-p__media .ih{font-size:2.6cqw}
+  .g-p__media .ih__card--plat{left:6%;right:auto;top:20%;width:72%}
+  .g-p__media .ih .ih__art{inset:auto -6% 26% auto;width:78%}
+  .g-p__media .uh{font-size:3.4cqw}
+  .g-p__media .uh__msg{top:20%;width:86%}
+  .g-p__media .uh__saved{top:44%;width:66%;right:5%}
+  .g-p__media .uh__item p:not(.uh__meta):not(.uh__ch){display:none}
+  .g-p__media>img{object-position:center 30%}
+  .g-pills span{font-size:.8rem;padding:.4rem .6rem}
+}
+@media (min-width:1001px){
+  .g-a{aspect-ratio:auto;min-height:24rem}
+  .g-p--quote{gap:1rem}
+  .g-p--quote blockquote{font-size:clamp(1.1rem,1.45vw,1.35rem)}
+}
+@media (max-width:620px){.g-p__media .uh__saved{top:52%}}
+.g-logo{width:3rem;height:3rem}
+.g-logo--ibm{padding:.3rem}
+.g-logo--ibm img{width:100%;height:100%;object-fit:contain;display:block}
+
+/* ═══ About, in the home style: same rail, one grid of tiles ════════════ */
+.g-mark--link{display:block;text-decoration:none}
+.g-mark--link:hover{color:var(--h-text)}
+.ab-grid{grid-template-areas:
+  "t t t t t t t t p p p p"
+  "n n n n k k k k p p p p"
+  "g g g g g g g g g g g g"
+  "o o o o v v v v c c c c"
+  "f f f f f f e e e e e e"}
+.ab-t{grid-area:t}.ab-p{grid-area:p}.ab-n{grid-area:n}.ab-k-tile{grid-area:k}.ab-g{grid-area:g}
+.ab-o{grid-area:o}.ab-v1{grid-area:v}.ab-c{grid-area:c}.ab-f{grid-area:f}.ab-e{grid-area:e}
+.ab-p{aspect-ratio:4/5}
+.ab-v1,.ab-c{aspect-ratio:4/5}
+.ab-f{aspect-ratio:4/3}
+.ab-t,.ab-n,.ab-k-tile,.ab-g{background:var(--h-fill);padding:clamp(1.2rem,2.4vw,2.2rem);display:flex;flex-direction:column;gap:.8rem}
+.ab-t{justify-content:flex-end}
+.ab-h{margin:0 0 .4rem;font-family:var(--g-serif);font-weight:600;letter-spacing:-.035em;line-height:.98;font-size:clamp(2.4rem,4.6vw,4.4rem);color:var(--blue)}
+.ab-lede{margin:0;font-size:clamp(1.25rem,1.9vw,1.6rem);line-height:1.3;letter-spacing:-.02em;color:var(--h-text);max-width:30ch}
+.ab-t p:not(.ab-lede){margin:0;color:var(--h-soft);line-height:1.5;max-width:46ch}
+.ab-k{margin:0;font-size:.85rem;color:var(--blue)}
+.ab-v{margin:0;font-family:var(--g-serif);font-weight:500;font-size:clamp(1.15rem,1.5vw,1.4rem);line-height:1.3;letter-spacing:-.015em;color:var(--h-text)}
+.ab-g h2{font-size:clamp(1.9rem,3.4vw,3.2rem)}
+.ab-give{list-style:none;margin:.6rem 0 0;padding:0;display:grid}
+.ab-give li{display:grid;grid-template-columns:7rem minmax(0,14rem) minmax(0,1fr);gap:.3rem 1.5rem;align-items:baseline;padding:1rem 0;border-top:1px solid var(--h-line)}
+.ab-when{color:var(--h-soft);font-size:.9rem}
+.ab-give b{font-family:var(--g-serif);font-weight:600;font-size:1.2rem;letter-spacing:-.015em}
+.ab-give span:last-child{color:var(--h-soft);line-height:1.5}
+.ab-give a{color:var(--blue)}
+.ab-o{justify-content:flex-end}
+.ab-e{min-height:0}
+@media (max-width:1000px){
+  .ab-grid{grid-template-areas:"t t" "p n" "p k" "g g" "o o" "v c" "f f" "e e"}
+  .ab-p{aspect-ratio:auto;min-height:22rem}
+}
+@media (max-width:620px){
+  .ab-grid{grid-template-areas:"t t" "p p" "n n" "k k" "g g" "o o" "v c" "f f" "e e"}
+  .ab-p{aspect-ratio:4/5}
+  .ab-give li{grid-template-columns:1fr}
+}
+@media (min-width:1001px){.ab-p{aspect-ratio:auto}}
+.g-p--photo figcaption{font-style:normal}
+.ab-e h2{font-size:clamp(2.4rem,4.2vw,4.2rem)}
+.ab-e h2{color:var(--h-text)}
+
+/* ═══ Case studies in the home style: rail, Instrument Sans + Geist, the
+   cover as a card with logo and pills. The story itself is unchanged. ═══ */
+main.cs{width:auto;font-family:var(--g-sans)}
+.cs .c-open,.cs .c-sec,.cs .c-more{max-width:none;padding-inline:0;font-family:var(--g-sans)}
+.cs .c-open{padding-top:0}
+.cs .c-cover--top{position:relative;border-radius:10px}
+.cs .c-cover--top .g-p__top{z-index:3}
+.cs .c-eyebrow{text-transform:none;letter-spacing:0;font-size:.95rem;color:var(--blue)}
+.cs h1,.cs .c-sec h2,.cs .c-more h2{font-family:var(--g-serif);font-weight:600;letter-spacing:-.035em}
+.cs h1{font-size:clamp(2.4rem,4.6vw,4.2rem);line-height:1;color:var(--h-text)}
+.cs .c-sum{font-family:var(--g-sans);letter-spacing:-.01em}
+.cs .c-facts{gap:clamp(.6rem,1.1vw,1rem);border:0}
+.cs .c-facts>div{background:var(--h-fill);border-radius:10px;padding:1rem 1.1rem;border:0}
+.cs .c-facts dt{font-size:.85rem;color:var(--h-soft);text-transform:none;letter-spacing:0}
+.cs .c-facts dd{font-family:var(--g-serif);font-weight:500;font-size:1.1rem;letter-spacing:-.01em}
+.cs .c-tabs{gap:0 1.6rem}
+.cs .c-tabs a{color:var(--h-soft)}
+.cs .c-tabs a:hover,.cs .c-tabs a:focus-visible{color:var(--blue)}
+.cs .c-label{font-size:.95rem}
+.cs .c-body{font-family:var(--g-sans)}
+.cs .c-cover{border-radius:10px}
+.cs .c-quotes .c-quote{font-family:var(--g-serif);font-weight:500;letter-spacing:-.015em;border-left:0;background:var(--h-fill);border-radius:10px;padding:1.4rem 1.5rem}
+.cs .c-quotes .c-quote cite{font-family:var(--g-sans)}
+@media (max-width:620px){
+  .cs .c-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cs .c-cover--top .g-pills{display:none}
+}
+.cs h1,.cs .c-sec h2,.cs .c-more h2{font-variation-settings:normal}
+@media (max-width:1000px){
+  body:has(main.cs) .g-hello__body{display:none}
+  body:has(main.cs) .g-hello .h-bar{display:flex}
+}
+
+
+/* About: the lead photo slowly crossfades through a few moments. */
+.ab-rot img{opacity:0;transition:opacity 1.1s var(--ease)}
+.ab-rot img.is-on{opacity:1}
+.ab-rot figcaption{z-index:1;transition:opacity .4s var(--ease)}
+.ab-rot figcaption.is-out{opacity:0}
+@media (prefers-reduced-motion:reduce){.ab-rot img,.ab-rot figcaption{transition:none}}
+
+/* Homepage cards use the full case-study cover scenes. */
+.g-p__media .ih .ih__art{position:absolute;width:44%;height:auto;inset:auto auto 5% 4%;z-index:auto}
+/* Cards (after Lucien on jon.design): the scene fills the card, a deep
+   fade at the bottom carries the title and line, pills sit top right. */
+.g-p__top--end{justify-content:flex-end}
+.g-p--work .g-p__cap{padding:7rem clamp(1.1rem,2vw,1.8rem) clamp(1.1rem,2vw,1.6rem);
+  background:linear-gradient(to top,rgba(6,8,20,.94) 0%,rgba(6,8,20,.82) 38%,rgba(6,8,20,.4) 70%,rgba(6,8,20,0) 100%)}
+.g-p--work .g-p__cap h2{font-size:clamp(1.8rem,2.8vw,2.6rem)}
+.g-p--work .g-p__cap p{font-size:clamp(1rem,1.35vw,1.2rem);color:rgba(255,255,255,.9)}
+@media (min-width:1001px){.g-a{min-height:30rem}}
+.g-c,.g-e{aspect-ratio:5/4}
+@media (max-width:1000px){.g-a,.g-c,.g-e{aspect-ratio:16/11}}
+@media (max-width:620px){
+  .g-a,.g-c,.g-e{aspect-ratio:4/5}
+  .g-p__media .uh__notif,.g-p__media .uh__toast{display:none}
+}
+.g-p--work .g-pills span{background:rgba(11,13,26,.55);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
+
+/* Case studies, after jon.design: "From the team" label, and View more
+   uses the same cards as the homepage. */
+.cs .c-label--team{margin:3rem 0 0}
+.cs .c-label--team + .c-quotes{margin-top:1rem}
+.cs .c-more__grid{gap:clamp(.6rem,1.1vw,1rem);font-family:var(--g-sans)}
+.cs .cs-card{aspect-ratio:5/4;border-radius:10px}
+.cs .cs-card .g-p__cap h2{font-size:clamp(1.5rem,2.2vw,2rem)}
+@media (max-width:620px){.cs .c-more__grid{grid-template-columns:1fr}.cs .cs-card{aspect-ratio:4/5}}
+.ab-rot[data-rotate=hover]{cursor:pointer}
+.g-p--loud .n-btns{margin-top:auto;display:flex;flex-wrap:wrap;gap:.5rem}.g-p--loud .n-btns .n-btn{margin-top:0}
+/* "Touching grass" tile matches its neighbour "Chronically online". */
+.g-p--life{background:var(--h-fill);box-shadow:none;justify-content:flex-start}
+.g-p--life h2{color:var(--h-text);font-size:clamp(1.9rem,3.4vw,3.2rem)}
+/* Photo notes: plain white with black text, nothing blue. */
+.g-p--photo figcaption{background:#fff;color:#111;border-radius:6px;padding:.3rem .55rem}
+/* Lift the Platinum people art above the title fade on the homepage card. */
+.g-p__media .ih .ih__art{inset:auto auto 30% 3%;width:40%}
+@media (max-width:620px){.g-p__media .ih .ih__art{inset:auto auto 34% -4%;width:70%}}
+@media (max-width:620px){.g-p__media .ih .ih__art{inset:auto auto 42% -2%;width:66%}.g-p__media .ih__card--fast,.g-p__media .ih__card--sov{display:none}}
+@media (max-width:620px){.g-p__media .ih__card--plat{top:15%!important;left:6%;width:66%!important}.g-p__media .ih .ih__art{inset:auto -4% 36% auto!important;width:62%!important}}
+/* The old About grid greyed photos until hover; the new grid shows them as is. */
+.ab-grid.g-grid img{filter:none;aspect-ratio:auto;height:100%}
+.ab-grid.g-grid figure:hover img{filter:none}
+.ab-grid.g-grid figcaption{margin-top:0;font-style:normal}
+/* Smaller screens: the big name is right there, so drop the small one in the bar. */
+@media (max-width:1000px){.g-hello .h-bar__name{display:none}.g-hello .h-bar{justify-content:flex-end}}
+
+/* ═══ Case studies, after jon.design: name, a one-paragraph summary with a
+   bold hook, plain fact columns, then sections that lead with the headline
+   and tag it underneath. ═══════════════════════════════════════════════ */
+.cs h1{font-size:clamp(2.6rem,5vw,4.6rem);margin:0}
+.cs .c-sum{margin-top:1.1rem;max-width:44rem;font-size:clamp(1.15rem,1.6vw,1.4rem);line-height:1.5;color:var(--h-soft)}
+.cs .c-sum b{color:var(--h-text);font-weight:600}
+.cs .c-facts{margin-top:clamp(2rem,4vw,3rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:1.2rem 2rem}
+.cs .c-facts>div{background:none;border-radius:0;padding:1rem 0 0;border-top:1px solid var(--h-line)}
+.cs .c-facts dt{font-size:.9rem;color:var(--h-soft);margin-bottom:.3rem}
+.cs .c-facts dd{font-family:var(--g-sans);font-weight:500;font-size:1.05rem;letter-spacing:-.005em;color:var(--h-text)}
+.cs .c-sec{display:flex;flex-direction:column}
+.cs .c-sec>h2{order:-2;margin:0}
+.cs .c-sec>.c-label{order:-1;margin:.7rem 0 0;color:var(--h-soft);font-size:.95rem}
+.cs .c-sec>.c-label--team{order:0;margin:3rem 0 0;color:var(--h-text);font-family:var(--g-serif);font-weight:600;font-size:clamp(1.4rem,2vw,1.8rem);letter-spacing:-.025em}
+.cs .c-more>.c-label{color:var(--h-text);font-family:var(--g-serif);font-weight:600;font-size:clamp(1.4rem,2vw,1.8rem);letter-spacing:-.025em;margin-bottom:1rem}
+
+/* Awards: a plain table tile above "I love to chat". */
+.g-w{grid-area:w!important}
+.g-p--awards{background:var(--h-fill);padding:clamp(1.2rem,2.4vw,2.2rem)}
+.g-p--awards h2{font-size:clamp(1.9rem,3.4vw,3.2rem);margin-bottom:1rem}
+.aw{width:100%;border-collapse:collapse;font-family:var(--g-sans);font-size:1rem}
+.aw th,.aw td{text-align:left;padding:.85rem 1.2rem .85rem 0;border-top:1px solid var(--h-line);vertical-align:top;line-height:1.4}
+.aw thead th{border-top:0;padding-top:0;font-size:.85rem;font-weight:400;color:var(--h-soft)}
+.aw tbody th{font-weight:600;color:var(--h-text)}
+.aw td{color:var(--h-soft)}
+.aw td:last-child{padding-right:0;text-align:right;color:var(--h-text);font-variant-numeric:tabular-nums}
+@media (max-width:760px){
+  .aw thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .aw tr{display:grid;grid-template-columns:1fr auto;gap:.15rem 1rem;padding:.9rem 0;border-top:1px solid var(--h-line)}
+  .aw th,.aw td{display:block;border:0;padding:0}
+  .aw td:last-child{grid-column:2;grid-row:1}
+  .aw td:nth-child(2),.aw td:nth-child(3){grid-column:1/-1}
+  .aw td:nth-child(2){color:var(--h-text)}
+}
+.aw tbody th a{color:inherit;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;margin:-.6rem 0}
+.aw tbody th a:hover{text-decoration:underline;text-underline-offset:3px}
+@media (max-width:760px){.aw tbody th a{margin:-.5rem 0}}
+/* Awards, compact: small heading, no column labels, tight rows. */
+.g-p--awards{padding:clamp(1rem,1.8vw,1.5rem) clamp(1.1rem,2vw,1.6rem)}
+.g-p--awards h2{font-size:1.25rem;letter-spacing:-.02em;margin-bottom:.4rem}
+.aw{font-size:.9rem}
+.aw thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.aw th,.aw td{padding:.5rem 1rem .5rem 0}
+.aw tbody tr:first-child th,.aw tbody tr:first-child td{border-top:0}
+.aw tbody th a{min-height:0;margin:0}
+@media (max-width:760px){.aw tr{padding:.6rem 0}.aw tbody tr:first-child{border-top:0}.aw tbody th a{min-height:32px}}
+@media (max-width:760px){.aw th,.aw td{padding:0}.aw tr{gap:.1rem 1rem}}
+@media (min-width:1001px){.g-p--awards .aw{font-size:.85rem}.g-p--awards .aw th,.g-p--awards .aw td{padding:.45rem .8rem .45rem 0}}
+/* Awards in a one-third tile: each award stacks into short lines everywhere. */
+.g-p--awards .aw thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.g-p--awards .aw tr{display:grid;grid-template-columns:1fr auto;gap:.1rem .8rem;padding:.55rem 0;border-top:1px solid var(--h-line)}
+.g-p--awards .aw tbody tr:first-child{border-top:0;padding-top:.2rem}
+.g-p--awards .aw th,.g-p--awards .aw td{display:block;border:0!important;padding:0!important;font-size:.85rem}
+.g-p--awards .aw td:last-child{grid-column:2;grid-row:1}
+.g-p--awards .aw td:nth-child(2),.g-p--awards .aw td:nth-child(3){grid-column:1/-1}
+.g-p--awards .aw td:nth-child(2){color:var(--h-text)}
+/* Awards keep the row at Chronically online's height: two short lines each,
+   and the list scrolls inside the tile if it ever needs more room. */
+@media (min-width:1001px){
+  .g-w{position:relative}
+  .g-p--awards{display:flex;flex-direction:column;min-height:0}
+  .g-p--awards .aw-wrap{position:absolute;inset:3.4rem clamp(1.1rem,2vw,1.6rem) clamp(.8rem,1.4vw,1.2rem);overflow:auto}
+  .g-p--awards .aw tr{padding:.4rem 0;gap:0 .8rem}
+  .g-p--awards .aw td:nth-child(2),.g-p--awards .aw td:nth-child(3){grid-column:1/-1;display:inline;font-size:.8rem}
+  .g-p--awards .aw td:nth-child(2)::after{content:" \00b7 "}
+  .g-p--awards .aw tr{grid-template-areas:"n y" "d d"}
+}
+@media (min-width:1001px){.g-p--awards .aw-wrap{inset:3rem clamp(1.1rem,2vw,1.6rem) .6rem}.g-p--awards .aw tr{padding:.3rem 0}.g-p--awards .aw tbody th{font-size:.82rem}.g-p--awards h2{margin-bottom:0}}
+@media (min-width:1001px){
+  .g-p--awards .aw tr{display:flex;flex-wrap:wrap;column-gap:0;align-items:baseline}
+  .g-p--awards .aw tbody th{flex:1 1 70%;order:1}
+  .g-p--awards .aw td:last-child{order:2;flex:0 0 auto;margin-left:.6rem}
+  .g-p--awards .aw td:nth-child(2){order:3;display:inline;white-space:nowrap}
+  .g-p--awards .aw td:nth-child(3){order:4;display:inline;flex:1 1 0;min-width:8rem}
+  .g-p--awards .aw td:nth-child(2)::after{content:"\00a0\00b7\00a0"}
+}
+/* Awards fill the tile: rows spread evenly down the box, a bit larger type. */
+@media (min-width:1001px){
+  .g-p--awards .aw-wrap{display:flex;flex-direction:column;inset:3.6rem clamp(1.1rem,2vw,1.6rem) clamp(1rem,1.8vw,1.5rem)}
+  .g-p--awards .aw{display:flex;flex-direction:column;flex:1;height:100%}
+  .g-p--awards .aw tbody{display:flex;flex-direction:column;justify-content:space-between;flex:1}
+  .g-p--awards .aw tr{flex:1;align-content:center;padding:.5rem 0}
+  .g-p--awards .aw tbody tr:first-child{padding-top:0}
+  .g-p--awards .aw tbody tr:last-child{padding-bottom:0}
+  .g-p--awards .aw tbody th,.g-p--awards .aw td{font-size:.95rem!important}
+  .g-p--awards h2{font-size:1.5rem}
+}
+@media (min-width:1001px){
+  .g-p--awards .aw tbody th,.g-p--awards .aw td{font-size:clamp(.8rem,.62vw,1rem)!important}
+  .g-p--awards h2{font-size:clamp(1.2rem,1vw,1.6rem)}
+  .g-p--awards .aw-wrap{inset:3.2rem clamp(1.1rem,2vw,1.6rem) clamp(.9rem,1.6vw,1.4rem)}
+}
+@media (min-width:1001px) and (max-width:1300px){.g-p--awards .aw-wrap{position:static;overflow:visible}.g-p--awards .aw{height:auto}}
+
+/* ═══ Smaller screens pass ═══════════════════════════════════════════════ */
+/* Less dead space above the name. */
+@media (max-width:1000px){.g-hello__body{padding-top:clamp(1.5rem,6vw,3rem)!important}}
+@media (max-width:620px){.g-hello__body{padding-top:1.25rem!important}}
+/* Tablet: four columns so things sit side by side instead of stacking huge. */
+@media (min-width:621px) and (max-width:1000px){
+  .g-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    grid-template-areas:"a a a a" "b b j j" "c c e e" "d g h k" "f f w w" "l l l l"!important}
+  .g-c,.g-e{aspect-ratio:4/5!important}
+  .g-d,.g-g,.g-h,.g-k{aspect-ratio:1/1!important}
+  .g-p__media .uh__notif,.g-p__media .uh__toast{display:none}
+  .g-p--work .g-p__cap h2{font-size:1.6rem}
+  .ab-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    grid-template-areas:"t t t p" "n n k k" "g g g g" "o v c f" "e e e e"!important}
+  .ab-p{aspect-ratio:auto!important;min-height:0}
+  .ab-v1,.ab-c,.ab-f{aspect-ratio:3/4!important}
+  .ab-o h2{font-size:1.4rem}
+}
+@media (min-width:621px) and (max-width:1000px){.ab-grid{grid-template-areas:"t t p p" "n k p p" "g g g g" "o v c f" "e e e e"!important}.ab-p{min-height:20rem}}
+/* Award links: a 32px+ tap area without moving the text. */
+.g-p--awards .aw tbody th a{padding:.45rem 0;margin:-.45rem 0}
 
 </style>
 </head>
@@ -1484,24 +2066,28 @@ html{scroll-padding-top:5rem}
 <script>document.body.classList.remove('no-js');</script>
 
 <a class="skip" href="#work">Skip to the work</a>
+
+<!-- ═══ Hello ══════════════════════════════════════════════════════════════ -->
 <!-- Icon sprite (lucide), shared by every page that shows Slack UI. -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-smile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></symbol><symbol id="i-msg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol><symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></symbol><symbol id="i-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></symbol><symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></symbol><symbol id="i-more" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></symbol><symbol id="i-hash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="9" y2="9"/><line x1="4" x2="20" y1="15" y2="15"/><line x1="10" x2="8" y1="3" y2="21"/><line x1="16" x2="14" y1="3" y2="21"/></symbol><symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></symbol><symbol id="i-belloff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M17 17H4a1 1 0 0 1-.74-1.673C4.59 13.956 6 12.499 6 8a6 6 0 0 1 .258-1.742"/><path d="m2 2 20 20"/><path d="M8.668 3.01A6 6 0 0 1 18 8c0 2.687.77 4.653 1.707 6.05"/></symbol><symbol id="i-vol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.364 18.364a9 9 0 0 0 0-12.728"/></symbol><symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol><symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol><symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol></svg>
 
-<!-- ═══ Hero ═══════════════════════════════════════════════════════════════
-     The name, edge to edge, over a horizon of light. Move the cursor and the
-     light follows it. -->
-<header class="h-hero" id="h-hero">
+<header class="g-hello">
   <div class="h-bar" id="h-bar">
     <a class="h-bar__name" href="/">Brayden Wisniewski</a>
     <nav class="h-bar__links" aria-label="Sections">
       <a href="#work">Work</a>
       <a href="/about">About</a>
       <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:brayden@braydenw.com">Contact</a>
+      <a href="#hi">Say Hello</a>
     </nav>
   </div>
-  <p class="h-role">Product designer &middot; UX at SCAD, graduating March 2027 &middot; Open to product design roles</p>
-  <h1 class="h-name h-name--split" id="h-name"><span>Brayden</span> <span>Wisniewski</span></h1>
+  <div class="g-hello__body">
+    <h1 class="g-mark" id="g-mark"><span>Brayden</span> <span>Wisniewski</span></h1>
+    <p class="g-hey">Designer. People person. Kinda tall.</p>
+    <div class="g-hello__row">
+      <p>UX at SCAD, graduating 2027<br>Open to design roles</p>
+    </div>
+  </div>
 </header>
 
 <nav class="h-pill-nav" id="h-pill-nav" aria-label="Sections, pinned" hidden>
@@ -1509,22 +2095,16 @@ html{scroll-padding-top:5rem}
   <a href="#work">Work</a>
   <a href="/about">About</a>
   <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
-  <a class="h-pill-nav__hi" href="mailto:brayden@braydenw.com">Contact</a>
+  <a class="h-pill-nav__hi" href="#hi">Say Hello</a>
 </nav>
 
-<main id="top">
+<main id="top" class="g-wrap">
 
-<!-- ═══ Work ═══════════════════════════════════════════════════════════════
-     Proof first: every card carries the role and the result before you
-     open it. -->
-<section class="h-work" id="work">
-  <div class="h-work__head">
-    <h2>Making everyday things a little more enjoyable.</h2>
-    <p>Selected work, 2025&ndash;26</p>
-  </div>
+<!-- ═══ The gallery: work, people, and life, in one grid ═══════════════════ -->
+<section class="g-grid" id="work" aria-label="Work and life">
 
-  <a class="h-card h-card--wide" href="/ibm">
-    <div class="h-card__media">
+  <a class="g-p g-p--work g-a" href="/ibm">
+    <div class="g-p__media">
     <div class="ih" aria-hidden="true">
       <img class="ih__art" src="/images/ibm-platinum-art.png" width="900" height="704" alt="">
       <div class="ih__card ih__card--plat">
@@ -1544,25 +2124,34 @@ html{scroll-padding-top:5rem}
       </div>
     </div>
     </div>
-    <div class="h-card__foot"><p class="h-card__meta">Design Intern &middot; Shipped on ibm.com</p>
-      <h3 class="h-card__title">IBM Software</h3>
-      <p class="h-card__line">A summer in Austin on how people and AI agents learn complex products.</p>
-    </div>
+    <div class="g-p__top g-p__top--end"><span class="g-pills"><span>Design Intern</span><span>Shipped on ibm.com</span></span></div>
+    <div class="g-p__cap"><h2>Design at enterprise speed</h2><p>A summer in Austin on how people and AI agents learn complex products.</p></div>
   </a>
 
-  <a class="h-card" href="/opal">
-    <div class="h-card__media">
-    <img src="/images/opal-hero.jpg" width="2000" height="1110"
-         alt="The Opal focus app across several screens, showing planning, blocking, and break suggestions">
+  <figure class="g-p g-p--quote g-b">
+    <blockquote>&ldquo;Your contributions helped us transform ideas into modern, polished web experiences.&rdquo;</blockquote>
+    <figcaption><b>Pepe Valiente</b>Strategy Lead, IBM Core Software</figcaption>
+  </figure>
+
+  <a class="g-p g-p--work g-c" href="/opal">
+    <div class="g-p__media">
+    <img src="/images/opal-hero.jpg" width="2000" height="1110" loading="lazy" alt="The Opal focus app across several screens, showing planning, blocking, and break suggestions">
     </div>
-    <div class="h-card__foot"><p class="h-card__meta">Product Designer &middot; Indigo Design Award</p>
-      <h3 class="h-card__title">Opal</h3>
-      <p class="h-card__line">Helping students plan, focus, and take breaks worth taking. Built from a 30-student survey, tested with 23 more.</p>
-    </div>
+    <div class="g-p__top g-p__top--end"><span class="g-pills"><span>Product Designer</span><span>Indigo Design Award</span></span></div>
+    <div class="g-p__cap"><h2>Opal</h2><p>Helping students plan, focus, and take breaks worth taking.</p></div>
   </a>
 
-  <a class="h-card" href="/slack">
-    <div class="h-card__media">
+  <figure class="g-p g-p--photo g-d ab-rot" data-rotate="hover">
+    <img src="/images/ceramics-5.jpg" width="900" height="1200" style="object-position:center 40%" class="is-on" loading="lazy" data-cap="Recent ceramic pics" alt="Glazed plates, bowls and cups, some with ceramic fortune cookies, laid out on a board">
+    <img src="/images/ceramics-2.jpg" width="900" height="1200" style="object-position:center 60%" loading="lazy" data-cap="Recent ceramic pics" alt="A row of freshly thrown bowls drying on a shelf in an open-air studio">
+    <img src="/images/ceramics-3.jpg" width="900" height="1200" style="object-position:center" loading="lazy" data-cap="Recent ceramic pics" alt="A trimmed cup with carved texture held over the wheel">
+    <img src="/images/ceramics-4.jpg" width="1200" height="900" style="object-position:center" loading="lazy" data-cap="Recent ceramic pics" alt="Four freshly thrown plates and bowls on a wooden board">
+    <img src="/images/ceramics-1.jpg" width="900" height="1200" style="object-position:center 70%" loading="lazy" data-cap="Recent ceramic pics" alt="A just-thrown piece on the wheel, with yellow buckets and more wheels behind it">
+    <figcaption>Recent ceramic pics</figcaption>
+  </figure>
+
+  <a class="g-p g-p--work g-e" href="/slack">
+    <div class="g-p__media">
     <div class="uh" aria-hidden="true">
         <div class="uh__msg">
           <div class="uh__bar">
@@ -1587,23 +2176,66 @@ html{scroll-padding-top:5rem}
         <p class="uh__toast">This message was saved for you</p>
       </div>
     </div>
-    <div class="h-card__foot"><p class="h-card__meta">Research Lead &middot; 3/8 &rarr; 8/8</p>
-      <h3 class="h-card__title">Slack</h3>
-      <p class="h-card__line">Two everyday tasks most people couldn&rsquo;t finish. Two small changes to language and state fixed both.</p>
-    </div>
+    <div class="g-p__top g-p__top--end"><span class="g-pills"><span>Research Lead</span><span>3/8 &rarr; 8/8 task success</span></span></div>
+    <div class="g-p__cap"><h2>Slack</h2><p>Two everyday tasks most people couldn&rsquo;t finish. Two small changes fixed both.</p></div>
   </a>
 
+  <div class="g-p g-p--loud g-f">
+    <h2>Chronically online.</h2>
+    <p>I share my design journey out loud, and post a lot. Follow along!</p>
+    <div class="n-btns"><a class="n-btn" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn &rarr;</a><a class="n-btn n-btn--line" href="https://braydenwdesign.substack.com" target="_blank" rel="noopener">Substack &rarr;</a></div>
+  </div>
+
+  <figure class="g-p g-p--photo g-g ab-rot" data-rotate="hover">
+    <img src="/images/about-config-arch.jpg" width="900" height="1200" style="object-position:center 40%" class="is-on" loading="lazy" data-cap="Holding up Config" alt="Brayden under the Config arch in San Francisco, arms up like the letters">
+    <img src="/images/about-austin.jpg" width="900" height="1200" style="object-position:center 40%" loading="lazy" data-cap="Design at enterprise speed" alt="Brayden pointing at the neon Austin Design Studio sign at IBM">
+    <img src="/images/about-framer.jpg" width="675" height="1200" style="object-position:center 32%" loading="lazy" data-cap="Promoting cool products" alt="Brayden and a friend holding up Framer tote bags">
+    <figcaption>Holding up Config</figcaption>
+  </figure>
+
+  <figure class="g-p g-p--photo g-h ab-rot" data-rotate="hover">
+    <img src="/images/travel.jpg" width="1050" height="1400" style="object-position:center 42%" class="is-on" loading="lazy" data-cap="Visiting New York" alt="Brayden and a friend outside a bagel shop in New York">
+    <img src="/images/visit-mfah.jpg" width="900" height="1200" style="object-position:center 35%" loading="lazy" data-cap="Visiting the Houston MFAH" alt="Brayden inside a huge orange and red rope installation at the Museum of Fine Arts, Houston">
+    <img src="/images/visit-salesforce-park.jpg" width="900" height="1200" style="object-position:center 40%" loading="lazy" data-cap="Visiting Salesforce Park" alt="Brayden smiling in Salesforce Park with the Salesforce Tower behind him">
+    <img src="/images/visit-fort-worth.jpg" width="900" height="1200" style="object-position:center 55%" loading="lazy" data-cap="Visiting Fort Worth" alt="Brayden standing under the Stockyards Station sign in Fort Worth">
+    <img src="/images/visit-golden-gate.jpg" width="1200" height="900" style="object-position:42% center" loading="lazy" data-cap="Visiting the Golden Gate Bridge" alt="Brayden and two friends in front of the Golden Gate Bridge in the fog">
+    <figcaption>Visiting New York</figcaption>
+  </figure>
+
+  <figure class="g-p g-p--quote g-p--quote-dark g-j">
+    <blockquote>&ldquo;Your quick turnaround allowed us to publish these sooner than we would have.&rdquo;</blockquote>
+    <figcaption><b>Patti McAuliffe</b>WW Support Planning, IBM Core Software</figcaption>
+  </figure>
+
+  <figure class="g-p g-p--photo g-k ab-rot" data-rotate="hover">
+    <img src="/images/bagel-1.jpg" width="900" height="1200" class="is-on" loading="lazy" data-cap="Bagel obsessed" alt="A smoked salmon bagel on a sunny wooden table">
+    <img src="/images/bagel-2.jpg" width="900" height="1200" loading="lazy" data-cap="Bagel obsessed" alt="A stacked breakfast bagel with egg, cheese, sausage and bacon, held up in foil">
+    <img src="/images/bagel-3.jpg" width="900" height="1200" loading="lazy" data-cap="Bagel obsessed" alt="A bacon, egg and cheese bagel in foil on a wooden table">
+    <img src="/images/bagel-4.jpg" width="900" height="1200" loading="lazy" data-cap="Bagel obsessed" alt="An open-faced lox bagel with dill, capers and red onion">
+    <img src="/images/bagel-5.jpg" width="900" height="1200" loading="lazy" data-cap="Bagel obsessed" alt="A bacon egg and cheese bagel next to an iced coffee">
+    <figcaption>Bagel obsessed</figcaption>
+  </figure>
+
+  <div class="g-p g-p--awards g-w">
+    <h2>Awards</h2>
+    <div class="aw-wrap"><table class="aw">
+      <thead><tr><th scope="col">Award</th><th scope="col">Project</th><th scope="col">Result</th><th scope="col">Year</th></tr></thead>
+      <tbody>
+        <tr><th scope="row"><a href="https://www.indigoaward.com/winners/11038" target="_blank" rel="noopener">Indigo Design Award&nbsp;&#8599;</a></th><td>Opal Expansion</td><td>Student Winner</td><td>2026</td></tr>
+        <tr><th scope="row"><a href="https://www.productdesignaward.eu/winners/epda/2026/13226/" target="_blank" rel="noopener">European Product Design Award&nbsp;&#8599;</a></th><td>Opal Expansion</td><td>Student Winner</td><td>2026</td></tr>
+        <tr><th scope="row"><a href="https://www.indigoaward.com/winners/9540" target="_blank" rel="noopener">Indigo Design Award&nbsp;&#8599;</a></th><td>Nest Friendly and Cheerful</td><td>Student Winner</td><td>2025</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="g-p g-p--hi g-l" id="hi">
+    <h2>I love to chat.</h2>
+    <p>Seriously. Ask me about design, AI, ceramics, or how tall I am.</p>
+    <div class="n-btns"><a class="n-btn n-btn--white" href="mailto:brayden@braydenw.com">brayden@braydenw.com</a><a class="n-btn n-btn--ghost" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a></div>
+  </div>
+
 </section>
 
-<!-- ═══ Contact ══════════════════════════════════════════════════════════ -->
-<section class="a-end" id="hello">
-  <h2>Let&rsquo;s talk.</h2>
-  <p>I&rsquo;m always up for a coffee chat about design, AI, or whatever you&rsquo;re working on.</p>
-  <div class="a-end__links">
-    <a class="a-end__primary" href="mailto:brayden@braydenw.com">brayden@braydenw.com</a>
-    <a href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
-  </div>
-</section>
 </main>
 
 <!-- Shared by every page — edit here, never in a page source. -->
@@ -2112,6 +2744,45 @@ html{scroll-padding-top:5rem}
       if (navigator.clipboard && isSecureContext) {
         navigator.clipboard.writeText(b.dataset.copy).then(function () { done(true); }, function () { done(false); });
       } else { done(false); }
+    });
+  });
+
+  /* Rotating photos. The About lead drifts slowly on its own; the homepage
+     tiles (data-rotate="hover") hold still until you hover them, or tap
+     them on a phone, so the page isn't all moving at once. */
+  document.querySelectorAll('[data-rotate]').forEach(function (rot) {
+    var shots = rot.querySelectorAll('img'), cap = rot.querySelector('figcaption'), at = 0, timer = null;
+    var onHover = rot.dataset.rotate === 'hover';
+    shots.forEach(function (im) { im.loading = 'eager'; });
+    var step = function () {
+      if (document.hidden) return;
+      shots[at].classList.remove('is-on');
+      at = (at + 1) % shots.length;
+      shots[at].classList.add('is-on');
+      if (cap && cap.textContent !== shots[at].dataset.cap) {
+        cap.classList.add('is-out');
+        setTimeout(function () { cap.textContent = shots[at].dataset.cap; cap.classList.remove('is-out'); }, 400);
+      }
+    };
+    if (onHover) {
+      rot.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { step(); timer = setInterval(step, 1600); } });
+      rot.addEventListener('pointerleave', function () { clearInterval(timer); });
+      rot.addEventListener('pointerup', function (e) { if (e.pointerType !== 'mouse') step(); });
+    } else {
+      var held = false;
+      rot.addEventListener('mouseenter', function () { held = true; });
+      rot.addEventListener('mouseleave', function () { held = false; });
+      setInterval(function () { if (!held) step(); }, 6000);
+    }
+  });
+
+  /* Back to top: glide up instead of jumping (unless reduced motion). */
+  document.querySelectorAll('.foot__top').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: calm ? 'auto' : 'smooth' });
+      history.replaceState(null, '', location.pathname + location.search);
     });
   });
 

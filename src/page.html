@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Brayden Wisniewski</title>
-<meta name="description" content="Product designer and UX design senior at SCAD, graduating March 2027. Curious about human-centered design and AI, with past campus roles at Framer and Adobe and design experience at IBM.">
+<meta name="description" content="Hey, I'm Brayden. Designer, people person, kinda tall. UX at SCAD, graduating 2027, and open to design roles.">
 
 <link rel="canonical" href="https://www.braydenw.com/">
 <meta property="og:url" content="https://www.braydenw.com/">
 <meta property="og:title" content="Brayden Wisniewski">
-<meta property="og:description" content="Making everyday things a little more enjoyable.">
+<meta property="og:description" content="Designer. People person. Kinda tall.">
 <meta property="og:type" content="website">
 <!-- Share card — never rendered on the page, only unfurled by
      Messages, LinkedIn, Slack, and the like. -->
@@ -23,32 +23,38 @@
 <link rel="icon" href="/images/icon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
+<link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/InstrumentSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:ital,wght@0,300..700;1,300..600&family=Lato:wght@400;700;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Serif:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Lato:wght@400;700;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Serif:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body class="no-js v2" data-page="home">
 <script>document.body.classList.remove('no-js');</script>
 
 <a class="skip" href="#work">Skip to the work</a>
+
+<!-- ═══ Hello ══════════════════════════════════════════════════════════════ -->
 <!-- @include icons -->
 
-<!-- ═══ Hero ═══════════════════════════════════════════════════════════════
-     The name, edge to edge, over a horizon of light. Move the cursor and the
-     light follows it. -->
-<header class="h-hero" id="h-hero">
+<header class="g-hello">
   <div class="h-bar" id="h-bar">
     <a class="h-bar__name" href="/">Brayden Wisniewski</a>
     <nav class="h-bar__links" aria-label="Sections">
       <a href="#work">Work</a>
       <a href="/about">About</a>
       <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:brayden@braydenw.com">Contact</a>
+      <a href="#hi">Say Hello</a>
     </nav>
   </div>
-  <p class="h-role">Product designer &middot; UX at SCAD, graduating March 2027 &middot; Open to product design roles</p>
-  <h1 class="h-name h-name--split" id="h-name"><span>Brayden</span> <span>Wisniewski</span></h1>
+  <div class="g-hello__body">
+    <h1 class="g-mark" id="g-mark"><span>Brayden</span> <span>Wisniewski</span></h1>
+    <p class="g-hey">Designer. People person. Kinda tall.</p>
+    <div class="g-hello__row">
+      <p>UX at SCAD, graduating 2027<br>Open to design roles</p>
+    </div>
+  </div>
 </header>
 
 <nav class="h-pill-nav" id="h-pill-nav" aria-label="Sections, pinned" hidden>
@@ -56,22 +62,16 @@
   <a href="#work">Work</a>
   <a href="/about">About</a>
   <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
-  <a class="h-pill-nav__hi" href="mailto:brayden@braydenw.com">Contact</a>
+  <a class="h-pill-nav__hi" href="#hi">Say Hello</a>
 </nav>
 
-<main id="top">
+<main id="top" class="g-wrap">
 
-<!-- ═══ Work ═══════════════════════════════════════════════════════════════
-     Proof first: every card carries the role and the result before you
-     open it. -->
-<section class="h-work" id="work">
-  <div class="h-work__head">
-    <h2>Making everyday things a little more enjoyable.</h2>
-    <p>Selected work, 2025&ndash;26</p>
-  </div>
+<!-- ═══ The gallery: work, people, and life, in one grid ═══════════════════ -->
+<section class="g-grid" id="work" aria-label="Work and life">
 
-  <a class="h-card h-card--wide" href="/ibm">
-    <div class="h-card__media">
+  <a class="g-p g-p--work g-a" href="/ibm">
+    <div class="g-p__media">
     <div class="ih" aria-hidden="true">
       <img class="ih__art" src="/images/ibm-platinum-art.png" width="900" height="704" alt="">
       <div class="ih__card ih__card--plat">
@@ -91,25 +91,34 @@
       </div>
     </div>
     </div>
-    <div class="h-card__foot"><p class="h-card__meta">Design Intern &middot; Shipped on ibm.com</p>
-      <h3 class="h-card__title">IBM Software</h3>
-      <p class="h-card__line">A summer in Austin on how people and AI agents learn complex products.</p>
-    </div>
+    <div class="g-p__top g-p__top--end"><span class="g-pills"><span>Design Intern</span><span>Shipped on ibm.com</span></span></div>
+    <div class="g-p__cap"><h2>Design at enterprise speed</h2><p>A summer in Austin on how people and AI agents learn complex products.</p></div>
   </a>
 
-  <a class="h-card" href="/opal">
-    <div class="h-card__media">
-    <img src="/images/opal-hero.jpg" width="2000" height="1110"
-         alt="The Opal focus app across several screens, showing planning, blocking, and break suggestions">
+  <figure class="g-p g-p--quote g-b">
+    <blockquote>&ldquo;Your contributions helped us transform ideas into modern, polished web experiences.&rdquo;</blockquote>
+    <figcaption><b>Pepe Valiente</b>Strategy Lead, IBM Core Software</figcaption>
+  </figure>
+
+  <a class="g-p g-p--work g-c" href="/opal">
+    <div class="g-p__media">
+    <img src="/images/opal-hero.jpg" width="2000" height="1110" loading="lazy" alt="The Opal focus app across several screens, showing planning, blocking, and break suggestions">
     </div>
-    <div class="h-card__foot"><p class="h-card__meta">Product Designer &middot; Indigo Design Award</p>
-      <h3 class="h-card__title">Opal</h3>
-      <p class="h-card__line">Helping students plan, focus, and take breaks worth taking. Built from a 30-student survey, tested with 23 more.</p>
-    </div>
+    <div class="g-p__top g-p__top--end"><span class="g-pills"><span>Product Designer</span><span>Indigo Design Award</span></span></div>
+    <div class="g-p__cap"><h2>Opal</h2><p>Helping students plan, focus, and take breaks worth taking.</p></div>
   </a>
 
-  <a class="h-card" href="/slack">
-    <div class="h-card__media">
+  <figure class="g-p g-p--photo g-d ab-rot" data-rotate="hover">
+    <img src="/images/ceramics-5.jpg" width="900" height="1200" style="object-position:center 40%" class="is-on" loading="lazy" data-cap="Recent ceramic pics" alt="Glazed plates, bowls and cups, some with ceramic fortune cookies, laid out on a board">
+    <img src="/images/ceramics-2.jpg" width="900" height="1200" style="object-position:center 60%" loading="lazy" data-cap="Recent ceramic pics" alt="A row of freshly thrown bowls drying on a shelf in an open-air studio">
+    <img src="/images/ceramics-3.jpg" width="900" height="1200" style="object-position:center" loading="lazy" data-cap="Recent ceramic pics" alt="A trimmed cup with carved texture held over the wheel">
+    <img src="/images/ceramics-4.jpg" width="1200" height="900" style="object-position:center" loading="lazy" data-cap="Recent ceramic pics" alt="Four freshly thrown plates and bowls on a wooden board">
+    <img src="/images/ceramics-1.jpg" width="900" height="1200" style="object-position:center 70%" loading="lazy" data-cap="Recent ceramic pics" alt="A just-thrown piece on the wheel, with yellow buckets and more wheels behind it">
+    <figcaption>Recent ceramic pics</figcaption>
+  </figure>
+
+  <a class="g-p g-p--work g-e" href="/slack">
+    <div class="g-p__media">
     <div class="uh" aria-hidden="true">
         <div class="uh__msg">
           <div class="uh__bar">
@@ -134,23 +143,66 @@
         <p class="uh__toast">This message was saved for you</p>
       </div>
     </div>
-    <div class="h-card__foot"><p class="h-card__meta">Research Lead &middot; 3/8 &rarr; 8/8</p>
-      <h3 class="h-card__title">Slack</h3>
-      <p class="h-card__line">Two everyday tasks most people couldn&rsquo;t finish. Two small changes to language and state fixed both.</p>
-    </div>
+    <div class="g-p__top g-p__top--end"><span class="g-pills"><span>Research Lead</span><span>3/8 &rarr; 8/8 task success</span></span></div>
+    <div class="g-p__cap"><h2>Slack</h2><p>Two everyday tasks most people couldn&rsquo;t finish. Two small changes fixed both.</p></div>
   </a>
 
+  <div class="g-p g-p--loud g-f">
+    <h2>Chronically online.</h2>
+    <p>I share my design journey out loud, and post a lot. Follow along!</p>
+    <div class="n-btns"><a class="n-btn" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn &rarr;</a><a class="n-btn n-btn--line" href="https://braydenwdesign.substack.com" target="_blank" rel="noopener">Substack &rarr;</a></div>
+  </div>
+
+  <figure class="g-p g-p--photo g-g ab-rot" data-rotate="hover">
+    <img src="/images/about-config-arch.jpg" width="900" height="1200" style="object-position:center 40%" class="is-on" loading="lazy" data-cap="Holding up Config" alt="Brayden under the Config arch in San Francisco, arms up like the letters">
+    <img src="/images/about-austin.jpg" width="900" height="1200" style="object-position:center 40%" loading="lazy" data-cap="Design at enterprise speed" alt="Brayden pointing at the neon Austin Design Studio sign at IBM">
+    <img src="/images/about-framer.jpg" width="675" height="1200" style="object-position:center 32%" loading="lazy" data-cap="Promoting cool products" alt="Brayden and a friend holding up Framer tote bags">
+    <figcaption>Holding up Config</figcaption>
+  </figure>
+
+  <figure class="g-p g-p--photo g-h ab-rot" data-rotate="hover">
+    <img src="/images/travel.jpg" width="1050" height="1400" style="object-position:center 42%" class="is-on" loading="lazy" data-cap="Visiting New York" alt="Brayden and a friend outside a bagel shop in New York">
+    <img src="/images/visit-mfah.jpg" width="900" height="1200" style="object-position:center 35%" loading="lazy" data-cap="Visiting the Houston MFAH" alt="Brayden inside a huge orange and red rope installation at the Museum of Fine Arts, Houston">
+    <img src="/images/visit-salesforce-park.jpg" width="900" height="1200" style="object-position:center 40%" loading="lazy" data-cap="Visiting Salesforce Park" alt="Brayden smiling in Salesforce Park with the Salesforce Tower behind him">
+    <img src="/images/visit-fort-worth.jpg" width="900" height="1200" style="object-position:center 55%" loading="lazy" data-cap="Visiting Fort Worth" alt="Brayden standing under the Stockyards Station sign in Fort Worth">
+    <img src="/images/visit-golden-gate.jpg" width="1200" height="900" style="object-position:42% center" loading="lazy" data-cap="Visiting the Golden Gate Bridge" alt="Brayden and two friends in front of the Golden Gate Bridge in the fog">
+    <figcaption>Visiting New York</figcaption>
+  </figure>
+
+  <figure class="g-p g-p--quote g-p--quote-dark g-j">
+    <blockquote>&ldquo;Your quick turnaround allowed us to publish these sooner than we would have.&rdquo;</blockquote>
+    <figcaption><b>Patti McAuliffe</b>WW Support Planning, IBM Core Software</figcaption>
+  </figure>
+
+  <figure class="g-p g-p--photo g-k ab-rot" data-rotate="hover">
+    <img src="/images/bagel-1.jpg" width="900" height="1200" class="is-on" loading="lazy" data-cap="Bagel obsessed" alt="A smoked salmon bagel on a sunny wooden table">
+    <img src="/images/bagel-2.jpg" width="900" height="1200" loading="lazy" data-cap="Bagel obsessed" alt="A stacked breakfast bagel with egg, cheese, sausage and bacon, held up in foil">
+    <img src="/images/bagel-3.jpg" width="900" height="1200" loading="lazy" data-cap="Bagel obsessed" alt="A bacon, egg and cheese bagel in foil on a wooden table">
+    <img src="/images/bagel-4.jpg" width="900" height="1200" loading="lazy" data-cap="Bagel obsessed" alt="An open-faced lox bagel with dill, capers and red onion">
+    <img src="/images/bagel-5.jpg" width="900" height="1200" loading="lazy" data-cap="Bagel obsessed" alt="A bacon egg and cheese bagel next to an iced coffee">
+    <figcaption>Bagel obsessed</figcaption>
+  </figure>
+
+  <div class="g-p g-p--awards g-w">
+    <h2>Awards</h2>
+    <div class="aw-wrap"><table class="aw">
+      <thead><tr><th scope="col">Award</th><th scope="col">Project</th><th scope="col">Result</th><th scope="col">Year</th></tr></thead>
+      <tbody>
+        <tr><th scope="row"><a href="https://www.indigoaward.com/winners/11038" target="_blank" rel="noopener">Indigo Design Award&nbsp;&#8599;</a></th><td>Opal Expansion</td><td>Student Winner</td><td>2026</td></tr>
+        <tr><th scope="row"><a href="https://www.productdesignaward.eu/winners/epda/2026/13226/" target="_blank" rel="noopener">European Product Design Award&nbsp;&#8599;</a></th><td>Opal Expansion</td><td>Student Winner</td><td>2026</td></tr>
+        <tr><th scope="row"><a href="https://www.indigoaward.com/winners/9540" target="_blank" rel="noopener">Indigo Design Award&nbsp;&#8599;</a></th><td>Nest Friendly and Cheerful</td><td>Student Winner</td><td>2025</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="g-p g-p--hi g-l" id="hi">
+    <h2>I love to chat.</h2>
+    <p>Seriously. Ask me about design, AI, ceramics, or how tall I am.</p>
+    <div class="n-btns"><a class="n-btn n-btn--white" href="mailto:brayden@braydenw.com">brayden@braydenw.com</a><a class="n-btn n-btn--ghost" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a></div>
+  </div>
+
 </section>
 
-<!-- ═══ Contact ══════════════════════════════════════════════════════════ -->
-<section class="a-end" id="hello">
-  <h2>Let&rsquo;s talk.</h2>
-  <p>I&rsquo;m always up for a coffee chat about design, AI, or whatever you&rsquo;re working on.</p>
-  <div class="a-end__links">
-    <a class="a-end__primary" href="mailto:brayden@braydenw.com">brayden@braydenw.com</a>
-    <a href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
-  </div>
-</section>
 </main>
 
 <!-- @include foot -->

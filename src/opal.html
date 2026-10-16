@@ -18,6 +18,8 @@
 <link rel="icon" href="/images/icon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
+<link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/InstrumentSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:ital,wght@0,300..700;1,300..600&family=Lato:wght@400;700;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Serif:wght@300;400&display=swap" rel="stylesheet">
@@ -29,27 +31,34 @@
 <a class="skip" href="#story">Skip to the story</a>
 <!-- @include icons -->
 
-<header class="c-top">
+<header class="g-hello">
   <div class="h-bar" id="h-bar">
     <a class="h-bar__name" href="/">Brayden Wisniewski</a>
     <nav class="h-bar__links" aria-label="Sections">
-      <a href="/" aria-current="page">Work</a>
+      <a href="/#work" aria-current="page">Work</a>
       <a href="/about">About</a>
       <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:brayden@braydenw.com">Contact</a>
+      <a href="mailto:brayden@braydenw.com">Say Hello</a>
     </nav>
+  </div>
+  <div class="g-hello__body">
+    <a class="g-mark g-mark--link" href="/"><span>Brayden</span> <span>Wisniewski</span></a>
+    <p class="g-hey">Designer. People person. Kinda tall.</p>
+    <div class="g-hello__row">
+      <p>UX at SCAD, graduating 2027<br>Open to design roles</p>
+    </div>
   </div>
 </header>
 
 <nav class="h-pill-nav" id="h-pill-nav" aria-label="Sections, pinned" hidden>
   <a href="/">Home</a>
-  <a href="/" aria-current="page">Work</a>
+  <a href="/#work" aria-current="page">Work</a>
   <a href="/about">About</a>
   <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
-  <a class="h-pill-nav__hi" href="mailto:brayden@braydenw.com">Contact</a>
+  <a class="h-pill-nav__hi" href="mailto:brayden@braydenw.com">Say Hello</a>
 </nav>
 
-<main id="top">
+<main id="top" class="g-wrap cs">
 
 <!-- ═══ Opening ══════════════════════════════════════════════════════════ -->
 <section class="c-open">
@@ -57,9 +66,8 @@
     <img src="/images/opal-hero.jpg" width="2000" height="1110"
          alt="The Opal focus app across several screens, showing planning, blocking, and break suggestions">
   </figure>
-  <p class="c-eyebrow">Opal &middot; Product Design</p>
-  <h1>Making focus feel a little easier</h1>
-  <p class="c-sum">Students don&rsquo;t need another app telling them to focus. With two teammates, I designed a focus app around planning, motivation, and breaks worth taking, built from a 30-student survey and tested with 23 more.</p>
+  <h1>Opal</h1>
+  <p class="c-sum"><b>Making focus feel a little easier.</b> Students don&rsquo;t need another app telling them to focus. With two teammates, I designed a focus app around planning, motivation, and breaks worth taking, built from a 30-student survey and tested with 23 more.</p>
 
   <dl class="c-facts">
     <div><dt>Role</dt><dd>Product Designer</dd></div>
@@ -68,9 +76,6 @@
     <div><dt>Recognition</dt><dd><a class="c-link" href="https://indigoaward.com/winners/11033" target="_blank" rel="noopener">Indigo Design Award</a></dd></div>
   </dl>
 
-  <nav class="c-tabs" aria-label="On this page">
-    <a href="#story">Overview</a><a href="#insight">Insight</a><a href="#design">Design</a><a href="#testing">Testing</a><a href="#takeaway">Takeaway</a>
-  </nav>
 
 </section>
 
@@ -148,8 +153,32 @@
 <section class="c-more">
   <p class="c-label">View more</p>
   <div class="c-more__grid">
-    <a class="h-card" href="/slack">
-      <div class="h-card__media">
+    <a class="g-p g-p--work cs-card" href="/ibm">
+      <div class="g-p__media">
+      <div class="ih" aria-hidden="true">
+        <img class="ih__art" src="/images/ibm-platinum-art.png" width="900" height="704" alt="">
+        <div class="ih__card ih__card--plat">
+          <p class="ih__h"><span>IBM Platinum</span> <span>Experience</span></p>
+          <p class="ih__p">A premium partnership with your needs at the center of your IBM Software experience.</p>
+          <p class="ih__btns"><span class="ih__btn">Sign up now <i>&rarr;</i></span><span class="ih__btn ih__btn--ghost">Webinar <i>&rarr;</i></span></p>
+        </div>
+        <div class="ih__card ih__card--sov">
+          <p class="ih__eyebrow">IBM Sovereign Support</p>
+          <p class="ih__t">Keep data in-region</p>
+          <p class="ih__p">Support cases, personnel, and diagnostic data handling are all bound to your sovereign environment.</p>
+          <p class="ih__tags"><span>Data sovereignty</span><span>Control</span></p>
+        </div>
+        <div class="ih__card ih__card--fast">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 13l3-4M10 2h4M12 2v3"/></svg>
+          <p class="ih__t">Fastest response times</p>
+        </div>
+      </div>
+      </div>
+      <div class="g-p__top g-p__top--end"><span class="g-pills"><span>Design Intern</span><span>Shipped on ibm.com</span></span></div>
+      <div class="g-p__cap"><h2>Design at enterprise speed</h2><p>A summer in Austin on how people and AI agents learn complex products.</p></div>
+    </a>
+    <a class="g-p g-p--work cs-card" href="/slack">
+      <div class="g-p__media">
       <div class="uh" aria-hidden="true">
           <div class="uh__msg">
             <div class="uh__bar">
@@ -174,32 +203,8 @@
           <p class="uh__toast">This message was saved for you</p>
         </div>
       </div>
-      <div class="h-card__foot"><p class="h-card__meta">Research Lead &middot; 3/8 &rarr; 8/8</p><h3 class="h-card__title">Slack</h3>
-        <p class="h-card__line">Making Slack&rsquo;s hidden state visible.</p></div>
-    </a>
-    <a class="h-card" href="/ibm">
-      <div class="h-card__media">
-      <div class="ih" aria-hidden="true">
-      <img class="ih__art" src="/images/ibm-platinum-art.png" width="900" height="704" alt="">
-      <div class="ih__card ih__card--plat">
-        <p class="ih__h"><span>IBM Platinum</span> <span>Experience</span></p>
-        <p class="ih__p">A premium partnership with your needs at the center of your IBM Software experience.</p>
-        <p class="ih__btns"><span class="ih__btn">Sign up now <i>&rarr;</i></span><span class="ih__btn ih__btn--ghost">Webinar <i>&rarr;</i></span></p>
-      </div>
-      <div class="ih__card ih__card--sov">
-        <p class="ih__eyebrow">IBM Sovereign Support</p>
-        <p class="ih__t">Keep data in-region</p>
-        <p class="ih__p">Support cases, personnel, and diagnostic data handling are all bound to your sovereign environment.</p>
-        <p class="ih__tags"><span>Data sovereignty</span><span>Control</span></p>
-      </div>
-      <div class="ih__card ih__card--fast">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 13l3-4M10 2h4M12 2v3"/></svg>
-        <p class="ih__t">Fastest response times</p>
-      </div>
-    </div>
-      </div>
-      <div class="h-card__foot"><p class="h-card__meta">Design Intern &middot; Shipped on ibm.com</p><h3 class="h-card__title">IBM Software</h3>
-        <p class="h-card__line">A summer in Austin on how people and AI agents learn complex products.</p></div>
+      <div class="g-p__top g-p__top--end"><span class="g-pills"><span>Research Lead</span><span>3/8 &rarr; 8/8 task success</span></span></div>
+      <div class="g-p__cap"><h2>Slack</h2><p>Two everyday tasks most people couldn&rsquo;t finish. Two small changes fixed both.</p></div>
     </a>
   </div>
 </section>
