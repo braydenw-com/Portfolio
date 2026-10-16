@@ -1777,7 +1777,7 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
   "a a a a a a a a b b b b"
   "a a a a a a a a j j j j"
   "c c c c c c e e e e e e"
-  "d d d g g g h h h k k k"
+  "d d d d h h h h k k k k"
   "f f f f f f f i i i i i"
   "l l l l l l l l l l l l"}
 .g-a{grid-area:a!important}.g-b{grid-area:b!important}.g-j{grid-area:j!important}.g-c{grid-area:c!important}.g-e{grid-area:e!important}
@@ -1788,11 +1788,11 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 .g-d,.g-g,.g-h,.g-k{aspect-ratio:4/5}
 .g-l{min-height:clamp(16rem,26vw,22rem)}
 @media (max-width:1000px){
-  .g-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-areas:"a a" "b j" "c c" "e e" "d g" "h k" "f f" "i i" "l l"}
+  .g-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-areas:"a a" "b j" "c c" "e e" "d d" "h k" "f f" "i i" "l l"}
   .g-a,.g-c,.g-e{aspect-ratio:16/11}
 }
 @media (max-width:620px){
-  .g-grid{grid-template-areas:"a a" "b b" "j j" "c c" "e e" "d g" "h k" "f f" "i i" "l l"}
+  .g-grid{grid-template-areas:"a a" "b b" "j j" "c c" "e e" "d d" "h k" "f f" "i i" "l l"}
   .g-a,.g-c,.g-e{aspect-ratio:4/5}
   .g-p__media .ih{font-size:2.6cqw}
   .g-p__media .ih__card--plat{left:6%;right:auto;top:20%;width:72%}
@@ -1930,6 +1930,8 @@ main.cs{width:auto;font-family:var(--g-sans)}
 /* "Touching grass" tile matches its neighbour "Chronically online". */
 .g-p--life{background:var(--h-fill);box-shadow:none;justify-content:flex-start}
 .g-p--life h2{color:var(--h-text);font-size:clamp(1.9rem,3.4vw,3.2rem)}
+@media (max-width:1000px){.g-d{aspect-ratio:4/3}}
+@media (min-width:1001px){.g-d,.g-h,.g-k{aspect-ratio:1/1}}
 
 </style>
 </head>
@@ -2056,14 +2058,6 @@ main.cs{width:auto;font-family:var(--g-sans)}
     <p>I share my design journey out loud, and post a lot. Follow along!</p>
     <div class="n-btns"><a class="n-btn" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn &rarr;</a><a class="n-btn n-btn--line" href="https://braydenwdesign.substack.com" target="_blank" rel="noopener">Substack &rarr;</a></div>
   </div>
-
-  <figure class="g-p g-p--photo g-g ab-rot" data-rotate="hover">
-    <img src="/images/about-config-arch.jpg" width="900" height="1200" style="object-position:center 40%" class="is-on" loading="lazy" data-cap="Holding up Config" alt="Brayden under the Config arch in San Francisco, arms up like the letters">
-    <img src="/images/about-austin.jpg" width="900" height="1200" style="object-position:center 40%" loading="lazy" data-cap="Design at enterprise speed" alt="Brayden pointing at the neon Austin Design Studio sign at IBM">
-    <img src="/images/about-framer.jpg" width="675" height="1200" style="object-position:center 32%" loading="lazy" data-cap="Promoting cool products" alt="Brayden and a friend holding up Framer tote bags">
-    <img src="/images/about-lead.jpg" width="1200" height="1600" style="object-position:center" loading="lazy" data-cap="Config, San Francisco" alt="Brayden holding his Config badge in San Francisco">
-    <figcaption>Holding up Config</figcaption>
-  </figure>
 
   <figure class="g-p g-p--photo g-h ab-rot" data-rotate="hover">
     <img src="/images/travel.jpg" width="1050" height="1400" style="object-position:center 42%" class="is-on" loading="lazy" data-cap="Visiting New York" alt="Brayden and a friend outside a bagel shop in New York">
