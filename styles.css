@@ -2006,3 +2006,23 @@ main.cs{width:auto;font-family:var(--g-sans)}
   .g-p--awards .aw-wrap{inset:3.2rem clamp(1.1rem,2vw,1.6rem) clamp(.9rem,1.6vw,1.4rem)}
 }
 @media (min-width:1001px) and (max-width:1300px){.g-p--awards .aw-wrap{position:static;overflow:visible}.g-p--awards .aw{height:auto}}
+
+/* ═══ Smaller screens pass ═══════════════════════════════════════════════ */
+/* Less dead space above the name. */
+@media (max-width:1000px){.g-hello__body{padding-top:clamp(1.5rem,6vw,3rem)!important}}
+@media (max-width:620px){.g-hello__body{padding-top:1.25rem!important}}
+/* Tablet: four columns so things sit side by side instead of stacking huge. */
+@media (min-width:621px) and (max-width:1000px){
+  .g-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    grid-template-areas:"a a a a" "b b j j" "c c e e" "d g h k" "f f w w" "l l l l"!important}
+  .g-c,.g-e{aspect-ratio:4/5!important}
+  .g-d,.g-g,.g-h,.g-k{aspect-ratio:1/1!important}
+  .g-p__media .uh__notif,.g-p__media .uh__toast{display:none}
+  .g-p--work .g-p__cap h2{font-size:1.6rem}
+  .ab-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    grid-template-areas:"t t t p" "n n k k" "g g g g" "o v c f" "e e e e"!important}
+  .ab-p{aspect-ratio:auto!important;min-height:0}
+  .ab-v1,.ab-c,.ab-f{aspect-ratio:3/4!important}
+  .ab-o h2{font-size:1.4rem}
+}
+@media (min-width:621px) and (max-width:1000px){.ab-grid{grid-template-areas:"t t p p" "n k p p" "g g g g" "o v c f" "e e e e"!important}.ab-p{min-height:20rem}}
