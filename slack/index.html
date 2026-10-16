@@ -2055,6 +2055,13 @@ main.cs{width:auto;font-family:var(--g-sans)}
 /* Award links: a 32px+ tap area without moving the text. */
 .g-p--awards .aw tbody th a{padding:.45rem 0;margin:-.45rem 0}
 
+/* Goal / The idea / How I'd know / What changed my mind */
+.c-idea{margin:clamp(1.6rem,3vw,2.4rem) 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.4rem 2rem;max-width:62rem}
+.c-idea>div{border-top:1px solid var(--h-line);padding-top:1rem}
+.c-idea dt{font-size:.9rem;color:var(--h-soft);margin-bottom:.35rem}
+.c-idea dd{margin:0;font-family:var(--g-sans);font-size:1.02rem;line-height:1.55;color:var(--h-text)}
+@media (max-width:760px){.c-idea{grid-template-columns:1fr;gap:1rem}}
+
 </style>
 </head>
 <body class="no-js v2" data-page="slack">
@@ -2129,6 +2136,14 @@ main.cs{width:auto;font-family:var(--g-sans)}
     <div><dt>Timeline</dt><dd>10 weeks, 2026</dd></div>
     <div><dt>Methods</dt><dd>Heuristic review, moderated &amp; unmoderated testing</dd></div>
   </dl>
+
+  <dl class="c-idea">
+    <div><dt>Goal</dt><dd>Help people finish two everyday tasks most of them were failing: finding a saved message and managing notifications.</dd></div>
+    <div><dt>The idea</dt><dd>If the actions are named around ownership (Save for Me, Pin for Everyone) and Slack shows what it will notify you about, more people will finish both tasks, because they were failing on hidden state and look-alike labels, not missing features.</dd></div>
+    <div><dt>How I&rsquo;d know</dt><dd>Task success: 3/8 found a saved message and 2/8 managed notifications. If new people still failed after the change, I&rsquo;d be wrong.</dd></div>
+    <div><dt>What changed my mind</dt><dd>Watching 8 people showed getting around was fine. The failures were state and wording, so we fixed language instead of adding features.</dd></div>
+  </dl>
+
 
 
 </section>
