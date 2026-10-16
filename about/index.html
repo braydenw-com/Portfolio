@@ -4,23 +4,30 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About — Brayden Wisniewski</title>
-<meta name="description" content="A little more about Brayden Wisniewski — UX design senior at SCAD, graduating March 2027. Curious about human-centered design and AI.">
+<meta name="description" content="A little more about Brayden Wisniewski: UX design senior at SCAD, graduating March 2027, who documents the process out loud.">
 
 <link rel="canonical" href="https://www.braydenw.com/about">
 <meta property="og:url" content="https://www.braydenw.com/about">
 <meta property="og:title" content="About — Brayden Wisniewski">
-<meta property="og:description" content="Curious by default.">
+<meta property="og:description" content="Designer. People person. Kinda tall.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://www.braydenw.com/images/about-lead.jpg">
+<!-- Share card — never rendered on the page, only unfurled by
+     Messages, LinkedIn, Slack, and the like. -->
+<meta property="og:image" content="https://www.braydenw.com/images/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Brayden Wisniewski">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/images/icon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
+<link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/InstrumentSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:ital,wght@0,300..700;1,300..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════════════════════
    braydenw.com
@@ -1815,109 +1822,139 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 .g-logo--ibm{padding:.3rem}
 .g-logo--ibm img{width:100%;height:100%;object-fit:contain;display:block}
 
+/* ═══ About, in the home style: same rail, one grid of tiles ════════════ */
+.g-mark--link{display:block;text-decoration:none}
+.g-mark--link:hover{color:var(--h-text)}
+.ab-grid{grid-template-areas:
+  "t t t t t t t t p p p p"
+  "n n n n k k k k p p p p"
+  "g g g g g g g g g g g g"
+  "o o o o v v v v c c c c"
+  "f f f f f f e e e e e e"}
+.ab-t{grid-area:t}.ab-p{grid-area:p}.ab-n{grid-area:n}.ab-k-tile{grid-area:k}.ab-g{grid-area:g}
+.ab-o{grid-area:o}.ab-v1{grid-area:v}.ab-c{grid-area:c}.ab-f{grid-area:f}.ab-e{grid-area:e}
+.ab-p{aspect-ratio:4/5}
+.ab-v1,.ab-c{aspect-ratio:4/5}
+.ab-f{aspect-ratio:4/3}
+.ab-t,.ab-n,.ab-k-tile,.ab-g{background:var(--h-fill);padding:clamp(1.2rem,2.4vw,2.2rem);display:flex;flex-direction:column;gap:.8rem}
+.ab-t{justify-content:flex-end}
+.ab-h{margin:0 0 .4rem;font-family:var(--g-serif);font-weight:600;letter-spacing:-.035em;line-height:.98;font-size:clamp(2.4rem,4.6vw,4.4rem);color:var(--blue)}
+.ab-lede{margin:0;font-size:clamp(1.25rem,1.9vw,1.6rem);line-height:1.3;letter-spacing:-.02em;color:var(--h-text);max-width:30ch}
+.ab-t p:not(.ab-lede){margin:0;color:var(--h-soft);line-height:1.5;max-width:46ch}
+.ab-k{margin:0;font-size:.85rem;color:var(--blue)}
+.ab-v{margin:0;font-family:var(--g-serif);font-weight:500;font-size:clamp(1.15rem,1.5vw,1.4rem);line-height:1.3;letter-spacing:-.015em;color:var(--h-text)}
+.ab-g h2{font-size:clamp(1.9rem,3.4vw,3.2rem)}
+.ab-give{list-style:none;margin:.6rem 0 0;padding:0;display:grid}
+.ab-give li{display:grid;grid-template-columns:7rem minmax(0,14rem) minmax(0,1fr);gap:.3rem 1.5rem;align-items:baseline;padding:1rem 0;border-top:1px solid var(--h-line)}
+.ab-when{color:var(--h-soft);font-size:.9rem}
+.ab-give b{font-family:var(--g-serif);font-weight:600;font-size:1.2rem;letter-spacing:-.015em}
+.ab-give span:last-child{color:var(--h-soft);line-height:1.5}
+.ab-give a{color:var(--blue)}
+.ab-o{justify-content:flex-end}
+.ab-e{min-height:0}
+@media (max-width:1000px){
+  .ab-grid{grid-template-areas:"t t" "p n" "p k" "g g" "o o" "v c" "f f" "e e"}
+  .ab-p{aspect-ratio:auto;min-height:22rem}
+}
+@media (max-width:620px){
+  .ab-grid{grid-template-areas:"t t" "p p" "n n" "k k" "g g" "o o" "v c" "f f" "e e"}
+  .ab-p{aspect-ratio:4/5}
+  .ab-give li{grid-template-columns:1fr}
+}
+@media (min-width:1001px){.ab-p{aspect-ratio:auto}}
+.g-p--photo figcaption{font-style:normal}
+.ab-e h2{font-size:clamp(2.4rem,4.2vw,4.2rem)}
+
 </style>
 </head>
 <body class="no-js v2" data-page="about">
 <script>document.body.classList.remove('no-js');</script>
 
-<a class="skip" href="#me">Skip to the writing</a>
-
-<!-- ═══ Opening — the same light as home, shorter, with the title edge to edge -->
-<header class="c-top">
+<header class="g-hello">
   <div class="h-bar" id="h-bar">
     <a class="h-bar__name" href="/">Brayden Wisniewski</a>
     <nav class="h-bar__links" aria-label="Sections">
-      <a href="/">Work</a>
+      <a href="/#work">Work</a>
       <a href="/about" aria-current="page">About</a>
       <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:brayden@braydenw.com">Contact</a>
+      <a href="#hello">Say hello</a>
     </nav>
+  </div>
+  <div class="g-hello__body">
+    <a class="g-mark g-mark--link" href="/"><span>Brayden</span> <span>Wisniewski</span></a>
+    <p class="g-hey">Designer. People person. Kinda tall.</p>
+    <div class="g-hello__row">
+      <p>UX at SCAD, graduating 2027<br>Open to design roles</p>
+    </div>
   </div>
 </header>
 
 <nav class="h-pill-nav" id="h-pill-nav" aria-label="Sections, pinned" hidden>
   <a href="/">Home</a>
-  <a href="/">Work</a>
+  <a href="/#work">Work</a>
   <a href="/about" aria-current="page">About</a>
   <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
-  <a class="h-pill-nav__hi" href="mailto:brayden@braydenw.com">Contact</a>
+  <a class="h-pill-nav__hi" href="#hello">Say hello</a>
 </nav>
 
-<main id="top">
+<main id="top" class="g-wrap">
 
-<!-- ═══ Who ══════════════════════════════════════════════════════════════ -->
-<section class="a-head">
-  <h1>A little more about me.</h1>
-</section>
+<section class="g-grid ab-grid" aria-label="About Brayden">
 
-<section class="a-intro" id="me">
-  <figure class="a-intro__fig">
-    <img src="/images/about-lead.jpg" width="1200" height="1600"
-         alt="Brayden holding his Config badge outside the conference in San Francisco">
+  <div class="g-p ab-t">
+    <h1 class="ab-h">A little more about me.</h1>
+    <p class="ab-lede">I&rsquo;m Brayden, a curious designer who documents the process out loud.</p>
+    <p>UX design senior at SCAD, graduating March 2027. I interned on IBM&rsquo;s Db2 team in Austin this summer.</p>
+  </div>
+
+  <figure class="g-p g-p--photo ab-p">
+    <img src="/images/about-lead.jpg" width="1200" height="1600" alt="Brayden holding his Config badge outside the conference in San Francisco">
+    <figcaption>Config, San Francisco</figcaption>
   </figure>
 
-  <div class="a-intro__words">
-    <p class="a-lede">I&rsquo;m Brayden, a curious designer who documents the process out loud.</p>
-    <p>
-      UX design senior at SCAD, graduating March 2027. I interned on IBM&rsquo;s Db2
-      team in Austin this summer.
-    </p>
-
-    <dl class="a-facts">
-      <div><dt>Now</dt><dd>Mapping student engagement at SCAD&rsquo;s career office, and working in ag tech for my capstone</dd></div>
-      <div><dt>Asking</dt><dd class="a-ask" data-ask='["How do people stay in control of the AI agents they use?","Can we get an iced coffee?","What ceramic should I make next?","What are you working on?"]'>How do people stay in control of the AI agents they use?</dd></div>
-    </dl>
+  <div class="g-p ab-n">
+    <p class="ab-k">Now</p>
+    <p class="ab-v">Mapping student engagement at SCAD&rsquo;s career office, and working in ag tech for my capstone</p>
   </div>
-</section>
 
-<!-- ═══ Designers helping designers ══════════════════════════════════════ -->
-<section class="a-sec">
-  <div class="a-sec__head">
+  <div class="g-p ab-k-tile">
+    <p class="ab-k">Asking</p>
+    <p class="ab-v a-ask" data-ask='["How do people stay in control of the AI agents they use?","Can we get an iced coffee?","What ceramic should I make next?","What are you working on?"]'>How do people stay in control of the AI agents they use?</p>
+  </div>
+
+  <div class="g-p ab-g">
     <h2>Designers helping designers.</h2>
+    <ul class="ab-give">
+      <li><span class="ab-when">Ongoing</span><b>Sharing my journey</b><span>Documenting design, school, and what I&rsquo;m learning, out loud on <a href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn&nbsp;&#8599;</a></span></li>
+      <li><span class="ab-when">Now</span><b>SCAD FLUX</b><span>Director of Partnerships.</span></li>
+      <li><span class="ab-when">Before</span><b>Adobe &amp; Framer</b><span>Building community for companies like Adobe and Framer.</span></li>
+    </ul>
   </div>
 
-  <ul class="a-give">
-    <li><span class="a-give__who"><span class="a-give__when">Ongoing</span><b>Sharing my journey</b></span>
-      <span class="a-give__what">Documenting design, school, and what I&rsquo;m learning, out loud on <a href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn&nbsp;&#8599;</a></span></li>
-    <li><span class="a-give__who"><span class="a-give__when">Now</span><b>SCAD FLUX</b></span>
-      <span class="a-give__what">Director of Partnerships.</span></li>
-    <li><span class="a-give__who"><span class="a-give__when">Before</span><b>Adobe &amp; Framer</b></span>
-      <span class="a-give__what">Building community for companies like Adobe and Framer.</span></li>
-  </ul>
-</section>
-
-<!-- ═══ Outside design ═══════════════════════════════════════════════════ -->
-<section class="a-sec">
-  <div class="a-sec__head">
+  <div class="g-p g-p--life ab-o">
     <h2>But design is only part of it.</h2>
   </div>
 
-  <div class="a-life">
-    <figure class="a-shot">
-      <img src="/images/travel.jpg" width="1050" height="1400" loading="lazy" style="object-position:center 42%"
-           alt="Brayden and a friend outside a bagel shop in New York, holding coffee and paper bags">
-      <figcaption>I love going somewhere new.</figcaption>
-    </figure>
-    <figure class="a-shot">
-      <img src="/images/ceramics.jpg" width="1400" height="1050" loading="lazy"
-           alt="A stack of just-thrown ceramic bowls held over a studio floor">
-      <figcaption>My favorite way to get away from a screen.</figcaption>
-    </figure>
-    <figure class="a-shot">
-      <img src="/images/food.jpg" width="1400" height="1050" loading="lazy" style="object-position:center 40%"
-           alt="Brayden eating a turkey leg at a fair at night">
-      <figcaption>I will absolutely plan a day around food.</figcaption>
-    </figure>
-  </div>
-</section>
+  <figure class="g-p g-p--photo ab-v1">
+    <img src="/images/travel.jpg" width="1050" height="1400" loading="lazy" style="object-position:center 42%" alt="Brayden and a friend outside a bagel shop in New York, holding coffee and paper bags">
+    <figcaption>I love going somewhere new.</figcaption>
+  </figure>
 
-<!-- ═══ Ending ═══════════════════════════════════════════════════════════ -->
-<section class="a-end" id="hello">
-  <h2>Anyway, that&rsquo;s me.</h2>
-  <div class="a-end__links">
-    <a class="a-end__primary" href="mailto:brayden@braydenw.com">brayden@braydenw.com</a>
-    <a href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
+  <figure class="g-p g-p--photo ab-c">
+    <img src="/images/ceramics.jpg" width="1400" height="1050" loading="lazy" alt="A stack of just-thrown ceramic bowls held over a studio floor">
+    <figcaption>My favorite way to get away from a screen.</figcaption>
+  </figure>
+
+  <figure class="g-p g-p--photo ab-f">
+    <img src="/images/food.jpg" width="1400" height="1050" loading="lazy" style="object-position:center 40%" alt="Brayden eating a turkey leg at a fair at night">
+    <figcaption>I will absolutely plan a day around food.</figcaption>
+  </figure>
+
+  <div class="g-p g-p--hi ab-e" id="hello">
+    <h2>Anyway, that&rsquo;s me.</h2>
+    <div class="n-btns"><a class="n-btn n-btn--white" href="mailto:brayden@braydenw.com">brayden@braydenw.com</a><a class="n-btn n-btn--ghost" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a></div>
   </div>
+
 </section>
 
 </main>

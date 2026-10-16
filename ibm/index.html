@@ -1815,6 +1815,49 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 .g-logo--ibm{padding:.3rem}
 .g-logo--ibm img{width:100%;height:100%;object-fit:contain;display:block}
 
+/* ═══ About, in the home style: same rail, one grid of tiles ════════════ */
+.g-mark--link{display:block;text-decoration:none}
+.g-mark--link:hover{color:var(--h-text)}
+.ab-grid{grid-template-areas:
+  "t t t t t t t t p p p p"
+  "n n n n k k k k p p p p"
+  "g g g g g g g g g g g g"
+  "o o o o v v v v c c c c"
+  "f f f f f f e e e e e e"}
+.ab-t{grid-area:t}.ab-p{grid-area:p}.ab-n{grid-area:n}.ab-k-tile{grid-area:k}.ab-g{grid-area:g}
+.ab-o{grid-area:o}.ab-v1{grid-area:v}.ab-c{grid-area:c}.ab-f{grid-area:f}.ab-e{grid-area:e}
+.ab-p{aspect-ratio:4/5}
+.ab-v1,.ab-c{aspect-ratio:4/5}
+.ab-f{aspect-ratio:4/3}
+.ab-t,.ab-n,.ab-k-tile,.ab-g{background:var(--h-fill);padding:clamp(1.2rem,2.4vw,2.2rem);display:flex;flex-direction:column;gap:.8rem}
+.ab-t{justify-content:flex-end}
+.ab-h{margin:0 0 .4rem;font-family:var(--g-serif);font-weight:600;letter-spacing:-.035em;line-height:.98;font-size:clamp(2.4rem,4.6vw,4.4rem);color:var(--blue)}
+.ab-lede{margin:0;font-size:clamp(1.25rem,1.9vw,1.6rem);line-height:1.3;letter-spacing:-.02em;color:var(--h-text);max-width:30ch}
+.ab-t p:not(.ab-lede){margin:0;color:var(--h-soft);line-height:1.5;max-width:46ch}
+.ab-k{margin:0;font-size:.85rem;color:var(--blue)}
+.ab-v{margin:0;font-family:var(--g-serif);font-weight:500;font-size:clamp(1.15rem,1.5vw,1.4rem);line-height:1.3;letter-spacing:-.015em;color:var(--h-text)}
+.ab-g h2{font-size:clamp(1.9rem,3.4vw,3.2rem)}
+.ab-give{list-style:none;margin:.6rem 0 0;padding:0;display:grid}
+.ab-give li{display:grid;grid-template-columns:7rem minmax(0,14rem) minmax(0,1fr);gap:.3rem 1.5rem;align-items:baseline;padding:1rem 0;border-top:1px solid var(--h-line)}
+.ab-when{color:var(--h-soft);font-size:.9rem}
+.ab-give b{font-family:var(--g-serif);font-weight:600;font-size:1.2rem;letter-spacing:-.015em}
+.ab-give span:last-child{color:var(--h-soft);line-height:1.5}
+.ab-give a{color:var(--blue)}
+.ab-o{justify-content:flex-end}
+.ab-e{min-height:0}
+@media (max-width:1000px){
+  .ab-grid{grid-template-areas:"t t" "p n" "p k" "g g" "o o" "v c" "f f" "e e"}
+  .ab-p{aspect-ratio:auto;min-height:22rem}
+}
+@media (max-width:620px){
+  .ab-grid{grid-template-areas:"t t" "p p" "n n" "k k" "g g" "o o" "v c" "f f" "e e"}
+  .ab-p{aspect-ratio:4/5}
+  .ab-give li{grid-template-columns:1fr}
+}
+@media (min-width:1001px){.ab-p{aspect-ratio:auto}}
+.g-p--photo figcaption{font-style:normal}
+.ab-e h2{font-size:clamp(2.4rem,4.2vw,4.2rem)}
+
 </style>
 </head>
 <body class="no-js v2" data-page="ibm">
