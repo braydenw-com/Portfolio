@@ -231,12 +231,20 @@
       var now = new Date();
       fTime.textContent = now.toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour: 'numeric', minute: '2-digit' });
       var h = Number(now.toLocaleString('en-US', { timeZone: 'America/New_York', hour: 'numeric', hourCycle: 'h23' }));
-      fDoing.textContent =
-        h < 6  ? 'probably asleep (or pretending to be)' :
-        h < 10 ? 'probably on my first iced coffee' :
-        h < 13 ? 'probably in the studio' :
-        h < 17 ? 'probably at a coffee shop' :
-        h < 20 ? 'probably throwing a ceramic' :
+      var day = now.toLocaleString('en-US', { timeZone: 'America/New_York', weekday: 'short' });
+      var weekend = day === 'Sat' || day === 'Sun';
+      fDoing.textContent = weekend ? (
+        h < 9  ? 'probably sleeping in' :
+        h < 12 ? 'probably out on a bagel run' :
+        h < 17 ? 'probably touching grass, professionally' :
+                 'probably wherever my friends are headed'
+      ) :
+        h < 6  ? 'probably asleep, or doom-scrolling LinkedIn' :
+        h < 9  ? 'probably hunting down an everything bagel' :
+        h < 12 ? 'probably on my first iced coffee' :
+        h < 14 ? 'probably ducking under a doorframe somewhere' :
+        h < 17 ? 'probably taking an idea stroll' :
+        h < 20 ? 'probably covered in clay at the wheel' :
                  'probably still pushing pixels';
     };
     tick();
