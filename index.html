@@ -1917,6 +1917,15 @@ main.cs{width:auto;font-family:var(--g-sans)}
 }
 .g-p--work .g-pills span{background:rgba(11,13,26,.55);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
 
+/* Case studies, after jon.design: "From the team" label, and View more
+   uses the same cards as the homepage. */
+.cs .c-label--team{margin:3rem 0 0}
+.cs .c-label--team + .c-quotes{margin-top:1rem}
+.cs .c-more__grid{gap:clamp(.6rem,1.1vw,1rem);font-family:var(--g-sans)}
+.cs .cs-card{aspect-ratio:5/4;border-radius:10px}
+.cs .cs-card .g-p__cap h2{font-size:clamp(1.5rem,2.2vw,2rem)}
+@media (max-width:620px){.cs .c-more__grid{grid-template-columns:1fr}.cs .cs-card{aspect-ratio:4/5}}
+
 </style>
 </head>
 <body class="no-js v2" data-page="home">

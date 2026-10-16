@@ -1912,6 +1912,15 @@ main.cs{width:auto;font-family:var(--g-sans)}
 }
 .g-p--work .g-pills span{background:rgba(11,13,26,.55);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
 
+/* Case studies, after jon.design: "From the team" label, and View more
+   uses the same cards as the homepage. */
+.cs .c-label--team{margin:3rem 0 0}
+.cs .c-label--team + .c-quotes{margin-top:1rem}
+.cs .c-more__grid{gap:clamp(.6rem,1.1vw,1rem);font-family:var(--g-sans)}
+.cs .cs-card{aspect-ratio:5/4;border-radius:10px}
+.cs .cs-card .g-p__cap h2{font-size:clamp(1.5rem,2.2vw,2rem)}
+@media (max-width:620px){.cs .c-more__grid{grid-template-columns:1fr}.cs .cs-card{aspect-ratio:4/5}}
+
 </style>
 </head>
 <body class="no-js v2" data-page="opal">
@@ -2047,8 +2056,32 @@ main.cs{width:auto;font-family:var(--g-sans)}
 <section class="c-more">
   <p class="c-label">View more</p>
   <div class="c-more__grid">
-    <a class="h-card" href="/slack">
-      <div class="h-card__media">
+    <a class="g-p g-p--work cs-card" href="/ibm">
+      <div class="g-p__media">
+      <div class="ih" aria-hidden="true">
+        <img class="ih__art" src="/images/ibm-platinum-art.png" width="900" height="704" alt="">
+        <div class="ih__card ih__card--plat">
+          <p class="ih__h"><span>IBM Platinum</span> <span>Experience</span></p>
+          <p class="ih__p">A premium partnership with your needs at the center of your IBM Software experience.</p>
+          <p class="ih__btns"><span class="ih__btn">Sign up now <i>&rarr;</i></span><span class="ih__btn ih__btn--ghost">Webinar <i>&rarr;</i></span></p>
+        </div>
+        <div class="ih__card ih__card--sov">
+          <p class="ih__eyebrow">IBM Sovereign Support</p>
+          <p class="ih__t">Keep data in-region</p>
+          <p class="ih__p">Support cases, personnel, and diagnostic data handling are all bound to your sovereign environment.</p>
+          <p class="ih__tags"><span>Data sovereignty</span><span>Control</span></p>
+        </div>
+        <div class="ih__card ih__card--fast">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 13l3-4M10 2h4M12 2v3"/></svg>
+          <p class="ih__t">Fastest response times</p>
+        </div>
+      </div>
+      </div>
+      <div class="g-p__top g-p__top--end"><span class="g-pills"><span>Design Intern</span><span>Shipped on ibm.com</span></span></div>
+      <div class="g-p__cap"><h2>Design at enterprise speed</h2><p>A summer in Austin on how people and AI agents learn complex products.</p></div>
+    </a>
+    <a class="g-p g-p--work cs-card" href="/slack">
+      <div class="g-p__media">
       <div class="uh" aria-hidden="true">
           <div class="uh__msg">
             <div class="uh__bar">
@@ -2073,32 +2106,8 @@ main.cs{width:auto;font-family:var(--g-sans)}
           <p class="uh__toast">This message was saved for you</p>
         </div>
       </div>
-      <div class="h-card__foot"><p class="h-card__meta">Research Lead &middot; 3/8 &rarr; 8/8</p><h3 class="h-card__title">Slack</h3>
-        <p class="h-card__line">Making Slack&rsquo;s hidden state visible.</p></div>
-    </a>
-    <a class="h-card" href="/ibm">
-      <div class="h-card__media">
-      <div class="ih" aria-hidden="true">
-      <img class="ih__art" src="/images/ibm-platinum-art.png" width="900" height="704" alt="">
-      <div class="ih__card ih__card--plat">
-        <p class="ih__h"><span>IBM Platinum</span> <span>Experience</span></p>
-        <p class="ih__p">A premium partnership with your needs at the center of your IBM Software experience.</p>
-        <p class="ih__btns"><span class="ih__btn">Sign up now <i>&rarr;</i></span><span class="ih__btn ih__btn--ghost">Webinar <i>&rarr;</i></span></p>
-      </div>
-      <div class="ih__card ih__card--sov">
-        <p class="ih__eyebrow">IBM Sovereign Support</p>
-        <p class="ih__t">Keep data in-region</p>
-        <p class="ih__p">Support cases, personnel, and diagnostic data handling are all bound to your sovereign environment.</p>
-        <p class="ih__tags"><span>Data sovereignty</span><span>Control</span></p>
-      </div>
-      <div class="ih__card ih__card--fast">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 13l3-4M10 2h4M12 2v3"/></svg>
-        <p class="ih__t">Fastest response times</p>
-      </div>
-    </div>
-      </div>
-      <div class="h-card__foot"><p class="h-card__meta">Design Intern &middot; Shipped on ibm.com</p><h3 class="h-card__title">Design at enterprise speed</h3>
-        <p class="h-card__line">A summer in Austin on how people and AI agents learn complex products.</p></div>
+      <div class="g-p__top g-p__top--end"><span class="g-pills"><span>Research Lead</span><span>3/8 &rarr; 8/8 task success</span></span></div>
+      <div class="g-p__cap"><h2>Slack</h2><p>Two everyday tasks most people couldn&rsquo;t finish. Two small changes fixed both.</p></div>
     </a>
   </div>
 </section>
