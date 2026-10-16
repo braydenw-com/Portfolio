@@ -1899,3 +1899,5 @@ main.cs{width:auto;font-family:var(--g-sans)}
 /* "Touching grass" tile matches its neighbour "Chronically online". */
 .g-p--life{background:var(--h-fill);box-shadow:none;justify-content:flex-start}
 .g-p--life h2{color:var(--h-text);font-size:clamp(1.9rem,3.4vw,3.2rem)}
+/* Photo notes: plain white with black text, nothing blue. */
+.g-p--photo figcaption{background:#fff;color:#111;border-radius:6px;padding:.3rem .55rem}
