@@ -1774,6 +1774,7 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
   "c c c c c c e e e e e e"
   "d d d g g g h h h k k k"
   "f f f f f f f i i i i i"
+  "w w w w w w w w w w w w"
   "l l l l l l l l l l l l"}
 .g-a{grid-area:a!important}.g-b{grid-area:b!important}.g-j{grid-area:j!important}.g-c{grid-area:c!important}.g-e{grid-area:e!important}
 .g-d{grid-area:d!important}.g-g{grid-area:g!important}.g-h{grid-area:h!important}.g-k{grid-area:k!important}
@@ -1783,11 +1784,11 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 .g-d,.g-g,.g-h,.g-k{aspect-ratio:4/5}
 .g-l{min-height:clamp(16rem,26vw,22rem)}
 @media (max-width:1000px){
-  .g-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-areas:"a a" "b j" "c c" "e e" "d g" "h k" "f f" "i i" "l l"}
+  .g-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-areas:"a a" "b j" "c c" "e e" "d g" "h k" "f f" "i i" "w w" "l l"}
   .g-a,.g-c,.g-e{aspect-ratio:16/11}
 }
 @media (max-width:620px){
-  .g-grid{grid-template-areas:"a a" "b b" "j j" "c c" "e e" "d g" "h k" "f f" "i i" "l l"}
+  .g-grid{grid-template-areas:"a a" "b b" "j j" "c c" "e e" "d g" "h k" "f f" "i i" "w w" "l l"}
   .g-a,.g-c,.g-e{aspect-ratio:4/5}
   .g-p__media .ih{font-size:2.6cqw}
   .g-p__media .ih__card--plat{left:6%;right:auto;top:20%;width:72%}
@@ -1939,6 +1940,44 @@ main.cs{width:auto;font-family:var(--g-sans)}
 /* Smaller screens: the big name is right there, so drop the small one in the bar. */
 @media (max-width:1000px){.g-hello .h-bar__name{display:none}.g-hello .h-bar{justify-content:flex-end}}
 
+/* ═══ Case studies, after jon.design: name, a one-paragraph summary with a
+   bold hook, plain fact columns, then sections that lead with the headline
+   and tag it underneath. ═══════════════════════════════════════════════ */
+.cs h1{font-size:clamp(2.6rem,5vw,4.6rem);margin:0}
+.cs .c-sum{margin-top:1.1rem;max-width:44rem;font-size:clamp(1.15rem,1.6vw,1.4rem);line-height:1.5;color:var(--h-soft)}
+.cs .c-sum b{color:var(--h-text);font-weight:600}
+.cs .c-facts{margin-top:clamp(2rem,4vw,3rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:1.2rem 2rem}
+.cs .c-facts>div{background:none;border-radius:0;padding:1rem 0 0;border-top:1px solid var(--h-line)}
+.cs .c-facts dt{font-size:.9rem;color:var(--h-soft);margin-bottom:.3rem}
+.cs .c-facts dd{font-family:var(--g-sans);font-weight:500;font-size:1.05rem;letter-spacing:-.005em;color:var(--h-text)}
+.cs .c-sec{display:flex;flex-direction:column}
+.cs .c-sec>h2{order:-2;margin:0}
+.cs .c-sec>.c-label{order:-1;margin:.7rem 0 0;color:var(--h-soft);font-size:.95rem}
+.cs .c-sec>.c-label--team{order:0;margin:3rem 0 0;color:var(--h-text);font-family:var(--g-serif);font-weight:600;font-size:clamp(1.4rem,2vw,1.8rem);letter-spacing:-.025em}
+.cs .c-more>.c-label{color:var(--h-text);font-family:var(--g-serif);font-weight:600;font-size:clamp(1.4rem,2vw,1.8rem);letter-spacing:-.025em;margin-bottom:1rem}
+
+/* Awards: a plain table tile above "I love to chat". */
+.g-w{grid-area:w!important}
+.g-p--awards{background:var(--h-fill);padding:clamp(1.2rem,2.4vw,2.2rem)}
+.g-p--awards h2{font-size:clamp(1.9rem,3.4vw,3.2rem);margin-bottom:1rem}
+.aw{width:100%;border-collapse:collapse;font-family:var(--g-sans);font-size:1rem}
+.aw th,.aw td{text-align:left;padding:.85rem 1.2rem .85rem 0;border-top:1px solid var(--h-line);vertical-align:top;line-height:1.4}
+.aw thead th{border-top:0;padding-top:0;font-size:.85rem;font-weight:400;color:var(--h-soft)}
+.aw tbody th{font-weight:600;color:var(--h-text)}
+.aw td{color:var(--h-soft)}
+.aw td:last-child{padding-right:0;text-align:right;color:var(--h-text);font-variant-numeric:tabular-nums}
+@media (max-width:760px){
+  .aw thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .aw tr{display:grid;grid-template-columns:1fr auto;gap:.15rem 1rem;padding:.9rem 0;border-top:1px solid var(--h-line)}
+  .aw th,.aw td{display:block;border:0;padding:0}
+  .aw td:last-child{grid-column:2;grid-row:1}
+  .aw td:nth-child(2),.aw td:nth-child(3){grid-column:1/-1}
+  .aw td:nth-child(2){color:var(--h-text)}
+}
+.aw tbody th a{color:inherit;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;margin:-.6rem 0}
+.aw tbody th a:hover{text-decoration:underline;text-underline-offset:3px}
+@media (max-width:760px){.aw tbody th a{margin:-.5rem 0}}
+
 </style>
 </head>
 <body class="no-js v2" data-page="slack">
@@ -2004,9 +2043,8 @@ main.cs{width:auto;font-family:var(--g-sans)}
       <p class="uh__toast">This message was saved for you</p>
     </div>
   </figure>
-  <p class="c-eyebrow">Slack &middot; UX Research</p>
-  <h1>Making Slack&rsquo;s hidden state visible</h1>
-  <p class="c-sum">As research lead on a team of three, I studied where everyday Slack tasks break down. Two of them failed for most people, and two small changes to language and system state took success from 3/8 and 2/8 to 8/8.</p>
+  <h1>Slack</h1>
+  <p class="c-sum"><b>Making Slack&rsquo;s hidden state visible.</b> As research lead on a team of three, I studied where everyday Slack tasks break down. Two of them failed for most people, and two small changes to language and system state took success from 3/8 and 2/8 to 8/8.</p>
 
   <dl class="c-facts">
     <div><dt>Role</dt><dd>Research Lead</dd></div>
@@ -2015,9 +2053,6 @@ main.cs{width:auto;font-family:var(--g-sans)}
     <div><dt>Methods</dt><dd>Heuristic review, moderated &amp; unmoderated testing</dd></div>
   </dl>
 
-  <nav class="c-tabs" aria-label="On this page">
-    <a href="#story">Overview</a><a href="#saved">Saved messages</a><a href="#notifications">Notifications</a><a href="#takeaway">Takeaway</a>
-  </nav>
 
 </section>
 
