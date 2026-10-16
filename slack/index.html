@@ -2841,6 +2841,16 @@ main.cs{width:auto;font-family:var(--g-sans)}
     }
   });
 
+  /* Back to top: glide up instead of jumping (unless reduced motion). */
+  document.querySelectorAll('.foot__top').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: calm ? 'auto' : 'smooth' });
+      history.replaceState(null, '', location.pathname + location.search);
+    });
+  });
+
   console.log(
     '%cHey.%c You opened the console, so we should probably talk.\nbrayden@braydenw.com',
     'font:700 20px "Bricolage Grotesque",sans-serif;color:#1b4dff',
