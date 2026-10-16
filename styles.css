@@ -1787,3 +1787,6 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
   .g-p--quote blockquote{font-size:clamp(1.1rem,1.45vw,1.35rem)}
 }
 @media (max-width:620px){.g-p__media .uh__saved{top:52%}}
+.g-logo{width:3rem;height:3rem}
+.g-logo--ibm{padding:.3rem}
+.g-logo--ibm img{width:100%;height:100%;object-fit:contain;display:block}
