@@ -1927,6 +1927,11 @@ main.cs{width:auto;font-family:var(--g-sans)}
 .g-p--life h2{color:var(--h-text);font-size:clamp(1.9rem,3.4vw,3.2rem)}
 /* Photo notes: plain white with black text, nothing blue. */
 .g-p--photo figcaption{background:#fff;color:#111;border-radius:6px;padding:.3rem .55rem}
+/* Lift the Platinum people art above the title fade on the homepage card. */
+.g-p__media .ih .ih__art{inset:auto auto 30% 3%;width:40%}
+@media (max-width:620px){.g-p__media .ih .ih__art{inset:auto auto 34% -4%;width:70%}}
+@media (max-width:620px){.g-p__media .ih .ih__art{inset:auto auto 42% -2%;width:66%}.g-p__media .ih__card--fast,.g-p__media .ih__card--sov{display:none}}
+@media (max-width:620px){.g-p__media .ih__card--plat{top:15%!important;left:6%;width:66%!important}.g-p__media .ih .ih__art{inset:auto -4% 36% auto!important;width:62%!important}}
 
 </style>
 </head>
