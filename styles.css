@@ -1951,3 +1951,13 @@ main.cs{width:auto;font-family:var(--g-sans)}
 .aw tbody th a{color:inherit;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;margin:-.6rem 0}
 .aw tbody th a:hover{text-decoration:underline;text-underline-offset:3px}
 @media (max-width:760px){.aw tbody th a{margin:-.5rem 0}}
+/* Awards, compact: small heading, no column labels, tight rows. */
+.g-p--awards{padding:clamp(1rem,1.8vw,1.5rem) clamp(1.1rem,2vw,1.6rem)}
+.g-p--awards h2{font-size:1.25rem;letter-spacing:-.02em;margin-bottom:.4rem}
+.aw{font-size:.9rem}
+.aw thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.aw th,.aw td{padding:.5rem 1rem .5rem 0}
+.aw tbody tr:first-child th,.aw tbody tr:first-child td{border-top:0}
+.aw tbody th a{min-height:0;margin:0}
+@media (max-width:760px){.aw tr{padding:.6rem 0}.aw tbody tr:first-child{border-top:0}.aw tbody th a{min-height:32px}}
+@media (max-width:760px){.aw th,.aw td{padding:0}.aw tr{gap:.1rem 1rem}}
