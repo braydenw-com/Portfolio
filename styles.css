@@ -1888,3 +1888,10 @@ main.cs{width:auto;font-family:var(--g-sans)}
   .cs .c-cover--top .uh__saved{top:52%;width:66%;right:5%}
   .cs .c-cover--top .uh__item p:not(.uh__meta):not(.uh__ch){display:none}
 }
+
+/* About: the lead photo slowly crossfades through a few moments. */
+.ab-rot img{opacity:0;transition:opacity 1.1s var(--ease)}
+.ab-rot img.is-on{opacity:1}
+.ab-rot figcaption{z-index:1;transition:opacity .4s var(--ease)}
+.ab-rot figcaption.is-out{opacity:0}
+@media (prefers-reduced-motion:reduce){.ab-rot img,.ab-rot figcaption{transition:none}}

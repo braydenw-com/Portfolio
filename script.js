@@ -494,6 +494,27 @@
     });
   });
 
+  /* About photo: crossfade through the shots every few seconds; pauses on
+     hover and when the tab is hidden. */
+  var rot = document.querySelector('[data-rotate]');
+  if (rot) {
+    var shots = rot.querySelectorAll('img'), cap = rot.querySelector('figcaption'), at = 0, held = false;
+    shots.forEach(function (im) { im.loading = 'eager'; });
+    var step = function () {
+      if (held || document.hidden) return;
+      shots[at].classList.remove('is-on');
+      at = (at + 1) % shots.length;
+      shots[at].classList.add('is-on');
+      if (cap) {
+        cap.classList.add('is-out');
+        setTimeout(function () { cap.textContent = shots[at].dataset.cap; cap.classList.remove('is-out'); }, 400);
+      }
+    };
+    rot.addEventListener('mouseenter', function () { held = true; });
+    rot.addEventListener('mouseleave', function () { held = false; });
+    setInterval(step, 4000);
+  }
+
   console.log(
     '%cHey.%c You opened the console, so we should probably talk.\nbrayden@braydenw.com',
     'font:700 20px "Bricolage Grotesque",sans-serif;color:#1b4dff',
