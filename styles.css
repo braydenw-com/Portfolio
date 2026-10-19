@@ -1745,7 +1745,7 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 .g-grid{grid-auto-rows:auto!important;grid-template-areas:
   "a a a a a a a a b b b b"
   "a a a a a a a a j j j j"
-  "c c c c c c e e e e e e"
+  "c c c c e e e e p p p p"
   "d d d g g g h h h k k k"
   "f f f f f f f f w w w w"
   "l l l l l l l l l l l l"}
@@ -1757,11 +1757,11 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 .g-d,.g-g,.g-h,.g-k{aspect-ratio:4/5}
 .g-l{min-height:clamp(16rem,26vw,22rem)}
 @media (max-width:1000px){
-  .g-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-areas:"a a" "b j" "c c" "e e" "d g" "h k" "f f" "w w" "l l"}
+  .g-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-areas:"a a" "b j" "c c" "e e" "p p" "d g" "h k" "f f" "w w" "l l"}
   .g-a,.g-c,.g-e{aspect-ratio:16/11}
 }
 @media (max-width:620px){
-  .g-grid{grid-template-areas:"a a" "b b" "j j" "c c" "e e" "d g" "h k" "f f" "w w" "l l"}
+  .g-grid{grid-template-areas:"a a" "b b" "j j" "c c" "e e" "p p" "d g" "h k" "f f" "w w" "l l"}
   .g-a,.g-c,.g-e{aspect-ratio:4/5}
   .g-p__media .ih{font-size:2.6cqw}
   .g-p__media .ih__card--plat{left:6%;right:auto;top:20%;width:72%}
@@ -2014,7 +2014,7 @@ main.cs{width:auto;font-family:var(--g-sans)}
 /* Tablet: four columns so things sit side by side instead of stacking huge. */
 @media (min-width:621px) and (max-width:1000px){
   .g-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;
-    grid-template-areas:"a a a a" "b b j j" "c c e e" "d g h k" "f f w w" "l l l l"!important}
+    grid-template-areas:"a a a a" "b b j j" "c c e e" "p p p p" "d g h k" "f f w w" "l l l l"!important}
   .g-c,.g-e{aspect-ratio:4/5!important}
   .g-d,.g-g,.g-h,.g-k{aspect-ratio:1/1!important}
   .g-p__media .uh__notif,.g-p__media .uh__toast{display:none}
@@ -2035,3 +2035,9 @@ main.cs{width:auto;font-family:var(--g-sans)}
 .c-idea dt{font-size:.9rem;color:var(--h-soft);margin-bottom:.35rem}
 .c-idea dd{margin:0;font-family:var(--g-sans);font-size:1.02rem;line-height:1.55;color:var(--h-text)}
 @media (max-width:760px){.c-idea{grid-template-columns:1fr;gap:1rem}}
+/* Presents card */
+.g-pr{grid-area:p!important;aspect-ratio:16/11}
+.g-p__media>img.g-pr__img{object-fit:cover;object-position:center}
+@media (min-width:621px) and (max-width:1000px){.g-pr{aspect-ratio:16/8!important}}
+@media (max-width:620px){.g-pr{aspect-ratio:4/5}}
+@media (min-width:1001px){.g-c,.g-e,.g-pr{aspect-ratio:4/5}}

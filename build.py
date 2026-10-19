@@ -28,6 +28,7 @@ PAGES = {'page.html':  'index.html',
          'about.html': 'about/index.html',
          'slack.html': 'slack/index.html',
          'opal.html':  'opal/index.html',
+         'presents.html': 'presents/index.html',
          'ibm.html':   'ibm/index.html'}
 
 
