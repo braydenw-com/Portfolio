@@ -2045,7 +2045,7 @@ main.cs{width:auto;font-family:var(--g-sans)}
 /* Tablet: four columns so things sit side by side instead of stacking huge. */
 @media (min-width:621px) and (max-width:1000px){
   .g-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;
-    grid-template-areas:"a a a a" "b b j j" "c c e e" "p p f f" "d g h k" "w w w w" "l l l l"!important}
+    grid-template-areas:"a a a a" "b b j j" "c c e e" "p p p p" "d g h k" "f f w w" "l l l l"!important}
   .g-c,.g-e{aspect-ratio:4/5!important}
   .g-d,.g-g,.g-h,.g-k{aspect-ratio:1/1!important}
   .g-p__media .uh__notif,.g-p__media .uh__toast{display:none}
@@ -2089,18 +2089,28 @@ main.cs{width:auto;font-family:var(--g-sans)}
 .g-p--work:hover .g-p__cap h2{color:var(--h-text)}
 .g-p--work .g-pills span{background:#fff!important;color:var(--h-text)!important;backdrop-filter:none!important;box-shadow:0 0 0 1px #e3e6ec!important}
 .c-cover--hero{position:relative;aspect-ratio:16/10;background:#f4f5f8;border-radius:10px;overflow:hidden}
-@media (min-width:621px) and (max-width:1000px){.g-pr{aspect-ratio:4/5!important}}
 /* Pills sit under the title instead of over the scene. */
 .g-p--work .g-p__top{position:static!important;order:3;padding:0 clamp(1.1rem,2vw,1.6rem) clamp(1.1rem,2vw,1.4rem)!important;justify-content:flex-start!important}
 .g-p--work .g-pills{justify-content:flex-start!important}
 .g-p--work .g-p__cap{order:2;padding-bottom:.7rem!important}
 .g-p--work .g-p__media{order:1}
-/* Cards size to their scene + caption, so nothing is cropped. */
-.g-a,.g-c,.g-e,.g-pr{aspect-ratio:auto!important;min-height:0!important}
-.g-p--work .g-p__media{flex:none!important;aspect-ratio:1067/1000}
-.g-a .g-p__media{aspect-ratio:16/10}
 .g-p--work .g-p__cap h2{font-size:clamp(1.5rem,2.2vw,2.1rem)!important}
 .g-p--work .g-p__cap p{font-size:clamp(.95rem,1.15vw,1.05rem)!important}
+
+/* Cards keep their bento sizes: the scene fills the box, title + pills sit
+   at the bottom on a light fade. */
+.g-p--work .g-p__media{position:absolute!important;inset:0!important;flex:none}
+.g-p--work .hero-vid{object-position:50% 35%}
+.g-p--work .g-p__cap{position:absolute!important;left:0;right:0;bottom:0;z-index:2;padding:4rem clamp(1.1rem,2vw,1.6rem) .6rem!important;
+  background:linear-gradient(to top,#f4f5f8 0%,#f4f5f8 55%,rgba(244,245,248,0))!important}
+.g-p--work .g-p__top{position:absolute!important;left:0;right:0;bottom:0;z-index:3;padding:0 clamp(1.1rem,2vw,1.6rem) clamp(1rem,1.8vw,1.3rem)!important}
+.g-p--work .g-p__cap{padding-bottom:calc(clamp(1rem,1.8vw,1.3rem) + 2.6rem)!important}
+.g-p--work .g-p__cap{inset:auto 0 0 0!important}
+.g-p--work .g-p__top{inset:auto 0 0 0!important}
+.g-p--work .g-p__media{inset:0!important;top:0!important}
+.g-p--work .g-p__cap{padding-bottom:clamp(1rem,1.8vw,1.3rem)!important}
+.g-p--work .g-p__cap .g-pills{margin-top:.7rem;display:flex;flex-wrap:wrap;gap:.35rem;justify-content:flex-start}
+.g-p--work .g-p__cap .g-pills span{font-size:.8rem;padding:.35rem .6rem}
 
 </style>
 </head>
