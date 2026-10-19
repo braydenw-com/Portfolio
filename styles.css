@@ -2041,3 +2041,7 @@ main.cs{width:auto;font-family:var(--g-sans)}
 @media (min-width:621px) and (max-width:1000px){.g-pr{aspect-ratio:16/8!important}}
 @media (max-width:620px){.g-pr{aspect-ratio:4/5}}
 @media (min-width:1001px){.g-c,.g-e,.g-pr{aspect-ratio:4/5}}
+/* Full-width mockup inside a case study section. */
+.c-shot{margin:clamp(1.6rem,3vw,2.4rem) 0 0;border-radius:10px;overflow:hidden;background:#0b1214}
+.c-shot img{display:block;width:100%;height:auto}
+.g-pr .g-p__media>img{object-position:30% center}
