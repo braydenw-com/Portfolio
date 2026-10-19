@@ -2040,7 +2040,7 @@ main.cs{width:auto;font-family:var(--g-sans)}
 /* Tablet: four columns so things sit side by side instead of stacking huge. */
 @media (min-width:621px) and (max-width:1000px){
   .g-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;
-    grid-template-areas:"a a a a" "b b j j" "c c e e" "p p p p" "d g h k" "f f w w" "l l l l"!important}
+    grid-template-areas:"a a a a" "b b j j" "c c e e" "p p f f" "d g h k" "w w w w" "l l l l"!important}
   .g-c,.g-e{aspect-ratio:4/5!important}
   .g-d,.g-g,.g-h,.g-k{aspect-ratio:1/1!important}
   .g-p__media .uh__notif,.g-p__media .uh__toast{display:none}
@@ -2071,6 +2071,31 @@ main.cs{width:auto;font-family:var(--g-sans)}
 .c-shot{margin:clamp(1.6rem,3vw,2.4rem) 0 0;border-radius:10px;overflow:hidden;background:#0b1214}
 .c-shot img{display:block;width:100%;height:auto}
 .g-pr .g-p__media>img{object-position:30% center}
+
+/* ═══ Hero videos: flat light scenes that match the site. Cards put the title
+   under the scene in dark text; covers are the scene alone. ═══════════════ */
+.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:#f4f5f8}
+.g-p--work{background:#f4f5f8!important;display:flex!important;flex-direction:column}
+.g-p--work .g-p__media{position:relative!important;inset:auto!important;flex:1;min-height:0}
+.g-p--work .g-p__cap{position:relative!important;inset:auto!important;background:none!important;color:var(--h-text);
+  padding:0 clamp(1.1rem,2vw,1.6rem) clamp(1.1rem,2vw,1.5rem)!important}
+.g-p--work .g-p__cap h2{color:var(--h-text)}
+.g-p--work .g-p__cap p{color:var(--h-soft)}
+.g-p--work:hover .g-p__cap h2{color:var(--h-text)}
+.g-p--work .g-pills span{background:#fff!important;color:var(--h-text)!important;backdrop-filter:none!important;box-shadow:0 0 0 1px #e3e6ec!important}
+.c-cover--hero{position:relative;aspect-ratio:16/10;background:#f4f5f8;border-radius:10px;overflow:hidden}
+@media (min-width:621px) and (max-width:1000px){.g-pr{aspect-ratio:4/5!important}}
+/* Pills sit under the title instead of over the scene. */
+.g-p--work .g-p__top{position:static!important;order:3;padding:0 clamp(1.1rem,2vw,1.6rem) clamp(1.1rem,2vw,1.4rem)!important;justify-content:flex-start!important}
+.g-p--work .g-pills{justify-content:flex-start!important}
+.g-p--work .g-p__cap{order:2;padding-bottom:.7rem!important}
+.g-p--work .g-p__media{order:1}
+/* Cards size to their scene + caption, so nothing is cropped. */
+.g-a,.g-c,.g-e,.g-pr{aspect-ratio:auto!important;min-height:0!important}
+.g-p--work .g-p__media{flex:none!important;aspect-ratio:1067/1000}
+.g-a .g-p__media{aspect-ratio:16/10}
+.g-p--work .g-p__cap h2{font-size:clamp(1.5rem,2.2vw,2.1rem)!important}
+.g-p--work .g-p__cap p{font-size:clamp(.95rem,1.15vw,1.05rem)!important}
 
 </style>
 </head>
@@ -2111,8 +2136,8 @@ main.cs{width:auto;font-family:var(--g-sans)}
 <main id="top" class="g-wrap cs">
 
 <section class="c-open">
-  <figure class="c-cover c-cover--top">
-    <img src="/images/presents-mock-hero.jpg" width="2000" height="1042" alt="Presents on a TV for reveal night, with two phones in front: one shuffling for a moment, one with a doodle ready to seal">
+  <figure class="c-cover c-cover--top c-cover--hero">
+    <video class="hero-vid" data-hero="auto" poster="/images/hero-presents-L.jpg" width="1600" height="1000" muted loop playsinline preload="metadata" aria-label="Presents on a phone, shuffling for a moment, beside a sealed note that reveals &ldquo;nobody wants to leave&rdquo;"><source src="/images/hero-presents-L.webm" type="video/webm"><source src="/images/hero-presents-L.mp4" type="video/mp4"></video>
   </figure>
   <h1>Presents</h1>
   <p class="c-sum"><b>Capture a moment, together.</b> A private time capsule for a small group of friends. Made with Chris and Finley for the SVSD Design Sprint.</p>
@@ -2745,6 +2770,26 @@ main.cs{width:auto;font-family:var(--g-sans)}
       history.replaceState(null, '', location.pathname + location.search);
     });
   });
+
+  /* Hero videos: covers play while on screen; homepage cards play while
+     hovered (or while on screen on touch). Reduced motion keeps the poster. */
+  var heroVids = document.querySelectorAll('video[data-hero]');
+  if (heroVids.length) {
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var hover = window.matchMedia('(hover: hover)').matches;
+    var play = function (v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); };
+    var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) play(e.target); else e.target.pause(); });
+    }, { threshold: 0.35 }) : null;
+    heroVids.forEach(function (v) {
+      if (still) { v.pause(); return; }
+      if (v.dataset.hero === 'hover' && hover) {
+        var card = v.closest('a') || v;
+        card.addEventListener('mouseenter', function () { play(v); });
+        card.addEventListener('mouseleave', function () { v.pause(); });
+      } else if (io) { io.observe(v); }
+    });
+  }
 
   console.log(
     '%cHey.%c You opened the console, so we should probably talk.\nbrayden@braydenw.com',

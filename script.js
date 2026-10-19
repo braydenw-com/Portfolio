@@ -541,6 +541,26 @@
     });
   });
 
+  /* Hero videos: covers play while on screen; homepage cards play while
+     hovered (or while on screen on touch). Reduced motion keeps the poster. */
+  var heroVids = document.querySelectorAll('video[data-hero]');
+  if (heroVids.length) {
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var hover = window.matchMedia('(hover: hover)').matches;
+    var play = function (v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); };
+    var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) play(e.target); else e.target.pause(); });
+    }, { threshold: 0.35 }) : null;
+    heroVids.forEach(function (v) {
+      if (still) { v.pause(); return; }
+      if (v.dataset.hero === 'hover' && hover) {
+        var card = v.closest('a') || v;
+        card.addEventListener('mouseenter', function () { play(v); });
+        card.addEventListener('mouseleave', function () { v.pause(); });
+      } else if (io) { io.observe(v); }
+    });
+  }
+
   console.log(
     '%cHey.%c You opened the console, so we should probably talk.\nbrayden@braydenw.com',
     'font:700 20px "Bricolage Grotesque",sans-serif;color:#1b4dff',
