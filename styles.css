@@ -2081,3 +2081,15 @@ main.cs{width:auto;font-family:var(--g-sans)}
 .g-p--work .g-p__cap .g-pills{margin-top:.7rem;display:flex;flex-wrap:wrap;gap:.35rem;justify-content:flex-start}
 .g-p--work .g-p__cap .g-pills span{font-size:.8rem;padding:.35rem .6rem}
 .cs .cs-card{aspect-ratio:5/4!important}@media (max-width:620px){.cs .cs-card{aspect-ratio:4/5!important}}
+/* Slack demos: say up front that they can be played with. */
+.c-try--top{margin:2rem 0 .9rem!important;display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;font-family:var(--g-sans);font-size:1rem;color:var(--h-text)}
+.c-try__tag{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .75rem;border-radius:999px;background:var(--blue);color:#fff;font-size:.85rem;font-weight:500}
+.c-try__tag svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.c-feat img[src*="opal-slide"]{aspect-ratio:1896/1200;object-fit:cover;border-radius:10px}
+.c-feat img[src*="opal-feat"]{aspect-ratio:1/1;object-fit:cover;border-radius:10px;background:#000}
+.c-feat img[src*="opal-feat"]{background:#f4f5f8}
+.c-feat img[src*="opal-feat"]{cursor:zoom-in}
+.c-zoom{border:0;padding:0;background:transparent;max-width:min(92vw,1120px);max-height:92vh}
+.c-zoom::backdrop{background:rgba(10,12,20,.82)}
+.c-zoom img{display:block;width:100%;height:auto;max-height:92vh;object-fit:contain;border-radius:12px;cursor:zoom-out}
+[data-page="presents"] .c-shot img{cursor:zoom-in}

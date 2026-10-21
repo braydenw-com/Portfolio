@@ -567,3 +567,18 @@
     'font:14px/1.6 "Open Sans",system-ui;color:#1c1c1c'
   );
 })();
+
+// Click a case-study feature image to view it larger
+(function(){
+  var imgs=document.querySelectorAll('.c-feat img[src*="opal-feat"], [data-page="presents"] .c-shot img');
+  if(!imgs.length||!window.HTMLDialogElement)return;
+  var d=document.createElement('dialog');d.className='c-zoom';
+  var big=document.createElement('img');big.alt='';d.appendChild(big);document.body.appendChild(d);
+  d.addEventListener('click',function(){d.close()});
+  imgs.forEach(function(im){
+    im.tabIndex=0;im.setAttribute('role','button');
+    function open(){big.src=im.src;big.alt=im.alt;d.showModal()}
+    im.addEventListener('click',open);
+    im.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}});
+  });
+})();

@@ -63,7 +63,7 @@
 <!-- ═══ Opening ══════════════════════════════════════════════════════════ -->
 <section class="c-open">
   <figure class="c-cover c-cover--top c-cover--hero">
-    <video class="hero-vid" data-hero="auto" poster="/images/hero-slack-L.jpg" width="1600" height="1000" muted loop playsinline preload="metadata" aria-label="Slack with a message being saved: Save for Me lights up and it drops into the Saved panel"><source src="/images/hero-slack-L.webm" type="video/webm"><source src="/images/hero-slack-L.mp4" type="video/mp4"></video>
+    <img class="hero-vid" src="/images/hero-slack-L.jpg" width="1920" height="1200" alt="Brayden's redesigned Slack: notification settings behind, a message saved for later in front">
   </figure>
   <h1>Slack</h1>
   <p class="c-sum"><b>Making Slack&rsquo;s hidden state visible.</b> As research lead on a team of three, I studied where everyday Slack tasks break down. Two of them failed for most people, and two small changes to language and system state took success from 3/8 and 2/8 to 8/8.</p>
@@ -75,20 +75,13 @@
     <div><dt>Methods</dt><dd>Heuristic review, moderated &amp; unmoderated testing</dd></div>
   </dl>
 
-  <dl class="c-idea">
-    <div><dt>Goal</dt><dd>Help people finish two everyday tasks most of them were failing: finding a saved message and managing notifications.</dd></div>
-    <div><dt>The idea</dt><dd>If the actions are named around ownership (Save for Me, Pin for Everyone) and Slack shows what it will notify you about, more people will finish both tasks, because they were failing on hidden state and look-alike labels, not missing features.</dd></div>
-    <div><dt>How I&rsquo;d know</dt><dd>Task success: 3/8 found a saved message and 2/8 managed notifications. If new people still failed after the change, I&rsquo;d be wrong.</dd></div>
-    <div><dt>What changed my mind</dt><dd>Watching 8 people showed getting around was fine. The failures were state and wording, so we fixed language instead of adding features.</dd></div>
-  </dl>
-
 
 
 </section>
 
 <!-- ═══ The problem ══════════════════════════════════════════════════════ -->
 <section class="c-sec" id="story">
-  <p class="c-label">Goal</p>
+  <p class="c-label">The opportunity</p>
   <h2>Two everyday tasks were quietly failing.</h2>
   <div class="c-body">
     <p>We reviewed 20 Slack workflows against Nielsen&rsquo;s heuristics, then watched 8 people try the everyday ones. Getting around was fine. Two tasks fell apart, and most people thought they&rsquo;d finished.</p>
@@ -109,12 +102,13 @@
 
 <!-- ═══ Fix 1 ════════════════════════════════════════════════════════════ -->
 <section class="c-sec" id="saved">
-  <p class="c-label">The idea &middot; Saved messages</p>
+  <p class="c-label">What I did &middot; Saved messages</p>
   <h2>The concept wasn&rsquo;t the problem. The language was.</h2>
   <div class="c-body">
     <p>Saved, Pinned, and Later all sounded alike, and none said who could see what. We renamed the actions around ownership: Save for Me, Pin for Everyone.</p>
   </div>
   <blockquote class="c-quote">&ldquo;There is usually a saved button here. This is terribly confusing.&rdquo;<cite>Participant</cite></blockquote>
+  <p class="c-try c-try--top"><span class="c-try__tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-1a6 6 0 0 1-5-2.7L4.6 15a1.5 1.5 0 0 1 2.5-1.7L9 15"/></svg>Interactive</span>Try it: save the message, or pin it for the channel.</p>
   <div class="sd sd--save" data-demo="save">
     <div class="sk-rail sd-ctx" aria-hidden="true"><span class="sk-ws">S</span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-home"/></svg><small>Home</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-msg"/></svg><small>DMs</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg><small>Activity</small></span><span class="sk-rail__it is-on"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bookmark"/></svg><small>Saved</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-more"/></svg><small>More</small></span></div>
     <div class="sk-side sd-ctx" aria-hidden="true">
@@ -165,18 +159,18 @@
     </div>
     <div class="sd-toast" data-toast role="status" aria-live="polite"></div>
   </div>
-  <p class="c-try">Try it: save the message, or pin it for the channel.</p>
-  <p class="c-jump"><span>3/8</span><i aria-hidden="true">&rarr;</i><b>8/8</b><small>in validation testing</small></p>
+  <p class="c-jump"><span>3/8</span><i aria-hidden="true">&rarr;</i><b>8/8</b><small>in unmoderated testing</small></p>
 </section>
 
 <!-- ═══ Fix 2 ════════════════════════════════════════════════════════════ -->
 <section class="c-sec" id="notifications">
-  <p class="c-label">The idea &middot; Notifications</p>
+  <p class="c-label">What I did &middot; Notifications</p>
   <h2>Showing people what Slack will notify them about.</h2>
   <div class="c-body">
     <p>Notification controls were spread across menus, with no sign of what was already on. We added a persistent status and put every control in one place.</p>
   </div>
   <blockquote class="c-quote">&ldquo;I have no idea where to even start with this.&rdquo;<cite>Participant</cite></blockquote>
+  <p class="c-try c-try--top"><span class="c-try__tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-1a6 6 0 0 1-5-2.7L4.6 15a1.5 1.5 0 0 1 2.5-1.7L9 15"/></svg>Interactive</span>Try it: change a channel&rsquo;s alerts and watch the status and overview update.</p>
   <div class="sd sd--notif" data-demo="notif" data-init='{"general": "mentions", "engineering": "all", "design": "mentions", "random": "muted"}'>
     <div class="sk-rail sd-ctx" aria-hidden="true"><span class="sk-ws">S</span><span class="sk-rail__it is-on"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-home"/></svg><small>Home</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-msg"/></svg><small>DMs</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg><small>Activity</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bookmark"/></svg><small>Saved</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-more"/></svg><small>More</small></span></div>
     <div class="sk-side sd-ctx" aria-hidden="true">
@@ -242,16 +236,24 @@
     </div>
     <div class="sd-toast" data-toast role="status" aria-live="polite"></div>
   </div>
-  <p class="c-try">Try it: change a channel&rsquo;s alerts and watch the status and overview update.</p>
-  <p class="c-jump"><span>2/8</span><i aria-hidden="true">&rarr;</i><b>8/8</b><small>among people who finished the task</small></p>
+  <p class="c-jump"><span>2/8</span><i aria-hidden="true">&rarr;</i><b>8/8</b><small>in unmoderated testing</small></p>
+</section>
+
+<!-- ═══ Result ═══════════════════════════════════════════════════════════ -->
+<section class="c-sec" id="result">
+  <p class="c-label">The result</p>
+  <h2>Most of the fix was wording and visibility, not new features.</h2>
+  <div class="c-body">
+    <p>We validated both changes with 8 new people on UserTesting, with no researcher in the room. The same failures didn&rsquo;t come back.</p>
+  </div>
 </section>
 
 <!-- ═══ Takeaway ═════════════════════════════════════════════════════════ -->
 <section class="c-sec c-sec--end" id="takeaway">
-  <p class="c-label">How I&rsquo;d know &middot; What I took away</p>
-  <h2>Most of the fix was wording and visibility, not new features.</h2>
+  <p class="c-label">What I learned</p>
+  <h2>Watch people before deciding what to fix.</h2>
   <div class="c-body">
-    <p>We validated both changes with 8 new people on UserTesting, with no researcher in the room. The same failures didn&rsquo;t come back.</p>
+    <p>Our heuristic review told us where to look. Only watching people get stuck showed us why, and every change we made came from something we saw in a session.</p>
   </div>
 </section>
 
@@ -259,17 +261,17 @@
 <section class="c-more">
   <p class="c-label">View more</p>
   <div class="c-more__grid">
-    <a class="g-p g-p--work cs-card" href="/opal">
-      <div class="g-p__media">
-      <video class="hero-vid" data-hero="hover" poster="/images/hero-opal-P.jpg" width="1067" height="1000" muted loop playsinline preload="metadata" aria-label="Opal on a phone: today's plan, a focus session timer, and a +1 gem reward"><source src="/images/hero-opal-P.webm" type="video/webm"><source src="/images/hero-opal-P.mp4" type="video/mp4"></video>
-      </div>
-      <div class="g-p__cap"><h2>Opal</h2><p>Helping students plan, focus, and take breaks worth taking.</p><span class="g-pills"><span>Product Designer</span><span>Indigo Design Award</span></span></div>
-    </a>
     <a class="g-p g-p--work cs-card" href="/ibm">
       <div class="g-p__media">
       <img class="hero-vid" src="/images/hero-ibm-L.jpg" width="1920" height="1200" alt="IBM Platinum Experience and IBM Sovereign Support pages, the Sovereign page in front with its glass-block banner">
       </div>
-      <div class="g-p__cap"><h2>Design at enterprise speed</h2><p>A summer in Austin on how people and AI agents learn complex products.</p><span class="g-pills"><span>Design Intern</span><span>Shipped on ibm.com</span></span></div>
+      <div class="g-p__cap"><h2>Design at enterprise speed</h2><p>A summer in Austin on how people and AI agents learn complex products.</p><span class="g-pills"><span>Product Design Intern</span><span>Shipped on ibm.com</span></span></div>
+    </a>
+    <a class="g-p g-p--work cs-card" href="/opal">
+      <div class="g-p__media">
+      <img class="hero-vid" src="/images/hero-opal-P.jpg" width="1280" height="1200" alt="Three Opal features: the calendar and to-do list, break suggestions, and Tap Stickers">
+      </div>
+      <div class="g-p__cap"><h2>Opal</h2><p>New features for the Opal focus app: plan, focus, and take breaks worth taking.</p><span class="g-pills"><span>Product Designer</span><span>Indigo Design Award</span></span></div>
     </a>
   </div>
 </section>
