@@ -541,9 +541,44 @@
     });
   });
 
+  /* Hero videos: covers play while on screen; homepage cards play while
+     hovered (or while on screen on touch). Reduced motion keeps the poster. */
+  var heroVids = document.querySelectorAll('video[data-hero]');
+  if (heroVids.length) {
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var hover = window.matchMedia('(hover: hover)').matches;
+    var play = function (v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); };
+    var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) play(e.target); else e.target.pause(); });
+    }, { threshold: 0.35 }) : null;
+    heroVids.forEach(function (v) {
+      if (still) { v.pause(); return; }
+      if (v.dataset.hero === 'hover' && hover) {
+        var card = v.closest('a') || v;
+        card.addEventListener('mouseenter', function () { play(v); });
+        card.addEventListener('mouseleave', function () { v.pause(); });
+      } else if (io) { io.observe(v); }
+    });
+  }
+
   console.log(
     '%cHey.%c You opened the console, so we should probably talk.\nbrayden@braydenw.com',
     'font:700 20px "Bricolage Grotesque",sans-serif;color:#1b4dff',
     'font:14px/1.6 "Open Sans",system-ui;color:#1c1c1c'
   );
+})();
+
+// Click a case-study feature image to view it larger
+(function(){
+  var imgs=document.querySelectorAll('.c-feat img[src*="opal-feat"], [data-page="presents"] .c-shot img');
+  if(!imgs.length||!window.HTMLDialogElement)return;
+  var d=document.createElement('dialog');d.className='c-zoom';
+  var big=document.createElement('img');big.alt='';d.appendChild(big);document.body.appendChild(d);
+  d.addEventListener('click',function(){d.close()});
+  imgs.forEach(function(im){
+    im.tabIndex=0;im.setAttribute('role','button');
+    function open(){big.src=im.src;big.alt=im.alt;d.showModal()}
+    im.addEventListener('click',open);
+    im.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}});
+  });
 })();

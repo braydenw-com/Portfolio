@@ -62,30 +62,8 @@
 
 <!-- ═══ Opening ══════════════════════════════════════════════════════════ -->
 <section class="c-open">
-  <figure class="c-cover c-cover--top c-cover--ui">
-    <div class="uh" aria-hidden="true">
-      <div class="uh__msg">
-        <div class="uh__bar">
-          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-smile"/></svg></span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-msg"/></svg></span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-share"/></svg></span>
-          <span class="is-save"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bookmark"/></svg><em>Save for Me</em></span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg></span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-more"/></svg></span>
-        </div>
-        <div class="uh__row"><b class="uh__av" style="background:#E8A838">SC</b>
-          <div><p class="uh__meta"><strong>Sarah Chen</strong> 9:41 AM</p>
-          <p>Final specs for the onboarding flow are in Figma. Can everyone review before Thursday?</p></div></div>
-      </div>
-      <div class="uh__saved">
-        <p class="uh__title">Saved</p>
-        <p class="uh__tabs"><span class="is-on">Saved for Me</span><span>Pinned for All</span></p>
-        <div class="uh__item"><p class="uh__ch"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-hash"/></svg>design</p>
-          <div class="uh__row"><b class="uh__av uh__av--sm" style="background:#E8A838">SC</b>
-          <div><p class="uh__meta"><strong>Sarah Chen</strong> 9:41 AM</p><p>Final specs for the onboarding flow are in Figma.</p></div></div></div>
-      </div>
-      <div class="uh__notif">
-        <p class="uh__chan"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-hash"/></svg><strong>design</strong><span class="uh__pill"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg>Mentions</span></p>
-        <p class="uh__seg"><span>All</span><span class="is-on"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg>Mentions</span><span>Muted</span></p>
-      </div>
-      <p class="uh__toast">This message was saved for you</p>
-    </div>
+  <figure class="c-cover c-cover--top c-cover--hero">
+    <img class="hero-vid" src="/images/hero-slack-L.jpg" width="1920" height="1200" alt="Brayden's redesigned Slack: notification settings behind, a message saved for later in front">
   </figure>
   <h1>Slack</h1>
   <p class="c-sum"><b>Making Slack&rsquo;s hidden state visible.</b> As research lead on a team of three, I studied where everyday Slack tasks break down. Two of them failed for most people, and two small changes to language and system state took success from 3/8 and 2/8 to 8/8.</p>
@@ -98,11 +76,12 @@
   </dl>
 
 
+
 </section>
 
 <!-- ═══ The problem ══════════════════════════════════════════════════════ -->
 <section class="c-sec" id="story">
-  <p class="c-label">Overview</p>
+  <p class="c-label">The opportunity</p>
   <h2>Two everyday tasks were quietly failing.</h2>
   <div class="c-body">
     <p>We reviewed 20 Slack workflows against Nielsen&rsquo;s heuristics, then watched 8 people try the everyday ones. Getting around was fine. Two tasks fell apart, and most people thought they&rsquo;d finished.</p>
@@ -123,12 +102,13 @@
 
 <!-- ═══ Fix 1 ════════════════════════════════════════════════════════════ -->
 <section class="c-sec" id="saved">
-  <p class="c-label">Saved messages</p>
+  <p class="c-label">What I did &middot; Saved messages</p>
   <h2>The concept wasn&rsquo;t the problem. The language was.</h2>
   <div class="c-body">
     <p>Saved, Pinned, and Later all sounded alike, and none said who could see what. We renamed the actions around ownership: Save for Me, Pin for Everyone.</p>
   </div>
   <blockquote class="c-quote">&ldquo;There is usually a saved button here. This is terribly confusing.&rdquo;<cite>Participant</cite></blockquote>
+  <p class="c-try c-try--top"><span class="c-try__tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-1a6 6 0 0 1-5-2.7L4.6 15a1.5 1.5 0 0 1 2.5-1.7L9 15"/></svg>Interactive</span>Try it: save the message, or pin it for the channel.</p>
   <div class="sd sd--save" data-demo="save">
     <div class="sk-rail sd-ctx" aria-hidden="true"><span class="sk-ws">S</span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-home"/></svg><small>Home</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-msg"/></svg><small>DMs</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg><small>Activity</small></span><span class="sk-rail__it is-on"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bookmark"/></svg><small>Saved</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-more"/></svg><small>More</small></span></div>
     <div class="sk-side sd-ctx" aria-hidden="true">
@@ -179,18 +159,18 @@
     </div>
     <div class="sd-toast" data-toast role="status" aria-live="polite"></div>
   </div>
-  <p class="c-try">Try it: save the message, or pin it for the channel.</p>
-  <p class="c-jump"><span>3/8</span><i aria-hidden="true">&rarr;</i><b>8/8</b><small>in validation testing</small></p>
+  <p class="c-jump"><span>3/8</span><i aria-hidden="true">&rarr;</i><b>8/8</b><small>in unmoderated testing</small></p>
 </section>
 
 <!-- ═══ Fix 2 ════════════════════════════════════════════════════════════ -->
 <section class="c-sec" id="notifications">
-  <p class="c-label">Notifications</p>
+  <p class="c-label">What I did &middot; Notifications</p>
   <h2>Showing people what Slack will notify them about.</h2>
   <div class="c-body">
     <p>Notification controls were spread across menus, with no sign of what was already on. We added a persistent status and put every control in one place.</p>
   </div>
   <blockquote class="c-quote">&ldquo;I have no idea where to even start with this.&rdquo;<cite>Participant</cite></blockquote>
+  <p class="c-try c-try--top"><span class="c-try__tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-1a6 6 0 0 1-5-2.7L4.6 15a1.5 1.5 0 0 1 2.5-1.7L9 15"/></svg>Interactive</span>Try it: change a channel&rsquo;s alerts and watch the status and overview update.</p>
   <div class="sd sd--notif" data-demo="notif" data-init='{"general": "mentions", "engineering": "all", "design": "mentions", "random": "muted"}'>
     <div class="sk-rail sd-ctx" aria-hidden="true"><span class="sk-ws">S</span><span class="sk-rail__it is-on"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-home"/></svg><small>Home</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-msg"/></svg><small>DMs</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg><small>Activity</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bookmark"/></svg><small>Saved</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-more"/></svg><small>More</small></span></div>
     <div class="sk-side sd-ctx" aria-hidden="true">
@@ -256,16 +236,24 @@
     </div>
     <div class="sd-toast" data-toast role="status" aria-live="polite"></div>
   </div>
-  <p class="c-try">Try it: change a channel&rsquo;s alerts and watch the status and overview update.</p>
-  <p class="c-jump"><span>2/8</span><i aria-hidden="true">&rarr;</i><b>8/8</b><small>among people who finished the task</small></p>
+  <p class="c-jump"><span>2/8</span><i aria-hidden="true">&rarr;</i><b>8/8</b><small>in unmoderated testing</small></p>
+</section>
+
+<!-- ═══ Result ═══════════════════════════════════════════════════════════ -->
+<section class="c-sec" id="result">
+  <p class="c-label">The result</p>
+  <h2>Most of the fix was wording and visibility, not new features.</h2>
+  <div class="c-body">
+    <p>We validated both changes with 8 new people on UserTesting, with no researcher in the room. The same failures didn&rsquo;t come back.</p>
+  </div>
 </section>
 
 <!-- ═══ Takeaway ═════════════════════════════════════════════════════════ -->
 <section class="c-sec c-sec--end" id="takeaway">
-  <p class="c-label">What I took away</p>
-  <h2>Most of the fix was wording and visibility, not new features.</h2>
+  <p class="c-label">What I learned</p>
+  <h2>Watch people before deciding what to fix.</h2>
   <div class="c-body">
-    <p>We validated both changes with 8 new people on UserTesting, with no researcher in the room. The same failures didn&rsquo;t come back.</p>
+    <p>Our heuristic review told us where to look. Only watching people get stuck showed us why, and every change we made came from something we saw in a session.</p>
   </div>
 </section>
 
@@ -273,36 +261,17 @@
 <section class="c-more">
   <p class="c-label">View more</p>
   <div class="c-more__grid">
-    <a class="g-p g-p--work cs-card" href="/opal">
-      <div class="g-p__media">
-      <img src="/images/opal-hero.jpg" width="2000" height="1110" loading="lazy" alt="The Opal focus app across several screens, showing planning, blocking, and break suggestions">
-      </div>
-      <div class="g-p__top g-p__top--end"><span class="g-pills"><span>Product Designer</span><span>Indigo Design Award</span></span></div>
-      <div class="g-p__cap"><h2>Opal</h2><p>Helping students plan, focus, and take breaks worth taking.</p></div>
-    </a>
     <a class="g-p g-p--work cs-card" href="/ibm">
       <div class="g-p__media">
-      <div class="ih" aria-hidden="true">
-        <img class="ih__art" src="/images/ibm-platinum-art.png" width="900" height="704" alt="">
-        <div class="ih__card ih__card--plat">
-          <p class="ih__h"><span>IBM Platinum</span> <span>Experience</span></p>
-          <p class="ih__p">A premium partnership with your needs at the center of your IBM Software experience.</p>
-          <p class="ih__btns"><span class="ih__btn">Sign up now <i>&rarr;</i></span><span class="ih__btn ih__btn--ghost">Webinar <i>&rarr;</i></span></p>
-        </div>
-        <div class="ih__card ih__card--sov">
-          <p class="ih__eyebrow">IBM Sovereign Support</p>
-          <p class="ih__t">Keep data in-region</p>
-          <p class="ih__p">Support cases, personnel, and diagnostic data handling are all bound to your sovereign environment.</p>
-          <p class="ih__tags"><span>Data sovereignty</span><span>Control</span></p>
-        </div>
-        <div class="ih__card ih__card--fast">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 13l3-4M10 2h4M12 2v3"/></svg>
-          <p class="ih__t">Fastest response times</p>
-        </div>
+      <img class="hero-vid" src="/images/hero-ibm-L.jpg" width="1920" height="1200" alt="IBM Platinum Experience and IBM Sovereign Support pages, the Sovereign page in front with its glass-block banner">
       </div>
+      <div class="g-p__cap"><h2>Design at enterprise speed</h2><p>A summer in Austin on how people and AI agents learn complex products.</p><span class="g-pills"><span>Product Design Intern</span><span>Shipped on ibm.com</span></span></div>
+    </a>
+    <a class="g-p g-p--work cs-card" href="/opal">
+      <div class="g-p__media">
+      <img class="hero-vid" src="/images/hero-opal-P.jpg" width="1280" height="1200" alt="Three Opal features: the calendar and to-do list, break suggestions, and Tap Stickers">
       </div>
-      <div class="g-p__top g-p__top--end"><span class="g-pills"><span>Design Intern</span><span>Shipped on ibm.com</span></span></div>
-      <div class="g-p__cap"><h2>Design at enterprise speed</h2><p>A summer in Austin on how people and AI agents learn complex products.</p></div>
+      <div class="g-p__cap"><h2>Opal</h2><p>New features for the Opal focus app: plan, focus, and take breaks worth taking.</p><span class="g-pills"><span>Product Designer</span><span>Indigo Design Award</span></span></div>
     </a>
   </div>
 </section>

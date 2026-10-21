@@ -1771,7 +1771,7 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 .g-grid{grid-auto-rows:auto!important;grid-template-areas:
   "a a a a a a a a b b b b"
   "a a a a a a a a j j j j"
-  "c c c c c c e e e e e e"
+  "c c c c e e e e p p p p"
   "d d d g g g h h h k k k"
   "f f f f f f f f w w w w"
   "l l l l l l l l l l l l"}
@@ -1783,11 +1783,11 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 .g-d,.g-g,.g-h,.g-k{aspect-ratio:4/5}
 .g-l{min-height:clamp(16rem,26vw,22rem)}
 @media (max-width:1000px){
-  .g-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-areas:"a a" "b j" "c c" "e e" "d g" "h k" "f f" "w w" "l l"}
+  .g-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-areas:"a a" "b j" "c c" "e e" "p p" "d g" "h k" "f f" "w w" "l l"}
   .g-a,.g-c,.g-e{aspect-ratio:16/11}
 }
 @media (max-width:620px){
-  .g-grid{grid-template-areas:"a a" "b b" "j j" "c c" "e e" "d g" "h k" "f f" "w w" "l l"}
+  .g-grid{grid-template-areas:"a a" "b b" "j j" "c c" "e e" "p p" "d g" "h k" "f f" "w w" "l l"}
   .g-a,.g-c,.g-e{aspect-ratio:4/5}
   .g-p__media .ih{font-size:2.6cqw}
   .g-p__media .ih__card--plat{left:6%;right:auto;top:20%;width:72%}
@@ -2040,7 +2040,7 @@ main.cs{width:auto;font-family:var(--g-sans)}
 /* Tablet: four columns so things sit side by side instead of stacking huge. */
 @media (min-width:621px) and (max-width:1000px){
   .g-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;
-    grid-template-areas:"a a a a" "b b j j" "c c e e" "d g h k" "f f w w" "l l l l"!important}
+    grid-template-areas:"a a a a" "b b j j" "c c e e" "p p p p" "d g h k" "f f w w" "l l l l"!important}
   .g-c,.g-e{aspect-ratio:4/5!important}
   .g-d,.g-g,.g-h,.g-k{aspect-ratio:1/1!important}
   .g-p__media .uh__notif,.g-p__media .uh__toast{display:none}
@@ -2054,6 +2054,71 @@ main.cs{width:auto;font-family:var(--g-sans)}
 @media (min-width:621px) and (max-width:1000px){.ab-grid{grid-template-areas:"t t p p" "n k p p" "g g g g" "o v c f" "e e e e"!important}.ab-p{min-height:20rem}}
 /* Award links: a 32px+ tap area without moving the text. */
 .g-p--awards .aw tbody th a{padding:.45rem 0;margin:-.45rem 0}
+
+/* Goal / The idea / How I'd know / What changed my mind */
+.c-idea{margin:clamp(1.6rem,3vw,2.4rem) 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.4rem 2rem;max-width:62rem}
+.c-idea>div{border-top:1px solid var(--h-line);padding-top:1rem}
+.c-idea dt{font-size:.9rem;color:var(--h-soft);margin-bottom:.35rem}
+.c-idea dd{margin:0;font-family:var(--g-sans);font-size:1.02rem;line-height:1.55;color:var(--h-text)}
+@media (max-width:760px){.c-idea{grid-template-columns:1fr;gap:1rem}}
+/* Presents card */
+.g-pr{grid-area:p!important;aspect-ratio:16/11}
+.g-p__media>img.g-pr__img{object-fit:cover;object-position:center}
+@media (min-width:621px) and (max-width:1000px){.g-pr{aspect-ratio:16/8!important}}
+@media (max-width:620px){.g-pr{aspect-ratio:4/5}}
+@media (min-width:1001px){.g-c,.g-e,.g-pr{aspect-ratio:4/5}}
+/* Full-width mockup inside a case study section. */
+.c-shot{margin:clamp(1.6rem,3vw,2.4rem) 0 0;border-radius:10px;overflow:hidden;background:#0b1214}
+.c-shot img{display:block;width:100%;height:auto}
+.g-pr .g-p__media>img{object-position:30% center}
+
+/* ═══ Hero videos: flat light scenes that match the site. Cards put the title
+   under the scene in dark text; covers are the scene alone. ═══════════════ */
+.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:#f4f5f8}
+.g-p--work{background:#f4f5f8!important;display:flex!important;flex-direction:column}
+.g-p--work .g-p__media{position:relative!important;inset:auto!important;flex:1;min-height:0}
+.g-p--work .g-p__cap{position:relative!important;inset:auto!important;background:none!important;color:var(--h-text);
+  padding:0 clamp(1.1rem,2vw,1.6rem) clamp(1.1rem,2vw,1.5rem)!important}
+.g-p--work .g-p__cap h2{color:var(--h-text)}
+.g-p--work .g-p__cap p{color:var(--h-soft)}
+.g-p--work:hover .g-p__cap h2{color:var(--h-text)}
+.g-p--work .g-pills span{background:#fff!important;color:var(--h-text)!important;backdrop-filter:none!important;box-shadow:0 0 0 1px #e3e6ec!important}
+.c-cover--hero{position:relative;aspect-ratio:16/10;background:#f4f5f8;border-radius:10px;overflow:hidden}
+/* Pills sit under the title instead of over the scene. */
+.g-p--work .g-p__top{position:static!important;order:3;padding:0 clamp(1.1rem,2vw,1.6rem) clamp(1.1rem,2vw,1.4rem)!important;justify-content:flex-start!important}
+.g-p--work .g-pills{justify-content:flex-start!important}
+.g-p--work .g-p__cap{order:2;padding-bottom:.7rem!important}
+.g-p--work .g-p__media{order:1}
+.g-p--work .g-p__cap h2{font-size:clamp(1.5rem,2.2vw,2.1rem)!important}
+.g-p--work .g-p__cap p{font-size:clamp(.95rem,1.15vw,1.05rem)!important}
+
+/* Cards keep their bento sizes: the scene fills the box, title + pills sit
+   at the bottom on a light fade. */
+.g-p--work .g-p__media{position:absolute!important;inset:0!important;flex:none}
+.g-p--work .hero-vid{object-position:50% 35%}
+.g-p--work .g-p__cap{position:absolute!important;left:0;right:0;bottom:0;z-index:2;padding:4rem clamp(1.1rem,2vw,1.6rem) .6rem!important;
+  background:linear-gradient(to top,#f4f5f8 0%,#f4f5f8 55%,rgba(244,245,248,0))!important}
+.g-p--work .g-p__top{position:absolute!important;left:0;right:0;bottom:0;z-index:3;padding:0 clamp(1.1rem,2vw,1.6rem) clamp(1rem,1.8vw,1.3rem)!important}
+.g-p--work .g-p__cap{padding-bottom:calc(clamp(1rem,1.8vw,1.3rem) + 2.6rem)!important}
+.g-p--work .g-p__cap{inset:auto 0 0 0!important}
+.g-p--work .g-p__top{inset:auto 0 0 0!important}
+.g-p--work .g-p__media{inset:0!important;top:0!important}
+.g-p--work .g-p__cap{padding-bottom:clamp(1rem,1.8vw,1.3rem)!important}
+.g-p--work .g-p__cap .g-pills{margin-top:.7rem;display:flex;flex-wrap:wrap;gap:.35rem;justify-content:flex-start}
+.g-p--work .g-p__cap .g-pills span{font-size:.8rem;padding:.35rem .6rem}
+.cs .cs-card{aspect-ratio:5/4!important}@media (max-width:620px){.cs .cs-card{aspect-ratio:4/5!important}}
+/* Slack demos: say up front that they can be played with. */
+.c-try--top{margin:2rem 0 .9rem!important;display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;font-family:var(--g-sans);font-size:1rem;color:var(--h-text)}
+.c-try__tag{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .75rem;border-radius:999px;background:var(--blue);color:#fff;font-size:.85rem;font-weight:500}
+.c-try__tag svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.c-feat img[src*="opal-slide"]{aspect-ratio:1896/1200;object-fit:cover;border-radius:10px}
+.c-feat img[src*="opal-feat"]{aspect-ratio:1/1;object-fit:cover;border-radius:10px;background:#000}
+.c-feat img[src*="opal-feat"]{background:#f4f5f8}
+.c-feat img[src*="opal-feat"]{cursor:zoom-in}
+.c-zoom{border:0;padding:0;background:transparent;max-width:min(92vw,1120px);max-height:92vh}
+.c-zoom::backdrop{background:rgba(10,12,20,.82)}
+.c-zoom img{display:block;width:100%;height:auto;max-height:92vh;object-fit:contain;border-radius:12px;cursor:zoom-out}
+[data-page="presents"] .c-shot img{cursor:zoom-in}
 
 </style>
 </head>
@@ -2095,26 +2160,27 @@ main.cs{width:auto;font-family:var(--g-sans)}
 
 <!-- ═══ Opening ══════════════════════════════════════════════════════════ -->
 <section class="c-open">
-  <figure class="c-cover c-cover--top">
-    <img src="/images/opal-hero.jpg" width="2000" height="1110"
-         alt="The Opal focus app across several screens, showing planning, blocking, and break suggestions">
+  <figure class="c-cover c-cover--top c-cover--hero">
+    <img class="hero-vid" src="/images/hero-opal-L.jpg" width="1920" height="1200" alt="Three Opal features: the calendar and to-do list, break suggestions, and Tap Stickers">
   </figure>
   <h1>Opal</h1>
-  <p class="c-sum"><b>Making focus feel a little easier.</b> Students don&rsquo;t need another app telling them to focus. With two teammates, I designed a focus app around planning, motivation, and breaks worth taking, built from a 30-student survey and tested with 23 more.</p>
+  <p class="c-sum"><b>Making focus feel a little easier.</b> Opal already blocks distractions. With two teammates, I designed an expansion of the app around planning, motivation, and breaks worth taking, built from a 30-student survey and tested with 23 more.</p>
 
   <dl class="c-facts">
     <div><dt>Role</dt><dd>Product Designer</dd></div>
     <div><dt>Team</dt><dd>3 designers</dd></div>
     <div><dt>Timeline</dt><dd>10 weeks, 2025</dd></div>
+    <div><dt>Project</dt><dd>Expansion of the Opal app</dd></div>
     <div><dt>Recognition</dt><dd><a class="c-link" href="https://indigoaward.com/winners/11033" target="_blank" rel="noopener">Indigo Design Award</a></dd></div>
   </dl>
+
 
 
 </section>
 
 <!-- ═══ Overview ═════════════════════════════════════════════════════════ -->
 <section class="c-sec" id="story">
-  <p class="c-label">Overview</p>
+  <p class="c-label">The opportunity</p>
   <h2>Students didn&rsquo;t want stricter blocking.</h2>
   <div class="c-body">
     <p>We surveyed 30 college students. They weren&rsquo;t asking for stricter blocking. They wanted help staying motivated, planning their time, and taking breaks without falling straight back into scrolling.</p>
@@ -2128,54 +2194,43 @@ main.cs{width:auto;font-family:var(--g-sans)}
 
 <!-- ═══ Insight ══════════════════════════════════════════════════════════ -->
 <section class="c-sec" id="insight">
-  <p class="c-label">Insight</p>
+  <p class="c-label">What we found</p>
   <h2>Focus apps were each solving one piece of the problem.</h2>
   <ul class="c-probs">
     <li><b>Forest</b><span>Blocks distractions.</span></li>
     <li><b>Finch</b><span>Makes self-care rewarding.</span></li>
     <li><b>Focus Friend</b><span>Adds accountability.</span></li>
   </ul>
-  <p class="c-beat">Students wanted pieces of all three. That became the foundation for Opal.</p>
+  <p class="c-beat">Students wanted pieces of all three. Opal already had the blocking, so we designed the rest.</p>
 </section>
 
 <!-- ═══ Design ═══════════════════════════════════════════════════════════ -->
 <section class="c-sec" id="design">
-  <p class="c-label">Design</p>
-  <h2>One app for the whole cycle: plan, focus, step away.</h2>
+  <p class="c-label">What we made</p>
+  <h2>Three new features for the whole cycle: plan, focus, step away.</h2>
 
   <div class="c-feats">
     <figure class="c-feat">
-      <img src="/images/opal-calendar.jpg" width="1600" height="1013" loading="lazy"
-           alt="The Opal calendar screen, showing a day view with classes and meetings alongside a to-do list">
-      <figcaption><b>Know what&rsquo;s next</b>Tasks, focus sessions, and breaks live in one plan, so deciding what to do and starting it happen in the same place.</figcaption>
+      <img src="/images/opal-feat-calendar.jpg" width="1120" height="1120" loading="lazy"
+           alt="The Opal calendar showing Thursday&rsquo;s classes and a to-do list, next to the Add Event sheet">
+      <figcaption><b>Calendar</b>Classes, tasks, and to-dos live in one plan inside Opal, so deciding what to do and starting it happen in the same place.</figcaption>
     </figure>
     <figure class="c-feat">
-      <img src="/images/opal-stickers.jpg" width="1600" height="1013" loading="lazy"
-           alt="A hand holding a phone showing a Sticker Found screen, with a physical focus sticker beside it">
-      <figcaption><b>Make progress feel good</b>Tap Stickers turn steady focus into gems and rewards. Not a game, just a reason to come back.</figcaption>
+      <img src="/images/opal-feat-stickers.jpg" width="1120" height="1120" loading="lazy"
+           alt="Two Sticker Found screens: one confirming a focus sticker was detected, one ready to block social media and dating apps at Home">
+      <figcaption><b>Tap Stickers</b>Collectible gem stickers you place around your space. Tap your phone on one and Opal starts that spot&rsquo;s block, like Home.</figcaption>
     </figure>
     <figure class="c-feat">
-      <img src="/images/opal-breaks.jpg" width="1600" height="1013" loading="lazy"
-           alt="A phone showing a break suggestion to pick up a book, with other suggestions floating beside it">
-      <figcaption><b>Put the phone down</b>Instead of only blocking apps, Opal suggests what to do on a break: a walk, water, a stretch.</figcaption>
+      <img src="/images/opal-feat-breaks.jpg" width="1120" height="1120" loading="lazy"
+           alt="The Opal pause screen over a photo of Paris, suggesting &ldquo;Have you danced today?&rdquo; with a Wait for 18s button">
+      <figcaption><b>Break Suggestions</b>When you reach for a blocked app, Opal&rsquo;s pause screen suggests something better to do: step outside, read, dance.</figcaption>
     </figure>
   </div>
 </section>
 
-<!-- ═══ Testing ══════════════════════════════════════════════════════════ -->
-<section class="c-sec" id="testing">
-  <p class="c-label">Testing</p>
-  <h2>23 people showed us where it still wasn&rsquo;t clear.</h2>
-  <ul class="c-probs">
-    <li><b>&ldquo;Event&rdquo; didn&rsquo;t make sense</b><span>We switched to familiar words like Task and Activity, with icons.</span></li>
-    <li><b>Scanning needed guidance</b><span>We added alignment guides and clearer onboarding for Tap Stickers.</span></li>
-    <li><b>New users got lost</b><span>We added help the first time someone meets a feature.</span></li>
-  </ul>
-</section>
-
 <!-- ═══ Takeaway ═════════════════════════════════════════════════════════ -->
 <section class="c-sec c-sec--end" id="takeaway">
-  <p class="c-label">What I took away</p>
+  <p class="c-label">What I learned</p>
   <h2>Make the better choice the easier one.</h2>
   <div class="c-body">
     <p>The real question wasn&rsquo;t how to stop distraction. It was how to make putting the phone down feel better than picking it back up.</p>
@@ -2186,58 +2241,17 @@ main.cs{width:auto;font-family:var(--g-sans)}
 <section class="c-more">
   <p class="c-label">View more</p>
   <div class="c-more__grid">
-    <a class="g-p g-p--work cs-card" href="/ibm">
+    <a class="g-p g-p--work cs-card" href="/presents">
       <div class="g-p__media">
-      <div class="ih" aria-hidden="true">
-        <img class="ih__art" src="/images/ibm-platinum-art.png" width="900" height="704" alt="">
-        <div class="ih__card ih__card--plat">
-          <p class="ih__h"><span>IBM Platinum</span> <span>Experience</span></p>
-          <p class="ih__p">A premium partnership with your needs at the center of your IBM Software experience.</p>
-          <p class="ih__btns"><span class="ih__btn">Sign up now <i>&rarr;</i></span><span class="ih__btn ih__btn--ghost">Webinar <i>&rarr;</i></span></p>
-        </div>
-        <div class="ih__card ih__card--sov">
-          <p class="ih__eyebrow">IBM Sovereign Support</p>
-          <p class="ih__t">Keep data in-region</p>
-          <p class="ih__p">Support cases, personnel, and diagnostic data handling are all bound to your sovereign environment.</p>
-          <p class="ih__tags"><span>Data sovereignty</span><span>Control</span></p>
-        </div>
-        <div class="ih__card ih__card--fast">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 13l3-4M10 2h4M12 2v3"/></svg>
-          <p class="ih__t">Fastest response times</p>
-        </div>
+      <img class="hero-vid" src="/images/hero-presents-P.jpg" width="1280" height="1200" alt="The Presents shuffle screen: a soft glow of color behind the five-dot mark, with a Shuffle button below">
       </div>
-      </div>
-      <div class="g-p__top g-p__top--end"><span class="g-pills"><span>Design Intern</span><span>Shipped on ibm.com</span></span></div>
-      <div class="g-p__cap"><h2>Design at enterprise speed</h2><p>A summer in Austin on how people and AI agents learn complex products.</p></div>
+      <div class="g-p__cap"><h2>Presents</h2><p>A private time capsule for a small group of friends.</p><span class="g-pills"><span>Designer &amp; iOS build</span><span>SVSD Design Sprint</span></span></div>
     </a>
     <a class="g-p g-p--work cs-card" href="/slack">
       <div class="g-p__media">
-      <div class="uh" aria-hidden="true">
-          <div class="uh__msg">
-            <div class="uh__bar">
-              <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-smile"/></svg></span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-msg"/></svg></span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-share"/></svg></span>
-              <span class="is-save"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bookmark"/></svg><em>Save for Me</em></span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg></span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-more"/></svg></span>
-            </div>
-            <div class="uh__row"><b class="uh__av" style="background:#E8A838">SC</b>
-              <div><p class="uh__meta"><strong>Sarah Chen</strong> 9:41 AM</p>
-              <p>Final specs for the onboarding flow are in Figma. Can everyone review before Thursday?</p></div></div>
-          </div>
-          <div class="uh__saved">
-            <p class="uh__title">Saved</p>
-            <p class="uh__tabs"><span class="is-on">Saved for Me</span><span>Pinned for All</span></p>
-            <div class="uh__item"><p class="uh__ch"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-hash"/></svg>design</p>
-              <div class="uh__row"><b class="uh__av uh__av--sm" style="background:#E8A838">SC</b>
-              <div><p class="uh__meta"><strong>Sarah Chen</strong> 9:41 AM</p><p>Final specs for the onboarding flow are in Figma.</p></div></div></div>
-          </div>
-          <div class="uh__notif">
-            <p class="uh__chan"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-hash"/></svg><strong>design</strong><span class="uh__pill"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg>Mentions</span></p>
-            <p class="uh__seg"><span>All</span><span class="is-on"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg>Mentions</span><span>Muted</span></p>
-          </div>
-          <p class="uh__toast">This message was saved for you</p>
-        </div>
+      <img class="hero-vid" src="/images/hero-slack-P.jpg" width="1280" height="1200" alt="Brayden's redesigned Slack: notification settings behind, a message saved for later in front">
       </div>
-      <div class="g-p__top g-p__top--end"><span class="g-pills"><span>Research Lead</span><span>3/8 &rarr; 8/8 task success</span></span></div>
-      <div class="g-p__cap"><h2>Slack</h2><p>Two everyday tasks most people couldn&rsquo;t finish. Two small changes fixed both.</p></div>
+      <div class="g-p__cap"><h2>Slack</h2><p>Two everyday tasks most people couldn&rsquo;t finish. Two small changes fixed both.</p><span class="g-pills"><span>Research Lead</span><span>3/8 &rarr; 8/8 task success</span></span></div>
     </a>
   </div>
 </section>
@@ -2800,11 +2814,46 @@ main.cs{width:auto;font-family:var(--g-sans)}
     });
   });
 
+  /* Hero videos: covers play while on screen; homepage cards play while
+     hovered (or while on screen on touch). Reduced motion keeps the poster. */
+  var heroVids = document.querySelectorAll('video[data-hero]');
+  if (heroVids.length) {
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var hover = window.matchMedia('(hover: hover)').matches;
+    var play = function (v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); };
+    var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) play(e.target); else e.target.pause(); });
+    }, { threshold: 0.35 }) : null;
+    heroVids.forEach(function (v) {
+      if (still) { v.pause(); return; }
+      if (v.dataset.hero === 'hover' && hover) {
+        var card = v.closest('a') || v;
+        card.addEventListener('mouseenter', function () { play(v); });
+        card.addEventListener('mouseleave', function () { v.pause(); });
+      } else if (io) { io.observe(v); }
+    });
+  }
+
   console.log(
     '%cHey.%c You opened the console, so we should probably talk.\nbrayden@braydenw.com',
     'font:700 20px "Bricolage Grotesque",sans-serif;color:#1b4dff',
     'font:14px/1.6 "Open Sans",system-ui;color:#1c1c1c'
   );
+})();
+
+// Click a case-study feature image to view it larger
+(function(){
+  var imgs=document.querySelectorAll('.c-feat img[src*="opal-feat"], [data-page="presents"] .c-shot img');
+  if(!imgs.length||!window.HTMLDialogElement)return;
+  var d=document.createElement('dialog');d.className='c-zoom';
+  var big=document.createElement('img');big.alt='';d.appendChild(big);document.body.appendChild(d);
+  d.addEventListener('click',function(){d.close()});
+  imgs.forEach(function(im){
+    im.tabIndex=0;im.setAttribute('role','button');
+    function open(){big.src=im.src;big.alt=im.alt;d.showModal()}
+    im.addEventListener('click',open);
+    im.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}});
+  });
 })();
 
 </script>
