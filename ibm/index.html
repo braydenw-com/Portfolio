@@ -6,6 +6,17 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  // Visitors in the EU, EEA, UK and Switzerland start with analytics cookies off
+  // until they say yes (Consent Mode). Everyone else is counted as usual.
+  gtag('consent', 'default', {
+    analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+    region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    wait_for_update: 500
+  });
+  try {
+    var bwConsent = localStorage.getItem('bw-consent');
+    if (bwConsent) gtag('consent', 'update', { analytics_storage: bwConsent });
+  } catch (e) {}
   gtag('js', new Date());
 
   gtag('config', 'G-NB744JEZ6M');
@@ -2179,6 +2190,26 @@ main.cs{width:auto;font-family:var(--g-sans)}
 .foot__made{margin:.4rem 0 0;font-size:.9rem;line-height:1.5;color:var(--h-soft)}
 .foot__made a{color:var(--h-text);text-decoration:none;border-bottom:1px solid rgba(11,13,26,.3);display:inline-block;padding:.35rem 0 .1rem}
 .foot__made a:hover,.foot__made a:focus-visible{color:var(--blue);border-color:var(--blue)}
+/* Cookie banner (Europe only) */
+.bw-consent{position:fixed;z-index:60;left:1rem;right:1rem;bottom:1rem;max-width:26rem;margin-left:auto;background:#fff;border:1px solid var(--h-line);border-radius:14px;box-shadow:0 12px 30px -14px rgba(10,20,60,.35);padding:1rem 1.1rem;font:400 .95rem/1.5 'Geist','Helvetica Neue',Arial,sans-serif;color:var(--h-text)}
+.bw-consent p{margin:0 0 .8rem}
+.bw-consent a{color:var(--h-text)}
+.bw-consent__btns{display:flex;gap:.5rem;justify-content:flex-end}
+.bw-consent button{font:inherit;cursor:pointer;border-radius:999px;padding:.55rem 1rem;min-height:44px;border:1px solid var(--h-line);background:#fff;color:var(--h-text)}
+.bw-consent .bw-consent__yes{background:var(--h-text);border-color:var(--h-text);color:#fff}
+.bw-consent button:hover,.bw-consent button:focus-visible{border-color:var(--blue)}
+.bw-consent .bw-consent__yes:hover,.bw-consent .bw-consent__yes:focus-visible{background:var(--blue);border-color:var(--blue)}
+button.c-link{font:inherit;cursor:pointer;background:none}
+.foot__made a+a{margin-left:.8rem}
+/* 404 */
+.nf{min-height:60vh}
+.nf__code{margin:0 0 .5rem;font:600 clamp(6rem,22vw,14rem)/.85 'Instrument Sans','Helvetica Neue',Arial,sans-serif;letter-spacing:-.06em;color:var(--blue);display:inline-block;transform-origin:50% 90%;animation:nf-wobble 3.2s var(--ease) infinite}
+@keyframes nf-wobble{0%,70%,100%{transform:rotate(0)}76%{transform:rotate(-6deg)}84%{transform:rotate(4deg)}92%{transform:rotate(-2deg)}}
+@media (prefers-reduced-motion:reduce){.nf__code{animation:none}}
+.nf h1{max-width:18ch}
+.nf__links{display:flex;flex-wrap:wrap;gap:.6rem}
+.nf__links .nf__home{background:var(--h-text);color:#fff;border-color:var(--h-text)}
+.nf__links .nf__home:hover,.nf__links .nf__home:focus-visible{background:var(--blue);border-color:var(--blue)}
 
 </style>
 </head>
@@ -2318,7 +2349,7 @@ main.cs{width:auto;font-family:var(--g-sans)}
     <span>&copy; <span id="year">2026</span> Brayden Wisniewski</span>
     <a class="foot__top" href="#top">Back to top <span aria-hidden="true">&uarr;</span></a>
   </div>
-  <p class="foot__made">Website designed in Figma, built with Claude, and hosted on GitHub. <a href="/design-system">Check out my Design System!</a></p>
+  <p class="foot__made">Website designed in Figma, built with Claude, and hosted on GitHub. <a href="/design-system">Check out my Design System!</a> <a href="/privacy">Privacy</a></p>
 </footer>
 
 <script>
@@ -2919,6 +2950,27 @@ main.cs{width:auto;font-family:var(--g-sans)}
     if(a.classList.contains('h-pill-nav__hi'))return;
     nav.querySelectorAll('a').forEach(function(x){x.removeAttribute('aria-current')});
     a.setAttribute('aria-current','page');
+  });
+})();
+
+// Cookie banner: only for visitors whose time zone is in Europe, until they choose
+(function(){
+  function get(){try{return localStorage.getItem('bw-consent')}catch(e){return null}}
+  function set(v){try{localStorage.setItem('bw-consent',v)}catch(e){}
+    if(window.gtag)gtag('consent','update',{analytics_storage:v});}
+  var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+  var inEurope=/^Europe\//.test(tz)||/^Atlantic\/(Canary|Madeira|Azores|Reykjavik|Faroe)$/.test(tz);
+  function show(){
+    if(document.querySelector('.bw-consent'))return;
+    var d=document.createElement('div');d.className='bw-consent';d.setAttribute('role','region');d.setAttribute('aria-label','Cookie choice');
+    d.innerHTML='<p>This site uses Google Analytics cookies to count visits. <a href="/privacy">Privacy</a></p>'+
+      '<div class="bw-consent__btns"><button type="button" data-v="denied">No thanks</button><button type="button" data-v="granted" class="bw-consent__yes">That&rsquo;s fine</button></div>';
+    d.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;set(b.getAttribute('data-v'));d.remove()});
+    document.body.appendChild(d);
+  }
+  if(inEurope&&!get())show();
+  document.querySelectorAll('.bw-consent-reset').forEach(function(b){
+    b.addEventListener('click',function(){try{localStorage.removeItem('bw-consent')}catch(e){}show()});
   });
 })();
 

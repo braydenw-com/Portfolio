@@ -597,3 +597,24 @@
     a.setAttribute('aria-current','page');
   });
 })();
+
+// Cookie banner: only for visitors whose time zone is in Europe, until they choose
+(function(){
+  function get(){try{return localStorage.getItem('bw-consent')}catch(e){return null}}
+  function set(v){try{localStorage.setItem('bw-consent',v)}catch(e){}
+    if(window.gtag)gtag('consent','update',{analytics_storage:v});}
+  var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+  var inEurope=/^Europe\//.test(tz)||/^Atlantic\/(Canary|Madeira|Azores|Reykjavik|Faroe)$/.test(tz);
+  function show(){
+    if(document.querySelector('.bw-consent'))return;
+    var d=document.createElement('div');d.className='bw-consent';d.setAttribute('role','region');d.setAttribute('aria-label','Cookie choice');
+    d.innerHTML='<p>This site uses Google Analytics cookies to count visits. <a href="/privacy">Privacy</a></p>'+
+      '<div class="bw-consent__btns"><button type="button" data-v="denied">No thanks</button><button type="button" data-v="granted" class="bw-consent__yes">That&rsquo;s fine</button></div>';
+    d.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;set(b.getAttribute('data-v'));d.remove()});
+    document.body.appendChild(d);
+  }
+  if(inEurope&&!get())show();
+  document.querySelectorAll('.bw-consent-reset').forEach(function(b){
+    b.addEventListener('click',function(){try{localStorage.removeItem('bw-consent')}catch(e){}show()});
+  });
+})();
