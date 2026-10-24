@@ -2144,3 +2144,14 @@ main.cs{width:auto;font-family:var(--g-sans)}
 .foot__made{margin:.4rem 0 0;font-size:.9rem;line-height:1.5;color:var(--h-soft)}
 .foot__made a{color:var(--h-text);text-decoration:none;border-bottom:1px solid rgba(11,13,26,.3);display:inline-block;padding:.35rem 0 .1rem}
 .foot__made a:hover,.foot__made a:focus-visible{color:var(--blue);border-color:var(--blue)}
+/* Cookie banner (Europe only) */
+.bw-consent{position:fixed;z-index:60;left:1rem;right:1rem;bottom:1rem;max-width:26rem;margin-left:auto;background:#fff;border:1px solid var(--h-line);border-radius:14px;box-shadow:0 12px 30px -14px rgba(10,20,60,.35);padding:1rem 1.1rem;font:400 .95rem/1.5 'Geist','Helvetica Neue',Arial,sans-serif;color:var(--h-text)}
+.bw-consent p{margin:0 0 .8rem}
+.bw-consent a{color:var(--h-text)}
+.bw-consent__btns{display:flex;gap:.5rem;justify-content:flex-end}
+.bw-consent button{font:inherit;cursor:pointer;border-radius:999px;padding:.55rem 1rem;min-height:44px;border:1px solid var(--h-line);background:#fff;color:var(--h-text)}
+.bw-consent .bw-consent__yes{background:var(--h-text);border-color:var(--h-text);color:#fff}
+.bw-consent button:hover,.bw-consent button:focus-visible{border-color:var(--blue)}
+.bw-consent .bw-consent__yes:hover,.bw-consent .bw-consent__yes:focus-visible{background:var(--blue);border-color:var(--blue)}
+button.c-link{font:inherit;cursor:pointer;background:none}
+.foot__made a+a{margin-left:.8rem}

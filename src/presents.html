@@ -6,6 +6,17 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  // Visitors in the EU, EEA, UK and Switzerland start with analytics cookies off
+  // until they say yes (Consent Mode). Everyone else is counted as usual.
+  gtag('consent', 'default', {
+    analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+    region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    wait_for_update: 500
+  });
+  try {
+    var bwConsent = localStorage.getItem('bw-consent');
+    if (bwConsent) gtag('consent', 'update', { analytics_storage: bwConsent });
+  } catch (e) {}
   gtag('js', new Date());
 
   gtag('config', 'G-NB744JEZ6M');
