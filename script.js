@@ -582,3 +582,18 @@
     im.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}});
   });
 })();
+
+// Design system page: the example components are just for clicking, they don't navigate
+(function(){
+  document.querySelectorAll('.ds-comp a').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault()});
+  });
+  var nav=document.querySelector('.ds-static');
+  if(!nav)return;
+  nav.addEventListener('click',function(e){
+    var a=e.target.closest('a');if(!a)return;
+    if(a.classList.contains('h-pill-nav__hi'))return;
+    nav.querySelectorAll('a').forEach(function(x){x.removeAttribute('aria-current')});
+    a.setAttribute('aria-current','page');
+  });
+})();

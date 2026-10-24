@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design system — Brayden Wisniewski</title>
+<meta name="description" content="The colors, type, and components behind braydenw.com.">
+
+<link rel="canonical" href="https://www.braydenw.com/design-system">
+<meta property="og:url" content="https://www.braydenw.com/design-system">
+<meta property="og:title" content="Design system — Brayden Wisniewski">
+<meta property="og:description" content="The colors, type, and components behind braydenw.com.">
+<meta property="og:image" content="https://www.braydenw.com/images/presents-reveal.jpg">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/images/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+<link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/InstrumentSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:ital,wght@0,300..700;1,300..600&family=Lato:wght@400;700;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Serif:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="no-js v2" data-page="design">
+<script>document.body.classList.remove('no-js');</script>
+
+<a class="skip" href="#idea">Skip to the system</a>
+<!-- @include icons -->
+
+<header class="g-hello">
+  <div class="h-bar" id="h-bar">
+    <a class="h-bar__name" href="/">Brayden Wisniewski</a>
+    <nav class="h-bar__links" aria-label="Sections">
+      <a href="/#work">Work</a>
+      <a href="/about">About</a>
+      <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:brayden@braydenw.com">Say Hello</a>
+    </nav>
+  </div>
+  <div class="g-hello__body">
+    <a class="g-mark g-mark--link" href="/"><span>Brayden</span> <span>Wisniewski</span></a>
+    <p class="g-hey">Designer. People person. Kinda tall.</p>
+    <div class="g-hello__row">
+      <p>UX at SCAD, graduating 2027<br>Open to design roles</p>
+    </div>
+  </div>
+</header>
+
+<nav class="h-pill-nav" id="h-pill-nav" aria-label="Sections, pinned" hidden>
+  <a href="/">Home</a>
+  <a href="/#work">Work</a>
+  <a href="/about">About</a>
+  <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
+  <a class="h-pill-nav__hi" href="mailto:brayden@braydenw.com">Say Hello</a>
+</nav>
+
+<main id="top" class="g-wrap cs ds">
+
+<section class="c-open">
+  <h1>Design system</h1>
+  <p class="c-sum"><b>The pieces behind this site.</b> Every color and text style has its own name, like Brayden Blue, so the case studies, the homepage, and anything new stay consistent.</p>
+  <nav class="ds-toc" aria-label="On this page">
+    <a href="#colors">Colors</a><a href="#type">Type</a><a href="#layout">Layout</a><a href="#shape">Corners &amp; shadows</a><a href="#components">Components</a>
+  </nav>
+</section>
+
+<section class="c-sec" id="colors">
+  <p class="c-label">Colors</p>
+  <h2>A quiet palette with one loud blue.</h2>
+  <ul class="ds-sws">
+    <li class="ds-sw"><span class="ds-sw__chip" style="background:var(--color-savannah-night)"></span><b class="ds-sw__name">Savannah Night</b><span class="ds-sw__hex">#0b0d1a</span><span class="ds-sw__role">Headings, body text, the Say Hello button</span></li><li class="ds-sw"><span class="ds-sw__chip" style="background:var(--color-kiln-smoke)"></span><b class="ds-sw__name">Kiln Smoke</b><span class="ds-sw__hex">#5b5e70</span><span class="ds-sw__role">Summaries, labels, captions</span></li><li class="ds-sw"><span class="ds-sw__chip" style="background:var(--color-brayden-blue)"></span><b class="ds-sw__name">Brayden Blue</b><span class="ds-sw__hex">#1b4dff</span><span class="ds-sw__role">My name, focus rings, button hover</span></li><li class="ds-sw"><span class="ds-sw__chip" style="background:var(--color-pencil-line)"></span><b class="ds-sw__name">Pencil Line</b><span class="ds-sw__hex">rgba(11,13,26,.12)</span><span class="ds-sw__role">Hairlines, outlined links</span></li><li class="ds-sw"><span class="ds-sw__chip" style="background:var(--color-porcelain)"></span><b class="ds-sw__name">Porcelain</b><span class="ds-sw__hex">#e3e6ec</span><span class="ds-sw__role">Edge of tags on cards</span></li><li class="ds-sw"><span class="ds-sw__chip" style="background:var(--color-studio-wall)"></span><b class="ds-sw__name">Studio Wall</b><span class="ds-sw__hex">#f4f5f8</span><span class="ds-sw__role">Image and card backgrounds</span></li><li class="ds-sw"><span class="ds-sw__chip" style="background:var(--color-sketchbook)"></span><b class="ds-sw__name">Sketchbook</b><span class="ds-sw__hex">#ffffff</span><span class="ds-sw__role">Page background</span></li>
+  </ul>
+</section>
+
+<section class="c-sec" id="type">
+  <p class="c-label">Type</p>
+  <h2>Instrument Sans for headlines. Geist for everything else.</h2>
+  <div class="ds-types">
+    <div class="ds-type">
+      <div class="ds-type__meta"><b class="ds-sw__name">Tall Order</b><span>Instrument Sans 600 · clamp, ~42px · -0.035em</span><span class="ds-type__cls">g-mark</span></div>
+      <p class="ds-type__sample" style="font:var(--text-tall-order);letter-spacing:-.035em;color:var(--blue)">Brayden Wisniewski</p>
+    </div>
+    <div class="ds-type">
+      <div class="ds-type__meta"><b class="ds-sw__name">Big Entrance</b><span>Instrument Sans 600 · 72px · -0.035em</span><span class="ds-type__cls">h1</span></div>
+      <p class="ds-type__sample" style="font:var(--text-big-entrance);letter-spacing:-.035em">Opal</p>
+    </div>
+    <div class="ds-type">
+      <div class="ds-type__meta"><b class="ds-sw__name">Idea Stroll</b><span>Instrument Sans 600 · 44.8px · -0.035em</span><span class="ds-type__cls">.c-sec h2</span></div>
+      <p class="ds-type__sample" style="font:var(--text-idea-stroll);letter-spacing:-.035em">Students didn&rsquo;t want stricter blocking.</p>
+    </div>
+    <div class="ds-type">
+      <div class="ds-type__meta"><b class="ds-sw__name">Studio Crit</b><span>Instrument Sans 600 · 31.7px · -0.03em</span><span class="ds-type__cls">.g-p__cap h2</span></div>
+      <p class="ds-type__sample" style="font:var(--text-studio-crit);letter-spacing:-.03em">Design at enterprise speed</p>
+    </div>
+    <div class="ds-type">
+      <div class="ds-type__meta"><b class="ds-sw__name">Opening Line</b><span>Geist 400 · 22.4px · -0.01em</span><span class="ds-type__cls">.c-sum</span></div>
+      <p class="ds-type__sample" style="font:var(--text-opening-line);letter-spacing:-.01em;color:var(--h-soft)">Making focus feel a little easier.</p>
+    </div>
+    <div class="ds-type">
+      <div class="ds-type__meta"><b class="ds-sw__name">Long Chat</b><span>Geist 400 · 18.7px</span><span class="ds-type__cls">.c-body p</span></div>
+      <p class="ds-type__sample" style="font:var(--text-long-chat);color:var(--h-soft)">We surveyed 30 college students.</p>
+    </div>
+    <div class="ds-type">
+      <div class="ds-type__meta"><b class="ds-sw__name">Survey Says</b><span>Geist 400 · 67.2px · -0.04em</span><span class="ds-type__cls">.c-stats dt</span></div>
+      <p class="ds-type__sample" style="font:var(--text-survey-says);letter-spacing:-.04em">27/30</p>
+    </div>
+    <div class="ds-type">
+      <div class="ds-type__meta"><b class="ds-sw__name">Sticky Note</b><span>Geist 400 · 15.2px</span><span class="ds-type__cls">.c-label</span></div>
+      <p class="ds-type__sample" style="font:var(--text-sticky-note);color:var(--h-soft)">The opportunity</p>
+    </div>
+    <div class="ds-type">
+      <div class="ds-type__meta"><b class="ds-sw__name">Name Tag</b><span>Geist 400 · 12.8px</span><span class="ds-type__cls">.g-pills span</span></div>
+      <p class="ds-type__sample" style="font:var(--text-name-tag);">Product Designer</p>
+    </div>
+  </div>
+</section>
+
+<section class="c-sec" id="layout">
+  <p class="c-label">Layout</p>
+  <h2>One column, generous space.</h2>
+  <dl class="c-facts">
+    <div><dt>Max width</dt><dd>110rem</dd></div>
+    <div><dt>Page gutter</dt><dd>16&ndash;40px, scales with the screen</dd></div>
+    <div><dt>Between sections</dt><dd>48&ndash;80px</dd></div>
+    <div><dt>Breakpoints</dt><dd>620px, 1000px</dd></div>
+  </dl>
+</section>
+
+<section class="c-sec" id="shape">
+  <p class="c-label">Corners &amp; shadows</p>
+  <h2>Soft corners, almost no shadow.</h2>
+  <ul class="ds-shapes">
+    <li><span class="ds-shape" style="border-radius:8px"></span><code class="ds-tag">radius/tag</code><span>8px &middot; tags</span></li>
+    <li><span class="ds-shape" style="border-radius:10px"></span><code class="ds-tag">radius/card</code><span>10px &middot; cards, images</span></li>
+    <li><span class="ds-shape" style="border-radius:999px"></span><code class="ds-tag">radius/pill</code><span>Full &middot; nav, buttons</span></li>
+    <li><span class="ds-shape" style="border-radius:999px;background:rgba(255,255,255,.8);box-shadow:0 12px 30px -14px rgba(10,20,60,.35);border:1px solid rgba(11,13,26,.12)"></span><code class="ds-tag">shadow/float</code><span>Only on the pinned nav</span></li>
+  </ul>
+</section>
+
+<section class="c-sec c-sec--end" id="components">
+  <p class="c-label">Components</p>
+  <h2>Everything here is the real thing.</h2>
+
+  <div class="ds-comp">
+    <p class="ds-comp__name"><code class="ds-tag">nav/pinned</code> Shows up once you scroll past the header. Try clicking it.</p>
+    <nav class="h-pill-nav ds-static" aria-label="Example navigation">
+      <a href="#" role="button" aria-current="page">Home</a><a href="#" role="button">Work</a><a href="#" role="button">About</a><a class="h-pill-nav__hi" href="#" role="button">Say Hello</a>
+    </nav>
+  </div>
+
+  <div class="ds-comp">
+    <p class="ds-comp__name"><code class="ds-tag">tag</code> Role and result on project cards.</p>
+    <span class="g-pills ds-left"><span>Product Designer</span><span>Indigo Design Award</span></span>
+  </div>
+
+  <div class="ds-comp">
+    <p class="ds-comp__name"><code class="ds-tag">link/inline</code> and <code class="ds-tag">link/outlined</code></p>
+    <p class="ds-row"><a class="c-link" href="#">Indigo Design Award</a></p>
+    <p class="c-links"><a class="c-link" href="#">Try the demo at bepresents.org &#8599;</a></p>
+  </div>
+
+  <div class="ds-comp">
+    <p class="ds-comp__name"><code class="ds-tag">facts</code> The row under every case study title.</p>
+    <dl class="c-facts">
+      <div><dt>Role</dt><dd>Product Designer</dd></div>
+      <div><dt>Team</dt><dd>3 designers</dd></div>
+      <div><dt>Timeline</dt><dd>10 weeks, 2025</dd></div>
+    </dl>
+  </div>
+
+  <div class="ds-comp">
+    <p class="ds-comp__name"><code class="ds-tag">stats</code> Big numbers with a short line under each.</p>
+    <dl class="c-stats c-stats--3">
+      <div><dt>27/30</dt><dd>struggled with procrastination</dd></div>
+      <div><dt>21/30</dt><dd>were distracted by their phones</dd></div>
+      <div><dt>61%</dt><dd>had never used a focus app</dd></div>
+    </dl>
+  </div>
+
+  <div class="ds-comp">
+    <p class="ds-comp__name"><code class="ds-tag">list/points</code> A bold lead and one line.</p>
+    <ul class="c-probs">
+      <li><b>The app picks</b><span>Shuffle lands on a photo, video, voice note, doodle, or a few words.</span></li>
+      <li><b>Start in person</b><span>Hold your phones close to make the group. No accounts.</span></li>
+    </ul>
+  </div>
+
+  <div class="ds-comp">
+    <p class="ds-comp__name"><code class="ds-tag">card/project</code> Image, title, one line, two tags.</p>
+    <div class="c-more__grid ds-one">
+      <a class="g-p g-p--work cs-card" href="#">
+        <div class="g-p__media">
+        <img class="hero-vid" src="/images/hero-presents-P.jpg" width="1280" height="1200" loading="lazy" alt="The Presents shuffle screen: a soft glow of color behind the five-dot mark, with a Shuffle button below">
+        </div>
+        <div class="g-p__cap"><h2>Presents</h2><p>A private time capsule for a small group of friends.</p><span class="g-pills"><span>Designer &amp; iOS build</span><span>SVSD Design Sprint</span></span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- @include foot -->
+
+<script src="script.js"></script>
+</body>
+</html>

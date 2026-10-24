@@ -2119,6 +2119,57 @@ main.cs{width:auto;font-family:var(--g-sans)}
 .c-zoom::backdrop{background:rgba(10,12,20,.82)}
 .c-zoom img{display:block;width:100%;height:auto;max-height:92vh;object-fit:contain;border-radius:12px;cursor:zoom-out}
 [data-page="presents"] .c-shot img{cursor:zoom-in}
+/* Design system page */
+.ds-tag{font:500 .78rem/1 'Geist Mono',ui-monospace,Menlo,monospace;color:var(--blue);background:var(--blue-wash);border-radius:6px;padding:.3rem .45rem;white-space:nowrap}
+.ds-toc{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem}
+.ds-toc a{color:var(--h-text);text-decoration:none;border:1px solid var(--h-line);border-radius:999px;padding:.45rem .9rem;font-size:.95rem}
+.ds-toc a:hover{border-color:var(--h-text)}
+.ds-sws{list-style:none;margin:2.5rem 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:2rem 1.5rem}
+.ds-sw{display:grid;gap:.45rem;justify-items:start}
+.ds-sw__chip{width:100%;aspect-ratio:3/2;border-radius:10px;box-shadow:inset 0 0 0 1px rgba(11,13,26,.08)}
+.ds-sw__hex{font:400 .85rem/1.3 'Geist Mono',ui-monospace,Menlo,monospace;color:var(--h-text)}
+.ds-sw__role{font-size:.9rem;line-height:1.4;color:var(--h-soft)}
+.ds-types{margin-top:2.5rem;border-top:1px solid var(--h-line)}
+.ds-type{display:grid;grid-template-columns:minmax(12rem,16rem) 1fr;gap:1.5rem;align-items:center;padding:1.6rem 0;border-bottom:1px solid var(--h-line)}
+.ds-type__meta{display:grid;gap:.4rem;justify-items:start;font-size:.85rem;color:var(--h-soft)}
+.ds-type__cls{font-family:'Geist Mono',ui-monospace,Menlo,monospace;font-size:.78rem}
+.ds-type__sample{margin:0;color:var(--h-text);overflow-wrap:anywhere}
+.ds-shapes{list-style:none;margin:2.5rem 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(12rem,1fr));gap:2rem 1.5rem}
+.ds-shapes li{display:grid;gap:.45rem;justify-items:start;font-size:.9rem;color:var(--h-soft)}
+.ds-shape{width:100%;height:4.5rem;background:var(--h-fill);display:block}
+.ds-comp{margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--h-line)}
+.ds-comp__name{margin:0 0 1.4rem;font-size:.95rem;color:var(--h-soft);display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.ds-static{position:static!important;display:inline-flex!important;transform:none!important;opacity:1!important;visibility:visible!important}
+.ds .g-pills.ds-left{justify-content:flex-start}
+.ds-row{margin:0 0 1rem}
+.ds-one{grid-template-columns:minmax(0,26rem)!important}
+@media (max-width:620px){.ds-type{grid-template-columns:1fr;gap:.8rem}.ds-type__sample{font-size:min(100%,2.2rem)}}
+.ds .g-pills.ds-left span{background:#fff;color:var(--h-text);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 0 0 1px #e3e6ec;font-size:.8rem;padding:.35rem .6rem}
+
+/* Design tokens. Named versions of the values the site already uses; the
+   design system page (/design-system) documents them. */
+:root{
+  --color-savannah-night:#0b0d1a;
+  --color-kiln-smoke:#5b5e70;
+  --color-brayden-blue:#1b4dff;
+  --color-pencil-line:rgba(11,13,26,.12);
+  --color-porcelain:#e3e6ec;
+  --color-studio-wall:#f4f5f8;
+  --color-sketchbook:#fff;
+  --text-tall-order:600 2.61rem/1 'Instrument Sans','Helvetica Neue',Arial,sans-serif;
+  --text-big-entrance:600 4.5rem/1 'Instrument Sans','Helvetica Neue',Arial,sans-serif;
+  --text-idea-stroll:600 2.8rem/1.08 'Instrument Sans','Helvetica Neue',Arial,sans-serif;
+  --text-studio-crit:600 1.98rem/1.02 'Instrument Sans','Helvetica Neue',Arial,sans-serif;
+  --text-opening-line:400 1.4rem/1.5 'Geist','Helvetica Neue',Arial,sans-serif;
+  --text-long-chat:400 1.17rem/1.6 'Geist','Helvetica Neue',Arial,sans-serif;
+  --text-survey-says:400 4.2rem/1 'Geist','Helvetica Neue',Arial,sans-serif;
+  --text-sticky-note:400 .95rem/1.65 'Geist','Helvetica Neue',Arial,sans-serif;
+  --text-name-tag:400 .8rem/1.2 'Geist','Helvetica Neue',Arial,sans-serif;
+}
+.ds-sw__name{font:600 1.05rem/1.2 'Instrument Sans','Helvetica Neue',Arial,sans-serif;letter-spacing:-.02em;color:var(--h-text);margin-top:.2rem}
+.foot__made{margin:.4rem 0 0;font-size:.9rem;line-height:1.5;color:var(--h-soft)}
+.foot__made a{color:var(--h-text);text-decoration:none;border-bottom:1px solid rgba(11,13,26,.3);display:inline-block;padding:.35rem 0 .1rem}
+.foot__made a:hover,.foot__made a:focus-visible{color:var(--blue);border-color:var(--blue)}
 
 </style>
 </head>
@@ -2258,6 +2309,7 @@ main.cs{width:auto;font-family:var(--g-sans)}
     <span>&copy; <span id="year">2026</span> Brayden Wisniewski</span>
     <a class="foot__top" href="#top">Back to top <span aria-hidden="true">&uarr;</span></a>
   </div>
+  <p class="foot__made">Website designed in Figma, built with Claude, and hosted on GitHub. <a href="/design-system">Check out my Design System!</a></p>
 </footer>
 
 <script>
@@ -2843,6 +2895,21 @@ main.cs{width:auto;font-family:var(--g-sans)}
     function open(){big.src=im.src;big.alt=im.alt;d.showModal()}
     im.addEventListener('click',open);
     im.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}});
+  });
+})();
+
+// Design system page: the example components are just for clicking, they don't navigate
+(function(){
+  document.querySelectorAll('.ds-comp a').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault()});
+  });
+  var nav=document.querySelector('.ds-static');
+  if(!nav)return;
+  nav.addEventListener('click',function(e){
+    var a=e.target.closest('a');if(!a)return;
+    if(a.classList.contains('h-pill-nav__hi'))return;
+    nav.querySelectorAll('a').forEach(function(x){x.removeAttribute('aria-current')});
+    a.setAttribute('aria-current','page');
   });
 })();
 
