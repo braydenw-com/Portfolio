@@ -31,6 +31,7 @@ PAGES = {'page.html':  'index.html',
          'presents.html': 'presents/index.html',
          'design.html': 'design-system/index.html',
          'privacy.html': 'privacy/index.html',
+         '404.html': '404.html',
          'ibm.html':   'ibm/index.html'}
 
 

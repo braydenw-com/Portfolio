@@ -2206,6 +2206,15 @@ main.cs{width:auto;font-family:var(--g-sans)}
 .bw-consent .bw-consent__yes:hover,.bw-consent .bw-consent__yes:focus-visible{background:var(--blue);border-color:var(--blue)}
 button.c-link{font:inherit;cursor:pointer;background:none}
 .foot__made a+a{margin-left:.8rem}
+/* 404 */
+.nf{min-height:60vh}
+.nf__code{margin:0 0 .5rem;font:600 clamp(6rem,22vw,14rem)/.85 'Instrument Sans','Helvetica Neue',Arial,sans-serif;letter-spacing:-.06em;color:var(--blue);display:inline-block;transform-origin:50% 90%;animation:nf-wobble 3.2s var(--ease) infinite}
+@keyframes nf-wobble{0%,70%,100%{transform:rotate(0)}76%{transform:rotate(-6deg)}84%{transform:rotate(4deg)}92%{transform:rotate(-2deg)}}
+@media (prefers-reduced-motion:reduce){.nf__code{animation:none}}
+.nf h1{max-width:18ch}
+.nf__links{display:flex;flex-wrap:wrap;gap:.6rem}
+.nf__links .nf__home{background:var(--h-text);color:#fff;border-color:var(--h-text)}
+.nf__links .nf__home:hover,.nf__links .nf__home:focus-visible{background:var(--blue);border-color:var(--blue)}
 
 </style>
 </head>
