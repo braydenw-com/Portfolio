@@ -108,9 +108,28 @@ const wallMat=new THREE.MeshStandardMaterial({map:plaster,bumpMap:plasterBump,bu
 const wall=new THREE.Mesh(new THREE.PlaneGeometry(8,4.5),wallMat);wall.position.set(0,1.25,0);wall.receiveShadow=true;scene.add(wall);
 const side=new THREE.Mesh(new THREE.PlaneGeometry(6,4.5),wallMat.clone());side.rotation.y=Math.PI/2;side.position.set(-2.2,1.25,2.5);side.receiveShadow=true;scene.add(side);
 const floor=new THREE.Mesh(new THREE.PlaneGeometry(8,6),new THREE.MeshStandardMaterial({map:planks,roughness:.55,metalness:0}));floor.rotation.x=-Math.PI/2;floor.position.set(0,-1,3);floor.receiveShadow=true;scene.add(floor);
-const sky=new THREE.Mesh(new THREE.PlaneGeometry(1.1,1.5),new THREE.MeshBasicMaterial({color:'#9fd0ff'}));sky.rotation.y=Math.PI/2;sky.position.set(-2.19,1.2,1.4);scene.add(sky);
-const frameMat=new THREE.MeshStandardMaterial({color:'#3a2a1c',roughness:.7});
-[[1.2,.06,0,.78],[1.2,.06,0,-.78],[.06,1.6,.58,0],[.06,1.6,-.58,0],[1.2,.04,0,0],[.04,1.6,0,0]].forEach(([w,h,z,y])=>{const m=new THREE.Mesh(new THREE.BoxGeometry(.06,h,w),frameMat);m.position.set(-2.17,1.2+y,1.4+z);m.castShadow=true;scene.add(m)});
+// A window on the back wall, left of the clock: sky behind glass, a painted frame and a sill
+const sky=new THREE.Mesh(new THREE.PlaneGeometry(.62,.9),new THREE.MeshBasicMaterial({color:'#9fd0ff'}));sky.position.set(-1.38,.55,.004);scene.add(sky);
+const frameMat=new THREE.MeshStandardMaterial({color:'#f1ece4',roughness:.6});
+[[.74,.06,0,.48],[.74,.06,0,-.48],[.06,1.02,-.34,0],[.06,1.02,.34,0],[.7,.03,0,0],[.03,.96,0,0]].forEach(([w,h,x,y])=>{const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,.05),frameMat);m.position.set(-1.38+x,.55+y,.025);m.castShadow=m.receiveShadow=true;scene.add(m)});
+const sill=new THREE.Mesh(new THREE.BoxGeometry(.86,.035,.14),frameMat);sill.position.set(-1.38,.04,.07);sill.castShadow=sill.receiveShadow=true;scene.add(sill);
+// A small succulent on the sill
+const pot=new THREE.Mesh(new THREE.CylinderGeometry(.05,.04,.08,24),new THREE.MeshStandardMaterial({color:'#c46a3c',roughness:.8}));pot.position.set(-1.2,.098,.08);pot.castShadow=true;scene.add(pot);
+const leafMat=new THREE.MeshStandardMaterial({color:'#5f8a4c',roughness:.6});
+for(let k=0;k<9;k++){const a=k/9*Math.PI*2,lf=new THREE.Mesh(new THREE.SphereGeometry(.03,12,8),leafMat);lf.scale.set(.6,1.4,.6);lf.position.set(-1.2+Math.cos(a)*.03,.16+(k%3)*.012,.08+Math.sin(a)*.03);lf.rotation.set(Math.sin(a)*.6,0,-Math.cos(a)*.6);lf.castShadow=true;scene.add(lf)}
+// A gallery of framed photos from Brayden's projects on the right
+const loader=new THREE.TextureLoader();
+const photo=(src,w,h,x,y)=>{const g=new THREE.Group();g.position.set(x,y,.02);scene.add(g);
+  const f=new THREE.Mesh(new THREE.BoxGeometry(w+.05,h+.05,.025),new THREE.MeshStandardMaterial({color:'#1c1a18',roughness:.45}));f.castShadow=true;g.add(f);
+  const mat=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshStandardMaterial({color:'#f6f2ea',roughness:.9}));mat.position.z=.0135;g.add(mat);
+  const t=loader.load(src);t.colorSpace=THREE.SRGBColorSpace;const ph=new THREE.Mesh(new THREE.PlaneGeometry(w*.78,h*.78),new THREE.MeshStandardMaterial({map:t,roughness:.5}));ph.position.z=.0145;g.add(ph);
+  g.rotation.z=(Math.random()-.5)*.012};
+photo('../../coding-class/media/s1.jpeg',.42,.32,1.12,.78);
+photo('../../coding-class/media/s4.jpeg',.3,.3,1.56,.78);
+photo('../../coding-class/media/s2.jpeg',.56,.42,1.3,.33);
+// A light switch beside the clock
+const plate=new THREE.Mesh(new THREE.BoxGeometry(.07,.11,.01),new THREE.MeshStandardMaterial({color:'#f4f1ec',roughness:.4}));plate.position.set(.92,-.12,.005);plate.castShadow=true;scene.add(plate);
+const toggle=new THREE.Mesh(new THREE.BoxGeometry(.018,.035,.015),new THREE.MeshStandardMaterial({color:'#f4f1ec',roughness:.4}));toggle.position.set(.92,-.12,.014);scene.add(toggle);
 
 // Lights: hemisphere fill, sun through the window (casts the clock's shadow), and a warm table lamp for the evening
 const hemi=new THREE.HemisphereLight('#cfe3ff','#3a2a1c',.35);scene.add(hemi);
@@ -118,11 +137,11 @@ const sun=new THREE.DirectionalLight('#fff3dd',2);sun.position.set(-4,2.6,2.2);s
 sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-3;sun.shadow.camera.right=3;sun.shadow.camera.top=3;sun.shadow.camera.bottom=-3;sun.shadow.bias=-.0004;sun.shadow.radius=6;
 const lamp=new THREE.PointLight('#ffb36b',0,0,1.6);lamp.position.set(1.6,-.2,1.2);lamp.castShadow=true;lamp.shadow.mapSize.set(1024,1024);scene.add(lamp);
 // The lamp itself: a fabric shade on a brass stem, sitting on a small side table
-const shade=new THREE.Mesh(new THREE.CylinderGeometry(.16,.24,.3,48,1,true),new THREE.MeshStandardMaterial({color:'#efe3cf',emissive:'#ffb36b',emissiveIntensity:0,side:THREE.DoubleSide,roughness:1}));shade.position.set(1.6,-.15,1.2);scene.add(shade);
+const shade=new THREE.Mesh(new THREE.CylinderGeometry(.16,.24,.3,48,1,true),new THREE.MeshStandardMaterial({color:'#efe3cf',emissive:'#ffb36b',emissiveIntensity:0,side:THREE.DoubleSide,roughness:1}));shade.position.set(1.6,-.15,1.2);
 const brass=new THREE.MeshStandardMaterial({color:'#b08a4a',metalness:1,roughness:.3,envMap:envTex,envMapIntensity:.6});
-const stem=new THREE.Mesh(new THREE.CylinderGeometry(.015,.015,.5,16),brass);stem.position.set(1.6,-.5,1.2);stem.castShadow=true;scene.add(stem);
-const table=new THREE.Mesh(new THREE.CylinderGeometry(.3,.3,.04,48),new THREE.MeshStandardMaterial({map:walnut,roughness:.4}));table.position.set(1.6,-.75,1.2);table.castShadow=table.receiveShadow=true;scene.add(table);
-const leg=new THREE.Mesh(new THREE.CylinderGeometry(.03,.05,.25,16),brass);leg.position.set(1.6,-.88,1.2);scene.add(leg);
+const stem=new THREE.Mesh(new THREE.CylinderGeometry(.015,.015,.5,16),brass);stem.position.set(1.6,-.5,1.2);stem.castShadow=true;
+const table=new THREE.Mesh(new THREE.CylinderGeometry(.3,.3,.04,48),new THREE.MeshStandardMaterial({map:walnut,roughness:.4}));table.position.set(1.6,-.75,1.2);table.castShadow=table.receiveShadow=true;
+const leg=new THREE.Mesh(new THREE.CylinderGeometry(.03,.05,.25,16),brass);leg.position.set(1.6,-.88,1.2);
 
 // The clock: rounded walnut case, recessed face, glass front, a wire to a nail
 const clock=new THREE.Group();clock.position.set(0,.35,.06);scene.add(clock);
