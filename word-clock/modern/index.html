@@ -47,19 +47,16 @@ body{font-family:'Open Sans',Arial,sans-serif;overflow:hidden;background:#000}
   <button type="button" id="tick" aria-pressed="false">Ticking sound</button>
   <button type="button" id="now">Back to now</button>
 </div>
-<script src="three/three.min.js"></script>
-<script src="three/CopyShader.js"></script>
-<script src="three/LuminosityHighPassShader.js"></script>
-<script src="three/EffectComposer.js"></script>
-<script src="three/RenderPass.js"></script>
-<script src="three/ShaderPass.js"></script>
-<script src="three/MaskPass.js"></script>
-<script src="three/UnrealBloomPass.js"></script>
-<script src="three/RoundedBoxGeometry.js"></script>
-<script src="three/RoomEnvironment.js"></script>
-<script src="three/BokehShader.js"></script>
-<script src="three/BokehPass.js"></script>
-<script>
+<script type="importmap">{"imports":{"three":"./three/build/three.module.js","three/addons/":"./three/addons/"}}</script>
+<script type="module">
+import * as T from 'three';
+import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
+import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
+import {UnrealBloomPass} from 'three/addons/postprocessing/UnrealBloomPass.js';
+import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
+import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+const THREE={...T,EffectComposer,RenderPass,UnrealBloomPass,OutputPass,RoundedBoxGeometry,RoomEnvironment};
 // ─── Word logic (same grid as the class version) ───
 const ROWS=["ITAISBTENTWENTYC","THIRTYFORTYFIFTY","PASTDTOETWONEFNI","THREEFOURFIVESIX","SEVENINEIGHTENRE","ELEVENTWELVEBROI","MIDNIGHTIINITHEM","MORNINGAFTERNOON","EVENINGNIGHTEBCT"];
 const W={IT:[0,0,2],IS:[0,3,2],M10:[0,6,3],M20:[0,9,6],M30:[1,0,6],M40:[1,6,5],M50:[1,11,5],PAST:[2,0,4],
@@ -69,7 +66,7 @@ function words(h,mm){let m=Math.round(mm/10)*10;if(m===60){m=0;h=(h+1)%24}const 
   if(h===0){o.push('MIDNIGHT');return o}o.push('H'+(h%12||12),'IN','THE',h>=5&&h<12?'MORNING':h>=12&&h<17?'AFTERNOON':h>=17&&h<21?'EVENING':'NIGHT');return o}
 
 // ─── Procedural textures (no image files) ───
-function canvasTex(w,h,draw,repeat){const c=document.createElement('canvas');c.width=w;c.height=h;draw(c.getContext('2d'),w,h);const t=new THREE.CanvasTexture(c);t.encoding=THREE.sRGBEncoding;t.anisotropy=8;if(repeat){t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(...repeat)}return t}
+function canvasTex(w,h,draw,repeat){const c=document.createElement('canvas');c.width=w;c.height=h;draw(c.getContext('2d'),w,h);const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=8;if(repeat){t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(...repeat)}return t}
 const rnd=(a,b)=>a+Math.random()*(b-a);
 const walnut=canvasTex(1024,1024,(g,w,h)=>{g.fillStyle='#4a2c18';g.fillRect(0,0,w,h);
   for(let i=0;i<260;i++){const y=rnd(0,h),a=rnd(4,40),f=rnd(.002,.01),ph=rnd(0,6);g.strokeStyle=`rgba(${rnd(20,40)|0},${rnd(10,22)|0},${rnd(5,12)|0},${rnd(.08,.3)})`;g.lineWidth=rnd(1,5);g.beginPath();
@@ -83,8 +80,8 @@ const planks=canvasTex(1024,1024,(g,w,h)=>{for(let i=0;i<8;i++){const y=i*h/8,ba
 
 // The face: letters drawn to a canvas. The same canvas drives the colour map and the glow (emissive) map.
 const CELL=128,face=document.createElement('canvas');face.width=16*CELL;face.height=9*CELL;
-const fg=face.getContext('2d'),faceTex=new THREE.CanvasTexture(face);faceTex.encoding=THREE.sRGBEncoding;faceTex.anisotropy=8;
-const glowC=document.createElement('canvas');glowC.width=face.width;glowC.height=face.height;const gg=glowC.getContext('2d');const glowTex=new THREE.CanvasTexture(glowC);glowTex.encoding=THREE.sRGBEncoding;
+const fg=face.getContext('2d'),faceTex=new THREE.CanvasTexture(face);faceTex.colorSpace=THREE.SRGBColorSpace;faceTex.anisotropy=8;
+const glowC=document.createElement('canvas');glowC.width=face.width;glowC.height=face.height;const gg=glowC.getContext('2d');const glowTex=new THREE.CanvasTexture(glowC);glowTex.colorSpace=THREE.SRGBColorSpace;
 let led='#ffb35c';
 function paintFace(lit){
   fg.fillStyle='#070708';fg.fillRect(0,0,face.width,face.height);
@@ -92,14 +89,14 @@ function paintFace(lit){
   fg.font=gg.font=`700 ${CELL*.56}px "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif`;fg.textAlign=gg.textAlign='center';fg.textBaseline=gg.textBaseline='middle';
   ROWS.forEach((r,y)=>[...r].forEach((ch,x)=>{const cx=(x+.5)*CELL,cy=(y+.5)*CELL,on=lit.has(y*16+x);
     fg.fillStyle=on?led:'#2a2826';fg.fillText(ch,cx,cy);
-    if(on){gg.shadowColor=led;gg.shadowBlur=26;gg.fillStyle=led;gg.fillText(ch,cx,cy);gg.shadowBlur=0}}));
+    if(on){gg.shadowColor=led;gg.shadowBlur=10;gg.fillStyle=led;gg.fillText(ch,cx,cy);gg.shadowBlur=0}}));
   faceTex.needsUpdate=glowTex.needsUpdate=true;
 }
 
 // ─── Scene ───
 const renderer=new THREE.WebGLRenderer({antialias:true});
 renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(innerWidth,innerHeight);
-renderer.outputEncoding=THREE.sRGBEncoding;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.1;
+renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.1;
 renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
 document.getElementById('stage').appendChild(renderer.domElement);
 const scene=new THREE.Scene();
@@ -119,7 +116,7 @@ const frameMat=new THREE.MeshStandardMaterial({color:'#3a2a1c',roughness:.7});
 const hemi=new THREE.HemisphereLight('#cfe3ff','#3a2a1c',.35);scene.add(hemi);
 const sun=new THREE.DirectionalLight('#fff3dd',2);sun.position.set(-4,2.6,2.2);sun.target.position.set(0,.2,0);scene.add(sun,sun.target);
 sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-3;sun.shadow.camera.right=3;sun.shadow.camera.top=3;sun.shadow.camera.bottom=-3;sun.shadow.bias=-.0004;sun.shadow.radius=6;
-const lamp=new THREE.PointLight('#ffb36b',0,6,2);lamp.position.set(1.6,-.2,1.2);lamp.castShadow=true;lamp.shadow.mapSize.set(1024,1024);scene.add(lamp);
+const lamp=new THREE.PointLight('#ffb36b',0,0,1.6);lamp.position.set(1.6,-.2,1.2);lamp.castShadow=true;lamp.shadow.mapSize.set(1024,1024);scene.add(lamp);
 // The lamp itself: a fabric shade on a brass stem, sitting on a small side table
 const shade=new THREE.Mesh(new THREE.CylinderGeometry(.16,.24,.3,48,1,true),new THREE.MeshStandardMaterial({color:'#efe3cf',emissive:'#ffb36b',emissiveIntensity:0,side:THREE.DoubleSide,roughness:1}));shade.position.set(1.6,-.15,1.2);scene.add(shade);
 const brass=new THREE.MeshStandardMaterial({color:'#b08a4a',metalness:1,roughness:.3,envMap:envTex,envMapIntensity:.6});
@@ -143,17 +140,8 @@ const nail=new THREE.Mesh(new THREE.SphereGeometry(.012,16,16),brass);nail.posit
 
 // Bloom makes the lit letters glow like real LEDs behind glass
 const composer=new THREE.EffectComposer(renderer);composer.addPass(new THREE.RenderPass(scene,camera));
-const bloom=new THREE.UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight),.9,.5,.82);composer.addPass(bloom);
-const dof=new THREE.BokehPass(scene,camera,{focus:3.6,aperture:.0006,maxblur:.004});composer.addPass(dof);
-const grade=new THREE.ShaderPass({uniforms:{tDiffuse:{value:null},uTime:{value:0},uExposure:{value:1.1}},
-  vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
-  fragmentShader:`uniform sampler2D tDiffuse;uniform float uTime,uExposure;varying vec2 vUv;
-    vec3 aces(vec3 x){return clamp((x*(2.51*x+.03))/(x*(2.43*x+.59)+.14),0.,1.);}
-    float h(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}
-    void main(){vec3 c=texture2D(tDiffuse,vUv).rgb*uExposure;c=aces(c);c=pow(c,vec3(1./2.2));
-      float v=smoothstep(1.15,.35,length(vUv-.5)*1.25);c*=mix(.72,1.,v);
-      c+=(h(vUv*1000.+uTime)-.5)*.035;gl_FragColor=vec4(c,1.);}`});
-composer.addPass(grade);
+const bloom=new THREE.UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight),.45,.35,.9);composer.addPass(bloom);
+composer.addPass(new THREE.OutputPass());
 
 // ─── Time of day → lighting ───
 // [hour, sky, sun colour, sun strength, sun height, hemi strength, lamp strength, exposure, led]
@@ -162,8 +150,8 @@ const KEYS=[[0,'#0a1030',"#9fb4ff",.15,.4,.08,1.6,.9,'#9fc2ff'],[6,'#ffb38a','#f
 const C=new THREE.Color(),C2=new THREE.Color();
 const lerpC=(a,b,t)=>C.set(a).lerp(C2.set(b),t).getStyle();
 function light(h){let i=0;while(KEYS[i+1][0]<=h)i++;const a=KEYS[i],b=KEYS[i+1],t=(h-a[0])/(b[0]-a[0]),L=(k)=>a[k]+(b[k]-a[k])*t;
-  sky.material.color.set(lerpC(a[1],b[1],t));sun.color.set(lerpC(a[2],b[2],t));sun.intensity=L(3);sun.position.y=L(4);
-  hemi.intensity=L(5);lamp.intensity=L(6);shade.material.emissiveIntensity=L(6)*.6;grade.uniforms.uExposure.value=L(7);
+  sky.material.color.set(lerpC(a[1],b[1],t));sun.color.set(lerpC(a[2],b[2],t));sun.intensity=L(3)*2.2;sun.position.y=L(4);
+  hemi.intensity=L(5)*3;lamp.intensity=L(6)*6;shade.material.emissiveIntensity=L(6)*.6;renderer.toneMappingExposure=L(7);
   const nl=lerpC(a[8],b[8],t);if(nl!==led){led=nl;return true}return false}
 
 // ─── Clock state, controls and sound (same behaviour as before) ───
@@ -186,7 +174,7 @@ el.addEventListener('pointerdown',e=>{stop();dragging=true;el.setPointerCapture(
 el.addEventListener('pointermove',e=>{px=e.clientX/innerWidth-.5;py=e.clientY/innerHeight-.5;if(dragging)at(e)});
 el.addEventListener('pointerup',()=>dragging=false);
 
-function resize(){const a=innerWidth/innerHeight;camera.aspect=a;camera.fov=a<1?48:30;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);composer.setSize(innerWidth,innerHeight)}
+function resize(){const a=innerWidth/innerHeight;camera.aspect=a;camera.fov=a<1?52:34;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);composer.setSize(innerWidth,innerHeight)}
 addEventListener('resize',resize);resize();
 const still=matchMedia('(prefers-reduced-motion:reduce)').matches;
 const cam=new THREE.Vector3(.15,.3,3.7);
@@ -196,7 +184,7 @@ const cam=new THREE.Vector3(.15,.3,3.7);
   cam.x+=(tx-cam.x)*.04;cam.y+=(ty-cam.y)*.04;cam.z+=(z-cam.z)*.04;
   camera.position.copy(cam);camera.lookAt(0,.3,0);
   clock.rotation.z=still?0:Math.sin(t*.0007)*.004; // the faintest sway on its wire
-  grade.uniforms.uTime.value=t*.001%10;dof.uniforms.focus.value=camera.position.distanceTo(clock.position);composer.render();requestAnimationFrame(loop)})(0);
+  composer.render();requestAnimationFrame(loop)})(0);
 update();
 document.fonts&&document.fonts.ready.then(()=>{last='';update()});
 </script>
