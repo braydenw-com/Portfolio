@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Word Clock</title>
+<title>Word Clock · Gate B12</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:wght@400;600&display=swap">
 <style>
 *{box-sizing:border-box}
@@ -41,10 +41,10 @@ body{font-family:'Open Sans',Arial,sans-serif;overflow:hidden;background:#000}
 <div class="cmp" id="cmp" hidden><iframe title="Original 2024 version"></iframe><span class="tag t1">2024</span><span class="tag t2">2026</span><div class="handle" aria-label="Drag to compare"></div></div>
 <div id="stage"></div>
 <div class="readout" id="readout"></div>
-<div class="tip">Drag left or right to move through the day. Move your mouse to look around.</div>
+<div class="tip">Drag left or right to move through the day. Turn on the sound for the full terminal.</div>
 <div class="controls">
   <button type="button" id="play">▶ Play a day in 20 seconds</button>
-  <button type="button" id="tick" aria-pressed="false">Ticking sound</button>
+  <button type="button" id="tick" aria-pressed="false">🔊 Airport sounds</button>
   <button type="button" id="now">Back to now</button>
 </div>
 <script type="importmap">{"imports":{"three":"./three/build/three.module.js","three/addons/":"./three/addons/"}}</script>
@@ -68,30 +68,6 @@ function words(h,mm){let m=Math.round(mm/10)*10;if(m===60){m=0;h=(h+1)%24}const 
 // ─── Procedural textures (no image files) ───
 function canvasTex(w,h,draw,repeat){const c=document.createElement('canvas');c.width=w;c.height=h;draw(c.getContext('2d'),w,h);const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=8;if(repeat){t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(...repeat)}return t}
 const rnd=(a,b)=>a+Math.random()*(b-a);
-const walnut=canvasTex(1024,1024,(g,w,h)=>{g.fillStyle='#4a2c18';g.fillRect(0,0,w,h);
-  for(let i=0;i<260;i++){const y=rnd(0,h),a=rnd(4,40),f=rnd(.002,.01),ph=rnd(0,6);g.strokeStyle=`rgba(${rnd(20,40)|0},${rnd(10,22)|0},${rnd(5,12)|0},${rnd(.08,.3)})`;g.lineWidth=rnd(1,5);g.beginPath();
-    for(let x=0;x<=w;x+=8)g.lineTo(x,y+Math.sin(x*f+ph)*a+Math.sin(x*f*3.1)*a*.2);g.stroke()}
-  for(let i=0;i<6;i++){const x=rnd(0,w),y=rnd(0,h);for(let r=4;r<60;r+=5){g.strokeStyle='rgba(25,12,5,.18)';g.beginPath();g.ellipse(x,y,r*2.2,r,0,0,7);g.stroke()}}});
-const plaster=canvasTex(1024,1024,(g,w,h)=>{g.fillStyle='#d9cfc2';g.fillRect(0,0,w,h);const d=g.getImageData(0,0,w,h);for(let i=0;i<d.data.length;i+=4){const n=rnd(-14,14);d.data[i]+=n;d.data[i+1]+=n;d.data[i+2]+=n}g.putImageData(d,0,0)},[3,2]);
-const plasterBump=canvasTex(512,512,(g,w,h)=>{const d=g.createImageData(w,h);for(let i=0;i<d.data.length;i+=4){const n=rnd(90,165);d.data[i]=d.data[i+1]=d.data[i+2]=n;d.data[i+3]=255}g.putImageData(d,0,0)},[6,4]);
-const planks=canvasTex(1024,1024,(g,w,h)=>{for(let i=0;i<8;i++){const y=i*h/8,base=rnd(70,95);g.fillStyle=`rgb(${base},${base*.62|0},${base*.38|0})`;g.fillRect(0,y,w,h/8);
-  for(let k=0;k<40;k++){g.strokeStyle=`rgba(30,15,5,${rnd(.05,.2)})`;g.beginPath();const yy=y+rnd(0,h/8);g.moveTo(0,yy);g.bezierCurveTo(w*.3,yy+rnd(-6,6),w*.6,yy+rnd(-6,6),w,yy+rnd(-4,4));g.stroke()}
-  g.fillStyle='rgba(0,0,0,.5)';g.fillRect(0,y,w,3);g.fillRect(rnd(0,w),y,3,h/8)}},[4,4]);
-
-// The face: letters drawn to a canvas. The same canvas drives the colour map and the glow (emissive) map.
-const CELL=128,face=document.createElement('canvas');face.width=16*CELL;face.height=9*CELL;
-const fg=face.getContext('2d'),faceTex=new THREE.CanvasTexture(face);faceTex.colorSpace=THREE.SRGBColorSpace;faceTex.anisotropy=8;
-const glowC=document.createElement('canvas');glowC.width=face.width;glowC.height=face.height;const gg=glowC.getContext('2d');const glowTex=new THREE.CanvasTexture(glowC);glowTex.colorSpace=THREE.SRGBColorSpace;
-let led='#ffb35c';
-function paintFace(lit){
-  fg.fillStyle='#070708';fg.fillRect(0,0,face.width,face.height);
-  gg.fillStyle='#000';gg.fillRect(0,0,glowC.width,glowC.height);
-  fg.font=gg.font=`700 ${CELL*.56}px "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif`;fg.textAlign=gg.textAlign='center';fg.textBaseline=gg.textBaseline='middle';
-  ROWS.forEach((r,y)=>[...r].forEach((ch,x)=>{const cx=(x+.5)*CELL,cy=(y+.5)*CELL,on=lit.has(y*16+x);
-    fg.fillStyle=on?led:'#2a2826';fg.fillText(ch,cx,cy);
-    if(on){gg.shadowColor=led;gg.shadowBlur=10;gg.fillStyle=led;gg.fillText(ch,cx,cy);gg.shadowBlur=0}}));
-  faceTex.needsUpdate=glowTex.needsUpdate=true;
-}
 
 // ─── Scene ───
 const renderer=new THREE.WebGLRenderer({antialias:true});
@@ -101,61 +77,119 @@ renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
 document.getElementById('stage').appendChild(renderer.domElement);
 const scene=new THREE.Scene();
 const pmrem=new THREE.PMREMGenerator(renderer);const envTex=pmrem.fromScene(new THREE.RoomEnvironment(),.04).texture; // reflections for the clock only, so the room stays lit by its own lights
-const camera=new THREE.PerspectiveCamera(30,innerWidth/innerHeight,.05,50);
+const camera=new THREE.PerspectiveCamera(30,innerWidth/innerHeight,.05,400);
 
-// Room: back wall, floor, a window on the left wall with sky behind it
-const wallMat=new THREE.MeshStandardMaterial({map:plaster,bumpMap:plasterBump,bumpScale:.004,roughness:.95});
-const wall=new THREE.Mesh(new THREE.PlaneGeometry(8,4.5),wallMat);wall.position.set(0,1.25,0);wall.receiveShadow=true;scene.add(wall);
-const side=new THREE.Mesh(new THREE.PlaneGeometry(6,4.5),wallMat.clone());side.rotation.y=Math.PI/2;side.position.set(-2.2,1.25,2.5);side.receiveShadow=true;scene.add(side);
-const floor=new THREE.Mesh(new THREE.PlaneGeometry(8,6),new THREE.MeshStandardMaterial({map:planks,roughness:.55,metalness:0}));floor.rotation.x=-Math.PI/2;floor.position.set(0,-1,3);floor.receiveShadow=true;scene.add(floor);
-// A window on the back wall, left of the clock: sky behind glass, a painted frame and a sill
-const sky=new THREE.Mesh(new THREE.PlaneGeometry(.62,.9),new THREE.MeshBasicMaterial({color:'#9fd0ff'}));sky.position.set(-1.38,.55,.004);scene.add(sky);
-const frameMat=new THREE.MeshStandardMaterial({color:'#f1ece4',roughness:.6});
-[[.74,.06,0,.48],[.74,.06,0,-.48],[.06,1.02,-.34,0],[.06,1.02,.34,0],[.7,.03,0,0],[.03,.96,0,0]].forEach(([w,h,x,y])=>{const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,.05),frameMat);m.position.set(-1.38+x,.55+y,.025);m.castShadow=m.receiveShadow=true;scene.add(m)});
-const sill=new THREE.Mesh(new THREE.BoxGeometry(.86,.035,.14),frameMat);sill.position.set(-1.38,.04,.07);sill.castShadow=sill.receiveShadow=true;scene.add(sill);
-// A small succulent on the sill
-const pot=new THREE.Mesh(new THREE.CylinderGeometry(.05,.04,.08,24),new THREE.MeshStandardMaterial({color:'#c46a3c',roughness:.8}));pot.position.set(-1.2,.098,.08);pot.castShadow=true;scene.add(pot);
-const leafMat=new THREE.MeshStandardMaterial({color:'#5f8a4c',roughness:.6});
-for(let k=0;k<9;k++){const a=k/9*Math.PI*2,lf=new THREE.Mesh(new THREE.SphereGeometry(.03,12,8),leafMat);lf.scale.set(.6,1.4,.6);lf.position.set(-1.2+Math.cos(a)*.03,.16+(k%3)*.012,.08+Math.sin(a)*.03);lf.rotation.set(Math.sin(a)*.6,0,-Math.cos(a)*.6);lf.castShadow=true;scene.add(lf)}
-// A gallery of framed photos from Brayden's projects on the right
-const loader=new THREE.TextureLoader();
-const photo=(src,w,h,x,y)=>{const g=new THREE.Group();g.position.set(x,y,.02);scene.add(g);
-  const f=new THREE.Mesh(new THREE.BoxGeometry(w+.05,h+.05,.025),new THREE.MeshStandardMaterial({color:'#1c1a18',roughness:.45}));f.castShadow=true;g.add(f);
-  const mat=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshStandardMaterial({color:'#f6f2ea',roughness:.9}));mat.position.z=.0135;g.add(mat);
-  const t=loader.load(src);t.colorSpace=THREE.SRGBColorSpace;const ph=new THREE.Mesh(new THREE.PlaneGeometry(w*.78,h*.78),new THREE.MeshStandardMaterial({map:t,roughness:.5}));ph.position.z=.0145;g.add(ph);
-  g.rotation.z=(Math.random()-.5)*.012};
-photo('../../coding-class/media/s1.jpeg',.42,.32,1.12,.78);
-photo('../../coding-class/media/s4.jpeg',.3,.3,1.56,.78);
-photo('../../coding-class/media/s2.jpeg',.56,.42,1.3,.33);
-// A light switch beside the clock
-const plate=new THREE.Mesh(new THREE.BoxGeometry(.07,.11,.01),new THREE.MeshStandardMaterial({color:'#f4f1ec',roughness:.4}));plate.position.set(.92,-.12,.005);plate.castShadow=true;scene.add(plate);
-const toggle=new THREE.Mesh(new THREE.BoxGeometry(.018,.035,.015),new THREE.MeshStandardMaterial({color:'#f4f1ec',roughness:.4}));toggle.position.set(.92,-.12,.014);scene.add(toggle);
-
+// ─── The terminal: a glass curtain wall onto the apron, polished terrazzo floor, a row of gate seats ───
+const terrazzo=canvasTex(1024,1024,(g,w,h)=>{g.fillStyle='#b9b4ab';g.fillRect(0,0,w,h);
+  for(let i=0;i<9000;i++){const r=rnd(.6,3.2);g.fillStyle=['#8d877d','#d9d4ca','#6f6a62','#c9b79a','#ffffff'][i%5];g.globalAlpha=rnd(.35,.9);g.beginPath();g.arc(rnd(0,w),rnd(0,h),r,0,7);g.fill()}
+  g.globalAlpha=1;g.fillStyle='rgba(60,58,54,.6)';for(let k=0;k<=4;k++){g.fillRect(k*w/4-1,0,2,h);g.fillRect(0,k*h/4-1,w,2)}},[3,3]);
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(10,8),new THREE.MeshStandardMaterial({map:terrazzo,roughness:.18,metalness:0,envMap:envTex,envMapIntensity:.35}));
+floor.rotation.x=-Math.PI/2;floor.position.set(0,-1,3.4);floor.receiveShadow=true;scene.add(floor);
+// outside: sky, a far horizon haze, the tarmac with runway markings and edge lights
+const sky=new THREE.Mesh(new THREE.PlaneGeometry(260,90),new THREE.MeshBasicMaterial({color:'#9fd0ff'}));sky.position.set(0,20,-90);scene.add(sky);
+const haze=new THREE.Mesh(new THREE.PlaneGeometry(260,10),new THREE.MeshBasicMaterial({color:'#ffffff',transparent:true,opacity:.35}));haze.position.set(0,-1,-89);scene.add(haze);
+const tarmac=new THREE.Mesh(new THREE.PlaneGeometry(260,90),new THREE.MeshStandardMaterial({color:'#4a4a4c',roughness:.9}));tarmac.rotation.x=-Math.PI/2;tarmac.position.set(0,-1.3,-45);tarmac.receiveShadow=true;scene.add(tarmac);
+const paint=new THREE.MeshStandardMaterial({color:'#e9e6dc',roughness:.8});
+for(let x=-60;x<60;x+=4){const d=new THREE.Mesh(new THREE.PlaneGeometry(2,.15),paint);d.rotation.x=-Math.PI/2;d.position.set(x,-1.29,-30);scene.add(d)}
+const taxi=new THREE.Mesh(new THREE.PlaneGeometry(200,.12),new THREE.MeshStandardMaterial({color:'#e8b923',roughness:.8}));taxi.rotation.x=-Math.PI/2;taxi.position.set(0,-1.29,-12);scene.add(taxi);
+const edgeLights=new THREE.Group();scene.add(edgeLights);const edgeMat=new THREE.MeshBasicMaterial({color:'#3fa9ff'});
+for(let x=-60;x<60;x+=3)[-26,-34].forEach(z=>{const l=new THREE.Mesh(new THREE.SphereGeometry(.07,8,6),edgeMat);l.position.set(x,-1.25,z);edgeLights.add(l)});
+// a plane that takes off past the window every half minute
+const jet=new THREE.Group();scene.add(jet);const hull=new THREE.MeshStandardMaterial({color:'#f2f2f0',roughness:.4,metalness:.2});
+const fus=new THREE.Mesh(new THREE.CapsuleGeometry(.32,3.6,8,16),hull);fus.rotation.z=Math.PI/2;jet.add(fus);
+const wing=new THREE.Mesh(new THREE.BoxGeometry(.9,.05,4.2),hull);wing.position.set(-.1,-.1,0);wing.rotation.y=.25;jet.add(wing);
+const fin=new THREE.Mesh(new THREE.BoxGeometry(.7,1,.05),new THREE.MeshStandardMaterial({color:'#1b4dff',roughness:.4}));fin.position.set(-1.9,.55,0);fin.rotation.z=.35;jet.add(fin);
+const tailW=new THREE.Mesh(new THREE.BoxGeometry(.45,.04,1.4),hull);tailW.position.set(-1.95,.05,0);jet.add(tailW);
+[-1,1].forEach(s=>{const e=new THREE.Mesh(new THREE.CylinderGeometry(.13,.13,.6,12),new THREE.MeshStandardMaterial({color:'#9a9a9a',metalness:.6,roughness:.4}));e.rotation.z=Math.PI/2;e.position.set(.2,-.3,s*.9);jet.add(e)});
+const beacon=new THREE.Mesh(new THREE.SphereGeometry(.06,8,6),new THREE.MeshBasicMaterial({color:'#ff2a2a'}));beacon.position.set(0,.36,0);jet.add(beacon);
+jet.traverse(m=>m.castShadow=true);
+// the curtain wall: steel mullions and a faint tint of glass between them
+const steel=new THREE.MeshStandardMaterial({color:'#2b2d31',metalness:.7,roughness:.35,envMap:envTex,envMapIntensity:.5});
+for(let x=-4;x<=4;x+=1.15){const m=new THREE.Mesh(new THREE.BoxGeometry(.07,4.2,.12),steel);m.position.set(x,1.05,-.5);m.castShadow=true;scene.add(m)}
+[-.93,1.75].forEach(y=>{const m=new THREE.Mesh(new THREE.BoxGeometry(9,.09,.14),steel);m.position.set(0,y,-.5);m.castShadow=true;scene.add(m)});
+const pane=new THREE.Mesh(new THREE.PlaneGeometry(9,4.2),new THREE.MeshPhysicalMaterial({color:'#bcd3dc',transparent:true,opacity:.1,roughness:.05,envMap:envTex,envMapIntensity:.6}));pane.position.set(0,1.05,-.52);scene.add(pane);
+// gate seating: a row of black seats on a steel beam in the foreground
+const seatMat=new THREE.MeshStandardMaterial({color:'#17181a',roughness:.5});
+const beam=new THREE.Mesh(new THREE.BoxGeometry(2.6,.05,.08),steel);beam.position.set(-1.9,-.72,.15);beam.castShadow=true;scene.add(beam);
+for(let k=0;k<5;k++){const x=-3+k*.55;
+  const seat=new THREE.Mesh(new THREE.RoundedBoxGeometry(.48,.06,.46,3,.02),seatMat);seat.position.set(x,-.62,.15);seat.castShadow=true;scene.add(seat);
+  const backr=new THREE.Mesh(new THREE.RoundedBoxGeometry(.48,.5,.05,3,.02),seatMat);backr.position.set(x,-.36,-.07);backr.rotation.x=-.12;backr.castShadow=true;scene.add(backr)}
+[-2.9,-.9].forEach(x=>{const lg=new THREE.Mesh(new THREE.BoxGeometry(.05,.28,.4),steel);lg.position.set(x,-.86,.15);scene.add(lg)});
+// wayfinding sign: black on airport yellow
+const signTex=canvasTex(1024,256,(g,w,h)=>{g.fillStyle='#ffc61a';g.fillRect(0,0,w,h);g.fillStyle='#111';g.font='700 120px "Helvetica Neue",Arial,sans-serif';g.textBaseline='middle';
+  g.fillText('B',40,h/2+6);g.fillRect(150,30,4,h-60);g.font='600 92px "Helvetica Neue",Arial,sans-serif';g.fillText('Gates 1–24',190,h/2+6);g.font='700 130px Arial';g.fillText('→',w-170,h/2)});
+const sign=new THREE.Mesh(new THREE.BoxGeometry(1,.25,.03),[steel,steel,steel,steel,new THREE.MeshStandardMaterial({map:signTex,roughness:.5}),steel]);sign.position.set(1.45,1.15,.4);sign.castShadow=true;scene.add(sign);
+[-.4,.4].forEach(x=>{const r=new THREE.Mesh(new THREE.CylinderGeometry(.008,.008,1.2,8),steel);r.position.set(1.45+x,1.88,.4);scene.add(r)});
 // Lights: hemisphere fill, sun through the window (casts the clock's shadow), and a warm table lamp for the evening
+const ceiling=new THREE.DirectionalLight('#f1f4ff',1.6);ceiling.position.set(.5,4,6);ceiling.target.position.set(0,0,0);scene.add(ceiling,ceiling.target);
 const hemi=new THREE.HemisphereLight('#cfe3ff','#3a2a1c',.35);scene.add(hemi);
-const sun=new THREE.DirectionalLight('#fff3dd',2);sun.position.set(-4,2.6,2.2);sun.target.position.set(0,.2,0);scene.add(sun,sun.target);
-sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-3;sun.shadow.camera.right=3;sun.shadow.camera.top=3;sun.shadow.camera.bottom=-3;sun.shadow.bias=-.0004;sun.shadow.radius=6;
-const lamp=new THREE.PointLight('#ffb36b',0,0,1.6);lamp.position.set(1.6,-.2,1.2);lamp.castShadow=true;lamp.shadow.mapSize.set(1024,1024);scene.add(lamp);
-// The lamp itself: a fabric shade on a brass stem, sitting on a small side table
-const shade=new THREE.Mesh(new THREE.CylinderGeometry(.16,.24,.3,48,1,true),new THREE.MeshStandardMaterial({color:'#efe3cf',emissive:'#ffb36b',emissiveIntensity:0,side:THREE.DoubleSide,roughness:1}));shade.position.set(1.6,-.15,1.2);
+const sun=new THREE.DirectionalLight('#fff3dd',2);sun.position.set(-5,3,-7);sun.target.position.set(0,.2,0);scene.add(sun,sun.target);
+sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-5;sun.shadow.camera.right=5;sun.shadow.camera.top=5;sun.shadow.camera.bottom=-5;sun.shadow.camera.far=40;sun.shadow.bias=-.0004;sun.shadow.radius=6;
+const lamp=new THREE.PointLight('#e8efff',0,0,1.2);lamp.position.set(0,2.2,2.2);lamp.castShadow=true;lamp.shadow.mapSize.set(1024,1024);scene.add(lamp);
 const brass=new THREE.MeshStandardMaterial({color:'#b08a4a',metalness:1,roughness:.3,envMap:envTex,envMapIntensity:.6});
-const stem=new THREE.Mesh(new THREE.CylinderGeometry(.015,.015,.5,16),brass);stem.position.set(1.6,-.5,1.2);stem.castShadow=true;
-const table=new THREE.Mesh(new THREE.CylinderGeometry(.3,.3,.04,48),new THREE.MeshStandardMaterial({map:walnut,roughness:.4}));table.position.set(1.6,-.75,1.2);table.castShadow=table.receiveShadow=true;
-const leg=new THREE.Mesh(new THREE.CylinderGeometry(.03,.05,.25,16),brass);leg.position.set(1.6,-.88,1.2);
-
 // The clock: rounded walnut case, recessed face, glass front, a wire to a nail
-const clock=new THREE.Group();clock.position.set(0,.35,.06);scene.add(clock);
-const CW=1.5,CH=.92,CD=.09;
-const caseMesh=new THREE.Mesh(new THREE.RoundedBoxGeometry(CW,CH,CD,6,.03),new THREE.MeshPhysicalMaterial({map:walnut,roughness:.35,clearcoat:1,clearcoatRoughness:.18,envMap:envTex,envMapIntensity:.5}));
+const clock=new THREE.Group();clock.position.set(0,.45,.5);scene.add(clock);
+const CW=1.5,CH=1.0,CD=.12;
+const caseMesh=new THREE.Mesh(new THREE.RoundedBoxGeometry(CW,CH,CD,6,.03),new THREE.MeshPhysicalMaterial({color:'#1b1b1d',metalness:.85,roughness:.38,clearcoat:.3,envMap:envTex,envMapIntensity:.7}));
 caseMesh.castShadow=true;caseMesh.receiveShadow=true;clock.add(caseMesh);
 const FW=CW-.14,FH=FW*9/16;
-const faceMesh=new THREE.Mesh(new THREE.PlaneGeometry(FW,FH),new THREE.MeshStandardMaterial({map:faceTex,emissive:'#ffffff',emissiveMap:glowTex,emissiveIntensity:1.5,roughness:.35}));
-faceMesh.position.set(0,.03,CD/2+.002);clock.add(faceMesh);
-const glass=new THREE.Mesh(new THREE.PlaneGeometry(FW,FH),new THREE.MeshPhysicalMaterial({color:'#ffffff',metalness:0,roughness:.04,transmission:1,thickness:.004,ior:1.5,transparent:true,opacity:1,envMap:envTex,envMapIntensity:.8,specularIntensity:1}));
-glass.position.set(0,.03,CD/2+.012);clock.add(glass);
-const plaque=new THREE.Mesh(new THREE.BoxGeometry(.32,.05,.006),brass);plaque.position.set(0,-CH/2+.045,CD/2+.003);clock.add(plaque);
-const nail=new THREE.Mesh(new THREE.SphereGeometry(.012,16,16),brass);nail.position.set(0,CH/2+.28,.01);clock.add(nail);
-[-1,1].forEach(s=>{const a=new THREE.Vector3(s*CW*.3,CH/2-.02,-.02),b=new THREE.Vector3(0,CH/2+.28,0);const wire=new THREE.Mesh(new THREE.CylinderGeometry(.002,.002,a.distanceTo(b),6),new THREE.MeshStandardMaterial({color:'#999',metalness:1,roughness:.4}));wire.position.copy(a).add(b).multiplyScalar(.5);wire.lookAt(b);wire.rotateX(Math.PI/2);clock.add(wire)});
+
+
+let ac,tickOn=false;
+// ─── Split-flap board, like an airport departures sign ───
+// Every letter is a real flap module: a top and bottom half, and two flaps that fall over the hinge.
+// When the time changes, each cell rattles through a few random letters before it lands.
+const CHARS='ABCDEFGHIJKLMNOPQRSTUVWXYZ ',BLANK=26,AW=128,AH=160;
+const atlasC=document.createElement('canvas');atlasC.width=AW*CHARS.length;atlasC.height=AH;
+function paintAtlas(){const g=atlasC.getContext('2d');
+  [...CHARS].forEach((ch,i)=>{const x=i*AW;
+    const grd=g.createLinearGradient(0,0,0,AH);grd.addColorStop(0,'#232323');grd.addColorStop(.5,'#181818');grd.addColorStop(.5,'#141414');grd.addColorStop(1,'#1d1d1d');
+    g.fillStyle=grd;g.fillRect(x+3,3,AW-6,AH-6);
+    g.fillStyle='#f3efe4';g.font=`700 ${AH*.66}px "Bricolage Grotesque","Helvetica Neue",Arial,sans-serif`;g.textAlign='center';g.textBaseline='middle';g.fillText(ch,x+AW/2,AH/2+4);
+    g.fillStyle='#000';g.fillRect(x,AH/2-2,AW,4)});
+  atlas.needsUpdate=true}
+const atlas=new THREE.CanvasTexture(atlasC);atlas.colorSpace=THREE.SRGBColorSpace;atlas.anisotropy=8;
+const flapMat=new THREE.MeshStandardMaterial({map:atlas,emissive:'#ffffff',emissiveMap:atlas,emissiveIntensity:.45,roughness:.55,metalness:.1,side:THREE.DoubleSide});
+const TW=FW/16,TH=FH/9,tw=TW*.9,th=TH*.92;
+function half(top){const g=new THREE.PlaneGeometry(tw,th/2);g.translate(0,top?th/4:-th/4,0);return g}
+function setUV(m,c,top){const uv=m.geometry.attributes.uv,u0=c/CHARS.length,u1=(c+1)/CHARS.length,v0=top?.5:0,v1=top?1:.5;
+  uv.setXY(0,u0,v1);uv.setXY(1,u1,v1);uv.setXY(2,u0,v0);uv.setXY(3,u1,v0);uv.needsUpdate=true}
+const board=new THREE.Group();board.position.set(0,-.025,CD/2+.004);clock.add(board);
+const back=new THREE.Mesh(new THREE.PlaneGeometry(FW,FH),new THREE.MeshStandardMaterial({color:'#050505',roughness:.9}));board.add(back);
+const cells=[];
+for(let y=0;y<9;y++)for(let x=0;x<16;x++){
+  const g=new THREE.Group();g.position.set(-FW/2+TW*(x+.5),FH/2-TH*(y+.5),.004);board.add(g);
+  const mk=top=>{const m=new THREE.Mesh(half(top),flapMat);g.add(m);return m};
+  const c={top:mk(true),bot:mk(false),fTop:mk(true),fBot:mk(false),cur:BLANK,queue:[],t:0};
+  c.fTop.position.z=c.fBot.position.z=.0015;c.fTop.visible=c.fBot.visible=false;
+  [c.top,c.bot].forEach((m,i)=>setUV(m,BLANK,i===0));
+  // a thin hinge pin across the middle of each module
+  const pin=new THREE.Mesh(new THREE.BoxGeometry(tw,.0012,.003),new THREE.MeshStandardMaterial({color:'#0a0a0a'}));pin.position.z=.002;g.add(pin);
+  cells.push(c)}
+function setTargets(lit){cells.forEach((c,i)=>{const target=lit.has(i)?CHARS.indexOf(ROWS[Math.floor(i/16)][i%16]):BLANK;
+  const end=c.queue.length?c.queue[c.queue.length-1]:c.cur;if(end===target)return;
+  c.queue=[];const n=2+Math.floor(Math.random()*5);for(let k=0;k<n;k++)c.queue.push(Math.floor(Math.random()*26));c.queue.push(target);
+  c.delay=Math.random()*.35})}
+const FLIP=.09;let lastClack=0;
+function animateFlaps(dt){const now=performance.now();
+  cells.forEach(c=>{
+    if(c.delay>0){c.delay-=dt;return}
+    if(c.next==null&&c.queue.length){c.next=c.queue.shift();c.t=0;
+      setUV(c.fTop,c.cur,true);setUV(c.top,c.next,true);setUV(c.fBot,c.next,false);
+      c.fTop.visible=true;c.fBot.visible=false;c.fTop.rotation.x=0;
+      if(ac&&tickOn&&now-lastClack>12){lastClack=now;flap()}}
+    if(c.next!=null){c.t+=dt;const p=Math.min(c.t/FLIP,1);
+      if(p<.5){c.fTop.rotation.x=-p*2*Math.PI/2}
+      else{c.fTop.visible=false;c.fBot.visible=true;c.fBot.rotation.x=(1-(p-.5)*2)*Math.PI/2}
+      if(p>=1){setUV(c.bot,c.next,false);c.cur=c.next;c.next=null;c.fBot.visible=false}}})}
+// the clatter: a short, bright click of noise for each flap that falls
+function flap(){const t=ac.currentTime,n=ac.sampleRate*.012,b=ac.createBuffer(1,n,ac.sampleRate),d=b.getChannelData(0);for(let i=0;i<n;i++)d[i]=(Math.random()*2-1)*(1-i/n);
+  const s=ac.createBufferSource(),f=ac.createBiquadFilter(),g=ac.createGain();s.buffer=b;f.type='bandpass';f.frequency.value=2500+Math.random()*1500;g.gain.value=.12;s.connect(f);f.connect(g);g.connect(ac.destination);s.start(t)}
+[-1,1].forEach(k=>{const r=new THREE.Mesh(new THREE.CylinderGeometry(.01,.01,1.6,10),new THREE.MeshStandardMaterial({color:'#2b2d31',metalness:.8,roughness:.3}));r.position.set(k*CW*.35,CH/2+.8,0);clock.add(r)});
+// header strip above the flaps, like a departures board
+const headTex=canvasTex(2048,160,(g,w,h)=>{g.fillStyle='#0c0c0d';g.fillRect(0,0,w,h);g.fillStyle='#ffc61a';g.font='700 92px "Helvetica Neue",Arial,sans-serif';g.textBaseline='middle';
+  g.fillText('✈  LOCAL TIME',40,h/2+4);g.textAlign='right';g.fillStyle='#f3efe4';g.font='500 72px "Helvetica Neue",Arial,sans-serif';g.fillText('GATE B12   ·   ON TIME',w-40,h/2+4)});
+const head=new THREE.Mesh(new THREE.PlaneGeometry(FW,FW*160/2048),new THREE.MeshStandardMaterial({map:headTex,roughness:.6}));head.position.set(0,CH/2-.045,CD/2+.003);clock.add(head);
 
 // Bloom makes the lit letters glow like real LEDs behind glass
 const composer=new THREE.EffectComposer(renderer);composer.addPass(new THREE.RenderPass(scene,camera));
@@ -169,19 +203,19 @@ const KEYS=[[0,'#0a1030',"#9fb4ff",.15,.4,.08,1.6,.9,'#9fc2ff'],[6,'#ffb38a','#f
 const C=new THREE.Color(),C2=new THREE.Color();
 const lerpC=(a,b,t)=>C.set(a).lerp(C2.set(b),t).getStyle();
 function light(h){let i=0;while(KEYS[i+1][0]<=h)i++;const a=KEYS[i],b=KEYS[i+1],t=(h-a[0])/(b[0]-a[0]),L=(k)=>a[k]+(b[k]-a[k])*t;
-  sky.material.color.set(lerpC(a[1],b[1],t));sun.color.set(lerpC(a[2],b[2],t));sun.intensity=L(3)*2.2;sun.position.y=L(4);
-  hemi.intensity=L(5)*3;lamp.intensity=L(6)*6;shade.material.emissiveIntensity=L(6)*.6;renderer.toneMappingExposure=L(7);
-  const nl=lerpC(a[8],b[8],t);if(nl!==led){led=nl;return true}return false}
+  sky.material.color.set(lerpC(a[1],b[1],t));haze.material.color.set(lerpC(a[2],b[2],t));edgeMat.color.set(L(3)<.8?'#3fa9ff':'#1d3550');sun.color.set(lerpC(a[2],b[2],t));sun.intensity=L(3)*2.2;sun.position.y=L(4);
+  hemi.intensity=L(5)*3;lamp.intensity=L(6)*6;renderer.toneMappingExposure=L(7);
+  }
 
 // ─── Clock state, controls and sound (same behaviour as before) ───
-let override=null,last='',playing=null,ac,tickOn=false;
+let override=null,last='',playing=null;
 function click(f,v){if(!ac)return;const t=ac.currentTime,o=ac.createOscillator(),g=ac.createGain();o.type='square';o.frequency.value=f;g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+.04);o.connect(g);g.connect(ac.destination);o.start(t);o.stop(t+.05)}
 function update(){const d=new Date(),h=override??(d.getHours()+d.getMinutes()/60),H=Math.floor(h)%24,M=Math.floor((h%1)*60);
-  const ledChanged=light(h%24),on=words(H,M),key=on.join();
-  if(key!==last||ledChanged){if(key!==last&&tickOn)click(180,.25);last=key;const lit=new Set();on.forEach(k=>{const[y,x,n]=W[k];for(let i=0;i<n;i++)lit.add(y*16+x+i)});paintFace(lit)}
+  light(h%24);const on=words(H,M),key=on.join();
+  if(key!==last){last=key;const lit=new Set();on.forEach(k=>{const[y,x,n]=W[k];for(let i=0;i<n;i++)lit.add(y*16+x+i)});setTargets(lit)}
   document.getElementById('readout').textContent=(H%12||12)+':'+String(M).padStart(2,'0')+(H<12?' AM':' PM')}
-setInterval(()=>{if(tickOn&&!playing)click(1800,.05);if(!playing)update()},1000);
-document.getElementById('tick').onclick=e=>{ac=ac||new AudioContext();ac.resume();tickOn=!tickOn;e.target.setAttribute('aria-pressed',tickOn)};
+setInterval(()=>{if(!playing)update()},1000);
+document.getElementById('tick').onclick=e=>{ac=ac||new AudioContext();ac.resume();sound=tickOn=!tickOn;e.target.setAttribute('aria-pressed',tickOn);if(sound)startAmbience();else if(ambience){ambience.stop();ambience=null}};
 document.getElementById('now').onclick=()=>{stop();override=null;update()};
 function stop(){cancelAnimationFrame(playing);playing=null;document.getElementById('play').textContent='▶ Play a day in 20 seconds'}
 document.getElementById('play').onclick=()=>{if(playing){stop();return}const s=performance.now(),h0=override??new Date().getHours();document.getElementById('play').textContent='❚❚ Pause';
@@ -193,19 +227,46 @@ el.addEventListener('pointerdown',e=>{stop();dragging=true;el.setPointerCapture(
 el.addEventListener('pointermove',e=>{px=e.clientX/innerWidth-.5;py=e.clientY/innerHeight-.5;if(dragging)at(e)});
 el.addEventListener('pointerup',()=>dragging=false);
 
+
+// ─── The jet: every 30 seconds it rolls in from the left and climbs out to the right ───
+function flyJet(t){const p=(t/1000%30)/30;jet.visible=p<.6;if(!jet.visible){jet.rumbled=false;return}const k=p/.6;
+  jet.position.set(-55+k*110,-1.0+Math.max(0,k-.35)*28,-28);jet.rotation.z=Math.min(Math.max(0,k-.35)*1.2,.22);
+  beacon.visible=Math.floor(t/600)%2===0;
+  if(!jet.rumbled&&k>.15&&sound){jet.rumbled=true;rumble()}}
+
+// ─── Airport sound: the murmur of the terminal, a PA chime now and then, jets, and the flaps ───
+let sound=false,ambience=null;
+function noiseBuf(sec,brown){const n=ac.sampleRate*sec,b=ac.createBuffer(1,n,ac.sampleRate),d=b.getChannelData(0);let l=0;for(let i=0;i<n;i++){const w=Math.random()*2-1;if(brown){l=(l+.02*w)/1.02;d[i]=l*3.5}else d[i]=w}return b}
+function startAmbience(){const out=ac.createGain();out.gain.value=0;out.connect(ac.destination);out.gain.linearRampToValueAtTime(1,ac.currentTime+2);
+  // crowd murmur: brown noise shaped into the voice band, with a slow swell
+  const src=ac.createBufferSource();src.buffer=noiseBuf(6,true);src.loop=true;
+  const bp=ac.createBiquadFilter();bp.type='bandpass';bp.frequency.value=420;bp.Q.value=.7;const g=ac.createGain();g.gain.value=.22;
+  const lfo=ac.createOscillator(),lg=ac.createGain();lfo.frequency.value=.13;lg.gain.value=.08;lfo.connect(lg);lg.connect(g.gain);lfo.start();
+  src.connect(bp);bp.connect(g);g.connect(out);src.start();
+  // air handling hum
+  const hum=ac.createBufferSource();hum.buffer=noiseBuf(4,true);hum.loop=true;const lp=ac.createBiquadFilter();lp.type='lowpass';lp.frequency.value=120;const hg=ac.createGain();hg.gain.value=.25;hum.connect(lp);lp.connect(hg);hg.connect(out);hum.start();
+  // the PA chime: three soft descending tones, every 25 seconds
+  const chime=()=>{const t=ac.currentTime+.1;[784,659,523].forEach((f,i)=>{const o=ac.createOscillator(),og=ac.createGain(),o2=ac.createOscillator();o.type='sine';o.frequency.value=f;o2.type='sine';o2.frequency.value=f*2;
+    og.gain.setValueAtTime(0,t+i*.55);og.gain.linearRampToValueAtTime(.12,t+i*.55+.02);og.gain.exponentialRampToValueAtTime(.0001,t+i*.55+1.8);o.connect(og);o2.connect(og);og.connect(out);o.start(t+i*.55);o2.start(t+i*.55);o.stop(t+i*.55+1.9);o2.stop(t+i*.55+1.9)})};
+  chime();const timer=setInterval(chime,25000);
+  ambience={out,stop(){out.gain.linearRampToValueAtTime(0,ac.currentTime+.6);clearInterval(timer);setTimeout(()=>{src.stop();hum.stop();lfo.stop();out.disconnect()},800)}}}
+function rumble(){const t=ac.currentTime,src=ac.createBufferSource();src.buffer=noiseBuf(9,true);const lp=ac.createBiquadFilter();lp.type='lowpass';lp.frequency.setValueAtTime(200,t);lp.frequency.linearRampToValueAtTime(900,t+4);lp.frequency.linearRampToValueAtTime(250,t+9);
+  const g=ac.createGain();g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.55,t+3.5);g.gain.linearRampToValueAtTime(0,t+9);src.connect(lp);lp.connect(g);g.connect(ac.destination);src.start(t)}
+
 function resize(){const a=innerWidth/innerHeight;camera.aspect=a;camera.fov=a<1?52:34;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);composer.setSize(innerWidth,innerHeight)}
 addEventListener('resize',resize);resize();
 const still=matchMedia('(prefers-reduced-motion:reduce)').matches;
-const cam=new THREE.Vector3(.15,.3,3.7);
-(function loop(t){
-  const z=innerWidth<innerHeight?5.2:3.7;
+const cam=new THREE.Vector3(.15,.3,4.6);
+function loop(t){
+  const z=innerWidth<innerHeight?6.6:4.6;
   const tx=still?0:px*.6+Math.sin(t*.00015)*.12,ty=still?.3:.3-py*.3;
   cam.x+=(tx-cam.x)*.04;cam.y+=(ty-cam.y)*.04;cam.z+=(z-cam.z)*.04;
-  camera.position.copy(cam);camera.lookAt(0,.3,0);
+  camera.position.copy(cam);camera.lookAt(0,.45,0);
   clock.rotation.z=still?0:Math.sin(t*.0007)*.004; // the faintest sway on its wire
-  composer.render();requestAnimationFrame(loop)})(0);
+  const dt=Math.min((t-(loop.last||t))/1000,.05);loop.last=t;animateFlaps(dt);flyJet(t);composer.render();requestAnimationFrame(loop)}
+requestAnimationFrame(loop);
 update();
-document.fonts&&document.fonts.ready.then(()=>{last='';update()});
+paintAtlas();document.fonts&&document.fonts.ready.then(paintAtlas);
 </script>
 <script>
 (()=>{const b=document.getElementById('cmpbtn'),c=document.getElementById('cmp'),h=c.querySelector('.handle');let on=false;
