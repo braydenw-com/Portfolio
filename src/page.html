@@ -69,10 +69,10 @@
     </nav>
   </div>
   <div class="g-hello__body">
-    <h1 class="g-mark" id="g-mark"><span>Brayden</span> <span>Wisniewski</span></h1>
-    <p class="g-hey">Designer. People person. Kinda tall.</p>
+    <h1 class="g-mark" id="g-mark"><span>{{ site/first name }}</span> <span>{{ site/last name }}</span></h1>
+    <p class="g-hey">{{ site/tagline }}</p>
     <div class="g-hello__row">
-      <p>UX at SCAD, graduating 2027<br>Open to design roles</p>
+      <p>{{ site/status }}</p>
     </div>
   </div>
 </header>
@@ -94,26 +94,26 @@
     <div class="g-p__media">
     <img class="hero-vid" src="/images/hero-ibm-L.jpg" width="1920" height="1200" alt="IBM Platinum Experience and IBM Sovereign Support pages, the Sovereign page in front with its glass-block banner">
     </div>
-    <div class="g-p__cap"><h2>Design at enterprise speed</h2><p>A summer in Austin on how people and AI agents learn complex products.</p><span class="g-pills"><span>Product Design Intern</span><span>Shipped on ibm.com</span></span></div>
+    <div class="g-p__cap"><h2>{{ ibm card heading }}</h2><p>{{ ibm card text }}</p><span class="g-pills"><span>{{ ibm card tag 1 }}</span><span>{{ ibm card tag 2 }}</span></span></div>
   </a>
 
   <figure class="g-p g-p--quote g-b">
-    <blockquote>&ldquo;Your contributions helped us transform ideas into modern, polished web experiences.&rdquo;</blockquote>
-    <figcaption><b>Pepe Valiente</b>Strategy Lead, IBM Core Software</figcaption>
+    <blockquote>{{ ibm quote 1 }}</blockquote>
+    <figcaption>{{ ibm quote 1 by }}</figcaption>
   </figure>
 
   <a class="g-p g-p--work g-c" href="/opal">
     <div class="g-p__media">
     <img class="hero-vid" src="/images/hero-opal-P.jpg" width="1280" height="1200" alt="Three Opal features: the calendar and to-do list, break suggestions, and Tap Stickers">
     </div>
-    <div class="g-p__cap"><h2>Opal</h2><p>New features for the Opal focus app: plan, focus, and take breaks worth taking.</p><span class="g-pills"><span>Product Designer</span><span>Indigo Design Award</span></span></div>
+    <div class="g-p__cap"><h2>{{ opal card heading }}</h2><p>{{ opal card text }}</p><span class="g-pills"><span>{{ opal card tag 1 }}</span><span>{{ opal card tag 2 }}</span></span></div>
   </a>
 
   <a class="g-p g-p--work g-pr" href="/presents">
     <div class="g-p__media">
     <img class="hero-vid" src="/images/hero-presents-P.jpg" width="1280" height="1200" alt="The Presents shuffle screen: a soft glow of color behind the five-dot mark, with a Shuffle button below">
     </div>
-    <div class="g-p__cap"><h2>Presents</h2><p>A private time capsule for a small group of friends.</p><span class="g-pills"><span>Designer &amp; iOS build</span><span>SVSD Design Sprint</span></span></div>
+    <div class="g-p__cap"><h2>{{ presents card heading }}</h2><p>{{ presents card text }}</p><span class="g-pills"><span>{{ presents card tag 1 }}</span><span>{{ presents card tag 2 }}</span></span></div>
   </a>
 
   <figure class="g-p g-p--photo g-d ab-rot" data-rotate="hover">
@@ -122,19 +122,19 @@
     <img src="/images/ceramics-3.jpg" width="900" height="1200" style="object-position:center" loading="lazy" data-cap="Recent ceramic pics" alt="A trimmed cup with carved texture held over the wheel">
     <img src="/images/ceramics-4.jpg" width="1200" height="900" style="object-position:center" loading="lazy" data-cap="Recent ceramic pics" alt="Four freshly thrown plates and bowls on a wooden board">
     <img src="/images/ceramics-1.jpg" width="900" height="1200" style="object-position:center 70%" loading="lazy" data-cap="Recent ceramic pics" alt="A just-thrown piece on the wheel, with yellow buckets and more wheels behind it">
-    <figcaption>Recent ceramic pics</figcaption>
+    <figcaption>{{ photo ceramics caption }}</figcaption>
   </figure>
 
   <a class="g-p g-p--work g-e" href="/slack">
     <div class="g-p__media">
     <img class="hero-vid" src="/images/hero-slack-P.jpg" width="1280" height="1200" alt="Brayden's redesigned Slack: notification settings behind, a message saved for later in front">
     </div>
-    <div class="g-p__cap"><h2>Slack</h2><p>Two everyday tasks most people couldn&rsquo;t finish. Two small changes fixed both.</p><span class="g-pills"><span>Research Lead</span><span>3/8 &rarr; 8/8 task success</span></span></div>
+    <div class="g-p__cap"><h2>{{ slack card heading }}</h2><p>{{ slack card text }}</p><span class="g-pills"><span>{{ slack card tag 1 }}</span><span>{{ slack card tag 2 }}</span></span></div>
   </a>
 
   <div class="g-p g-p--loud g-f">
-    <h2>Chronically online.</h2>
-    <p>I share my design journey out loud, and post a lot. Follow along!</p>
+    <h2>{{ social heading }}</h2>
+    <p>{{ social text }}</p>
     <div class="n-btns"><a class="n-btn" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn &rarr;</a><a class="n-btn n-btn--line" href="https://braydenwdesign.substack.com" target="_blank" rel="noopener">Substack &rarr;</a></div>
   </div>
 
@@ -142,7 +142,7 @@
     <img src="/images/about-config-arch.jpg" width="900" height="1200" style="object-position:center 40%" class="is-on" loading="lazy" data-cap="Holding up Config" alt="Brayden under the Config arch in San Francisco, arms up like the letters">
     <img src="/images/about-austin.jpg" width="900" height="1200" style="object-position:center 40%" loading="lazy" data-cap="Design at enterprise speed" alt="Brayden pointing at the neon Austin Design Studio sign at IBM">
     <img src="/images/about-framer.jpg" width="675" height="1200" style="object-position:center 32%" loading="lazy" data-cap="Promoting cool products" alt="Brayden and a friend holding up Framer tote bags">
-    <figcaption>Holding up Config</figcaption>
+    <figcaption>{{ photo config caption }}</figcaption>
   </figure>
 
   <figure class="g-p g-p--photo g-h ab-rot" data-rotate="hover">
@@ -151,12 +151,12 @@
     <img src="/images/visit-salesforce-park.jpg" width="900" height="1200" style="object-position:center 40%" loading="lazy" data-cap="Visiting Salesforce Park" alt="Brayden smiling in Salesforce Park with the Salesforce Tower behind him">
     <img src="/images/visit-fort-worth.jpg" width="900" height="1200" style="object-position:center 55%" loading="lazy" data-cap="Visiting Fort Worth" alt="Brayden standing under the Stockyards Station sign in Fort Worth">
     <img src="/images/visit-golden-gate.jpg" width="1200" height="900" style="object-position:42% center" loading="lazy" data-cap="Visiting the Golden Gate Bridge" alt="Brayden and two friends in front of the Golden Gate Bridge in the fog">
-    <figcaption>Visiting New York</figcaption>
+    <figcaption>{{ photo new york caption }}</figcaption>
   </figure>
 
   <figure class="g-p g-p--quote g-p--quote-dark g-j">
-    <blockquote>&ldquo;Your quick turnaround allowed us to publish these sooner than we would have.&rdquo;</blockquote>
-    <figcaption><b>Patti McAuliffe</b>WW Support Planning, IBM Core Software</figcaption>
+    <blockquote>{{ ibm quote 2 }}</blockquote>
+    <figcaption>{{ ibm quote 2 by }}</figcaption>
   </figure>
 
   <figure class="g-p g-p--photo g-k ab-rot" data-rotate="hover">
@@ -165,11 +165,11 @@
     <img src="/images/bagel-3.jpg" width="900" height="1200" loading="lazy" data-cap="Bagel obsessed" alt="A bacon, egg and cheese bagel in foil on a wooden table">
     <img src="/images/bagel-4.jpg" width="900" height="1200" loading="lazy" data-cap="Bagel obsessed" alt="An open-faced lox bagel with dill, capers and red onion">
     <img src="/images/bagel-5.jpg" width="900" height="1200" loading="lazy" data-cap="Bagel obsessed" alt="A bacon egg and cheese bagel next to an iced coffee">
-    <figcaption>Bagel obsessed</figcaption>
+    <figcaption>{{ photo bagels caption }}</figcaption>
   </figure>
 
   <div class="g-p g-p--awards g-w">
-    <h2>Awards</h2>
+    <h2>{{ awards heading }}</h2>
     <div class="aw-wrap"><table class="aw">
       <thead><tr><th scope="col">Award</th><th scope="col">Project</th><th scope="col">Result</th><th scope="col">Year</th></tr></thead>
       <tbody>
@@ -181,8 +181,8 @@
   </div>
 
   <div class="g-p g-p--hi g-l" id="hi">
-    <h2>I love to chat.</h2>
-    <p>Seriously. Ask me about design, AI, ceramics, or how tall I am.</p>
+    <h2>{{ chat heading }}</h2>
+    <p>{{ chat text }}</p>
     <div class="n-btns"><a class="n-btn n-btn--white" href="mailto:brayden@braydenw.com">brayden@braydenw.com</a><a class="n-btn n-btn--ghost" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a></div>
   </div>
 

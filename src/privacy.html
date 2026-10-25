@@ -62,10 +62,10 @@
     </nav>
   </div>
   <div class="g-hello__body">
-    <a class="g-mark g-mark--link" href="/"><span>Brayden</span> <span>Wisniewski</span></a>
-    <p class="g-hey">Designer. People person. Kinda tall.</p>
+    <a class="g-mark g-mark--link" href="/"><span>{{ site/first name }}</span> <span>{{ site/last name }}</span></a>
+    <p class="g-hey">{{ site/tagline }}</p>
     <div class="g-hello__row">
-      <p>UX at SCAD, graduating 2027<br>Open to design roles</p>
+      <p>{{ site/status }}</p>
     </div>
   </div>
 </header>
@@ -81,33 +81,33 @@
 <main id="top" class="g-wrap cs">
 
 <section class="c-open">
-  <h1>Privacy</h1>
-  <p class="c-sum"><b>Short version:</b> this site counts visits with Google Analytics. I don&rsquo;t collect your name or email, and I don&rsquo;t sell anything.</p>
+  <h1>{{ intro title }}</h1>
+  <p class="c-sum">{{ intro summary }}</p>
 </section>
 
 <section class="c-sec" id="policy">
-  <p class="c-label">What&rsquo;s collected</p>
-  <h2>Just enough to see what people look at.</h2>
+  <p class="c-label">{{ whats collected label }}</p>
+  <h2>{{ whats collected heading }}</h2>
   <div class="c-body">
-    <p>Google Analytics records things like which pages you visit, how long you stay, roughly where you are (country or city), and what device and browser you use. It sets cookies to tell a new visit from a returning one. I use this only to see which projects people look at.</p>
-    <p>Google processes this data under its own <a class="c-link" href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>. There are no ads on this site, and the data isn&rsquo;t used for advertising.</p>
+    <p>{{ whats collected paragraph 1 }}</p>
+    <p>{{ whats collected paragraph 2 }}</p>
   </div>
 </section>
 
 <section class="c-sec" id="choice">
-  <p class="c-label">Your choice</p>
-  <h2>Visitors in Europe are asked first.</h2>
+  <p class="c-label">{{ your choice label }}</p>
+  <h2>{{ your choice heading }}</h2>
   <div class="c-body">
-    <p>If you&rsquo;re in the EU, the UK, or Switzerland, analytics cookies stay off unless you say yes. Anyone can change their answer here at any time.</p>
+    <p>{{ your choice paragraph }}</p>
   </div>
-  <p class="c-links"><button class="c-link bw-consent-reset" type="button">Change my cookie choice</button></p>
+  <p class="c-links"><button class="c-link bw-consent-reset" type="button">{{ your choice button }}</button></p>
 </section>
 
 <section class="c-sec c-sec--end" id="contact">
-  <p class="c-label">Questions</p>
-  <h2>Just ask.</h2>
+  <p class="c-label">{{ questions label }}</p>
+  <h2>{{ questions heading }}</h2>
   <div class="c-body">
-    <p>Email <a class="c-link" href="mailto:brayden@braydenw.com">brayden@braydenw.com</a> with any questions, or to ask for your data to be deleted.</p>
+    <p>{{ questions paragraph }}</p>
   </div>
 </section>
 

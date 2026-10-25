@@ -1,0 +1,43 @@
+# Rebuild the site whenever its source changes, so an edit made on github.com
+# (for example to a file in content/) goes live without running anything locally.
+name: Build site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/**'
+      - 'src/**'
+      - 'styles.css'
+      - 'script.js'
+      - 'build.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-site
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build
+        run: python3 build.py
+      - name: Commit the built pages
+        run: |
+          if git diff --quiet; then
+            echo "Built pages already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Rebuild site"
+          git push
