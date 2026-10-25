@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Word Clock</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/wordclock.js"></script>
+    <script src="js/p5/p5.min.js"></script>
+    <script src="js/sketch.js"></script>
+
+</head>
+
+<body>
+    <main>
+        <!-- Row 0: IT_IS_TENTWENTY -->
+        <span class="letter col00 row00 wordITIS">I</span>
+        <span class="letter col01 row00 wordITIS">T</span>
+        <span class="letter col02 row00 ">A</span>
+        <span class="letter col03 row00 wordITIS">I</span>
+        <span class="letter col04 row00 wordITIS">S</span>
+        <span class="letter col05 row00">B</span>
+        <span class="letter col06 row00 wordMinutes10">T</span>
+        <span class="letter col07 row00 wordMinutes10">E</span>
+        <span class="letter col08 row00 wordMinutes10">N</span>
+        <span class="letter col09 row00 wordMinutes20">T</span>
+        <span class="letter col10 row00 wordMinutes20">W</span>
+        <span class="letter col11 row00 wordMinutes20">E</span>
+        <span class="letter col12 row00 wordMinutes20">N</span>
+        <span class="letter col13 row00 wordMinutes20">T</span>
+        <span class="letter col14 row00 wordMinutes20">Y</span>
+        <span class="letter col15 row00">C</span>
+
+        <!-- Row 1: THIRTYFORTYFIFTY -->
+        <span class="letter col00 row01 wordMinutes30">T</span>
+        <span class="letter col01 row01 wordMinutes30">H</span>
+        <span class="letter col02 row01 wordMinutes30">I</span>
+        <span class="letter col03 row01 wordMinutes30">R</span>
+        <span class="letter col04 row01 wordMinutes30">T</span>
+        <span class="letter col05 row01 wordMinutes30">Y</span>
+        <span class="letter col06 row01 wordMinutes40">F</span>
+        <span class="letter col07 row01 wordMinutes40">O</span>
+        <span class="letter col08 row01 wordMinutes40">R</span>
+        <span class="letter col09 row01 wordMinutes40">T</span>
+        <span class="letter col10 row01 wordMinutes40">Y</span>
+        <span class="letter col11 row01 wordMinutes50">F</span>
+        <span class="letter col12 row01 wordMinutes50">I</span>
+        <span class="letter col13 row01 wordMinutes50">F</span>
+        <span class="letter col14 row01 wordMinutes50">T</span>
+        <span class="letter col15 row01 wordMinutes50">Y</span>
+
+        <!-- Row 2: PAST_TO_TWOONE___ -->
+        <span class="letter col00 row02 wordPAST">P</span>
+        <span class="letter col01 row02 wordPAST">A</span>
+        <span class="letter col02 row02 wordPAST">S</span>
+        <span class="letter col03 row02 wordPAST">T</span>
+        <span class="letter col04 row02">D</span>
+        <span class="letter col05 row02 wordTO">T</span>
+        <span class="letter col06 row02 wordTO">O</span>
+        <span class="letter col07 row02">E</span>
+        <span class="letter col08 row02 wordHours2">T</span>
+        <span class="letter col09 row02 wordHours2">W</span>
+        <span class="letter col10 row02 wordHours2 wordHours1">O</span>
+        <span class="letter col11 row02 wordHours1">N</span>
+        <span class="letter col12 row02 wordHours1">E</span>
+        <span class="letter col13 row02">F</span>
+        <span class="letter col14 row02">N</span>
+        <span class="letter col15 row02">I</span>
+
+        <!-- Row 3: THREEFOURFIVESIX -->
+        <span class="letter col00 row03 wordHours3">T</span>
+        <span class="letter col01 row03 wordHours3">H</span>
+        <span class="letter col02 row03 wordHours3">R</span>
+        <span class="letter col03 row03 wordHours3">E</span>
+        <span class="letter col04 row03 wordHours3">E</span>
+        <span class="letter col05 row03 wordHours4">F</span>
+        <span class="letter col06 row03 wordHours4">O</span>
+        <span class="letter col07 row03 wordHours4">U</span>
+        <span class="letter col08 row03 wordHours4">R</span>
+        <span class="letter col09 row03 wordHours5">F</span>
+        <span class="letter col10 row03 wordHours5">I</span>
+        <span class="letter col11 row03 wordHours5">V</span>
+        <span class="letter col12 row03 wordHours5">E</span>
+        <span class="letter col13 row03 wordHours6">S</span>
+        <span class="letter col14 row03 wordHours6">I</span>
+        <span class="letter col15 row03 wordHours6">X</span>
+
+        <!-- Row 4: SEVENINEIGHTEN__ -->
+        <span class="letter col00 row04 wordHours7">S</span>
+        <span class="letter col01 row04 wordHours7">E</span>
+        <span class="letter col02 row04 wordHours7">V</span>
+        <span class="letter col03 row04 wordHours7">E</span>
+        <span class="letter col04 row04 wordHours7 wordHours9">N</span>
+        <span class="letter col05 row04 wordHours9">I</span>
+        <span class="letter col06 row04 wordHours9">N</span>
+        <span class="letter col07 row04 wordHours9 wordHours8">E</span>
+        <span class="letter col08 row04 wordHours8">I</span>
+        <span class="letter col09 row04 wordHours8">G</span>
+        <span class="letter col10 row04 wordHours8">H</span>
+        <span class="letter col11 row04 wordHours8 wordHours10">T</span>
+        <span class="letter col12 row04 wordHours10">E</span>
+        <span class="letter col13 row04 wordHours10">N</span>
+        <span class="letter col14 row04">R</span>
+        <span class="letter col15 row04">E</span>
+
+        <!-- Row 5: ELEVENOON -->
+        <span class="letter col00 row05 wordHours11">E</span>
+        <span class="letter col01 row05 wordHours11">L</span>
+        <span class="letter col02 row05 wordHours11">E</span>
+        <span class="letter col03 row05 wordHours11">V</span>
+        <span class="letter col04 row05 wordHours11">E</span>
+        <span class="letter col05 row05 wordHours11">N</span>
+        <span class="letter col06 row05 wordHours12">T</span>
+        <span class="letter col07 row05 wordHours12">W</span>
+        <span class="letter col08 row05 wordHours12">E</span>
+        <span class="letter col09 row05 wordHours12">L</span>
+        <span class="letter col10 row05 wordHours12">V</span>
+        <span class="letter col11 row05 wordHours12">E</span>
+        <span class="letter col12 row05 ">B</span>
+        <span class="letter col13 row05 ">R</span>
+        <span class="letter col14 row05 ">O</span>
+        <span class="letter col15 row05 ">I</span>
+
+        <!-- Row 6: MIDNIGHT_IN_THE_ -->
+        <span class="letter col00 row06 wordHours0">M</span>
+        <span class="letter col01 row06 wordHours0">I</span>
+        <span class="letter col02 row06 wordHours0">D</span>
+        <span class="letter col03 row06 wordHours0">N</span>
+        <span class="letter col04 row06 wordHours0">I</span>
+        <span class="letter col05 row06 wordHours0">G</span>
+        <span class="letter col06 row06 wordHours0">H</span>
+        <span class="letter col07 row06 wordHours0">T</span>
+        <span class="letter col08 row06 ">I</span>
+        <span class="letter col09 row06 wordINTHE">I</span>
+        <span class="letter col10 row06 wordINTHE">N</span>
+        <span class="letter col11 row06 ">I</span>
+        <span class="letter col12 row06 wordINTHE">T</span>
+        <span class="letter col13 row06 wordINTHE">H</span>
+        <span class="letter col14 row06 wordINTHE">E</span>
+        <span class="letter col15 row06 ">M</span>
+
+
+        <!-- Row 7: MORNINGAFTERNOON -->
+        <span class="letter col00 row07 wordMORNING">M</span>
+        <span class="letter col01 row07 wordMORNING">O</span>
+        <span class="letter col02 row07 wordMORNING">R</span>
+        <span class="letter col03 row07 wordMORNING">N</span>
+        <span class="letter col04 row07 wordMORNING">I</span>
+        <span class="letter col05 row07 wordMORNING">N</span>
+        <span class="letter col06 row07 wordMORNING">G</span>
+        <span class="letter col07 row07 wordAFTERNOON">A</span>
+        <span class="letter col08 row07 wordAFTERNOON">F</span>
+        <span class="letter col09 row07 wordAFTERNOON">T</span>
+        <span class="letter col10 row07 wordAFTERNOON">E</span>
+        <span class="letter col11 row07 wordAFTERNOON">R</span>
+        <span class="letter col12 row07 wordAFTERNOON">N</span>
+        <span class="letter col13 row07 wordAFTERNOON">O</span>
+        <span class="letter col14 row07 wordAFTERNOON">O</span>
+        <span class="letter col15 row07 wordAFTERNOON">N</span>
+
+        <!-- Row 8: EVENINGNIGHT____ -->
+        <span class="letter col00 row08 wordEVENING">E</span>
+        <span class="letter col01 row08 wordEVENING">V</span>
+        <span class="letter col02 row08 wordEVENING">E</span>
+        <span class="letter col03 row08 wordEVENING">N</span>
+        <span class="letter col04 row08 wordEVENING">I</span>
+        <span class="letter col05 row08 wordEVENING">N</span>
+        <span class="letter col06 row08 wordEVENING">G</span>
+        <span class="letter col07 row08 wordNIGHT">N</span>
+        <span class="letter col08 row08 wordNIGHT">I</span>
+        <span class="letter col09 row08 wordNIGHT">G</span>
+        <span class="letter col10 row08 wordNIGHT">H</span>
+        <span class="letter col11 row08 wordNIGHT">T</span>
+        <span class="letter col12 row08">E</span>
+        <span class="letter col13 row08">B</span>
+        <span class="letter col14 row08">C</span>
+        <span class="letter col15 row08">T</span>
+
+    </main>
+</body>
