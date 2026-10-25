@@ -1,0 +1,190 @@
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url(media/title.png);
+  background-size: 50px;
+  background-color: rgb(194, 202, 228);
+}
+
+header {
+  background-color: #2708a0;
+  align-items: center;
+  padding: 1em 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+header nav ul {
+  flex-grow: 1;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+}
+
+header nav li {
+  display: inline;
+}
+
+header nav a {
+  text-decoration-color: rgba(146, 167, 224, 0);
+  text-decoration-thickness: .15em;
+  color: white;
+  transition-duration: 2s;
+}
+
+header nav a.active {
+  text-decoration-color: rgba(146, 167, 224, 100);
+  cursor: default
+}
+
+header nav a:hover:not(.active) {
+  color: #95A7E0;
+  text-decoration-color: rgba(146, 167, 224, 100);
+}
+
+#logo {
+  width: 5em;
+
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  min-height: 40vh;
+}
+
+main .bigGuy {
+  flex-grow: 1;
+  background-image: url(media/brayden.webp);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@keyframes bigAssTitle {
+  0% {
+    transform: translate(-50%, -50%)rotate(0deg);
+    animation-timing-function: ease-out;
+  }
+
+  25% {
+    transform: translate(-50%, -50%)rotate(20deg);
+    animation-timing-function: ease-in;
+  }
+
+  50% {
+    transform: translate(-50%, -50%)rotate(0deg);
+    animation-timing-function: ease-out;
+  }
+
+  75% {
+    transform: translate(-50%, -50%)rotate(-20deg);
+    animation-timing-function: ease-in;
+  }
+
+  100% {
+    transform: translate(-50%, -50%)rotate(0deg);
+    animation-timing-function: ease-out;
+  }
+}
+
+main h1 {
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  color: #ffffff;
+  text-shadow: 0 0 0.5em black;
+  animation-name: bigAssTitle;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  font-size: 5vw;
+}
+
+aside {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.3em;
+  padding: 0.3em;
+}
+
+aside section {
+  order: 1;
+  flex-grow: 1;
+  border-radius: 0.6em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  color: white;
+  padding: 0.6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-shadow: 0 0 0.2em black;
+}
+
+aside section h2,
+aside section p {
+  margin: 0;
+}
+
+aside section.section1 {
+  background-image: url(media/s1.jpeg)
+}
+
+aside section.section2 {
+  background-image: url(media/s2.jpeg);
+}
+
+aside section.section3 {
+  background-image: url(media/s3.jpeg);
+}
+
+aside section.section4 {
+  background-image: url(media/s1.jpeg);
+}
+
+
+footer {
+  background-color: #2708a0;
+  padding: .5em 0.25em;
+  display: flex;
+  flex-direction: row;
+  color: aliceblue;
+
+}
+
+footer a {
+  color: #95A7E0;
+  text-decoration: black;
+
+}
+
+footer a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  text-decoration-color: #95A7E0;
+}
+
+footer small {
+  flex-grow: 1;
+}
+
+footer small:first-of-type {
+  text-align: left;
+}
+
+footer small:last-of-type {
+  text-align: right;
+}
