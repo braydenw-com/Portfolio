@@ -10,12 +10,17 @@
 html,body{height:100%;margin:0}
 body{background:#fff;color:#1c1c1c;font-family:'Bricolage Grotesque','Helvetica Neue',sans-serif;display:grid;place-items:center;overflow:hidden}
 #bg{position:fixed;inset:0;width:100%;height:100%;filter:blur(70px);opacity:.5}
-.face{position:relative;padding:clamp(18px,4vmin,40px);border-radius:28px;background:rgba(255,255,255,.7);border:1px solid #eae8e4;backdrop-filter:blur(20px);box-shadow:0 30px 80px rgba(27,77,255,.08)}
+.face{position:relative;user-select:none;-webkit-user-select:none;padding:clamp(18px,4vmin,40px);border-radius:28px;background:rgba(255,255,255,.7);border:1px solid #eae8e4;backdrop-filter:blur(20px);box-shadow:0 30px 80px rgba(27,77,255,.08)}
 .grid{display:grid;grid-template-columns:repeat(16,1fr);gap:clamp(2px,1vmin,10px)}
 .grid span{width:clamp(16px,5vmin,48px);aspect-ratio:1;display:grid;place-items:center;font-weight:700;font-size:clamp(11px,3vmin,26px);color:#e4e2de;transition:color .8s,text-shadow .8s,transform .8s}
 .grid span.on{color:#1c1c1c;transform:scale(1.08)}
 .grid span.on.hl{color:#1b4dff}
 .readout{margin-top:clamp(14px,3vmin,24px);text-align:center;font-size:clamp(12px,2vmin,15px);letter-spacing:.14em;text-transform:uppercase;color:#767676;font-family:'Open Sans',Arial,sans-serif}
+.hint{position:fixed;bottom:18px;left:0;right:0;text-align:center;font:400 13px 'Open Sans',Arial,sans-serif;color:#767676}
+.grid span:hover{color:#1b4dff}
+.grid span.wave{animation:wave .7s ease}
+@keyframes wave{40%{transform:translateY(-8px);color:#1b4dff}}
+.face.scrub{box-shadow:0 0 0 2px #1b4dff,0 30px 80px rgba(27,77,255,.15)}
 .back{position:fixed;top:16px;left:16px;color:#5c5c5c;font-family:'Open Sans',Arial,sans-serif;text-decoration:none;font-size:14px;z-index:2}
 .back:hover{color:#1b4dff}
 @media (prefers-reduced-motion:reduce){.grid span{transition:none}}
@@ -25,6 +30,7 @@ body{background:#fff;color:#1c1c1c;font-family:'Bricolage Grotesque','Helvetica 
 <canvas id="bg"></canvas>
 <a class="back" href="../">← Original</a>
 <div class="face"><div class="grid" id="grid"></div><div class="readout" id="readout"></div></div>
+<div class="hint">Drag across the clock to travel through the day. Let go to come back to now.</div>
 <script>
 const ROWS=["ITAISBTENTWENTYC","THIRTYFORTYFIFTY","PASTDTOETWONEFNI","THREEFOURFIVESIX","SEVENINEIGHTENRE","ELEVENTWELVEBROI","MIDNIGHTIINITHEM","MORNINGAFTERNOON","EVENINGNIGHTEBCT"];
 // [row, start column, length]
@@ -42,14 +48,23 @@ function words(d){
   out.push('H'+(h%12||12),'IN','THE',h>=5&&h<12?'MORNING':h<17&&h>=12?'AFTERNOON':h>=17&&h<21?'EVENING':'NIGHT');
   return out;
 }
+let scrub=null,last='';
 function tick(){
-  const d=new Date(),on=words(d);
+  const d=scrub||new Date(),on=words(d),key=on.join();
+  if(key!==last){last=key;cells.forEach((row,y)=>row.forEach((c,x)=>{c.classList.remove('wave');void c.offsetWidth;c.style.animationDelay=(x+y)*25+'ms';c.classList.add('wave')}))}
   cells.flat().forEach(c=>c.classList.remove('on'));
   on.forEach(k=>{const[y,x,n]=W[k];for(let i=0;i<n;i++)cells[y][x+i].classList.add('on',...(/^H|MIDNIGHT/.test(k)?['hl']:[]))});
   cells.flat().forEach(c=>c.classList.contains('on')||c.classList.remove('hl'));
   document.getElementById('readout').textContent=d.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'});
 }
 tick();setInterval(tick,1000);
+// Scrub: horizontal = hour, vertical = minute (the idea from the original's commented-out mouse code)
+const face=document.querySelector('.face');
+function at(e){const r=face.getBoundingClientRect(),x=Math.min(Math.max((e.clientX-r.left)/r.width,0),.999),y=Math.min(Math.max((e.clientY-r.top)/r.height,0),.999);const d=new Date();d.setHours(Math.floor(x*24),Math.floor(y*60));scrub=d;tick()}
+face.addEventListener('pointerdown',e=>{face.setPointerCapture(e.pointerId);face.classList.add('scrub');at(e)});
+face.addEventListener('pointermove',e=>{if(face.classList.contains('scrub'))at(e)});
+face.addEventListener('pointerup',()=>{face.classList.remove('scrub');scrub=null;tick()});
+face.style.touchAction='none';face.style.cursor='ew-resize';
 // Slow-drifting colour blobs behind the glass; a new palette every 20 seconds
 const cv=document.getElementById('bg'),cx=cv.getContext('2d');let hue=Math.random()*360,blobs=[];
 function palette(){hue=(hue+137)%360;const c1='#1b4dff',c2='#9fb4ff';

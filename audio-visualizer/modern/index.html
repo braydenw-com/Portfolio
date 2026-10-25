@@ -14,7 +14,7 @@ html,body{margin:0;height:100%;background:radial-gradient(ellipse at center,#f2f
 canvas{display:block}
 .ui{position:fixed;inset:auto 0 24px;display:flex;flex-direction:column;align-items:center;gap:12px;pointer-events:none}
 .chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:0 16px}
-.chip{padding:8px 14px;border-radius:999px;border:1px solid #eae8e4;background:rgba(255,255,255,.8);backdrop-filter:blur(10px);font-size:14px;color:#5c5c5c;transition:.3s}
+.chip{pointer-events:auto;cursor:pointer;font:inherit;padding:8px 14px;border-radius:999px;border:1px solid #eae8e4;background:rgba(255,255,255,.8);backdrop-filter:blur(10px);font-size:14px;color:#5c5c5c;transition:.3s}
 .chip.hit{background:#1b4dff;color:#fff;border-color:transparent;transform:scale(1.1)}
 .meter{width:min(260px,70vw);height:4px;border-radius:4px;background:#eae8e4;overflow:hidden}
 .meter i{display:block;height:100%;width:0;background:#1b4dff;transition:width .1s}
@@ -30,22 +30,24 @@ canvas{display:block}
 </head>
 <body>
 <a class="back" href="../">← Original</a>
-<div id="start"><div><h1>Make some noise</h1><p>Talk, sing or play music. Say “dance”, “party” or “music” for a surprise.</p><button type="button">Turn on microphone</button></div></div>
+<div id="start"><div><h1>Make some noise</h1><p>Talk, sing or play music. Say “dance”, “party” or “music” for a surprise, or tap the buttons. Click anywhere to send a ripple.</p><button type="button" id="go">Turn on microphone</button><br><button type="button" id="demo" style="margin-top:10px;background:none;color:#1b4dff;font-weight:600">or play without a mic</button></div></div>
 <img id="pop" alt="">
 <div class="ui">
   <div class="heard" id="heard"></div>
-  <div class="chips"><span class="chip" data-k="dance">dance</span><span class="chip" data-k="party">party</span><span class="chip" data-k="music">music</span></div>
+  <div class="chips"><button class="chip" data-k="dance">dance</button><button class="chip" data-k="party">party</button><button class="chip" data-k="music">music</button></div>
   <div class="meter"><i id="level"></i></div>
 </div>
 <script>
 const TRIGGERS={dance:["dance","move","boogie"],party:["party","fun","celebrate"],music:["music","beat","song"]};
 const IMAGES={dance:"../assets/pic.png",party:"../assets/picc.png",music:"../assets/piccc.png"};
-let mic,fft,level=0,started=false,hideTimer;
+let mic,fft,level=0,started=false,hideTimer,kick=0,ripples=[];
 
 function setup(){
   createCanvas(windowWidth,windowHeight,WEBGL);
   mic=new p5.AudioIn();fft=new p5.FFT(0.8,256);
-  document.getElementById('start').addEventListener('click',begin);
+  document.getElementById('go').addEventListener('click',begin);
+  document.getElementById('demo').addEventListener('click',()=>document.getElementById('start').remove());
+  document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{show(c.dataset.k);kick=1}));
 }
 function begin(){
   userStartAudio().then(()=>{mic.start();fft.setInput(mic);started=true});
@@ -63,10 +65,20 @@ function show(k){
 }
 function draw(){
   clear();
-  const raw=started?mic.getLevel():0.02+0.015*sin(frameCount*.03);
+  kick*=.92;
+  const move=dist(mouseX,mouseY,pmouseX,pmouseY)/60;
+  const raw=(started?mic.getLevel():0.02+0.015*sin(frameCount*.03))+min(move,.08)+kick*.1;
   level=lerp(level,min(raw*12,1.2),.15);
   document.getElementById('level').style.width=min(level*100,100)+'%';
   const spec=started?fft.analyze():[];
+  // Spectrum ring: 64 bars around the sphere, flat on screen
+  push();const ringR=min(width,height)*.34;
+  for(let i=0;i<64;i++){const a=i/64*TWO_PI-HALF_PI;const v=spec.length?spec[i*2]/255:(.15+.15*noise(i*.3,frameCount*.02)+level*.5);
+    stroke(lerpColor(color('#1c1c1c'),color('#1b4dff'),i/64));strokeWeight(3);
+    const l=8+v*70;line(cos(a)*ringR,sin(a)*ringR,cos(a)*(ringR+l),sin(a)*(ringR+l))}
+  // Click ripples
+  for(let i=ripples.length-1;i>=0;i--){const r=ripples[i];r.t++;noFill();stroke(27,77,255,255-r.t*4);strokeWeight(2);circle(r.x,r.y,r.t*8);if(r.t>60)ripples.splice(i,1)}
+  pop();
   orbitControl();
   rotateY(frameCount*.004);rotateX(frameCount*.003);
   const R=min(width,height)*.22*(1+level*.35),D=40;
@@ -86,6 +98,7 @@ function draw(){
     endShape();
   }
 }
+function mousePressed(){if(!document.getElementById('start')&&mouseY<height-110){ripples.push({x:mouseX-width/2,y:mouseY-height/2,t:0});kick=1}}
 function windowResized(){resizeCanvas(windowWidth,windowHeight)}
 </script>
 </body>
