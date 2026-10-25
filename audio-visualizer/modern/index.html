@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audio Visualizer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap">
+<script src="../js/p5/p5.min.js"></script>
+<script src="../js/p5/p5.sound.min.js"></script>
+<script src="../js/p5/p5.speech.js"></script>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:radial-gradient(ellipse at center,#16102b,#05040a 70%);color:#fff;font-family:'Space Grotesk',system-ui,sans-serif;overflow:hidden}
+canvas{display:block}
+.ui{position:fixed;inset:auto 0 24px;display:flex;flex-direction:column;align-items:center;gap:12px;pointer-events:none}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:0 16px}
+.chip{padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);backdrop-filter:blur(10px);font-size:14px;color:rgba(255,255,255,.7);transition:.3s}
+.chip.hit{background:linear-gradient(90deg,#ff6ec7,#00eaff);color:#05040a;border-color:transparent;transform:scale(1.1)}
+.meter{width:min(260px,70vw);height:4px;border-radius:4px;background:rgba(255,255,255,.1);overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff6ec7,#00eaff);transition:width .1s}
+.heard{font-size:13px;color:rgba(255,255,255,.5);min-height:1.2em}
+#start{position:fixed;inset:0;display:grid;place-items:center;text-align:center;background:rgba(5,4,10,.55);backdrop-filter:blur(8px);z-index:3;cursor:pointer}
+#start h1{font-size:clamp(2.2rem,7vw,4.5rem);margin:0 0 .2em;letter-spacing:-.04em;background:linear-gradient(90deg,#ff6ec7,#00eaff);-webkit-background-clip:text;background-clip:text;color:transparent}
+#start p{color:rgba(255,255,255,.7);margin:0 0 24px;padding:0 16px}
+#start button{font:inherit;font-weight:700;padding:14px 26px;border-radius:999px;border:0;background:#fff;color:#05040a;cursor:pointer}
+#pop{position:fixed;left:50%;top:50%;width:min(260px,50vw);transform:translate(-50%,-50%) scale(.6);opacity:0;pointer-events:none;transition:transform .5s cubic-bezier(.2,1.6,.4,1),opacity .4s;filter:drop-shadow(0 20px 40px rgba(0,0,0,.6))}
+#pop.show{transform:translate(-50%,-50%) scale(1);opacity:1}
+.back{position:fixed;top:16px;left:16px;color:rgba(255,255,255,.6);text-decoration:none;font-size:14px;z-index:4}
+</style>
+</head>
+<body>
+<a class="back" href="../">← Original</a>
+<div id="start"><div><h1>Make some noise</h1><p>Talk, sing or play music. Say “dance”, “party” or “music” for a surprise.</p><button type="button">Turn on microphone</button></div></div>
+<img id="pop" alt="">
+<div class="ui">
+  <div class="heard" id="heard"></div>
+  <div class="chips"><span class="chip" data-k="dance">dance</span><span class="chip" data-k="party">party</span><span class="chip" data-k="music">music</span></div>
+  <div class="meter"><i id="level"></i></div>
+</div>
+<script>
+const TRIGGERS={dance:["dance","move","boogie"],party:["party","fun","celebrate"],music:["music","beat","song"]};
+const IMAGES={dance:"../assets/pic.png",party:"../assets/picc.png",music:"../assets/piccc.png"};
+let mic,fft,level=0,started=false,hideTimer;
+
+function setup(){
+  createCanvas(windowWidth,windowHeight,WEBGL);
+  mic=new p5.AudioIn();fft=new p5.FFT(0.8,256);
+  document.getElementById('start').addEventListener('click',begin);
+}
+function begin(){
+  userStartAudio().then(()=>{mic.start();fft.setInput(mic);started=true});
+  document.getElementById('start').remove();
+  try{const rec=new p5.SpeechRec('en-US',()=>heard(rec.resultString));rec.continuous=true;rec.onEnd=()=>rec.start();rec.start()}catch(e){}
+}
+function heard(text){
+  const said=(text||'').toLowerCase();document.getElementById('heard').textContent='“'+said+'”';
+  for(const k in TRIGGERS)if(TRIGGERS[k].some(w=>said.includes(w)))return show(k);
+}
+function show(k){
+  const pop=document.getElementById('pop');pop.src=IMAGES[k];pop.classList.add('show');
+  document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('hit',c.dataset.k===k));
+  clearTimeout(hideTimer);hideTimer=setTimeout(()=>{pop.classList.remove('show');document.querySelectorAll('.chip').forEach(c=>c.classList.remove('hit'))},2200);
+}
+function draw(){
+  clear();
+  const raw=started?mic.getLevel():0.02+0.015*sin(frameCount*.03);
+  level=lerp(level,min(raw*12,1.2),.15);
+  document.getElementById('level').style.width=min(level*100,100)+'%';
+  const spec=started?fft.analyze():[];
+  orbitControl();
+  rotateY(frameCount*.004);rotateX(frameCount*.003);
+  const R=min(width,height)*.22*(1+level*.35),D=40;
+  noFill();
+  for(let i=0;i<=D;i++){
+    const lat=map(i,0,D,0,PI);
+    const c=lerpColor(color('#ff6ec7'),color('#00eaff'),i/D);
+    const band=spec.length?spec[floor(map(i,0,D,2,120))]/255:0;
+    stroke(red(c),green(c),blue(c),140+band*115);strokeWeight(1+band*2.5);
+    beginShape();
+    for(let j=0;j<=D*2;j++){
+      const lon=map(j,0,D*2,0,TWO_PI);
+      const w=sin(lon*6+lat*5+frameCount*.08)*R*.12*(level+band*.5);
+      const r=R+w;
+      vertex(r*sin(lat)*cos(lon),r*sin(lat)*sin(lon),r*cos(lat));
+    }
+    endShape();
+  }
+}
+function windowResized(){resizeCanvas(windowWidth,windowHeight)}
+</script>
+</body>
+</html>
