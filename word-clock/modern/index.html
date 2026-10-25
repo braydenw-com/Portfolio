@@ -8,81 +8,111 @@
 <style>
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
-body{background:#fff;color:#1c1c1c;font-family:'Bricolage Grotesque','Helvetica Neue',sans-serif;display:grid;place-items:center;overflow:hidden}
-#bg{position:fixed;inset:0;width:100%;height:100%;filter:blur(70px);opacity:.5}
-.face{position:relative;user-select:none;-webkit-user-select:none;padding:clamp(18px,4vmin,40px);border-radius:28px;background:rgba(255,255,255,.7);border:1px solid #eae8e4;backdrop-filter:blur(20px);box-shadow:0 30px 80px rgba(27,77,255,.08)}
-.grid{display:grid;grid-template-columns:repeat(16,1fr);gap:clamp(2px,1vmin,10px)}
-.grid span{width:clamp(16px,5vmin,48px);aspect-ratio:1;display:grid;place-items:center;font-weight:700;font-size:clamp(11px,3vmin,26px);color:#e4e2de;transition:color .8s,text-shadow .8s,transform .8s}
-.grid span.on{color:#1c1c1c;transform:scale(1.08)}
-.grid span.on.hl{color:#1b4dff}
-.readout{margin-top:clamp(14px,3vmin,24px);text-align:center;font-size:clamp(12px,2vmin,15px);letter-spacing:.14em;text-transform:uppercase;color:#767676;font-family:'Open Sans',Arial,sans-serif}
-.hint{position:fixed;bottom:18px;left:0;right:0;text-align:center;font:400 13px 'Open Sans',Arial,sans-serif;color:#767676}
-.grid span:hover{color:#1b4dff}
-.grid span.wave{animation:wave .7s ease}
-@keyframes wave{40%{transform:translateY(-8px);color:#1b4dff}}
-.face.scrub{box-shadow:0 0 0 2px #1b4dff,0 30px 80px rgba(27,77,255,.15)}
-.back{position:fixed;top:16px;left:16px;color:#5c5c5c;font-family:'Open Sans',Arial,sans-serif;text-decoration:none;font-size:14px;z-index:2}
-.back:hover{color:#1b4dff}
-@media (prefers-reduced-motion:reduce){.grid span{transition:none}}
+body{font-family:'Open Sans',Arial,sans-serif;overflow:hidden;background:#000}
+/* The room: wall colour and window light follow the clock's hour */
+.room{position:fixed;inset:0;background:var(--wall);transition:background 1.2s}
+.window{position:absolute;top:8%;left:6%;width:22vmin;height:34vmin;border:1.2vmin solid #3a2a1c;background:linear-gradient(var(--sky1),var(--sky2));box-shadow:inset 0 0 0 .5vmin #2a1d12;transition:background 1.2s}
+.window::before,.window::after{content:"";position:absolute;background:#3a2a1c}
+.window::before{left:50%;top:0;bottom:0;width:.8vmin;transform:translateX(-50%)}
+.window::after{top:50%;left:0;right:0;height:.8vmin}
+.sun{position:absolute;width:6vmin;height:6vmin;border-radius:50%;background:var(--sunc);box-shadow:0 0 4vmin var(--sunc);left:50%;top:var(--suny);transform:translate(-50%,-50%);transition:top 1.2s,background 1.2s}
+.beam{position:absolute;inset:0;background:linear-gradient(115deg,transparent 15%,var(--beam) 30%,transparent 55%);mix-blend-mode:screen;transition:background 1.2s;pointer-events:none}
+.lamp{position:absolute;right:8%;bottom:0;width:30vmin;height:60vmin;background:radial-gradient(ellipse at 50% 20%,rgba(255,190,110,var(--lamp)),transparent 60%);transition:background 1.2s;pointer-events:none}
+.floor{position:absolute;left:0;right:0;bottom:0;height:16vh;background:linear-gradient(#2a1d12,#1a120b);box-shadow:0 -1px 0 rgba(255,255,255,.06)}
+.shade{position:absolute;inset:0;background:rgba(5,6,20,var(--dark));transition:background 1.2s;pointer-events:none}
+/* The clock itself: a walnut frame with a smoked-glass face and LED letters */
+.clock{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);padding:clamp(14px,2.6vmin,28px);border-radius:12px;background:linear-gradient(135deg,#6b4428,#3e2615 60%,#2c1a0e);box-shadow:0 30px 60px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.15);user-select:none;-webkit-user-select:none;touch-action:none;cursor:ew-resize}
+.clock::after{content:"";position:absolute;left:50%;top:-6vmin;width:2px;height:6vmin;background:#222;transform:translateX(-50%)}
+.face{position:relative;padding:clamp(14px,3vmin,32px);border-radius:6px;background:radial-gradient(ellipse at 30% 20%,#1c1d22,#08090b 70%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.05),inset 0 10px 30px rgba(0,0,0,.8);overflow:hidden}
+.face::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.08),transparent 35%);pointer-events:none}
+.grid{display:grid;grid-template-columns:repeat(16,1fr);gap:clamp(2px,.8vmin,8px)}
+.grid span{width:clamp(15px,4.4vmin,42px);aspect-ratio:1;display:grid;place-items:center;font:700 clamp(10px,2.7vmin,24px) 'Bricolage Grotesque',sans-serif;color:rgba(255,255,255,.07);transition:color .5s,text-shadow .5s}
+.grid span.on{color:var(--led);text-shadow:0 0 6px var(--led),0 0 18px var(--led),0 0 40px var(--led)}
+.grid span.flick{animation:flick .5s steps(2) 2}
+@keyframes flick{50%{color:rgba(255,255,255,.07);text-shadow:none}}
+.plate{margin-top:clamp(8px,1.6vmin,14px);display:flex;justify-content:space-between;align-items:center;color:#d8b892;font:600 clamp(10px,1.5vmin,13px) 'Open Sans';letter-spacing:.18em;text-transform:uppercase}
+.plate b{font:700 clamp(12px,1.8vmin,15px) 'Bricolage Grotesque';letter-spacing:.06em}
+.controls{position:fixed;left:0;right:0;bottom:max(18px,env(safe-area-inset-bottom,0px));display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:0 16px}
+.controls button{font:600 13px 'Open Sans';color:#fff;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(8px);padding:9px 14px;border-radius:999px;cursor:pointer}
+.controls button[aria-pressed="true"]{background:#fff;color:#111}
+.tip{position:fixed;left:0;right:0;bottom:calc(max(18px,env(safe-area-inset-bottom,0px)) + 48px);text-align:center;font-size:13px;color:rgba(255,255,255,.7);text-shadow:0 1px 4px #000}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 <style>
-.pswitch{position:fixed;z-index:50;top:max(12px,env(safe-area-inset-top,0px));right:max(12px,env(safe-area-inset-right,0px));display:flex;align-items:center;gap:2px;padding:4px;border-radius:999px;background:rgba(255,255,255,.85);border:1px solid #eae8e4;backdrop-filter:blur(12px);box-shadow:0 6px 20px rgba(28,28,28,.08);font:600 13px/1 'Open Sans','Helvetica Neue',Arial,sans-serif}
-.pswitch a{color:#5c5c5c;text-decoration:none;padding:8px 11px;border-radius:999px;white-space:nowrap}
-.pswitch a:hover{color:#1b4dff;background:#f2f4ff}
-.pswitch a[aria-current]{background:#1b4dff;color:#fff}
+.pswitch{position:fixed;z-index:50;top:max(12px,env(safe-area-inset-top,0px));right:max(12px,env(safe-area-inset-right,0px));display:flex;align-items:center;gap:2px;padding:4px;border-radius:999px;background:rgba(255,255,255,.88);border:1px solid #eae8e4;backdrop-filter:blur(12px);box-shadow:0 6px 20px rgba(0,0,0,.15);font:600 13px/1 'Open Sans','Helvetica Neue',Arial,sans-serif}
+.pswitch a,.pswitch button{color:#5c5c5c;text-decoration:none;padding:8px 11px;border-radius:999px;white-space:nowrap;border:0;background:none;font:inherit;cursor:pointer}
+.pswitch a:hover,.pswitch button:hover{color:#1b4dff;background:#f2f4ff}
+.pswitch a[aria-current],.pswitch button[aria-pressed="true"]{background:#1b4dff;color:#fff}
 .pswitch .sep{width:1px;height:18px;background:#eae8e4;margin:0 2px}
-@media (max-width:520px){.pswitch .lbl{display:none}}
+@media (max-width:560px){.pswitch .lbl{display:none}}
+/* Then / now wipe: the 2024 original sits on top, clipped to the left of the handle */
+.cmp{position:fixed;inset:0;z-index:40;pointer-events:none}
+.cmp[hidden]{display:none}
+.cmp iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff;clip-path:inset(0 calc(100% - var(--x)) 0 0);pointer-events:auto}
+.cmp .handle{position:absolute;top:0;bottom:0;left:var(--x);width:44px;margin-left:-22px;cursor:ew-resize;pointer-events:auto;touch-action:none}
+.cmp .handle::before{content:"";position:absolute;left:21px;top:0;bottom:0;width:2px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.3)}
+.cmp .handle::after{content:"⇆";position:absolute;left:2px;top:50%;width:40px;height:40px;margin-top:-20px;border-radius:50%;background:#fff;color:#1b4dff;display:grid;place-items:center;font:700 18px sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+.cmp .tag{position:absolute;top:70px;padding:6px 10px;border-radius:6px;font:700 11px 'Open Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;background:#141414;color:#fff;pointer-events:none}
+.cmp .t1{left:calc(var(--x) - 92px)}.cmp .t2{left:calc(var(--x) + 14px);background:#1b4dff}
 </style>
 </head>
 <body>
-<nav class="pswitch" aria-label="Class projects"><a href="../../uxdg-320/index.html">← <span class="lbl">All projects</span></a><span class="sep"></span><a href="../../coding-class/modern/index.html" title="Landing page">1</a><a href="../../word-clock/modern/index.html" aria-current="page" title="Word clock">2</a><a href="../../audio-visualizer/modern/index.html" title="Audio visualizer">3</a><span class="sep"></span><a href="../index.html">Original</a><a href="../../audio-visualizer/modern/index.html" title="Next: Audio visualizer">→</a></nav>
-<canvas id="bg"></canvas>
-<div class="face"><div class="grid" id="grid"></div><div class="readout" id="readout"></div></div>
-<div class="hint">Drag across the clock to travel through the day. Let go to come back to now.</div>
+<nav class="pswitch" aria-label="Class projects"><a href="../../uxdg-320/index.html">← <span class="lbl">All projects</span></a><span class="sep"></span><a href="../../coding-class/modern/index.html" title="Landing page">1</a><a href="../../word-clock/modern/index.html" aria-current="page" title="Word clock">2</a><a href="../../audio-visualizer/modern/index.html" title="Audio visualizer">3</a><span class="sep"></span><button type="button" id="cmpbtn" aria-pressed="false">Then <span class="lbl">vs now</span></button><a href="../../audio-visualizer/modern/index.html" title="Next: Audio visualizer">→</a></nav>
+<div class="cmp" id="cmp" hidden><iframe title="Original 2024 version"></iframe><span class="tag t1">2024</span><span class="tag t2">2026</span><div class="handle" aria-label="Drag to compare"></div></div>
+<div class="room" id="room">
+  <div class="window"><div class="sun"></div></div>
+  <div class="beam"></div><div class="lamp"></div><div class="floor"></div><div class="shade"></div>
+  <div class="clock" id="clock"><div class="face"><div class="grid" id="grid"></div></div><div class="plate"><span>Wisniewski & Co.</span><b id="readout"></b><span>Est. 2024</span></div></div>
+</div>
+<div class="tip">Drag across the clock to time-lapse the day</div>
+<div class="controls">
+  <button type="button" id="play">▶ Play a day in 20 seconds</button>
+  <button type="button" id="tick" aria-pressed="false">Ticking sound</button>
+  <button type="button" id="now">Back to now</button>
+</div>
 <script>
 const ROWS=["ITAISBTENTWENTYC","THIRTYFORTYFIFTY","PASTDTOETWONEFNI","THREEFOURFIVESIX","SEVENINEIGHTENRE","ELEVENTWELVEBROI","MIDNIGHTIINITHEM","MORNINGAFTERNOON","EVENINGNIGHTEBCT"];
-// [row, start column, length]
 const W={IT:[0,0,2],IS:[0,3,2],M10:[0,6,3],M20:[0,9,6],M30:[1,0,6],M40:[1,6,5],M50:[1,11,5],PAST:[2,0,4],
 H1:[2,10,3],H2:[2,8,3],H3:[3,0,5],H4:[3,5,4],H5:[3,9,4],H6:[3,13,3],H7:[4,0,5],H8:[4,7,5],H9:[4,4,4],H10:[4,11,3],H11:[5,0,6],H12:[5,6,6],
 MIDNIGHT:[6,0,8],IN:[6,9,2],THE:[6,12,3],MORNING:[7,0,7],AFTERNOON:[7,7,9],EVENING:[8,0,7],NIGHT:[8,7,5]};
 const grid=document.getElementById('grid'),cells=[];
 ROWS.forEach((r,y)=>{cells[y]=[];[...r].forEach(ch=>{const s=document.createElement('span');s.textContent=ch;grid.appendChild(s);cells[y].push(s)})});
-function words(d){
-  let h=d.getHours(),m=Math.round(d.getMinutes()/10)*10;
-  if(m===60){m=0;h=(h+1)%24}
-  const out=['IT','IS'];
-  if(m)out.push('M'+m,'PAST');
-  if(h===0){out.push('MIDNIGHT');return out}
-  out.push('H'+(h%12||12),'IN','THE',h>=5&&h<12?'MORNING':h<17&&h>=12?'AFTERNOON':h>=17&&h<21?'EVENING':'NIGHT');
-  return out;
-}
-let scrub=null,last='';
-function tick(){
-  const d=scrub||new Date(),on=words(d),key=on.join();
-  if(key!==last){last=key;cells.forEach((row,y)=>row.forEach((c,x)=>{c.classList.remove('wave');void c.offsetWidth;c.style.animationDelay=(x+y)*25+'ms';c.classList.add('wave')}))}
-  cells.flat().forEach(c=>c.classList.remove('on'));
-  on.forEach(k=>{const[y,x,n]=W[k];for(let i=0;i<n;i++)cells[y][x+i].classList.add('on',...(/^H|MIDNIGHT/.test(k)?['hl']:[]))});
-  cells.flat().forEach(c=>c.classList.contains('on')||c.classList.remove('hl'));
-  document.getElementById('readout').textContent=d.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'});
-}
-tick();setInterval(tick,1000);
-// Scrub: horizontal = hour, vertical = minute (the idea from the original's commented-out mouse code)
-const face=document.querySelector('.face');
-function at(e){const r=face.getBoundingClientRect(),x=Math.min(Math.max((e.clientX-r.left)/r.width,0),.999),y=Math.min(Math.max((e.clientY-r.top)/r.height,0),.999);const d=new Date();d.setHours(Math.floor(x*24),Math.floor(y*60));scrub=d;tick()}
-face.addEventListener('pointerdown',e=>{face.setPointerCapture(e.pointerId);face.classList.add('scrub');at(e)});
-face.addEventListener('pointermove',e=>{if(face.classList.contains('scrub'))at(e)});
-face.addEventListener('pointerup',()=>{face.classList.remove('scrub');scrub=null;tick()});
-face.style.touchAction='none';face.style.cursor='ew-resize';
-// Slow-drifting colour blobs behind the glass; a new palette every 20 seconds
-const cv=document.getElementById('bg'),cx=cv.getContext('2d');let hue=Math.random()*360,blobs=[];
-function palette(){hue=(hue+137)%360;const c1='#1b4dff',c2='#9fb4ff';
-  document.documentElement.style.setProperty('--c1',c1);document.documentElement.style.setProperty('--c2',c2);
-  blobs=[0,1,2,3].map(i=>({x:Math.random(),y:Math.random(),vx:(Math.random()-.5)*.0008,vy:(Math.random()-.5)*.0008,c:i%2?c2:c1}))}
-function size(){cv.width=innerWidth/4;cv.height=innerHeight/4}
-function draw(){cx.clearRect(0,0,cv.width,cv.height);const r=Math.max(cv.width,cv.height)*.35;
-  blobs.forEach(b=>{b.x+=b.vx;b.y+=b.vy;if(b.x<0||b.x>1)b.vx*=-1;if(b.y<0||b.y>1)b.vy*=-1;cx.fillStyle=b.c;cx.globalAlpha=.25;cx.beginPath();cx.arc(b.x*cv.width,b.y*cv.height,r,0,7);cx.fill()});
-  requestAnimationFrame(draw)}
-size();palette();draw();addEventListener('resize',size);setInterval(palette,20000);
+function words(h,mm){let m=Math.round(mm/10)*10;if(m===60){m=0;h=(h+1)%24}const o=['IT','IS'];if(m)o.push('M'+m,'PAST');
+  if(h===0){o.push('MIDNIGHT');return o}o.push('H'+(h%12||12),'IN','THE',h>=5&&h<12?'MORNING':h>=12&&h<17?'AFTERNOON':h>=17&&h<21?'EVENING':'NIGHT');return o}
+// Room lighting keyed to the hour (fractional hours blend smoothly)
+const KEYS=[[0,'#141826','#05070f','#0a1030','#cfd8ff',90,0,.6,.55,'#9fc2ff'],[6,'#c9a98a','#ffb38a','#ffd9a8','#ffcf7a',70,.45,.1,.3,'#ffb35c'],[9,'#e8dccb','#7ec3ff','#c9e6ff','#fff6c2',25,.5,0,0,'#ffe9b0'],
+ [13,'#efe4d2','#4fa8ff','#a9d6ff','#fffbe0',12,.45,0,0,'#fff3cc'],[17,'#d9b28c','#ff8a5c','#ffc38a','#ff9a4a',60,.4,.25,.15,'#ffb35c'],[19.5,'#6d5468','#4b3a7a','#d97a6a','#ff6a4a',95,.15,.6,.35,'#ffc07a'],[22,'#1c1f2e','#0b0f24','#1b2148','#cfd8ff',85,0,.75,.5,'#ffcf8a'],[24,'#141826','#05070f','#0a1030','#cfd8ff',90,0,.6,.55,'#9fc2ff']];
+const mix=(a,b,t)=>{const p=s=>[1,3,5].map(i=>parseInt(s.slice(i,i+2),16));const A=p(a),B=p(b);return'rgb('+A.map((v,i)=>Math.round(v+(B[i]-v)*t)).join(',')+')'};
+function light(h){let i=0;while(KEYS[i+1][0]<=h)i++;const a=KEYS[i],b=KEYS[i+1],t=(h-a[0])/(b[0]-a[0]),r=document.getElementById('room').style;
+  r.setProperty('--wall',mix(a[1],b[1],t));r.setProperty('--sky1',mix(a[2],b[2],t));r.setProperty('--sky2',mix(a[3],b[3],t));r.setProperty('--sunc',mix(a[4],b[4],t));
+  r.setProperty('--suny',(a[5]+(b[5]-a[5])*t)+'%');r.setProperty('--beam','rgba(255,220,160,'+(a[6]+(b[6]-a[6])*t)+')');r.setProperty('--lamp',a[7]+(b[7]-a[7])*t);r.setProperty('--dark',a[8]+(b[8]-a[8])*t);r.setProperty('--led',mix(a[9],b[9],t))}
+let override=null,last='',playing=null;
+function render(){const d=new Date();const h=override??(d.getHours()+d.getMinutes()/60);const H=Math.floor(h)%24,M=Math.floor((h%1)*60);
+  const on=words(H,M),key=on.join();light(h%24);
+  if(key!==last){last=key;cells.flat().forEach(c=>c.classList.remove('on','flick'));on.forEach(k=>{const[y,x,n]=W[k];for(let i=0;i<n;i++){const c=cells[y][x+i];c.classList.add('on');if(override===null||!playing){void c.offsetWidth;c.classList.add('flick')}}});if(tickOn)clack()}
+  document.getElementById('readout').textContent=(H%12||12)+':'+String(M).padStart(2,'0')+(H<12?' AM':' PM')}
+// Ticking: a short filtered click each second, and a heavier clack when the words change
+let ac,tickOn=false;
+function click(f,v){if(!ac)return;const t=ac.currentTime,o=ac.createOscillator(),g=ac.createGain();o.type='square';o.frequency.value=f;g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+.04);o.connect(g);g.connect(ac.destination);o.start(t);o.stop(t+.05)}
+const clack=()=>click(180,.25);
+setInterval(()=>{if(tickOn&&!playing)click(1800,.05);render()},1000);
+document.getElementById('tick').onclick=e=>{ac=ac||new AudioContext();ac.resume();tickOn=!tickOn;e.target.setAttribute('aria-pressed',tickOn)};
+document.getElementById('now').onclick=()=>{stop();override=null;render()};
+function stop(){cancelAnimationFrame(playing);playing=null;document.getElementById('play').textContent='▶ Play a day in 20 seconds'}
+document.getElementById('play').onclick=()=>{if(playing){stop();return}const start=performance.now(),h0=override??new Date().getHours();document.getElementById('play').textContent='❚❚ Pause';
+  const step=t=>{override=(h0+(t-start)/20000*24)%24;render();playing=requestAnimationFrame(step)};playing=requestAnimationFrame(step)};
+const clock=document.getElementById('clock');let dragging=false;
+const at=e=>{const r=clock.getBoundingClientRect();override=Math.min(Math.max((e.clientX-r.left)/r.width,0),.999)*24;render()};
+clock.addEventListener('pointerdown',e=>{stop();dragging=true;clock.setPointerCapture(e.pointerId);at(e)});
+clock.addEventListener('pointermove',e=>dragging&&at(e));
+clock.addEventListener('pointerup',()=>dragging=false);
+render();
+</script>
+<script>
+(()=>{const b=document.getElementById('cmpbtn'),c=document.getElementById('cmp'),h=c.querySelector('.handle');let on=false;
+const set=x=>c.style.setProperty('--x',Math.min(Math.max(x,0),innerWidth)+'px');
+b.onclick=()=>{on=!on;b.setAttribute('aria-pressed',on);if(on&&!c.querySelector('iframe').src)c.querySelector('iframe').src='../index.html';c.hidden=!on;set(innerWidth/2)};
+h.addEventListener('pointerdown',e=>{h.setPointerCapture(e.pointerId);const mv=ev=>set(ev.clientX);h.addEventListener('pointermove',mv);h.addEventListener('pointerup',()=>h.removeEventListener('pointermove',mv),{once:true})});})();
 </script>
 </body>
 </html>
