@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UXDG 320, Revisited</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:wght@400;600&display=swap">
+<style>
+/* Layout: one narrow column of three project rows */
+:root{--bg:#fff;--fg:#1c1c1c;--muted:#5c5c5c;--line:#eae8e4;--accent:#1b4dff;--mono:'Bricolage Grotesque','Helvetica Neue',sans-serif;--sans:'Open Sans','Helvetica Neue',Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141414;--fg:#f2f2f2;--muted:#a8a8a8;--line:#2c2c2c;--accent:#7d98ff;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141414;--fg:#f2f2f2;--muted:#a8a8a8;--line:#2c2c2c;--accent:#7d98ff;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:16px/1.5 var(--sans);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:48px}
+main{max-width:640px;margin:0 auto;display:grid;gap:28px}
+h1{font:600 2.4rem/1.05 var(--mono);margin:0;text-wrap:balance}
+.lede{color:var(--muted);margin:0}
+ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+li{border-bottom:1px solid var(--line)}
+a{display:grid;gap:4px;padding:18px 4px;color:inherit;text-decoration:none}
+a:hover h2,a:focus-visible h2{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h2{font:600 1.35rem var(--mono);margin:0}
+p{margin:0;color:var(--muted)}
+.orig{padding:0 4px 16px;font:400 .8rem var(--mono);color:var(--accent);text-decoration:underline}
+.row{display:flex;gap:18px;flex-wrap:wrap;padding:0 4px 18px}
+.row a{display:inline;padding:0;font:600 .9rem var(--sans);color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.row a.then{color:var(--muted)}
+.note{font-size:.95rem;color:var(--muted);border-left:3px solid var(--accent);padding:4px 0 4px 14px;margin:0}
+.tag{font:400 .75rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+</style>
+</head>
+<body>
+<main>
+  <span class="tag">SCAD · UXDG 320 Coding · Then and now</span>
+  <h1>Three class projects, two years later</h1>
+  <p class="lede">Two years ago I took UXDG 320, a coding class for UX designers. The point wasn't to become a developer. It was to understand how the web gets built, design things that can actually ship, and talk to engineers. I built three projects, one per round. They worked, mostly. They were also pretty rough.</p>
+  <p class="lede">Now I've remade each one, vibe coding with AI, to see how far the same ideas go with better craft and the tools I use today. The originals stay up exactly as I turned them in, so you can compare.</p>
+  <ul>
+    <li><a href="../coding-class/modern/index.html"><span class="tag">Project 1 · HTML + CSS</span><h2>Design is my superpower</h2><p>Then: a flexbox landing page with a title that swung back and forth. Now: a rotating headline, draggable sticky notes and cards that tilt toward your cursor.</p></a><div class="row"><a href="../coding-class/modern/index.html">Open the 2026 version</a><a class="then" href="../coding-class/index.html">See the original</a></div></li>
+    <li><a href="../word-clock/modern/index.html"><span class="tag">Project 2 · JavaScript + p5.js</span><h2>Word clock</h2><p>Then: a 16 × 9 letter grid built from 144 hand-placed spans that set the time once, on load. Now: it keeps time, ripples when the minute turns, and you can drag across it to travel through the day.</p></a><div class="row"><a href="../word-clock/modern/index.html">Open the 2026 version</a><a class="then" href="../word-clock/index.html">See the original</a></div></li>
+    <li><a href="../audio-visualizer/modern/index.html"><span class="tag">Project 3 · p5.sound + p5.speech</span><h2>Audio visualizer</h2><p>Then: a wireframe sphere that pulsed with the mic and showed a cartoon when you said "dance", "party" or "music". Now: it plays its own synth track, with a spectrum ring, click ripples and tappable keywords. The mic still works too.</p></a><div class="row"><a href="../audio-visualizer/modern/index.html">Open the 2026 version</a><a class="then" href="../audio-visualizer/index.html">See the original</a></div></li>
+  </ul>
+</main>
+</body>
+</html>

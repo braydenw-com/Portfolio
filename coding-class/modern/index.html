@@ -9,7 +9,7 @@
 :root{--bg:#fff;--ink:#1c1c1c;--muted:#5c5c5c;--card:#fff;--line:#eae8e4;--accent:#1b4dff;--glow:#c9d3ff;--wash:#f2f4ff}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.65 'Open Sans','Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased}
-header{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:14px max(20px,4vw);background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header{min-height:64px;position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:14px max(20px,4vw);background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .logo{font-weight:700;letter-spacing:-.02em}
 nav{display:flex;gap:6px;flex-wrap:wrap}
 nav a{color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:999px;font-size:.92rem;transition:.2s}
@@ -58,11 +58,20 @@ footer a{color:var(--accent)}
 @media (max-width:420px){.cards{grid-template-columns:1fr}.card{aspect-ratio:16/10}nav a{padding:6px 8px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
+<style>
+.pswitch{position:fixed;z-index:50;top:max(12px,env(safe-area-inset-top,0px));right:max(12px,env(safe-area-inset-right,0px));display:flex;align-items:center;gap:2px;padding:4px;border-radius:999px;background:rgba(255,255,255,.85);border:1px solid #eae8e4;backdrop-filter:blur(12px);box-shadow:0 6px 20px rgba(28,28,28,.08);font:600 13px/1 'Open Sans','Helvetica Neue',Arial,sans-serif}
+.pswitch a{color:#5c5c5c;text-decoration:none;padding:8px 11px;border-radius:999px;white-space:nowrap}
+.pswitch a:hover{color:#1b4dff;background:#f2f4ff}
+.pswitch a[aria-current]{background:#1b4dff;color:#fff}
+.pswitch .sep{width:1px;height:18px;background:#eae8e4;margin:0 2px}
+@media (max-width:520px){.pswitch .lbl{display:none}}
+</style>
 </head>
 <body>
+<nav class="pswitch" aria-label="Class projects"><a href="../../uxdg-320/index.html">← <span class="lbl">All projects</span></a><span class="sep"></span><a href="../../coding-class/modern/index.html" aria-current="page" title="Landing page">1</a><a href="../../word-clock/modern/index.html" title="Word clock">2</a><a href="../../audio-visualizer/modern/index.html" title="Audio visualizer">3</a><span class="sep"></span><a href="../index.html">Original</a><a href="../../word-clock/modern/index.html" title="Next: Word clock">→</a></nav>
 <header>
   <span class="logo">Brayden W.</span>
-  <nav><a class="active" href="./">Home</a><a href="/about">About</a><a href="/">Work</a><a href="../">Original</a></nav>
+  
 </header>
 <main class="hero">
   <div>

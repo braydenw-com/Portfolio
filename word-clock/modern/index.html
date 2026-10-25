@@ -25,10 +25,18 @@ body{background:#fff;color:#1c1c1c;font-family:'Bricolage Grotesque','Helvetica 
 .back:hover{color:#1b4dff}
 @media (prefers-reduced-motion:reduce){.grid span{transition:none}}
 </style>
+<style>
+.pswitch{position:fixed;z-index:50;top:max(12px,env(safe-area-inset-top,0px));right:max(12px,env(safe-area-inset-right,0px));display:flex;align-items:center;gap:2px;padding:4px;border-radius:999px;background:rgba(255,255,255,.85);border:1px solid #eae8e4;backdrop-filter:blur(12px);box-shadow:0 6px 20px rgba(28,28,28,.08);font:600 13px/1 'Open Sans','Helvetica Neue',Arial,sans-serif}
+.pswitch a{color:#5c5c5c;text-decoration:none;padding:8px 11px;border-radius:999px;white-space:nowrap}
+.pswitch a:hover{color:#1b4dff;background:#f2f4ff}
+.pswitch a[aria-current]{background:#1b4dff;color:#fff}
+.pswitch .sep{width:1px;height:18px;background:#eae8e4;margin:0 2px}
+@media (max-width:520px){.pswitch .lbl{display:none}}
+</style>
 </head>
 <body>
+<nav class="pswitch" aria-label="Class projects"><a href="../../uxdg-320/index.html">← <span class="lbl">All projects</span></a><span class="sep"></span><a href="../../coding-class/modern/index.html" title="Landing page">1</a><a href="../../word-clock/modern/index.html" aria-current="page" title="Word clock">2</a><a href="../../audio-visualizer/modern/index.html" title="Audio visualizer">3</a><span class="sep"></span><a href="../index.html">Original</a><a href="../../audio-visualizer/modern/index.html" title="Next: Audio visualizer">→</a></nav>
 <canvas id="bg"></canvas>
-<a class="back" href="../">← Original</a>
 <div class="face"><div class="grid" id="grid"></div><div class="readout" id="readout"></div></div>
 <div class="hint">Drag across the clock to travel through the day. Let go to come back to now.</div>
 <script>
