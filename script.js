@@ -242,7 +242,7 @@
         h < 6  ? 'probably asleep, or doom-scrolling LinkedIn' :
         h < 9  ? 'probably hunting down an everything bagel' :
         h < 12 ? 'probably on my first iced coffee' :
-        h < 14 ? 'probably ducking under a doorframe somewhere' :
+        h < 14 ? 'probably working in the studio' :
         h < 17 ? 'probably taking an idea stroll' :
         h < 20 ? 'probably covered in clay at the wheel' :
                  'probably still pushing pixels';
@@ -570,7 +570,7 @@
 
 // Click a case-study feature image to view it larger
 (function(){
-  var imgs=document.querySelectorAll('.c-feat img[src*="opal-feat"], [data-page="presents"] .c-shot img');
+  var imgs=document.querySelectorAll('.c-feat img[src*="opal-feat"], [data-page="presents"] .c-shot img, .g-ex img');
   if(!imgs.length||!window.HTMLDialogElement)return;
   var d=document.createElement('dialog');d.className='c-zoom';
   var big=document.createElement('img');big.alt='';d.appendChild(big);document.body.appendChild(d);

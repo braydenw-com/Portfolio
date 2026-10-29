@@ -37,13 +37,14 @@ PAGES = {'page.html':  'index.html',
          'presents.html': 'presents/index.html',
          'design.html': 'design-system/index.html',
          'privacy.html': 'privacy/index.html',
+         'guide.html': 'case-studies/index.html',
          '404.html': '404.html',
          'ibm.html':   'ibm/index.html'}
 
 # Which content file fills which page.
 CONTENT = {'page.html': 'home', 'about.html': 'about', 'slack.html': 'slack',
            'opal.html': 'opal', 'presents.html': 'presents', 'ibm.html': 'ibm',
-           'privacy.html': 'privacy', '404.html': '404'}
+           'privacy.html': 'privacy', 'guide.html': 'guide', '404.html': '404'}
 
 
 def partial(name):
