@@ -43,6 +43,12 @@ For
 ## intro fact 5 value
 SVSD Design Sprint
 
+## intro fact 6 name
+Tools
+
+## intro fact 6 value
+Swift, Supabase
+
 ## opportunity label
 The opportunity
 

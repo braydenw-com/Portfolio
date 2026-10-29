@@ -70,32 +70,14 @@ were distracted by their phones
 ## opportunity stat 3 meaning
 had never used a focus app
 
-## found label
-What we found
+## decision label
+The decision
 
-## found heading
-Focus apps were each solving one piece of the problem.
+## decision heading
+Build on Opal instead of starting a new app.
 
-## found point 1 title
-Forest
-
-## found point 1 text
-Blocks distractions.
-
-## found point 2 title
-Finch
-
-## found point 2 text
-Makes self-care rewarding.
-
-## found point 3 title
-Focus Friend
-
-## found point 3 text
-Adds accountability.
-
-## found line
-Students wanted pieces of all three. Opal already had the blocking, so we designed the rest.
+## decision paragraph
+Students liked pieces of Forest, Finch, and Focus Friend, but no single app did it all. Rather than design one more focus app, we added planning, rewards, and better breaks to Opal, which already handled the blocking. It meant working inside an existing product instead of starting fresh, and it meant students wouldn’t need another app.
 
 ## made label
 What we made

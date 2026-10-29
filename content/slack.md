@@ -124,6 +124,15 @@ Participant
 ## did notifications result note
 in unmoderated testing
 
+## decision label
+The decision
+
+## decision heading
+Fix the words before adding features.
+
+## decision paragraph
+Both problems could have been answered with something new: another panel, another menu. We kept Slack’s features and changed what they say and show instead, renaming actions around who can see them and showing what’s already on. It’s a smaller change to point to, but it went straight at what tripped people up.
+
 ## result label
 The result
 
