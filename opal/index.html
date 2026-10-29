@@ -2227,6 +2227,14 @@ button.c-link{font:inherit;cursor:pointer;background:none}
 .cs .c-stats dt{font:var(--text-survey-says)}
 .cs .c-sec>.c-label:not(.c-label--team){font:var(--text-sticky-note)}
 .g-p--work .g-p__cap .g-pills span{font:var(--text-name-tag)}
+.c-links a:not(.c-link){color:var(--h-text);text-decoration:none;border:1px solid var(--h-line);border-radius:999px;padding:.55rem 1rem;font-weight:500}
+.c-links a:not(.c-link):hover,.c-links a:not(.c-link):focus-visible{border-color:var(--blue);color:var(--blue)}
+.c-probs.c-probs--2{grid-template-columns:repeat(2,minmax(0,1fr));max-width:52rem}
+.c-probs--2 li{align-content:start}
+@media (max-width:620px){.c-probs.c-probs--2{grid-template-columns:1fr}}
+/* Case study guide: screenshots of the real case studies */
+.g-ex{margin:2rem 0 0;max-width:56rem}
+.g-ex img{display:block;width:100%;height:auto;border-radius:10px;box-shadow:0 0 0 1px var(--color-pencil-line);cursor:zoom-in}
 
 </style>
 </head>
@@ -2621,7 +2629,7 @@ button.c-link{font:inherit;cursor:pointer;background:none}
         h < 6  ? 'probably asleep, or doom-scrolling LinkedIn' :
         h < 9  ? 'probably hunting down an everything bagel' :
         h < 12 ? 'probably on my first iced coffee' :
-        h < 14 ? 'probably ducking under a doorframe somewhere' :
+        h < 14 ? 'probably working in the studio' :
         h < 17 ? 'probably taking an idea stroll' :
         h < 20 ? 'probably covered in clay at the wheel' :
                  'probably still pushing pixels';
@@ -2949,7 +2957,7 @@ button.c-link{font:inherit;cursor:pointer;background:none}
 
 // Click a case-study feature image to view it larger
 (function(){
-  var imgs=document.querySelectorAll('.c-feat img[src*="opal-feat"], [data-page="presents"] .c-shot img');
+  var imgs=document.querySelectorAll('.c-feat img[src*="opal-feat"], [data-page="presents"] .c-shot img, .g-ex img');
   if(!imgs.length||!window.HTMLDialogElement)return;
   var d=document.createElement('dialog');d.className='c-zoom';
   var big=document.createElement('img');big.alt='';d.appendChild(big);document.body.appendChild(d);
