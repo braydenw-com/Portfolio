@@ -55,13 +55,40 @@
 
 @font-face{font-family:'Instrument Sans';src:url(/fonts/InstrumentSans-Variable.woff2) format('woff2');font-weight:400 700;font-stretch:75% 100%;font-style:normal;font-display:swap}
 
+/* Design tokens. Named versions of the values the site already uses; the
+   design system page (/design-system) documents them. Change a value here
+   and it changes everywhere. */
+:root{
+  --color-savannah-night:#0b0d1a;
+  --color-kiln-smoke:#5b5e70;
+  --color-brayden-blue:#1b4dff;
+  --color-pencil-line:rgba(11,13,26,.12);
+  --color-porcelain:#e3e6ec;
+  --color-studio-wall:#f4f5f8;
+  --color-sketchbook:#fff;
+  --font-head:'Instrument Sans','Helvetica Neue',Arial,sans-serif;
+  --font-body:'Geist','Helvetica Neue',Arial,sans-serif;
+  --text-tall-order:600 clamp(3rem,7.5vw,7.5rem)/1 var(--font-head);
+  --text-big-entrance:600 clamp(2.6rem,5vw,4.6rem)/1 var(--font-head);
+  --text-idea-stroll:600 clamp(1.8rem,3.4vw,2.8rem)/1.08 var(--font-head);
+  --text-studio-crit:600 clamp(1.5rem,2.2vw,2.1rem)/1.02 var(--font-head);
+  --text-opening-line:400 clamp(1.15rem,1.6vw,1.4rem)/1.5 var(--font-body);
+  --text-long-chat:400 clamp(1.05rem,1.3vw,1.2rem)/1.6 var(--font-body);
+  --text-survey-says:400 clamp(2.6rem,6vw,4.2rem)/1 var(--font-body);
+  --text-sticky-note:400 .95rem/1.65 var(--font-body);
+  --text-name-tag:400 .8rem/1.2 var(--font-body);
+}
+@media (min-width:1001px){
+  :root{--text-tall-order:600 clamp(2.2rem,2.9vw,3rem)/1 var(--font-head)}
+}
+
 :root{
   --paper:#fff;
   --ink:#1c1c1c;
   --ink-2:#5c5c5c;   /* 6.69:1 on white */
   --ink-3:#767676;   /* 4.54:1 — the AA floor for small text */
   --hair:#eae8e4;
-  --blue:#1b4dff;
+  --blue:var(--color-brayden-blue);
   --blue-wash:#f2f4ff;
 
   --display:'Bricolage Grotesque','Archivo','Helvetica Neue',sans-serif;
@@ -1002,10 +1029,10 @@ body[data-page="about"] .nav__links a[href="/about"]::after{transform:scaleX(1)}
   --g-pad:clamp(1rem,3vw,2.5rem);
   --h-ink:#04061a;
   --h-deep:#0a1440;
-  --h-text:#0b0d1a;
-  --h-soft:#5b5e70;
-  --h-line:rgba(11,13,26,.12);
-  --h-fill:#f4f5f8;
+  --h-text:var(--color-savannah-night);
+  --h-soft:var(--color-kiln-smoke);
+  --h-line:var(--color-pencil-line);
+  --h-fill:var(--color-studio-wall);
 }
 body.v2{background:#fff;color:var(--h-text)}
 body.v2 .foot{color:var(--h-soft);border-top:0;max-width:var(--g-max);padding-inline:var(--g-pad)}
@@ -1257,10 +1284,10 @@ html{scroll-padding-top:5rem}
 .sd-ctx{opacity:.38;filter:saturate(.7);transition:opacity .3s}
 .sd:hover .sd-ctx{opacity:.6}
 
-.sd-key{position:relative;border-radius:10px;box-shadow:0 0 0 2px #1b4dff}
+.sd-key{position:relative;border-radius:10px;box-shadow:0 0 0 2px var(--color-brayden-blue)}
 .sd-key--bar{display:flex;border-radius:6px}
 .sd-tabs.sd-key{border-radius:4px;margin:.5rem .6rem 0;padding:0 .4rem}
-.sn-pill.sd-key{box-shadow:0 0 0 2px #fff,0 0 0 3.5px #1b4dff;border-radius:999px}
+.sn-pill.sd-key{box-shadow:0 0 0 2px #fff,0 0 0 3.5px var(--color-brayden-blue);border-radius:999px}
 .sd-key--rows{margin:.4rem .6rem 0;padding-bottom:.4rem}
 .sd-key--rows .sn-sub{padding-left:.5rem}
 .sd-key--rows .sn-row{padding-inline:.5rem}
@@ -1595,7 +1622,7 @@ html{scroll-padding-top:5rem}
 .g-p h2{margin:0;font-weight:700;letter-spacing:-.035em;line-height:.98;font-variation-settings:'opsz' 96,'wdth' 85,'wght' 700}
 
 /* work panels: image above a solid dark caption */
-.g-p--work{display:flex;flex-direction:column;background:#0b0d1a;color:#fff;text-decoration:none}
+.g-p--work{display:flex;flex-direction:column;background:var(--color-savannah-night);color:#fff;text-decoration:none}
 .g-p__img{flex:1;min-height:12rem;overflow:hidden;background:#1a1d2b}
 .g-p__img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s var(--ease)}
 .g-p--work:hover .g-p__img img{transform:scale(1.03)}
@@ -1608,7 +1635,7 @@ html{scroll-padding-top:5rem}
 
 /* quotes */
 .g-p--quote{background:var(--blue);color:#fff;padding:clamp(1.2rem,2.2vw,2rem);display:flex;flex-direction:column;justify-content:space-between;gap:1.5rem}
-.g-p--quote-dark{background:#0b0d1a}
+.g-p--quote-dark{background:var(--color-savannah-night)}
 .g-p--quote blockquote{margin:0;font-size:clamp(1.2rem,1.9vw,1.65rem);font-weight:500;letter-spacing:-.02em;line-height:1.25}
 .g-p--quote figcaption{font-size:.9rem;color:rgba(255,255,255,.75)}
 .g-p--quote figcaption b{display:block;color:#fff;font-weight:600}
@@ -1677,7 +1704,7 @@ html{scroll-padding-top:5rem}
 .g-hello .n-btn,.g-wrap .n-btn{font-family:var(--g-sans);text-transform:uppercase;font-size:.85rem;letter-spacing:.02em}
 .g-p h2{font-family:var(--g-serif);font-weight:400;font-variation-settings:normal;letter-spacing:-.015em;line-height:1}
 .g-p__meta,.g-p--photo figcaption,.g-p--quote figcaption{font-family:var(--g-sans);text-transform:uppercase;font-size:.78rem;letter-spacing:.02em}
-.g-p--photo figcaption{border-radius:0;background:#0b0d1a;color:#fff;padding:.2rem .45rem}
+.g-p--photo figcaption{border-radius:0;background:var(--color-savannah-night);color:#fff;padding:.2rem .45rem}
 .g-p__win{font-family:var(--g-sans);text-transform:uppercase;font-size:.9rem;letter-spacing:.02em;font-weight:500}
 .g-p--quote blockquote{font-family:var(--g-serif);font-weight:400;letter-spacing:-.01em;line-height:1.2}
 .g-p--hi h2{font-size:clamp(3rem,8vw,7.5rem)}
@@ -1754,7 +1781,7 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 /* ═══ Home cards, v5: the work fills the card (after Jon Rodriguez):
    logo top left, role and result as pills top right, title over the
    bottom. Text tiles are light; no big blocks of flat blue. ═══════════ */
-.g-p--work{display:block;position:relative;background:#0b0d1a;isolation:isolate;min-height:0}
+.g-p--work{display:block;position:relative;background:var(--color-savannah-night);isolation:isolate;min-height:0}
 .g-p__media{position:absolute;inset:0;z-index:0;isolation:isolate;container-type:inline-size;overflow:hidden}
 .g-p__media>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
 .g-p--work:hover .g-p__media>img{transform:scale(1.03)}
@@ -1766,7 +1793,7 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 .g-logo{flex:none;width:2.6rem;height:2.6rem;border-radius:10px;display:grid;place-items:center;box-shadow:0 4px 14px rgba(0,0,0,.25)}
 .g-logo svg{width:1.4rem;height:1.4rem;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linejoin:round}
 .g-logo--ibm{background:#fff;color:#0f62fe;font:700 .82rem/1 'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;letter-spacing:.04em}
-.g-logo--opal{background:#fff;color:#0b0d1a}
+.g-logo--opal{background:#fff;color:var(--color-savannah-night)}
 .g-logo--slack{background:#fff;color:#4A154B}
 .g-logo--slack svg{stroke-width:2.4}
 .g-pills{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:.4rem}
@@ -2094,16 +2121,16 @@ main.cs{width:auto;font-family:var(--g-sans)}
 
 /* ═══ Hero videos: flat light scenes that match the site. Cards put the title
    under the scene in dark text; covers are the scene alone. ═══════════════ */
-.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:#f4f5f8}
-.g-p--work{background:#f4f5f8!important;display:flex!important;flex-direction:column}
+.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:var(--color-studio-wall)}
+.g-p--work{background:var(--color-studio-wall)!important;display:flex!important;flex-direction:column}
 .g-p--work .g-p__media{position:relative!important;inset:auto!important;flex:1;min-height:0}
 .g-p--work .g-p__cap{position:relative!important;inset:auto!important;background:none!important;color:var(--h-text);
   padding:0 clamp(1.1rem,2vw,1.6rem) clamp(1.1rem,2vw,1.5rem)!important}
 .g-p--work .g-p__cap h2{color:var(--h-text)}
 .g-p--work .g-p__cap p{color:var(--h-soft)}
 .g-p--work:hover .g-p__cap h2{color:var(--h-text)}
-.g-p--work .g-pills span{background:#fff!important;color:var(--h-text)!important;backdrop-filter:none!important;box-shadow:0 0 0 1px #e3e6ec!important}
-.c-cover--hero{position:relative;aspect-ratio:16/10;background:#f4f5f8;border-radius:10px;overflow:hidden}
+.g-p--work .g-pills span{background:#fff!important;color:var(--h-text)!important;backdrop-filter:none!important;box-shadow:0 0 0 1px var(--color-porcelain)!important}
+.c-cover--hero{position:relative;aspect-ratio:16/10;background:var(--color-studio-wall);border-radius:10px;overflow:hidden}
 /* Pills sit under the title instead of over the scene. */
 .g-p--work .g-p__top{position:static!important;order:3;padding:0 clamp(1.1rem,2vw,1.6rem) clamp(1.1rem,2vw,1.4rem)!important;justify-content:flex-start!important}
 .g-p--work .g-pills{justify-content:flex-start!important}
@@ -2117,7 +2144,7 @@ main.cs{width:auto;font-family:var(--g-sans)}
 .g-p--work .g-p__media{position:absolute!important;inset:0!important;flex:none}
 .g-p--work .hero-vid{object-position:50% 35%}
 .g-p--work .g-p__cap{position:absolute!important;left:0;right:0;bottom:0;z-index:2;padding:4rem clamp(1.1rem,2vw,1.6rem) .6rem!important;
-  background:linear-gradient(to top,#f4f5f8 0%,#f4f5f8 55%,rgba(244,245,248,0))!important}
+  background:linear-gradient(to top,var(--color-studio-wall) 0%,var(--color-studio-wall) 55%,rgba(244,245,248,0))!important}
 .g-p--work .g-p__top{position:absolute!important;left:0;right:0;bottom:0;z-index:3;padding:0 clamp(1.1rem,2vw,1.6rem) clamp(1rem,1.8vw,1.3rem)!important}
 .g-p--work .g-p__cap{padding-bottom:calc(clamp(1rem,1.8vw,1.3rem) + 2.6rem)!important}
 .g-p--work .g-p__cap{inset:auto 0 0 0!important}
@@ -2133,7 +2160,7 @@ main.cs{width:auto;font-family:var(--g-sans)}
 .c-try__tag svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .c-feat img[src*="opal-slide"]{aspect-ratio:1896/1200;object-fit:cover;border-radius:10px}
 .c-feat img[src*="opal-feat"]{aspect-ratio:1/1;object-fit:cover;border-radius:10px;background:#000}
-.c-feat img[src*="opal-feat"]{background:#f4f5f8}
+.c-feat img[src*="opal-feat"]{background:var(--color-studio-wall)}
 .c-feat img[src*="opal-feat"]{cursor:zoom-in}
 .c-zoom{border:0;padding:0;background:transparent;max-width:min(92vw,1120px);max-height:92vh}
 .c-zoom::backdrop{background:rgba(10,12,20,.82)}
@@ -2164,28 +2191,8 @@ main.cs{width:auto;font-family:var(--g-sans)}
 .ds-row{margin:0 0 1rem}
 .ds-one{grid-template-columns:minmax(0,26rem)!important}
 @media (max-width:620px){.ds-type{grid-template-columns:1fr;gap:.8rem}.ds-type__sample{font-size:min(100%,2.2rem)}}
-.ds .g-pills.ds-left span{background:#fff;color:var(--h-text);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 0 0 1px #e3e6ec;font-size:.8rem;padding:.35rem .6rem}
+.ds .g-pills.ds-left span{background:#fff;color:var(--h-text);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 0 0 1px var(--color-porcelain);font-size:.8rem;padding:.35rem .6rem}
 
-/* Design tokens. Named versions of the values the site already uses; the
-   design system page (/design-system) documents them. */
-:root{
-  --color-savannah-night:#0b0d1a;
-  --color-kiln-smoke:#5b5e70;
-  --color-brayden-blue:#1b4dff;
-  --color-pencil-line:rgba(11,13,26,.12);
-  --color-porcelain:#e3e6ec;
-  --color-studio-wall:#f4f5f8;
-  --color-sketchbook:#fff;
-  --text-tall-order:600 2.61rem/1 'Instrument Sans','Helvetica Neue',Arial,sans-serif;
-  --text-big-entrance:600 4.5rem/1 'Instrument Sans','Helvetica Neue',Arial,sans-serif;
-  --text-idea-stroll:600 2.8rem/1.08 'Instrument Sans','Helvetica Neue',Arial,sans-serif;
-  --text-studio-crit:600 1.98rem/1.02 'Instrument Sans','Helvetica Neue',Arial,sans-serif;
-  --text-opening-line:400 1.4rem/1.5 'Geist','Helvetica Neue',Arial,sans-serif;
-  --text-long-chat:400 1.17rem/1.6 'Geist','Helvetica Neue',Arial,sans-serif;
-  --text-survey-says:400 4.2rem/1 'Geist','Helvetica Neue',Arial,sans-serif;
-  --text-sticky-note:400 .95rem/1.65 'Geist','Helvetica Neue',Arial,sans-serif;
-  --text-name-tag:400 .8rem/1.2 'Geist','Helvetica Neue',Arial,sans-serif;
-}
 .ds-sw__name{font:600 1.05rem/1.2 'Instrument Sans','Helvetica Neue',Arial,sans-serif;letter-spacing:-.02em;color:var(--h-text);margin-top:.2rem}
 .foot__made{margin:.4rem 0 0;font-size:.9rem;line-height:1.5;color:var(--h-soft)}
 .foot__made a{color:var(--h-text);text-decoration:none;border-bottom:1px solid rgba(11,13,26,.3);display:inline-block;padding:.35rem 0 .1rem}
@@ -2209,6 +2216,17 @@ button.c-link{font:inherit;cursor:pointer;background:none}
 .nf__links{display:flex;flex-wrap:wrap;gap:.6rem}
 .nf__links .nf__home{background:var(--h-text);color:#fff;border-color:var(--h-text)}
 .nf__links .nf__home:hover,.nf__links .nf__home:focus-visible{background:var(--blue);border-color:var(--blue)}
+
+/* Text tokens: every text style comes from a token at the top of this file. */
+.g-mark{font:var(--text-tall-order)!important}
+.cs h1{font:var(--text-big-entrance)}
+.cs .c-sec h2{font:var(--text-idea-stroll)}
+.g-p--work .g-p__cap h2{font:var(--text-studio-crit)!important}
+.cs .c-sum{font:var(--text-opening-line)}
+.cs .c-body{font:var(--text-long-chat)}
+.cs .c-stats dt{font:var(--text-survey-says)}
+.cs .c-sec>.c-label:not(.c-label--team){font:var(--text-sticky-note)}
+.g-p--work .g-p__cap .g-pills span{font:var(--text-name-tag)}
 
 </style>
 </head>
@@ -2254,7 +2272,7 @@ button.c-link{font:inherit;cursor:pointer;background:none}
     <img class="hero-vid" src="/images/hero-slack-L.jpg" width="1920" height="1200" alt="Brayden's redesigned Slack: notification settings behind, a message saved for later in front">
   </figure>
   <h1>Slack</h1>
-  <p class="c-sum"><b>Making Slack&rsquo;s hidden state visible.</b> As research lead on a team of three, I studied where everyday Slack tasks break down. Two of them failed for most people, and two small changes to language and system state took success from 3/8 and 2/8 to 8/8.</p>
+  <p class="c-sum"><b>Making Slack’s hidden state visible.</b> As research lead on a team of three, I studied where everyday Slack tasks break down. Two of them failed for most people, and two small changes to language and system state took success from 3/8 and 2/8 to 8/8.</p>
 
   <dl class="c-facts">
     <div><dt>Role</dt><dd>Research Lead</dd></div>
@@ -2272,12 +2290,12 @@ button.c-link{font:inherit;cursor:pointer;background:none}
   <p class="c-label">The opportunity</p>
   <h2>Two everyday tasks were quietly failing.</h2>
   <div class="c-body">
-    <p>We reviewed 20 Slack workflows against Nielsen&rsquo;s heuristics, then watched 8 people try the everyday ones. Getting around was fine. Two tasks fell apart, and most people thought they&rsquo;d finished.</p>
+    <p>We reviewed 20 Slack workflows against Nielsen’s heuristics, then watched 8 people try the everyday ones. Getting around was fine. Two tasks fell apart, and most people thought they’d finished.</p>
   </div>
 
 
   <ul class="c-probs">
-    <li><b>Hidden state</b><span>People couldn&rsquo;t tell what was saved, pinned, or switched on.</span></li>
+    <li><b>Hidden state</b><span>People couldn’t tell what was saved, pinned, or switched on.</span></li>
     <li><b>Look-alike labels</b><span>Saved, Pinned, and Later all sounded the same.</span></li>
     <li><b>Scattered controls</b><span>Notification settings lived across several menus.</span></li>
   </ul>
@@ -2290,12 +2308,12 @@ button.c-link{font:inherit;cursor:pointer;background:none}
 
 <!-- ═══ Fix 1 ════════════════════════════════════════════════════════════ -->
 <section class="c-sec" id="saved">
-  <p class="c-label">What I did &middot; Saved messages</p>
-  <h2>The concept wasn&rsquo;t the problem. The language was.</h2>
+  <p class="c-label">What I did · Saved messages</p>
+  <h2>The concept wasn’t the problem. The language was.</h2>
   <div class="c-body">
     <p>Saved, Pinned, and Later all sounded alike, and none said who could see what. We renamed the actions around ownership: Save for Me, Pin for Everyone.</p>
   </div>
-  <blockquote class="c-quote">&ldquo;There is usually a saved button here. This is terribly confusing.&rdquo;<cite>Participant</cite></blockquote>
+  <blockquote class="c-quote"><span>“There is usually a saved button here. This is terribly confusing.”</span><cite>Participant</cite></blockquote>
   <p class="c-try c-try--top"><span class="c-try__tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-1a6 6 0 0 1-5-2.7L4.6 15a1.5 1.5 0 0 1 2.5-1.7L9 15"/></svg>Interactive</span>Try it: save the message, or pin it for the channel.</p>
   <div class="sd sd--save" data-demo="save">
     <div class="sk-rail sd-ctx" aria-hidden="true"><span class="sk-ws">S</span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-home"/></svg><small>Home</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-msg"/></svg><small>DMs</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg><small>Activity</small></span><span class="sk-rail__it is-on"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bookmark"/></svg><small>Saved</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-more"/></svg><small>More</small></span></div>
@@ -2352,12 +2370,12 @@ button.c-link{font:inherit;cursor:pointer;background:none}
 
 <!-- ═══ Fix 2 ════════════════════════════════════════════════════════════ -->
 <section class="c-sec" id="notifications">
-  <p class="c-label">What I did &middot; Notifications</p>
+  <p class="c-label">What I did · Notifications</p>
   <h2>Showing people what Slack will notify them about.</h2>
   <div class="c-body">
     <p>Notification controls were spread across menus, with no sign of what was already on. We added a persistent status and put every control in one place.</p>
   </div>
-  <blockquote class="c-quote">&ldquo;I have no idea where to even start with this.&rdquo;<cite>Participant</cite></blockquote>
+  <blockquote class="c-quote"><span>“I have no idea where to even start with this.”</span><cite>Participant</cite></blockquote>
   <p class="c-try c-try--top"><span class="c-try__tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-1a6 6 0 0 1-5-2.7L4.6 15a1.5 1.5 0 0 1 2.5-1.7L9 15"/></svg>Interactive</span>Try it: change a channel&rsquo;s alerts and watch the status and overview update.</p>
   <div class="sd sd--notif" data-demo="notif" data-init='{"general": "mentions", "engineering": "all", "design": "mentions", "random": "muted"}'>
     <div class="sk-rail sd-ctx" aria-hidden="true"><span class="sk-ws">S</span><span class="sk-rail__it is-on"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-home"/></svg><small>Home</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-msg"/></svg><small>DMs</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg><small>Activity</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bookmark"/></svg><small>Saved</small></span><span class="sk-rail__it"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-more"/></svg><small>More</small></span></div>
@@ -2427,12 +2445,21 @@ button.c-link{font:inherit;cursor:pointer;background:none}
   <p class="c-jump"><span>2/8</span><i aria-hidden="true">&rarr;</i><b>8/8</b><small>in unmoderated testing</small></p>
 </section>
 
+<!-- ═══ Decision ═════════════════════════════════════════════════════════ -->
+<section class="c-sec" id="decision">
+  <p class="c-label">The decision</p>
+  <h2>Fix the words before adding features.</h2>
+  <div class="c-body">
+    <p>Both problems could have been answered with something new: another panel, another menu. We kept Slack’s features and changed what they say and show instead, renaming actions around who can see them and showing what’s already on. It’s a smaller change to point to, but it went straight at what tripped people up.</p>
+  </div>
+</section>
+
 <!-- ═══ Result ═══════════════════════════════════════════════════════════ -->
 <section class="c-sec" id="result">
   <p class="c-label">The result</p>
   <h2>Most of the fix was wording and visibility, not new features.</h2>
   <div class="c-body">
-    <p>We validated both changes with 8 new people on UserTesting, with no researcher in the room. The same failures didn&rsquo;t come back.</p>
+    <p>We validated both changes with 8 new people on UserTesting, with no researcher in the room. The same failures didn’t come back.</p>
   </div>
 </section>
 
@@ -2449,18 +2476,18 @@ button.c-link{font:inherit;cursor:pointer;background:none}
 <section class="c-more">
   <p class="c-label">View more</p>
   <div class="c-more__grid">
-    <a class="g-p g-p--work cs-card" href="/ibm">
-      <div class="g-p__media">
-      <img class="hero-vid" src="/images/hero-ibm-L.jpg" width="1920" height="1200" alt="IBM Platinum Experience and IBM Sovereign Support pages, the Sovereign page in front with its glass-block banner">
-      </div>
-      <div class="g-p__cap"><h2>Design at enterprise speed</h2><p>A summer in Austin on how people and AI agents learn complex products.</p><span class="g-pills"><span>Product Design Intern</span><span>Shipped on ibm.com</span></span></div>
-    </a>
-    <a class="g-p g-p--work cs-card" href="/opal">
-      <div class="g-p__media">
-      <img class="hero-vid" src="/images/hero-opal-P.jpg" width="1280" height="1200" alt="Three Opal features: the calendar and to-do list, break suggestions, and Tap Stickers">
-      </div>
-      <div class="g-p__cap"><h2>Opal</h2><p>New features for the Opal focus app: plan, focus, and take breaks worth taking.</p><span class="g-pills"><span>Product Designer</span><span>Indigo Design Award</span></span></div>
-    </a>
+      <a class="g-p g-p--work cs-card" href="/ibm">
+        <div class="g-p__media">
+        <img class="hero-vid" src="/images/hero-ibm-L.jpg" width="1920" height="1200" alt="IBM Platinum Experience and IBM Sovereign Support pages, the Sovereign page in front with its glass-block banner">
+        </div>
+        <div class="g-p__cap"><h2>Design at enterprise speed</h2><p>A summer in Austin on how people and AI agents learn complex products.</p><span class="g-pills"><span>Product Design Intern</span><span>Shipped on ibm.com</span></span></div>
+      </a>
+      <a class="g-p g-p--work cs-card" href="/opal">
+        <div class="g-p__media">
+        <img class="hero-vid" src="/images/hero-opal-P.jpg" width="1280" height="1200" alt="Three Opal features: the calendar and to-do list, break suggestions, and Tap Stickers">
+        </div>
+        <div class="g-p__cap"><h2>Opal</h2><p>New features for the Opal focus app: plan, focus, and take breaks worth taking.</p><span class="g-pills"><span>Product Designer</span><span>Indigo Design Award</span></span></div>
+      </a>
   </div>
 </section>
 

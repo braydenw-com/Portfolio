@@ -62,10 +62,10 @@
     </nav>
   </div>
   <div class="g-hello__body">
-    <a class="g-mark g-mark--link" href="/"><span>Brayden</span> <span>Wisniewski</span></a>
-    <p class="g-hey">Designer. People person. Kinda tall.</p>
+    <a class="g-mark g-mark--link" href="/"><span>{{ site/first name }}</span> <span>{{ site/last name }}</span></a>
+    <p class="g-hey">{{ site/tagline }}</p>
     <div class="g-hello__row">
-      <p>UX at SCAD, graduating 2027<br>Open to design roles</p>
+      <p>{{ site/status }}</p>
     </div>
   </div>
 </header>
@@ -85,15 +85,15 @@
   <figure class="c-cover c-cover--top c-cover--hero">
     <img class="hero-vid" src="/images/hero-opal-L.jpg" width="1920" height="1200" alt="Three Opal features: the calendar and to-do list, break suggestions, and Tap Stickers">
   </figure>
-  <h1>Opal</h1>
-  <p class="c-sum"><b>Making focus feel a little easier.</b> Opal already blocks distractions. With two teammates, I designed an expansion of the app around planning, motivation, and breaks worth taking, built from a 30-student survey and tested with 23 more.</p>
+  <h1>{{ intro title }}</h1>
+  <p class="c-sum">{{ intro summary }}</p>
 
   <dl class="c-facts">
-    <div><dt>Role</dt><dd>Product Designer</dd></div>
-    <div><dt>Team</dt><dd>3 designers</dd></div>
-    <div><dt>Timeline</dt><dd>10 weeks, 2025</dd></div>
-    <div><dt>Project</dt><dd>Expansion of the Opal app</dd></div>
-    <div><dt>Recognition</dt><dd><a class="c-link" href="https://indigoaward.com/winners/11033" target="_blank" rel="noopener">Indigo Design Award</a></dd></div>
+    <div><dt>{{ intro fact 1 name }}</dt><dd>{{ intro fact 1 value }}</dd></div>
+    <div><dt>{{ intro fact 2 name }}</dt><dd>{{ intro fact 2 value }}</dd></div>
+    <div><dt>{{ intro fact 3 name }}</dt><dd>{{ intro fact 3 value }}</dd></div>
+    <div><dt>{{ intro fact 4 name }}</dt><dd>{{ intro fact 4 value }}</dd></div>
+    <div><dt>{{ intro fact 5 name }}</dt><dd>{{ intro fact 5 value }}</dd></div>
   </dl>
 
 
@@ -102,79 +102,66 @@
 
 <!-- ═══ Overview ═════════════════════════════════════════════════════════ -->
 <section class="c-sec" id="story">
-  <p class="c-label">The opportunity</p>
-  <h2>Students didn&rsquo;t want stricter blocking.</h2>
+  <p class="c-label">{{ opportunity label }}</p>
+  <h2>{{ opportunity heading }}</h2>
   <div class="c-body">
-    <p>We surveyed 30 college students. They weren&rsquo;t asking for stricter blocking. They wanted help staying motivated, planning their time, and taking breaks without falling straight back into scrolling.</p>
+    <p>{{ opportunity paragraph }}</p>
   </div>
   <dl class="c-stats c-stats--3">
-    <div><dt>27/30</dt><dd>struggled with procrastination</dd></div>
-    <div><dt>21/30</dt><dd>were distracted by their phones</dd></div>
-    <div><dt>61%</dt><dd>had never used a focus app</dd></div>
+    <div><dt>{{ opportunity stat 1 number }}</dt><dd>{{ opportunity stat 1 meaning }}</dd></div>
+    <div><dt>{{ opportunity stat 2 number }}</dt><dd>{{ opportunity stat 2 meaning }}</dd></div>
+    <div><dt>{{ opportunity stat 3 number }}</dt><dd>{{ opportunity stat 3 meaning }}</dd></div>
   </dl>
 </section>
 
 <!-- ═══ Insight ══════════════════════════════════════════════════════════ -->
 <section class="c-sec" id="insight">
-  <p class="c-label">What we found</p>
-  <h2>Focus apps were each solving one piece of the problem.</h2>
-  <ul class="c-probs">
-    <li><b>Forest</b><span>Blocks distractions.</span></li>
-    <li><b>Finch</b><span>Makes self-care rewarding.</span></li>
-    <li><b>Focus Friend</b><span>Adds accountability.</span></li>
-  </ul>
-  <p class="c-beat">Students wanted pieces of all three. Opal already had the blocking, so we designed the rest.</p>
+  <p class="c-label">{{ decision label }}</p>
+  <h2>{{ decision heading }}</h2>
+  <div class="c-body">
+    <p>{{ decision paragraph }}</p>
+  </div>
 </section>
 
 <!-- ═══ Design ═══════════════════════════════════════════════════════════ -->
 <section class="c-sec" id="design">
-  <p class="c-label">What we made</p>
-  <h2>Three new features for the whole cycle: plan, focus, step away.</h2>
+  <p class="c-label">{{ made label }}</p>
+  <h2>{{ made heading }}</h2>
 
   <div class="c-feats">
     <figure class="c-feat">
       <img src="/images/opal-feat-calendar.jpg" width="1120" height="1120" loading="lazy"
            alt="The Opal calendar showing Thursday&rsquo;s classes and a to-do list, next to the Add Event sheet">
-      <figcaption><b>Calendar</b>Classes, tasks, and to-dos live in one plan inside Opal, so deciding what to do and starting it happen in the same place.</figcaption>
+      <figcaption>{{ made caption 1 }}</figcaption>
     </figure>
     <figure class="c-feat">
       <img src="/images/opal-feat-stickers.jpg" width="1120" height="1120" loading="lazy"
            alt="Two Sticker Found screens: one confirming a focus sticker was detected, one ready to block social media and dating apps at Home">
-      <figcaption><b>Tap Stickers</b>Collectible gem stickers you place around your space. Tap your phone on one and Opal starts that spot&rsquo;s block, like Home.</figcaption>
+      <figcaption>{{ made caption 2 }}</figcaption>
     </figure>
     <figure class="c-feat">
       <img src="/images/opal-feat-breaks.jpg" width="1120" height="1120" loading="lazy"
            alt="The Opal pause screen over a photo of Paris, suggesting &ldquo;Have you danced today?&rdquo; with a Wait for 18s button">
-      <figcaption><b>Break Suggestions</b>When you reach for a blocked app, Opal&rsquo;s pause screen suggests something better to do: step outside, read, dance.</figcaption>
+      <figcaption>{{ made caption 3 }}</figcaption>
     </figure>
   </div>
 </section>
 
 <!-- ═══ Takeaway ═════════════════════════════════════════════════════════ -->
 <section class="c-sec c-sec--end" id="takeaway">
-  <p class="c-label">What I learned</p>
-  <h2>Make the better choice the easier one.</h2>
+  <p class="c-label">{{ learned label }}</p>
+  <h2>{{ learned heading }}</h2>
   <div class="c-body">
-    <p>The real question wasn&rsquo;t how to stop distraction. It was how to make putting the phone down feel better than picking it back up.</p>
+    <p>{{ learned paragraph }}</p>
   </div>
 </section>
 
 <!-- ═══ More work ════════════════════════════════════════════════════════ -->
 <section class="c-more">
-  <p class="c-label">View more</p>
+  <p class="c-label">{{ more label }}</p>
   <div class="c-more__grid">
-    <a class="g-p g-p--work cs-card" href="/presents">
-      <div class="g-p__media">
-      <img class="hero-vid" src="/images/hero-presents-P.jpg" width="1280" height="1200" alt="The Presents shuffle screen: a soft glow of color behind the five-dot mark, with a Shuffle button below">
-      </div>
-      <div class="g-p__cap"><h2>Presents</h2><p>A private time capsule for a small group of friends.</p><span class="g-pills"><span>Designer &amp; iOS build</span><span>SVSD Design Sprint</span></span></div>
-    </a>
-    <a class="g-p g-p--work cs-card" href="/slack">
-      <div class="g-p__media">
-      <img class="hero-vid" src="/images/hero-slack-P.jpg" width="1280" height="1200" alt="Brayden's redesigned Slack: notification settings behind, a message saved for later in front">
-      </div>
-      <div class="g-p__cap"><h2>Slack</h2><p>Two everyday tasks most people couldn&rsquo;t finish. Two small changes fixed both.</p><span class="g-pills"><span>Research Lead</span><span>3/8 &rarr; 8/8 task success</span></span></div>
-    </a>
+      <!-- @card /presents -->
+      <!-- @card /slack -->
   </div>
 </section>
 

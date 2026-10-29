@@ -62,10 +62,10 @@
     </nav>
   </div>
   <div class="g-hello__body">
-    <a class="g-mark g-mark--link" href="/"><span>Brayden</span> <span>Wisniewski</span></a>
-    <p class="g-hey">Designer. People person. Kinda tall.</p>
+    <a class="g-mark g-mark--link" href="/"><span>{{ site/first name }}</span> <span>{{ site/last name }}</span></a>
+    <p class="g-hey">{{ site/tagline }}</p>
     <div class="g-hello__row">
-      <p>UX at SCAD, graduating 2027<br>Open to design roles</p>
+      <p>{{ site/status }}</p>
     </div>
   </div>
 </header>
@@ -85,14 +85,14 @@
   <figure class="c-cover c-cover--top c-cover--hero">
     <img class="hero-vid" src="/images/hero-ibm-L.jpg" width="1920" height="1200" alt="IBM Platinum Experience and IBM Sovereign Support pages, the Sovereign page in front with its glass-block banner">
   </figure>
-  <h1>Design at enterprise speed</h1>
-  <p class="c-sum">Twelve weeks on IBM&rsquo;s Core Software Data Design team in Austin. Most of it went to how people and AI agents learn complex products in Db2. Then came a side mission that ended up live on IBM.com.</p>
+  <h1>{{ intro title }}</h1>
+  <p class="c-sum">{{ intro summary }}</p>
 
   <dl class="c-facts">
-    <div><dt>Role</dt><dd>Product Design Intern</dd></div>
-    <div><dt>Team</dt><dd>Core Software Data Design</dd></div>
-    <div><dt>Location</dt><dd>Austin, Texas</dd></div>
-    <div><dt>Timeline</dt><dd>12 weeks, summer 2026</dd></div>
+    <div><dt>{{ intro fact 1 name }}</dt><dd>{{ intro fact 1 value }}</dd></div>
+    <div><dt>{{ intro fact 2 name }}</dt><dd>{{ intro fact 2 value }}</dd></div>
+    <div><dt>{{ intro fact 3 name }}</dt><dd>{{ intro fact 3 value }}</dd></div>
+    <div><dt>{{ intro fact 4 name }}</dt><dd>{{ intro fact 4 value }}</dd></div>
   </dl>
 
 
@@ -101,70 +101,57 @@
 
 <!-- ═══ Db2 ══════════════════════════════════════════════════════════════ -->
 <section class="c-sec" id="story">
-  <p class="c-label">The opportunity</p>
-  <h2>How does a product teach both people and agents?</h2>
+  <p class="c-label">{{ opportunity label }}</p>
+  <h2>{{ opportunity heading }}</h2>
   <div class="c-body">
-    <p>Most of my summer went to product guidance in Db2: research, exploration, prototyping, and a lot of playbacks with the team. It shaped how I think about AI, agents, and the future of product guidance.</p>
+    <p>{{ opportunity paragraph }}</p>
   </div>
   <div class="c-nda">
     <div>
-      <b>This project is under NDA</b>
-      <p>I can walk through the work, my process, and what I contributed in an interview.</p>
+      <b>{{ nda heading }}</b>
+      <p>{{ nda text }}</p>
     </div>
-    <button class="c-copy" type="button" data-copy="brayden@braydenw.com">Copy email</button>
+    <button class="c-copy" type="button" data-copy="brayden@braydenw.com">{{ nda button }}</button>
   </div>
 </section>
 
 <!-- ═══ Support pages ════════════════════════════════════════════════════ -->
 <section class="c-sec" id="support">
-  <p class="c-label">What I did &middot; IBM Support pages</p>
-  <h2>Ask on Thursday. Presenting on Friday.</h2>
+  <p class="c-label">{{ did ibm support pages label }}</p>
+  <h2>{{ did ibm support pages heading }}</h2>
   <div class="c-body">
-    <p>Near the end of the internship, my manager asked if anyone had time to redesign a IBM Support pages that weren&rsquo;t showing their offerings well. I said yes. I took them from Figma to code with IBM Bob and worked inside Drupal&rsquo;s constraints.</p>
+    <p>{{ did ibm support pages paragraph }}</p>
   </div>
-  <p class="c-jump"><span>4 PM Thursday</span><i aria-hidden="true">&rarr;</i><b>10 AM Friday</b><small>ask, design, build, present</small></p>
+  <p class="c-jump"><span>{{ did ibm support pages timing from }}</span><i aria-hidden="true">&rarr;</i><b>{{ did ibm support pages timing to }}</b><small>{{ did ibm support pages timing note }}</small></p>
 
   <figure class="c-cover c-cover--flat">
     <img src="/images/ibm-sovereign-page.jpg" width="1800" height="1013" loading="lazy" alt="The redesigned IBM Sovereign Support page, live on ibm.com">
   </figure>
 
-  <p class="c-label c-label--team">From the team at IBM</p>
+  <p class="c-label c-label--team">{{ team label }}</p>
   <div class="c-quotes">
-    <blockquote class="c-quote">&ldquo;Your contributions helped us transform ideas into modern, polished web experiences that better showcase the value of our offerings.&rdquo;<cite>Pepe Valiente, Strategy Lead, IBM Core Software</cite></blockquote>
-    <blockquote class="c-quote">&ldquo;Your quick turnaround with the initial drafts and subsequent update requests allowed us to publish these sooner than we would have.&rdquo;<cite>Patti McAuliffe, WW Support Planning, IBM Core Software</cite></blockquote>
+    <blockquote class="c-quote"><span>{{ team quote 1 }}</span><cite>{{ team quote 1 by }}</cite></blockquote>
+    <blockquote class="c-quote"><span>{{ team quote 2 }}</span><cite>{{ team quote 2 by }}</cite></blockquote>
   </div>
 
-  <p class="c-links">
-    <a class="c-link" href="https://www.ibm.com/support/pages/sovereign-support" target="_blank" rel="noopener">Sovereign Support &#8599;</a>
-    <a class="c-link" href="https://www.ibm.com/support/pages/ibm-platinum-support-offering" target="_blank" rel="noopener">IBM Platinum Support &#8599;</a>
-  </p>
+  <p class="c-links">{{ did ibm support pages links }}</p>
 </section>
 
 <!-- ═══ Takeaway ═════════════════════════════════════════════════════════ -->
 <section class="c-sec c-sec--end" id="takeaway">
-  <p class="c-label">What I learned</p>
-  <h2>If products are learning to work with us, how should we design the way they learn?</h2>
+  <p class="c-label">{{ learned label }}</p>
+  <h2>{{ learned heading }}</h2>
   <div class="c-body">
-    <p>I left more comfortable working inside complexity, sharing unfinished work, and knowing when to keep exploring versus when to make something real. And more likely to raise my hand when something interesting comes up.</p>
+    <p>{{ learned paragraph }}</p>
   </div>
 </section>
 
 <!-- ═══ More work ════════════════════════════════════════════════════════ -->
 <section class="c-more">
-  <p class="c-label">View more</p>
+  <p class="c-label">{{ more label }}</p>
   <div class="c-more__grid">
-    <a class="g-p g-p--work cs-card" href="/opal">
-      <div class="g-p__media">
-      <img class="hero-vid" src="/images/hero-opal-P.jpg" width="1280" height="1200" alt="Three Opal features: the calendar and to-do list, break suggestions, and Tap Stickers">
-      </div>
-      <div class="g-p__cap"><h2>Opal</h2><p>New features for the Opal focus app: plan, focus, and take breaks worth taking.</p><span class="g-pills"><span>Product Designer</span><span>Indigo Design Award</span></span></div>
-    </a>
-    <a class="g-p g-p--work cs-card" href="/presents">
-      <div class="g-p__media">
-      <img class="hero-vid" src="/images/hero-presents-P.jpg" width="1280" height="1200" alt="The Presents shuffle screen: a soft glow of color behind the five-dot mark, with a Shuffle button below">
-      </div>
-      <div class="g-p__cap"><h2>Presents</h2><p>A private time capsule for a small group of friends.</p><span class="g-pills"><span>Designer &amp; iOS build</span><span>SVSD Design Sprint</span></span></div>
-    </a>
+      <!-- @card /opal -->
+      <!-- @card /presents -->
   </div>
 </section>
 

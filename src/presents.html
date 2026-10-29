@@ -62,10 +62,10 @@
     </nav>
   </div>
   <div class="g-hello__body">
-    <a class="g-mark g-mark--link" href="/"><span>Brayden</span> <span>Wisniewski</span></a>
-    <p class="g-hey">Designer. People person. Kinda tall.</p>
+    <a class="g-mark g-mark--link" href="/"><span>{{ site/first name }}</span> <span>{{ site/last name }}</span></a>
+    <p class="g-hey">{{ site/tagline }}</p>
     <div class="g-hello__row">
-      <p>UX at SCAD, graduating 2027<br>Open to design roles</p>
+      <p>{{ site/status }}</p>
     </div>
   </div>
 </header>
@@ -84,73 +84,62 @@
   <figure class="c-cover c-cover--top c-cover--hero">
     <img class="hero-vid" src="/images/hero-presents-L.jpg" width="1920" height="1200" alt="The Presents shuffle screen: a soft glow of color behind the five-dot mark, with a Shuffle button below">
   </figure>
-  <h1>Presents</h1>
-  <p class="c-sum"><b>Capture a moment, together.</b> A private time capsule for a group of friends. In four days, our team of three built a working iOS prototype and a website for the SVSD Design Sprint.</p>
+  <h1>{{ intro title }}</h1>
+  <p class="c-sum">{{ intro summary }}</p>
 
   <dl class="c-facts">
-    <div><dt>Role</dt><dd>Designer &amp; iOS build</dd></div>
-    <div><dt>Team</dt><dd>3 designers</dd></div>
-    <div><dt>Timeline</dt><dd>4 days, 2026</dd></div>
-    <div><dt>Built</dt><dd>Working iOS prototype, website</dd></div>
-    <div><dt>For</dt><dd>SVSD Design Sprint</dd></div>
+    <div><dt>{{ intro fact 1 name }}</dt><dd>{{ intro fact 1 value }}</dd></div>
+    <div><dt>{{ intro fact 2 name }}</dt><dd>{{ intro fact 2 value }}</dd></div>
+    <div><dt>{{ intro fact 3 name }}</dt><dd>{{ intro fact 3 value }}</dd></div>
+    <div><dt>{{ intro fact 4 name }}</dt><dd>{{ intro fact 4 value }}</dd></div>
+    <div><dt>{{ intro fact 5 name }}</dt><dd>{{ intro fact 5 value }}</dd></div>
+    <div><dt>{{ intro fact 6 name }}</dt><dd>{{ intro fact 6 value }}</dd></div>
   </dl>
 </section>
 
 <section class="c-sec" id="story">
-  <p class="c-label">The opportunity</p>
-  <h2>The small moments are the ones we forget.</h2>
+  <p class="c-label">{{ opportunity label }}</p>
+  <h2>{{ opportunity heading }}</h2>
   <div class="c-body">
-    <p>We&rsquo;re seniors, and our time together is almost up. Everyone saves the big nights. The little moments in between never get captured, and they&rsquo;re the ones we&rsquo;d miss most.</p>
+    <p>{{ opportunity paragraph }}</p>
   </div>
 </section>
 
 <section class="c-sec" id="idea">
-  <p class="c-label">What we made</p>
-  <h2>Capture now. Open it together later.</h2>
+  <p class="c-label">{{ made label }}</p>
+  <h2>{{ made heading }}</h2>
   <figure class="c-shot">
     <img src="/images/presents-mock-flow.jpg" width="2000" height="1000" loading="lazy" alt="Four Presents screens: making a group by holding phones close, shuffling for a moment, landing on Doodle, and a finished doodle ready to seal">
   </figure>
   <ul class="c-probs">
-    <li><b>The app picks</b><span>Shuffle lands on a photo, video, voice note, doodle, or a few words. One take.</span></li>
-    <li><b>Sealed, even from you</b><span>Once a moment is in, nobody sees it until reveal night.</span></li>
-    <li><b>Start in person</b><span>Hold your phones close to make the group. No accounts.</span></li>
+    <li><b>{{ made point 1 title }}</b><span>{{ made point 1 text }}</span></li>
+    <li><b>{{ made point 2 title }}</b><span>{{ made point 2 text }}</span></li>
+    <li><b>{{ made point 3 title }}</b><span>{{ made point 3 text }}</span></li>
   </ul>
 </section>
 
 <section class="c-sec" id="reveal">
-  <p class="c-label">Reveal night</p>
-  <h2>Put it on the TV and open it together.</h2>
+  <p class="c-label">{{ reveal night label }}</p>
+  <h2>{{ reveal night heading }}</h2>
   <figure class="c-shot">
     <img src="/images/presents-mock-reveal.jpg" width="2000" height="1000" loading="lazy" alt="Reveal night on a TV: a sealed chapter, then the same chapter opened to a voice note, a photo, and a note">
   </figure>
-  <p class="c-links">
-    <a class="c-link" href="https://bepresents.org" target="_blank" rel="noopener">Try the demo at bepresents.org &#8599;</a>
-  </p>
+  <p class="c-links">{{ reveal night text }}</p>
 </section>
 
 <section class="c-sec c-sec--end" id="takeaway">
-  <p class="c-label">What I learned</p>
-  <h2>Build it to find out how it feels.</h2>
+  <p class="c-label">{{ learned label }}</p>
+  <h2>{{ learned heading }}</h2>
   <div class="c-body">
-    <p>In four days, a working prototype told us more than mockups could. Holding phones together and waiting through the shuffle only made sense once we could try them.</p>
+    <p>{{ learned paragraph }}</p>
   </div>
 </section>
 
 <section class="c-more">
-  <p class="c-label">View more</p>
+  <p class="c-label">{{ more label }}</p>
   <div class="c-more__grid">
-    <a class="g-p g-p--work cs-card" href="/slack">
-      <div class="g-p__media">
-      <img class="hero-vid" src="/images/hero-slack-P.jpg" width="1280" height="1200" alt="Brayden's redesigned Slack: notification settings behind, a message saved for later in front">
-      </div>
-      <div class="g-p__cap"><h2>Slack</h2><p>Two everyday tasks most people couldn&rsquo;t finish. Two small changes fixed both.</p><span class="g-pills"><span>Research Lead</span><span>3/8 &rarr; 8/8 task success</span></span></div>
-    </a>
-    <a class="g-p g-p--work cs-card" href="/ibm">
-      <div class="g-p__media">
-      <img class="hero-vid" src="/images/hero-ibm-L.jpg" width="1920" height="1200" alt="IBM Platinum Experience and IBM Sovereign Support pages, the Sovereign page in front with its glass-block banner">
-      </div>
-      <div class="g-p__cap"><h2>Design at enterprise speed</h2><p>A summer in Austin on how people and AI agents learn complex products.</p><span class="g-pills"><span>Product Design Intern</span><span>Shipped on ibm.com</span></span></div>
-    </a>
+      <!-- @card /slack -->
+      <!-- @card /ibm -->
   </div>
 </section>
 
