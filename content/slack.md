@@ -8,10 +8,10 @@
 -->
 
 ## intro title
-Slack
+Making Slack’s hidden state visible
 
 ## intro summary
-**Making Slack’s hidden state visible.** As research lead on a team of three, I studied where everyday Slack tasks break down. Two of them failed for most people, and two small changes to language and system state took success from 3/8 and 2/8 to 8/8.
+As research lead on a team of three, I studied where everyday Slack tasks break down. Two of them failed for most people, and two small changes to language and system state took success from 3/8 and 2/8 to 8/8.
 
 ## intro fact 1 name
 Role
@@ -132,6 +132,39 @@ Fix the words before adding features.
 
 ## decision paragraph
 Both problems could have been answered with something new: another panel, another menu. We kept Slack’s features and changed what they say and show instead, renaming actions around who can see them and showing what’s already on. It’s a smaller change to point to, but it went straight at what tripped people up.
+
+## how summary
+See the full process
+
+## how review heading
+The heuristic review
+
+## how review text
+We reviewed 20 everyday Slack workflows against Nielsen’s usability heuristics. That told us where to look: hidden state, look-alike labels, and controls spread across menus.
+
+## how rounds heading
+Two rounds of testing
+
+## how rounds text
+We tested twice, with different people each time.
+
+## how rounds 1 title
+Round 1: 8 people, moderated
+
+## how rounds 1 text
+We watched people try everyday tasks. Only 3 found a saved message, and 2 managed their notifications.
+
+## how rounds 2 title
+Round 2: 8 new people, unmoderated
+
+## how rounds 2 text
+We ran the redesign on UserTesting with no researcher in the room. All 8 finished both tasks.
+
+## how limits heading
+Keep in mind
+
+## how limits text
+Eight people per round is a small study. The numbers show a clear direction, not a statistical result, and the quotes explain why the changes worked.
 
 ## result label
 The result

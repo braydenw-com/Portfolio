@@ -26,7 +26,7 @@ Shipped on ibm.com
 **Pepe Valiente**Strategy Lead, IBM Core Software
 
 ## opal card heading
-Opal
+Making focus feel a little easier
 
 ## opal card text
 New features for the Opal focus app: plan, focus, and take breaks worth taking.
@@ -38,7 +38,7 @@ Product Designer
 Indigo Design Award
 
 ## presents card heading
-Presents
+Capture a moment, together
 
 ## presents card text
 A private time capsule for a small group of friends.
@@ -53,7 +53,7 @@ SVSD Design Sprint
 Recent ceramic pics
 
 ## slack card heading
-Slack
+Making Slack’s hidden state visible
 
 ## slack card text
 Two everyday tasks most people couldn’t finish. Two small changes fixed both.
