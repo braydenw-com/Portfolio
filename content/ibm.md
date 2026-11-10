@@ -73,6 +73,45 @@ Near the end of the internship, my manager asked if anyone had time to redesign 
 ## did ibm support pages timing note
 ask, design, build, present
 
+## how summary
+See the full process
+
+## how steps heading
+Thursday to Friday
+
+## how steps text
+Eighteen hours from the ask to the playback, inside the tools IBM already uses.
+
+## how steps 1 title
+Ask
+
+## how steps 1 text
+4 PM Thursday. My manager asked who had time to redesign IBM Support pages that weren’t showing their offerings well. I said yes.
+
+## how steps 2 title
+Design
+
+## how steps 2 text
+I designed the pages in Figma, working from the offerings each page needed to explain.
+
+## how steps 3 title
+Build
+
+## how steps 3 text
+I took the designs from Figma to code with IBM Bob and worked inside Drupal’s constraints.
+
+## how steps 4 title
+Present
+
+## how steps 4 text
+10 AM Friday. I presented the pages to the team. They’re now live on ibm.com.
+
+## how private heading
+What I can’t show
+
+## how private text
+Most of my summer went to product guidance in Db2, which is under NDA. I’m happy to walk through that work in an interview.
+
 ## team label
 From the team at IBM
 

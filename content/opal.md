@@ -8,10 +8,10 @@
 -->
 
 ## intro title
-Opal
+Making focus feel a little easier
 
 ## intro summary
-**Making focus feel a little easier.** Opal already blocks distractions. With two teammates, I designed an expansion of the app around planning, motivation, and breaks worth taking, built from a 30-student survey and tested with 23 more.
+Opal already blocks distractions. With two teammates, I designed an expansion of the app around planning, motivation, and breaks worth taking, built from a 30-student survey and tested with 23 more.
 
 ## intro fact 1 name
 Role
@@ -78,6 +78,60 @@ Build on Opal instead of starting a new app.
 
 ## decision paragraph
 Students liked pieces of Forest, Finch, and Focus Friend, but no single app did it all. Rather than design one more focus app, we added planning, rewards, and better breaks to Opal, which already handled the blocking. It meant working inside an existing product instead of starting fresh, and it meant students wouldn’t need another app.
+
+## how summary
+See the full process
+
+## how research heading
+The survey
+
+## how research text
+We surveyed 30 college students about how they study, what distracts them, and what they’d tried before. 27 struggled with procrastination, 21 were distracted by their phones, and 61% had never used a focus app.
+
+## how apps heading
+What other apps were doing
+
+## how app 1 title
+Forest
+
+## how app 1 text
+Blocks distractions.
+
+## how app 2 title
+Finch
+
+## how app 2 text
+Makes self-care rewarding.
+
+## how app 3 title
+Focus Friend
+
+## how app 3 text
+Adds accountability.
+
+## how testing heading
+What testing changed
+
+## how testing text
+We tested the designs with 23 students and fixed what tripped them up.
+
+## how fix 1 title
+“Event” didn’t make sense
+
+## how fix 1 text
+We switched to familiar words like Task and Activity, with icons.
+
+## how fix 2 title
+Scanning needed guidance
+
+## how fix 2 text
+We added alignment guides and clearer onboarding for Tap Stickers.
+
+## how fix 3 title
+New users got lost
+
+## how fix 3 text
+We added help the first time someone meets a feature.
 
 ## made label
 What we made

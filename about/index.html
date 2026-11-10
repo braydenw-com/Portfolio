@@ -2240,6 +2240,31 @@ button.c-link{font:inherit;cursor:pointer;background:none}
 /* Case study guide: screenshots of the real case studies */
 .g-ex{margin:2rem 0 0;max-width:56rem}
 .g-ex img{display:block;width:100%;height:auto;border-radius:10px;box-shadow:0 0 0 1px var(--color-pencil-line);cursor:zoom-in}
+/* "Show how I got there": extra detail that opens on click */
+.c-how{margin-top:2rem;max-width:56rem;border-top:1px solid var(--color-pencil-line);border-bottom:1px solid var(--color-pencil-line)}
+.c-how summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:.6rem;min-height:44px;padding:1rem 0;font:500 1.05rem/1.3 var(--font-body);color:var(--color-savannah-night)}
+.c-how summary::-webkit-details-marker{display:none}
+.c-how summary::after{content:"+";margin-left:auto;font-size:1.5rem;line-height:1;color:var(--color-brayden-blue);transition:transform .25s var(--ease)}
+.c-how[open] summary::after{transform:rotate(45deg)}
+.c-how summary:hover,.c-how summary:focus-visible{color:var(--color-brayden-blue)}
+.c-how__body{padding:0 0 2rem}
+.c-how__body h3{margin:1.8rem 0 .5rem;font:600 1.25rem/1.2 var(--font-head);letter-spacing:-.02em;color:var(--color-savannah-night)}
+.c-how__body h3:first-child{margin-top:.4rem}
+.c-how__body>p{margin:0;max-width:44rem;font:var(--text-long-chat);color:var(--color-kiln-smoke)}
+.c-how .c-probs{margin-top:1.2rem}
+.c-how li{align-content:start}
+.c-how .c-probs:has(li:nth-child(4)){grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:620px){.c-how .c-probs:has(li:nth-child(4)){grid-template-columns:1fr}}
+
+/* The dropdown's toggle is a button */
+.c-how{border:0}
+.c-how summary{display:inline-flex;width:auto;min-height:44px;padding:.6rem 1.1rem;gap:.7rem;border-radius:999px;background:var(--color-savannah-night);color:#fff;font:500 1rem/1.2 var(--font-body)}
+.c-how summary::after{margin-left:0;color:#fff;font-size:1.25rem}
+.c-how summary:hover,.c-how summary:focus-visible{background:var(--color-brayden-blue);color:#fff}
+.c-how summary:focus-visible{outline:3px solid var(--color-brayden-blue);outline-offset:3px}
+.c-how[open] summary{background:#fff;color:var(--color-savannah-night);box-shadow:inset 0 0 0 1px var(--color-pencil-line)}
+.c-how[open] summary::after{color:var(--color-savannah-night)}
+.c-how__body{padding:1.2rem 0 1rem;border-bottom:1px solid var(--color-pencil-line)}
 
 </style>
 </head>
@@ -2352,10 +2377,6 @@ button.c-link{font:inherit;cursor:pointer;background:none}
 
 <!-- Shared by every page — edit here, never in a page source. -->
 <footer class="foot">
-  <p class="foot__now">
-    <span class="foot__dot" aria-hidden="true"></span>
-    <span>It&rsquo;s <b id="foot-time">evening</b> in Savannah, so I&rsquo;m <span id="foot-doing">probably taking an idea stroll</span>.</span>
-  </p>
   <div class="foot__row">
     <span>&copy; <span id="year">2026</span> Brayden Wisniewski</span>
     <a class="foot__top" href="#top">Back to top <span aria-hidden="true">&uarr;</span></a>
