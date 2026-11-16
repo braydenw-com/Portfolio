@@ -66,7 +66,7 @@ Pick one typeface for headlines and one for everything else. Then name each size
 From my site
 
 ## type do text
-Instrument Sans for headlines, Geist for the rest. Nine styles, from Tall Order for my name to Name Tag for the little labels on cards. Each one scales down on phones.
+Schibsted Grotesk for headlines, Geist for the rest. Nine styles, from Tall Order for my name to Name Tag for the little labels on cards. Each one scales down on phones.
 
 ## type skip title
 Skip
