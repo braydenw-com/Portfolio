@@ -41,8 +41,8 @@
 <link rel="icon" href="/images/icon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
-<link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/InstrumentSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/IBMPlexSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/SchibstedGrotesk-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:ital,wght@0,300..700;1,300..600&family=Lato:wght@400;700;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Serif:wght@300;400&display=swap" rel="stylesheet">
@@ -53,10 +53,12 @@
    Bricolage Grotesque for the loud parts, Open Sans for everything read.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-@font-face{font-family:'Geist';src:url(/fonts/Geist-Variable.woff2) format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
-@font-face{font-family:'Geist';src:url(/fonts/Geist-Italic-Variable.woff2) format('woff2');font-weight:100 900;font-style:italic;font-display:swap}
+@font-face{font-family:'IBM Plex Sans';src:url(/fonts/IBMPlexSans-Variable.woff2) format('woff2');font-weight:100 700;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'IBM Plex Sans';src:url(/fonts/IBMPlexSans-Variable-ext.woff2) format('woff2');font-weight:100 700;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'IBM Plex Sans';src:url(/fonts/IBMPlexSans-Italic-Variable.woff2) format('woff2');font-weight:100 700;font-style:italic;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
-@font-face{font-family:'Instrument Sans';src:url(/fonts/InstrumentSans-Variable.woff2) format('woff2');font-weight:400 700;font-stretch:75% 100%;font-style:normal;font-display:swap}
+@font-face{font-family:'Schibsted Grotesk';src:url(/fonts/SchibstedGrotesk-Variable.woff2) format('woff2');font-weight:400 900;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Schibsted Grotesk';src:url(/fonts/SchibstedGrotesk-Variable-ext.woff2) format('woff2');font-weight:400 900;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 
 /* Design tokens. Named versions of the values the site already uses; the
    design system page (/design-system) documents them. Change a value here
@@ -69,8 +71,8 @@
   --color-porcelain:#e3e6ec;
   --color-studio-wall:#f4f5f8;
   --color-sketchbook:#fff;
-  --font-head:'Instrument Sans','Helvetica Neue',Arial,sans-serif;
-  --font-body:'Geist','Helvetica Neue',Arial,sans-serif;
+  --font-head:'Schibsted Grotesk','Helvetica Neue',Arial,sans-serif;
+  --font-body:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
   --text-tall-order:600 clamp(3rem,7.5vw,7.5rem)/1 var(--font-head);
   --text-big-entrance:600 clamp(2.6rem,5vw,4.6rem)/1 var(--font-head);
   --text-idea-stroll:600 clamp(1.8rem,3.4vw,2.8rem)/1.08 var(--font-head);
@@ -1697,7 +1699,7 @@ html{scroll-padding-top:5rem}
 
 /* Home type: an editorial serif for the big words, small caps-style
    uppercase grotesk for labels (after Chi's "What's in my bag"). */
-.g-hello,.g-wrap,.g-hello+.h-pill-nav~.foot{--g-serif:'Gloock','Times New Roman',serif;--g-sans:'Geist','Helvetica Neue',Arial,sans-serif}
+.g-hello,.g-wrap,.g-hello+.h-pill-nav~.foot{--g-serif:'Gloock','Times New Roman',serif;--g-sans:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif}
 .g-hello,.g-wrap{font-family:var(--g-sans)}
 .g-hello .h-bar{font-family:var(--g-sans);text-transform:uppercase;font-size:.85rem;letter-spacing:.01em}
 .g-mark{font-family:var(--g-serif);font-weight:400;font-variation-settings:normal;letter-spacing:-.02em;line-height:.86}
@@ -1717,7 +1719,7 @@ html{scroll-padding-top:5rem}
   .g-f,.g-i,.g-k{grid-row:9/12}.g-l{grid-row:12/15}
 }
 @media (max-width:1000px){.g-grid{grid-auto-flow:dense}}
-body:has(.g-hello) .foot{font-family:'Geist','Helvetica Neue',Arial,sans-serif}
+body:has(.g-hello) .foot{font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif}
 .g-hello,.g-wrap{--g-mono:'Geist Mono',ui-monospace,Menlo,monospace}
 .g-hello .h-bar,.g-hello__row p,.g-with,.g-with b,.g-hello .n-btn,.g-wrap .n-btn,
 .g-p__meta,.g-p--photo figcaption,.g-p--quote figcaption,.g-p__win{font-family:var(--g-mono);letter-spacing:0}
@@ -1736,14 +1738,14 @@ body:has(.g-hello) .foot{font-family:'Geist','Helvetica Neue',Arial,sans-serif}
 .g-hello__body{padding-top:clamp(5rem,16vh,11rem)}
 .g-hello .h-bar,.g-hello .n-btn,.g-wrap .n-btn{font-family:var(--g-sans);font-size:.95rem;letter-spacing:-.005em}
 /* All Geist: the name and headings too. */
-.g-hello,.g-wrap{--g-serif:'Geist','Helvetica Neue',Arial,sans-serif}
+.g-hello,.g-wrap{--g-serif:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif}
 .g-mark{font-weight:600;letter-spacing:-.05em;line-height:1}
 .g-p h2{font-weight:600;letter-spacing:-.04em;line-height:1.02}
 .g-p--quote blockquote{font-weight:500;letter-spacing:-.025em;line-height:1.25}
 /* One family: Geist everywhere on the home page, labels included. */
 .g-hello,.g-wrap{--g-mono:var(--g-sans)}
 .g-p__meta,.g-p--photo figcaption,.g-p--quote figcaption,.g-p__win,.g-hello__row p,.g-with,.g-with b{letter-spacing:-.005em}
-body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-serif}
+body:has(.g-hello) .h-pill-nav{font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif}
 
 /* Desktop: the hello is a fixed left rail, the gallery fills the rest and is
    there on load. Phones and tablets keep the stacked hello. */
@@ -1768,9 +1770,9 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
   body:has(.g-hello) .h-pill-nav{display:none}
 }
 
-/* Instrument Sans is primary (name, headings, quotes); Geist is secondary
+/* Schibsted Grotesk is primary (name, headings, quotes); IBM Plex Sans is secondary
    (intro line, labels, body, buttons). */
-.g-hello,.g-wrap{--g-serif:'Instrument Sans','Helvetica Neue',Arial,sans-serif}
+.g-hello,.g-wrap{--g-serif:'Schibsted Grotesk','Helvetica Neue',Arial,sans-serif}
 .g-mark{font-weight:600;letter-spacing:-.035em}
 .g-p h2{font-weight:600;letter-spacing:-.03em}
 .g-p--quote blockquote{font-weight:500;letter-spacing:-.02em}
@@ -1903,7 +1905,7 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 .ab-e h2{font-size:clamp(2.4rem,4.2vw,4.2rem)}
 .ab-e h2{color:var(--h-text)}
 
-/* ═══ Case studies in the home style: rail, Instrument Sans + Geist, the
+/* ═══ Case studies in the home style: rail, Schibsted Grotesk + IBM Plex Sans, the
    cover as a card with logo and pills. The story itself is unchanged. ═══ */
 main.cs{width:auto;font-family:var(--g-sans)}
 .cs .c-open,.cs .c-sec,.cs .c-more{max-width:none;padding-inline:0;font-family:var(--g-sans)}
@@ -2196,12 +2198,12 @@ main.cs{width:auto;font-family:var(--g-sans)}
 @media (max-width:620px){.ds-type{grid-template-columns:1fr;gap:.8rem}.ds-type__sample{font-size:min(100%,2.2rem)}}
 .ds .g-pills.ds-left span{background:#fff;color:var(--h-text);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 0 0 1px var(--color-porcelain);font-size:.8rem;padding:.35rem .6rem}
 
-.ds-sw__name{font:600 1.05rem/1.2 'Instrument Sans','Helvetica Neue',Arial,sans-serif;letter-spacing:-.02em;color:var(--h-text);margin-top:.2rem}
+.ds-sw__name{font:600 1.05rem/1.2 'Schibsted Grotesk','Helvetica Neue',Arial,sans-serif;letter-spacing:-.02em;color:var(--h-text);margin-top:.2rem}
 .foot__made{margin:.4rem 0 0;font-size:.9rem;line-height:1.5;color:var(--h-soft)}
 .foot__made a{color:var(--h-text);text-decoration:none;border-bottom:1px solid rgba(11,13,26,.3);display:inline-block;padding:.35rem 0 .1rem}
 .foot__made a:hover,.foot__made a:focus-visible{color:var(--blue);border-color:var(--blue)}
 /* Cookie banner (Europe only) */
-.bw-consent{position:fixed;z-index:60;left:1rem;right:1rem;bottom:1rem;max-width:26rem;margin-left:auto;background:#fff;border:1px solid var(--h-line);border-radius:14px;box-shadow:0 12px 30px -14px rgba(10,20,60,.35);padding:1rem 1.1rem;font:400 .95rem/1.5 'Geist','Helvetica Neue',Arial,sans-serif;color:var(--h-text)}
+.bw-consent{position:fixed;z-index:60;left:1rem;right:1rem;bottom:1rem;max-width:26rem;margin-left:auto;background:#fff;border:1px solid var(--h-line);border-radius:14px;box-shadow:0 12px 30px -14px rgba(10,20,60,.35);padding:1rem 1.1rem;font:400 .95rem/1.5 'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;color:var(--h-text)}
 .bw-consent p{margin:0 0 .8rem}
 .bw-consent a{color:var(--h-text)}
 .bw-consent__btns{display:flex;gap:.5rem;justify-content:flex-end}
@@ -2212,7 +2214,7 @@ main.cs{width:auto;font-family:var(--g-sans)}
 button.c-link{font:inherit;cursor:pointer;background:none}
 /* 404 */
 .nf{min-height:60vh}
-.nf__code{margin:0 0 .5rem;font:600 clamp(6rem,22vw,14rem)/.85 'Instrument Sans','Helvetica Neue',Arial,sans-serif;letter-spacing:-.06em;color:var(--blue);display:inline-block;transform-origin:50% 90%;animation:nf-wobble 3.2s var(--ease) infinite}
+.nf__code{margin:0 0 .5rem;font:600 clamp(6rem,22vw,14rem)/.85 'Schibsted Grotesk','Helvetica Neue',Arial,sans-serif;letter-spacing:-.06em;color:var(--blue);display:inline-block;transform-origin:50% 90%;animation:nf-wobble 3.2s var(--ease) infinite}
 @keyframes nf-wobble{0%,70%,100%{transform:rotate(0)}76%{transform:rotate(-6deg)}84%{transform:rotate(4deg)}92%{transform:rotate(-2deg)}}
 @media (prefers-reduced-motion:reduce){.nf__code{animation:none}}
 .nf h1{max-width:18ch}
@@ -2238,6 +2240,31 @@ button.c-link{font:inherit;cursor:pointer;background:none}
 /* Case study guide: screenshots of the real case studies */
 .g-ex{margin:2rem 0 0;max-width:56rem}
 .g-ex img{display:block;width:100%;height:auto;border-radius:10px;box-shadow:0 0 0 1px var(--color-pencil-line);cursor:zoom-in}
+/* "Show how I got there": extra detail that opens on click */
+.c-how{margin-top:2rem;max-width:56rem;border-top:1px solid var(--color-pencil-line);border-bottom:1px solid var(--color-pencil-line)}
+.c-how summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:.6rem;min-height:44px;padding:1rem 0;font:500 1.05rem/1.3 var(--font-body);color:var(--color-savannah-night)}
+.c-how summary::-webkit-details-marker{display:none}
+.c-how summary::after{content:"+";margin-left:auto;font-size:1.5rem;line-height:1;color:var(--color-brayden-blue);transition:transform .25s var(--ease)}
+.c-how[open] summary::after{transform:rotate(45deg)}
+.c-how summary:hover,.c-how summary:focus-visible{color:var(--color-brayden-blue)}
+.c-how__body{padding:0 0 2rem}
+.c-how__body h3{margin:1.8rem 0 .5rem;font:600 1.25rem/1.2 var(--font-head);letter-spacing:-.02em;color:var(--color-savannah-night)}
+.c-how__body h3:first-child{margin-top:.4rem}
+.c-how__body>p{margin:0;max-width:44rem;font:var(--text-long-chat);color:var(--color-kiln-smoke)}
+.c-how .c-probs{margin-top:1.2rem}
+.c-how li{align-content:start}
+.c-how .c-probs:has(li:nth-child(4)){grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:620px){.c-how .c-probs:has(li:nth-child(4)){grid-template-columns:1fr}}
+
+/* The dropdown's toggle is a button */
+.c-how{border:0}
+.c-how summary{display:inline-flex;width:auto;min-height:44px;padding:.6rem 1.1rem;gap:.7rem;border-radius:999px;background:var(--color-savannah-night);color:#fff;font:500 1rem/1.2 var(--font-body)}
+.c-how summary::after{margin-left:0;color:#fff;font-size:1.25rem}
+.c-how summary:hover,.c-how summary:focus-visible{background:var(--color-brayden-blue);color:#fff}
+.c-how summary:focus-visible{outline:3px solid var(--color-brayden-blue);outline-offset:3px}
+.c-how[open] summary{background:#fff;color:var(--color-savannah-night);box-shadow:inset 0 0 0 1px var(--color-pencil-line)}
+.c-how[open] summary::after{color:var(--color-savannah-night)}
+.c-how__body{padding:1.2rem 0 1rem;border-bottom:1px solid var(--color-pencil-line)}
 
 </style>
 </head>
@@ -2312,10 +2339,6 @@ button.c-link{font:inherit;cursor:pointer;background:none}
 
 <!-- Shared by every page — edit here, never in a page source. -->
 <footer class="foot">
-  <p class="foot__now">
-    <span class="foot__dot" aria-hidden="true"></span>
-    <span>It&rsquo;s <b id="foot-time">evening</b> in Savannah, so I&rsquo;m <span id="foot-doing">probably taking an idea stroll</span>.</span>
-  </p>
   <div class="foot__row">
     <span>&copy; <span id="year">2026</span> Brayden Wisniewski</span>
     <a class="foot__top" href="#top">Back to top <span aria-hidden="true">&uarr;</span></a>

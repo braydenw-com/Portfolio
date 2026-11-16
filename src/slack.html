@@ -41,8 +41,8 @@
 <link rel="icon" href="/images/icon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
-<link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/InstrumentSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/IBMPlexSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/SchibstedGrotesk-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Open+Sans:ital,wght@0,300..700;1,300..600&family=Lato:wght@400;700;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Serif:wght@300;400&display=swap" rel="stylesheet">
@@ -269,6 +269,21 @@
   <div class="c-body">
     <p>{{ decision paragraph }}</p>
   </div>
+  <details class="c-how">
+    <summary>{{ how summary }}</summary>
+    <div class="c-how__body">
+      <h3>{{ how review heading }}</h3>
+      <p>{{ how review text }}</p>
+      <h3>{{ how rounds heading }}</h3>
+      <p>{{ how rounds text }}</p>
+      <ul class="c-probs">
+        <li><b>{{ how rounds 1 title }}</b><span>{{ how rounds 1 text }}</span></li>
+        <li><b>{{ how rounds 2 title }}</b><span>{{ how rounds 2 text }}</span></li>
+      </ul>
+      <h3>{{ how limits heading }}</h3>
+      <p>{{ how limits text }}</p>
+    </div>
+  </details>
 </section>
 
 <!-- ═══ Result ═══════════════════════════════════════════════════════════ -->

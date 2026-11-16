@@ -8,10 +8,10 @@
 -->
 
 ## intro title
-Presents
+Capture a moment, together
 
 ## intro summary
-**Capture a moment, together.** A private time capsule for a group of friends. In four days, our team of three built a working iOS prototype and a website for the SVSD Design Sprint.
+Presents is a private time capsule for a group of friends. In four days, our team of three built a working iOS prototype and a website for the SVSD Design Sprint.
 
 ## intro fact 1 name
 Role
@@ -81,6 +81,63 @@ Start in person
 
 ## made point 3 text
 Hold your phones close to make the group. No accounts.
+
+## how summary
+See the full process
+
+## how built heading
+What we built in four days
+
+## how built text
+We didn’t stop at mockups. We built something people could actually hold.
+
+## how built 1 title
+iOS app
+
+## how built 1 text
+Written in Swift, with a home-screen widget and a Supabase backend.
+
+## how built 2 title
+Website
+
+## how built 2 text
+bepresents.org, with a playable demo and a sample reveal night.
+
+## how built 3 title
+Interactive prototypes
+
+## how built 3 text
+Browser prototypes for onboarding and the shuffle, so we could test the feel before building it.
+
+## how shuffle heading
+Exploring the shuffle
+
+## how shuffle text
+The shuffle is the first thing people see, so we tried four home screens for it.
+
+## how shuffle 1 title
+Classic
+
+## how shuffle 1 text
+The logo and a Shuffle button.
+
+## how shuffle 2 title
+Orbit
+
+## how shuffle 2 text
+The five moments circling the logo.
+
+## how shuffle 3 title
+Headline
+
+## how shuffle 3 text
+A big prompt leading the screen.
+
+## how shuffle 4 title
+Pulse
+
+## how shuffle 4 text
+All five colors merge into one breathing glow behind the logo. This is the one in the app.
 
 ## reveal night label
 Reveal night
