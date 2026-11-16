@@ -41,7 +41,7 @@
 <link rel="icon" href="/images/icon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
-<link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/IBMPlexSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/SchibstedGrotesk-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,8 +53,9 @@
    Bricolage Grotesque for the loud parts, Open Sans for everything read.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-@font-face{font-family:'Geist';src:url(/fonts/Geist-Variable.woff2) format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
-@font-face{font-family:'Geist';src:url(/fonts/Geist-Italic-Variable.woff2) format('woff2');font-weight:100 900;font-style:italic;font-display:swap}
+@font-face{font-family:'IBM Plex Sans';src:url(/fonts/IBMPlexSans-Variable.woff2) format('woff2');font-weight:100 700;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'IBM Plex Sans';src:url(/fonts/IBMPlexSans-Variable-ext.woff2) format('woff2');font-weight:100 700;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'IBM Plex Sans';src:url(/fonts/IBMPlexSans-Italic-Variable.woff2) format('woff2');font-weight:100 700;font-style:italic;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
 @font-face{font-family:'Schibsted Grotesk';src:url(/fonts/SchibstedGrotesk-Variable.woff2) format('woff2');font-weight:400 900;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'Schibsted Grotesk';src:url(/fonts/SchibstedGrotesk-Variable-ext.woff2) format('woff2');font-weight:400 900;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
@@ -71,7 +72,7 @@
   --color-studio-wall:#f4f5f8;
   --color-sketchbook:#fff;
   --font-head:'Schibsted Grotesk','Helvetica Neue',Arial,sans-serif;
-  --font-body:'Geist','Helvetica Neue',Arial,sans-serif;
+  --font-body:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
   --text-tall-order:600 clamp(3rem,7.5vw,7.5rem)/1 var(--font-head);
   --text-big-entrance:600 clamp(2.6rem,5vw,4.6rem)/1 var(--font-head);
   --text-idea-stroll:600 clamp(1.8rem,3.4vw,2.8rem)/1.08 var(--font-head);
@@ -1698,7 +1699,7 @@ html{scroll-padding-top:5rem}
 
 /* Home type: an editorial serif for the big words, small caps-style
    uppercase grotesk for labels (after Chi's "What's in my bag"). */
-.g-hello,.g-wrap,.g-hello+.h-pill-nav~.foot{--g-serif:'Gloock','Times New Roman',serif;--g-sans:'Geist','Helvetica Neue',Arial,sans-serif}
+.g-hello,.g-wrap,.g-hello+.h-pill-nav~.foot{--g-serif:'Gloock','Times New Roman',serif;--g-sans:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif}
 .g-hello,.g-wrap{font-family:var(--g-sans)}
 .g-hello .h-bar{font-family:var(--g-sans);text-transform:uppercase;font-size:.85rem;letter-spacing:.01em}
 .g-mark{font-family:var(--g-serif);font-weight:400;font-variation-settings:normal;letter-spacing:-.02em;line-height:.86}
@@ -1718,7 +1719,7 @@ html{scroll-padding-top:5rem}
   .g-f,.g-i,.g-k{grid-row:9/12}.g-l{grid-row:12/15}
 }
 @media (max-width:1000px){.g-grid{grid-auto-flow:dense}}
-body:has(.g-hello) .foot{font-family:'Geist','Helvetica Neue',Arial,sans-serif}
+body:has(.g-hello) .foot{font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif}
 .g-hello,.g-wrap{--g-mono:'Geist Mono',ui-monospace,Menlo,monospace}
 .g-hello .h-bar,.g-hello__row p,.g-with,.g-with b,.g-hello .n-btn,.g-wrap .n-btn,
 .g-p__meta,.g-p--photo figcaption,.g-p--quote figcaption,.g-p__win{font-family:var(--g-mono);letter-spacing:0}
@@ -1737,14 +1738,14 @@ body:has(.g-hello) .foot{font-family:'Geist','Helvetica Neue',Arial,sans-serif}
 .g-hello__body{padding-top:clamp(5rem,16vh,11rem)}
 .g-hello .h-bar,.g-hello .n-btn,.g-wrap .n-btn{font-family:var(--g-sans);font-size:.95rem;letter-spacing:-.005em}
 /* All Geist: the name and headings too. */
-.g-hello,.g-wrap{--g-serif:'Geist','Helvetica Neue',Arial,sans-serif}
+.g-hello,.g-wrap{--g-serif:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif}
 .g-mark{font-weight:600;letter-spacing:-.05em;line-height:1}
 .g-p h2{font-weight:600;letter-spacing:-.04em;line-height:1.02}
 .g-p--quote blockquote{font-weight:500;letter-spacing:-.025em;line-height:1.25}
 /* One family: Geist everywhere on the home page, labels included. */
 .g-hello,.g-wrap{--g-mono:var(--g-sans)}
 .g-p__meta,.g-p--photo figcaption,.g-p--quote figcaption,.g-p__win,.g-hello__row p,.g-with,.g-with b{letter-spacing:-.005em}
-body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-serif}
+body:has(.g-hello) .h-pill-nav{font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif}
 
 /* Desktop: the hello is a fixed left rail, the gallery fills the rest and is
    there on load. Phones and tablets keep the stacked hello. */
@@ -1769,7 +1770,7 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
   body:has(.g-hello) .h-pill-nav{display:none}
 }
 
-/* Schibsted Grotesk is primary (name, headings, quotes); Geist is secondary
+/* Schibsted Grotesk is primary (name, headings, quotes); IBM Plex Sans is secondary
    (intro line, labels, body, buttons). */
 .g-hello,.g-wrap{--g-serif:'Schibsted Grotesk','Helvetica Neue',Arial,sans-serif}
 .g-mark{font-weight:600;letter-spacing:-.035em}
@@ -1904,7 +1905,7 @@ body:has(.g-hello) .h-pill-nav{font-family:'Geist','Helvetica Neue',Arial,sans-s
 .ab-e h2{font-size:clamp(2.4rem,4.2vw,4.2rem)}
 .ab-e h2{color:var(--h-text)}
 
-/* ═══ Case studies in the home style: rail, Schibsted Grotesk + Geist, the
+/* ═══ Case studies in the home style: rail, Schibsted Grotesk + IBM Plex Sans, the
    cover as a card with logo and pills. The story itself is unchanged. ═══ */
 main.cs{width:auto;font-family:var(--g-sans)}
 .cs .c-open,.cs .c-sec,.cs .c-more{max-width:none;padding-inline:0;font-family:var(--g-sans)}
@@ -2202,7 +2203,7 @@ main.cs{width:auto;font-family:var(--g-sans)}
 .foot__made a{color:var(--h-text);text-decoration:none;border-bottom:1px solid rgba(11,13,26,.3);display:inline-block;padding:.35rem 0 .1rem}
 .foot__made a:hover,.foot__made a:focus-visible{color:var(--blue);border-color:var(--blue)}
 /* Cookie banner (Europe only) */
-.bw-consent{position:fixed;z-index:60;left:1rem;right:1rem;bottom:1rem;max-width:26rem;margin-left:auto;background:#fff;border:1px solid var(--h-line);border-radius:14px;box-shadow:0 12px 30px -14px rgba(10,20,60,.35);padding:1rem 1.1rem;font:400 .95rem/1.5 'Geist','Helvetica Neue',Arial,sans-serif;color:var(--h-text)}
+.bw-consent{position:fixed;z-index:60;left:1rem;right:1rem;bottom:1rem;max-width:26rem;margin-left:auto;background:#fff;border:1px solid var(--h-line);border-radius:14px;box-shadow:0 12px 30px -14px rgba(10,20,60,.35);padding:1rem 1.1rem;font:400 .95rem/1.5 'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;color:var(--h-text)}
 .bw-consent p{margin:0 0 .8rem}
 .bw-consent a{color:var(--h-text)}
 .bw-consent__btns{display:flex;gap:.5rem;justify-content:flex-end}
@@ -2321,7 +2322,7 @@ button.c-link{font:inherit;cursor:pointer;background:none}
 
 <section class="c-sec" id="type">
   <p class="c-label">Type</p>
-  <h2>Schibsted Grotesk for headlines. Geist for everything else.</h2>
+  <h2>Schibsted Grotesk for headlines. IBM Plex Sans for everything else.</h2>
   <div class="ds-types">
     <div class="ds-type">
       <div class="ds-type__meta"><b class="ds-sw__name">Tall Order</b><span>Schibsted Grotesk 600 · 35&ndash;120px · -0.035em</span><span class="ds-type__cls">g-mark</span></div>
@@ -2340,23 +2341,23 @@ button.c-link{font:inherit;cursor:pointer;background:none}
       <p class="ds-type__sample" style="font:var(--text-studio-crit);letter-spacing:-.03em">Design at enterprise speed</p>
     </div>
     <div class="ds-type">
-      <div class="ds-type__meta"><b class="ds-sw__name">Opening Line</b><span>Geist 400 · 18&ndash;22px · -0.01em</span><span class="ds-type__cls">.c-sum</span></div>
+      <div class="ds-type__meta"><b class="ds-sw__name">Opening Line</b><span>IBM Plex Sans 400 · 18&ndash;22px · -0.01em</span><span class="ds-type__cls">.c-sum</span></div>
       <p class="ds-type__sample" style="font:var(--text-opening-line);letter-spacing:-.01em;color:var(--h-soft)">Making focus feel a little easier.</p>
     </div>
     <div class="ds-type">
-      <div class="ds-type__meta"><b class="ds-sw__name">Long Chat</b><span>Geist 400 · 17&ndash;19px</span><span class="ds-type__cls">.c-body p</span></div>
+      <div class="ds-type__meta"><b class="ds-sw__name">Long Chat</b><span>IBM Plex Sans 400 · 17&ndash;19px</span><span class="ds-type__cls">.c-body p</span></div>
       <p class="ds-type__sample" style="font:var(--text-long-chat);color:var(--h-soft)">We surveyed 30 college students.</p>
     </div>
     <div class="ds-type">
-      <div class="ds-type__meta"><b class="ds-sw__name">Survey Says</b><span>Geist 400 · 42&ndash;67px · -0.04em</span><span class="ds-type__cls">.c-stats dt</span></div>
+      <div class="ds-type__meta"><b class="ds-sw__name">Survey Says</b><span>IBM Plex Sans 400 · 42&ndash;67px · -0.04em</span><span class="ds-type__cls">.c-stats dt</span></div>
       <p class="ds-type__sample" style="font:var(--text-survey-says);letter-spacing:-.04em">27/30</p>
     </div>
     <div class="ds-type">
-      <div class="ds-type__meta"><b class="ds-sw__name">Sticky Note</b><span>Geist 400 · 15.2px</span><span class="ds-type__cls">.c-label</span></div>
+      <div class="ds-type__meta"><b class="ds-sw__name">Sticky Note</b><span>IBM Plex Sans 400 · 15.2px</span><span class="ds-type__cls">.c-label</span></div>
       <p class="ds-type__sample" style="font:var(--text-sticky-note);color:var(--h-soft)">The opportunity</p>
     </div>
     <div class="ds-type">
-      <div class="ds-type__meta"><b class="ds-sw__name">Name Tag</b><span>Geist 400 · 12.8px</span><span class="ds-type__cls">.g-pills span</span></div>
+      <div class="ds-type__meta"><b class="ds-sw__name">Name Tag</b><span>IBM Plex Sans 400 · 12.8px</span><span class="ds-type__cls">.g-pills span</span></div>
       <p class="ds-type__sample" style="font:var(--text-name-tag);">Product Designer</p>
     </div>
   </div>
