@@ -11,7 +11,7 @@
 A little more about me.
 
 ## intro
-I’m Brayden, a curious designer who documents the process out loud.
+I’m Brayden, a designer who documents the process out loud.
 
 ## photo config caption
 Holding up Config
@@ -35,7 +35,7 @@ Designers helping designers.
 Ongoing
 
 ## community 1 title
-Sharing my journey
+Posting my process
 
 ## community 2 when
 Now

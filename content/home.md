@@ -8,7 +8,7 @@
 -->
 
 ## ibm card heading
-Design at enterprise speed
+Designing for people and AI agents
 
 ## ibm card text
 A summer in Austin on how people and AI agents learn complex products.
@@ -68,7 +68,7 @@ Research Lead
 Chronically online.
 
 ## social text
-I share my design journey out loud, and post a lot. Follow along!
+I share my design process out loud, and post a lot. Follow along!
 
 ## photo config caption
 Holding up Config

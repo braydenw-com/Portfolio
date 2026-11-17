@@ -1308,7 +1308,7 @@ html{scroll-padding-top:5rem}
 .sd--notif .sd-toast{bottom:auto;top:4.25rem}
 
 .sn-pill{margin-left:.5rem;height:26px;display:inline-flex;align-items:center;gap:.35rem;padding:0 .7rem;border-radius:999px;
-  border:2px solid #D0E7FF;background:#F0F8FF;color:#1264A3;font-size:12px;font-weight:700;transition:all .2s}
+  border:2px solid #D0E7FF;background:#F0F8FF;color:#1264A3;font-size:12px;font-weight:700;transition:background-color .2s,color .2s,border-color .2s,box-shadow .2s}
 .sn-pill[data-lv="all"]{border-color:#E0D9F3;background:#FAF8FF;color:#611F69}
 .sn-pill[data-lv="muted"]{border-color:var(--sk-ink);background:#F8F8F8;color:var(--sk-ink)}
 .sd .sn-note{margin:auto 1.25rem 0;padding:.6rem .8rem;border-radius:8px;background:#F8F8F8;color:var(--sk-mute);font-size:13px}
@@ -2171,9 +2171,20 @@ button.c-link{font:inherit;cursor:pointer;background:none}
 .nf__list a{color:var(--color-savannah-night);text-decoration:underline;text-decoration-color:var(--color-pencil-line);text-underline-offset:3px}
 .nf__list a:hover,.nf__list a:focus-visible{color:var(--color-brayden-blue);text-decoration-color:currentColor}
 .nf__code{margin:2rem 0 0;font:400 .8rem/1 ui-monospace,Menlo,monospace;letter-spacing:.04em;color:var(--color-kiln-smoke)}
-/* Bagel Catch, the 404 game: a small strip at the top of the page */
-.bc{position:relative;margin:0 0 2.5rem;padding-top:1.6rem;max-width:56rem}
-.bc__score{position:absolute;top:0;right:0;margin:0;font:500 .95rem/1 ui-monospace,Menlo,monospace;letter-spacing:.08em;color:var(--color-kiln-smoke)}
-.bc__score #bc-score{margin-left:.6rem;color:var(--color-brayden-blue)}
-.bc__canvas{display:block;width:100%;height:170px;touch-action:none;cursor:pointer}
-.bc__canvas:focus{outline:none}
+/* Bagel Toss, the 404 game, at the top of the page */
+.bc{position:relative;margin:0 0 2.5rem;padding-top:1.8rem;max-width:56rem}
+.bc__score{position:absolute;top:0;right:0;margin:0;font:400 .95rem/1 var(--font-body);color:var(--color-kiln-smoke)}
+.bc__score b{font:600 1.15rem/1 var(--font-head);color:var(--color-brayden-blue)}
+.bc__canvas{display:block;width:100%;height:220px;touch-action:none;cursor:grab}
+.bc__canvas:active{cursor:grabbing}
+.bc__canvas:focus:not(:focus-visible){outline:none}.bc__canvas:focus-visible{outline:2px solid var(--color-brayden-blue);outline-offset:4px}
+.nf__links{margin-top:1.6rem}
+.nf__links .nf__home{background:var(--color-savannah-night);color:#fff;border-color:var(--color-savannah-night)}
+.nf__links .nf__home:hover,.nf__links .nf__home:focus-visible{background:var(--color-brayden-blue);border-color:var(--color-brayden-blue)}
+/* 404: the game, then text and buttons, all left-aligned */
+.nf .bc{padding-top:0;margin:0 0 2.5rem}
+.nf .bc__score{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.cs .nf{min-height:calc(100vh - 19rem);min-height:calc(100svh - 19rem)}
+.nf .nf__code{margin:0 0 .5rem;font:600 .95rem/1 var(--font-head);letter-spacing:.04em;color:var(--color-brayden-blue)}
+[data-page="404"] .foot__top{display:none}
+.bc,.bc__canvas{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}

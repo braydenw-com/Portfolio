@@ -9,7 +9,7 @@
 Making a case study
 
 ## intro summary
-**Nobody is digging through 43 Figma frames to understand what you built.** Make it easy for people to see what you made, how you got there, and what you contributed. A good case study covers four things: the overview, the problem, the decisions, and the results.
+**Nobody is digging through 43 Figma frames to understand what you built.** Show people what you made, how you got there, and what you contributed. A good case study covers four things: the overview, the problem, the decisions, and the results.
 
 ## overview label
 01 · The Overview
@@ -39,7 +39,7 @@ A project timeline or a mood board before anyone has seen what you made.
 Explain what you were trying to solve and why it mattered.
 
 ## problem paragraph
-Give people just enough context to understand the project and why it was worth doing.
+Give people enough context to understand the project and why it was worth doing.
 
 ## problem do title
 Example: Slack

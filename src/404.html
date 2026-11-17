@@ -24,6 +24,7 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
 <title>Page not found — Brayden Wisniewski</title>
 <meta name="description" content="This page wandered off.">
 <meta property="og:url" content="https://www.braydenw.com/">
@@ -84,17 +85,15 @@
 
 <section class="c-open nf" id="lost">
   <div class="bc" id="bagel-catch">
-    <p class="bc__score" aria-live="polite"><span>{{ game best }}</span> <span id="bc-best">00000</span> <span id="bc-score">00000</span></p>
-    <canvas class="bc__canvas" id="bc-canvas" role="img" aria-label="Bagel Catch game. Press space or tap to start, then move the plate to catch falling bagels."></canvas>
+    <p class="bc__score" aria-live="polite"><b id="bc-score">0</b> {{ game unit }} <span class="bc__best">· {{ game best }} <span id="bc-best">0</span></span></p>
+    <canvas class="bc__canvas" id="bc-canvas" role="img" aria-label="Bagel Toss game. Click or tap to start, then hold the mouse button or your finger down and let go to toss a bagel onto the plate or the cream cheese."></canvas>
   </div>
+  <p class="nf__code">404</p>
   <h1 class="nf__title">{{ headline }}</h1>
-  <p class="nf__try">{{ try label }}</p>
-  <ul class="nf__list">
-    <li><a href="/">{{ try home }}</a></li>
-    <li><a href="/#work">{{ try work }}</a></li>
-    <li>{{ try game }}</li>
-  </ul>
-  <p class="nf__code">{{ big number }}</p>
+  <p class="c-links nf__links">
+    <a class="c-link nf__home" href="/">{{ try home }}</a>
+    <a class="c-link" href="mailto:brayden@braydenw.com?subject=A%20broken%20link%20on%20braydenw.com">{{ try work }}</a>
+  </p>
 </section>
 
 </main>
