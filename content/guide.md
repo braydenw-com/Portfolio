@@ -45,7 +45,7 @@ Give people enough context to understand the project and why it was worth doing.
 Example: Slack
 
 ## problem do text
-“Two everyday tasks were quietly failing.” Then the proof in two numbers: only 3 of 8 people found a saved message, and 2 of 8 managed their notifications.
+“Two everyday tasks kept failing.” Then the proof in two numbers: only 3 of 8 people found a saved message, and 2 of 8 managed their notifications.
 
 ## problem skip title
 Skip

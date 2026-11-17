@@ -89,7 +89,7 @@ See the full process
 What we built in four days
 
 ## how built text
-We didn’t stop at mockups. We built something people could actually hold.
+We didn’t stop at mockups. We built something people could hold.
 
 ## how built 1 title
 iOS app

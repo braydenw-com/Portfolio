@@ -50,7 +50,7 @@ The opportunity
 Students didn’t want stricter blocking.
 
 ## opportunity paragraph
-We surveyed 30 college students. They weren’t asking for stricter blocking. They wanted help staying motivated, planning their time, and taking breaks without falling straight back into scrolling.
+We surveyed 30 college students. They wanted help staying motivated, planning their time, and taking breaks without falling straight back into scrolling.
 
 ## opportunity stat 1 number
 27/30
@@ -155,7 +155,7 @@ What I learned
 Make the better choice the easier one.
 
 ## learned paragraph
-The real question wasn’t how to stop distraction. It was how to make putting the phone down feel better than picking it back up.
+The goal was to make putting the phone down feel better than picking it back up.
 
 ## more label
 View more

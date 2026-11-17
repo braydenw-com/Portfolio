@@ -41,7 +41,7 @@ Heuristic review, moderated & unmoderated testing
 The opportunity
 
 ## opportunity heading
-Two everyday tasks were quietly failing.
+Two everyday tasks kept failing.
 
 ## opportunity paragraph
 We reviewed 20 Slack workflows against Nielsen’s heuristics, then watched 8 people try the everyday ones. Getting around was fine. Two tasks fell apart, and most people thought they’d finished.
