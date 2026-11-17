@@ -9,7 +9,7 @@
 Make your own design system
 
 ## intro summary
-**You don’t need a 200-component library.** You need a short list of colors, type styles, and parts that you actually use, with names you’ll remember. Here’s how I built the one behind this site.
+**You don’t need a 200-component library.** You need a short list of colors, type styles, and parts you use, with names you’ll remember. Here’s how I built the one behind this site.
 
 ## start label
 01 · Start

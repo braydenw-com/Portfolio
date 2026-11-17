@@ -62,7 +62,7 @@ What I did · IBM Support pages
 Ask on Thursday. Presenting on Friday.
 
 ## did ibm support pages paragraph
-Near the end of the internship, my manager asked if anyone had time to redesign a IBM Support pages that weren’t showing their offerings well. I said yes. I took them from Figma to code with IBM Bob and worked inside Drupal’s constraints.
+Near the end of the internship, my manager asked if anyone had time to redesign IBM Support pages that weren’t showing their offerings well. I said yes. I took them from Figma to code with IBM Bob and worked inside Drupal’s constraints.
 
 ## did ibm support pages timing from
 4 PM Thursday
