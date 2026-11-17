@@ -83,12 +83,18 @@
 <main id="top" class="g-wrap cs">
 
 <section class="c-open nf" id="lost">
-  <p class="nf__code" aria-hidden="true">{{ big number }}</p>
-  <h1>{{ headline }}</h1>
-  <p class="c-links nf__links">
-    <a class="c-link nf__home" href="/">Take me home</a>
-    <a class="c-link" href="/#work">See the work</a>
-  </p>
+  <div class="bc" id="bagel-catch">
+    <p class="bc__score" aria-live="polite"><span>{{ game best }}</span> <span id="bc-best">00000</span> <span id="bc-score">00000</span></p>
+    <canvas class="bc__canvas" id="bc-canvas" role="img" aria-label="Bagel Catch game. Press space or tap to start, then move the plate to catch falling bagels."></canvas>
+  </div>
+  <h1 class="nf__title">{{ headline }}</h1>
+  <p class="nf__try">{{ try label }}</p>
+  <ul class="nf__list">
+    <li><a href="/">{{ try home }}</a></li>
+    <li><a href="/#work">{{ try work }}</a></li>
+    <li>{{ try game }}</li>
+  </ul>
+  <p class="nf__code">{{ big number }}</p>
 </section>
 
 </main>

@@ -618,3 +618,73 @@
     b.addEventListener('click',function(){try{localStorage.removeItem('bw-consent')}catch(e){}show()});
   });
 })();
+
+
+// Easter egg: a hello for people who open the browser console.
+(function(){
+  try{
+    console.log('%cHey, you inspect things. We\u2019d get along.','font:600 16px/1.4 sans-serif;color:#1b4dff');
+    console.log('%cI\u2019m Brayden, a product designer. Say hi: brayden@braydenw.com','font:14px/1.4 sans-serif');
+  }catch(e){}
+})();
+
+
+// Bagel Catch: the game strip on the 404 page, drawn as pixel art in the site's
+// colors. Catch bagels on the plate; everything bagels are
+// worth 3, a burnt one ends the run, and so do three misses.
+(function(){
+  var cv=document.getElementById('bc-canvas');
+  if(!cv||!cv.getContext)return;
+  var cx=cv.getContext('2d'),scoreEl=document.getElementById('bc-score'),bestEl=document.getElementById('bc-best');
+  var BLUE='#1b4dff',INK='#0b0d1a',SOFT='#5b5e70',LINE='rgba(11,13,26,.18)',SHINE='#a9bcff',P=3; // P = size of one pixel; colors are the site tokens
+  // 9x9 bagel: 1 crust, 2 shine, 0 empty
+  var BAGEL=['001111100','011111110','112111111','111000111','111000111','111000111','111111111','011111110','001111100'];
+  var W=0,H=0,dpr=1,state='idle',score=0,best=0,misses=0,plate={x:0,w:60},keys={},target=null,items=[],spawnT=0,last=0,specks=[];
+  try{best=+localStorage.getItem('bw-bagels')||0}catch(e){}
+  function pad(n){return ('00000'+n).slice(-5)}
+  bestEl.textContent=pad(best);scoreEl.textContent=pad(0);cv.tabIndex=0;
+  function size(){var r=cv.getBoundingClientRect();dpr=Math.min(2,window.devicePixelRatio||1);W=r.width;H=r.height;
+    cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);cx.setTransform(dpr,0,0,dpr,0,0);cx.imageSmoothingEnabled=false;
+    plate.w=Math.round(Math.max(48,Math.min(72,W*.1))/P)*P;if(!plate.x)plate.x=W/2;
+    specks=[];for(var x=0;x<W;x+=6+Math.random()*26)specks.push([x,Math.random()<.5?4:8,Math.random()<.4?P*2:P]);draw()}
+  function snap(v){return Math.round(v/P)*P}
+  function start(){state='play';score=0;misses=0;items=[];spawnT=0;plate.x=W/2;scoreEl.textContent=pad(0);last=performance.now();requestAnimationFrame(loop)}
+  function over(){state='over';if(score>best){best=score;bestEl.textContent=pad(best);try{localStorage.setItem('bw-bagels',best)}catch(e){}}draw()}
+  function spawn(){var roll=Math.random(),lvl=Math.min(1,score/40);
+    var kind=roll<.14+lvl*.08?'burnt':roll<.32?'everything':'plain';
+    items.push({x:14+Math.random()*(W-28),y:-30,vy:(70+score*3)*(0.85+Math.random()*.3),kind:kind})}
+  function loop(now){if(state!=='play')return;var dt=Math.min(.05,(now-last)/1000);last=now;
+    var sp=W*1.2;if(keys.l)plate.x-=sp*dt;if(keys.r)plate.x+=sp*dt;if(target!==null)plate.x+=(target-plate.x)*Math.min(1,dt*18);
+    plate.x=Math.max(plate.w/2,Math.min(W-plate.w/2,plate.x));
+    spawnT-=dt;if(spawnT<=0){spawn();spawnT=Math.max(.45,1.2-score*.015)*(0.7+Math.random()*.6)}
+    var py=H-22,half=4.5*P;
+    for(var i=items.length-1;i>=0;i--){var b=items[i];b.y+=b.vy*dt;
+      if(b.y+half>=py-2&&b.y<=py+4&&Math.abs(b.x-plate.x)<plate.w/2+half*.5){items.splice(i,1);
+        if(b.kind==='burnt'){draw();return over()}score+=b.kind==='everything'?3:1;scoreEl.textContent=pad(score);continue}
+      if(b.y-half>H){items.splice(i,1);if(b.kind!=='burnt'&&++misses>=3){draw();return over()}}}
+    draw();requestAnimationFrame(loop)}
+  function bagel(b){var x0=snap(b.x)-4*P,y0=snap(b.y)-4*P,burnt=b.kind==='burnt';
+    for(var r=0;r<9;r++)for(var c=0;c<9;c++){var v=BAGEL[r][c];if(v==='0')continue;
+      cx.fillStyle=burnt?INK:(v==='2'?SHINE:BLUE);cx.fillRect(x0+c*P,y0+r*P,P,P)}
+    if(b.kind==='everything'){cx.fillStyle='#fff';[[2,1],[5,1],[1,4],[7,4],[3,7],[6,7]].forEach(function(d){cx.fillRect(x0+d[0]*P,y0+d[1]*P,P,P)})}}
+  function text(t,y,size){cx.fillStyle=SOFT;cx.font='500 '+size+'px ui-monospace,Menlo,monospace';cx.textAlign='center';cx.fillText(t,W/2,y)}
+  function draw(){cx.clearRect(0,0,W,H);var py=H-22;
+    cx.fillStyle=LINE;cx.fillRect(0,py+8,W,1);
+    for(var i=0;i<specks.length;i++){cx.fillRect(Math.round(specks[i][0]),py+8+specks[i][1],specks[i][2],1)}
+    for(i=0;i<items.length;i++)bagel(items[i]);
+    var x=snap(plate.x-plate.w/2);cx.fillStyle=INK;cx.fillRect(x,py,plate.w,P);cx.fillRect(x+P,py+P,plate.w-2*P,P);cx.fillRect(x+3*P,py+2*P,plate.w-6*P,P);
+    for(i=0;i<3;i++){cx.fillStyle=i<3-misses?BLUE:LINE;cx.fillRect(4+i*12,4,P*2,P*2)}
+    if(state==='idle')text('PRESS SPACE OR TAP TO CATCH BAGELS',H/2,13);
+    if(state==='over'){text('G A M E   O V E R',H/2-10,17);text(score===1?'1 BAGEL':score+' BAGELS',H/2+14,12)}}
+  function go(){if(state!=='play')start()}
+  document.addEventListener('keydown',function(e){var t=e.target;if(t&&/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))return;
+    if(e.key==='ArrowLeft'||e.key==='a'){keys.l=1;target=null;if(state==='play')e.preventDefault()}
+    else if(e.key==='ArrowRight'||e.key==='d'){keys.r=1;target=null;if(state==='play')e.preventDefault()}
+    else if((e.key===' '||e.key==='ArrowUp')&&(!t||t===document.body||t===cv)){e.preventDefault();go()}});
+  document.addEventListener('keyup',function(e){if(e.key==='ArrowLeft'||e.key==='a')keys.l=0;if(e.key==='ArrowRight'||e.key==='d')keys.r=0});
+  function px(e){return e.clientX-cv.getBoundingClientRect().left}
+  cv.addEventListener('pointerdown',function(e){target=px(e);go()});
+  cv.addEventListener('pointermove',function(e){if(state==='play'&&(e.pointerType==='mouse'||e.buttons))target=px(e)});
+  document.addEventListener('visibilitychange',function(){if(document.hidden&&state==='play'){state='idle';draw()}});
+  window.addEventListener('resize',size);size();
+})();
