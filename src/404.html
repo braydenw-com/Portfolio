@@ -24,6 +24,7 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
 <title>Page not found — Brayden Wisniewski</title>
 <meta name="description" content="This page wandered off.">
 <meta property="og:url" content="https://www.braydenw.com/">
@@ -83,11 +84,15 @@
 <main id="top" class="g-wrap cs">
 
 <section class="c-open nf" id="lost">
-  <p class="nf__code" aria-hidden="true">{{ big number }}</p>
-  <h1>{{ headline }}</h1>
+  <div class="bc" id="bagel-catch">
+    <p class="bc__score" aria-live="polite"><b id="bc-score">0</b> {{ game unit }} <span class="bc__best">· {{ game best }} <span id="bc-best">0</span></span></p>
+    <canvas class="bc__canvas" id="bc-canvas" role="img" aria-label="Bagel Toss game. Click or tap to start, then hold the mouse button or your finger down and let go to toss a bagel onto the plate or the cream cheese."></canvas>
+  </div>
+  <p class="nf__code">404</p>
+  <h1 class="nf__title">{{ headline }}</h1>
   <p class="c-links nf__links">
-    <a class="c-link nf__home" href="/">Take me home</a>
-    <a class="c-link" href="/#work">See the work</a>
+    <a class="c-link nf__home" href="/">{{ try home }}</a>
+    <a class="c-link" href="mailto:brayden@braydenw.com?subject=A%20broken%20link%20on%20braydenw.com">{{ try work }}</a>
   </p>
 </section>
 

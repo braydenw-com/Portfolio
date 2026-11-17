@@ -18,7 +18,7 @@ Make your own design system
 Start with what you already use.
 
 ## start paragraph
-Before picking anything new, look at your own pages. Write down every color, font size, and repeated part. Most of the system is already there, just unnamed.
+Before picking anything new, look at your own pages. Write down every color, font size, and repeated part. You already have most of the system. It needs names.
 
 ## start do title
 From my site
@@ -81,7 +81,7 @@ A new font size every time a page feels off. Fix the style instead.
 Name tokens so you remember them.
 
 ## names paragraph
-A token is a named value you can reuse in code, like a color or a text style. Good names make the system easy to talk about and fun to use. Change the value once and it updates everywhere.
+A token is a named value you can reuse in code, like a color or a text style. Good names make the system clear to talk about and fun to use. Change the value once and it updates everywhere.
 
 ## names do title
 From my site
