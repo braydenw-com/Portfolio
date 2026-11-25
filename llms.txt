@@ -1,0 +1,23 @@
+# Brayden Wisniewski
+
+> Designer. People person. Kinda tall. UX at SCAD, graduating 2027. Open to design roles.
+
+I'm Brayden, a designer who documents the process out loud.
+
+## Work
+
+- [Designing for people and AI agents](https://www.braydenw.com/ibm): A summer in Austin on how people and AI agents learn complex products. Product Design Intern at IBM, shipped on ibm.com.
+- [Making focus feel a little easier](https://www.braydenw.com/opal): New features for the Opal focus app: plan, focus, and take breaks worth taking. Product Designer, Indigo Design Award.
+- [Capture a moment, together](https://www.braydenw.com/presents): A private time capsule for a small group of friends. Designer & iOS build, SVSD Design Sprint.
+- [Making Slack’s hidden state visible](https://www.braydenw.com/slack): Two everyday tasks most people couldn’t finish. Two small changes fixed both. Research Lead, 3/8 → 8/8 task success.
+
+## More
+
+- [About](https://www.braydenw.com/about)
+- [Design System](https://www.braydenw.com/design-system)
+
+## Contact
+
+- Email: brayden@braydenw.com
+- [LinkedIn](https://linkedin.com/in/braydenwisniewski)
+- [Substack](https://braydenwdesign.substack.com)
