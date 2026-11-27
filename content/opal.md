@@ -159,3 +159,6 @@ The goal was to make putting the phone down feel better than picking it back up.
 
 ## more label
 View more
+
+## zoom hint
+Tap any screen to see it full size.

@@ -2213,3 +2213,4 @@ button.c-link{font:inherit;cursor:pointer;background:none}
 @media (max-width:480px){.h-pill-nav a.h-bar__wide{display:none}}
 /* One line on what Brayden designs, under the tagline. */
 .g-focus{margin:-.3rem 0 1.2rem;font-size:clamp(1rem,1.3vw,1.1rem);line-height:1.45;color:var(--h-text);max-width:30ch}
+.c-hint{margin:.2rem 0 1rem;color:var(--h-soft);font-size:.95rem}
