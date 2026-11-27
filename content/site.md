@@ -15,6 +15,9 @@ Wisniewski
 ## tagline
 Designer. People person. Kinda tall.
 
+## focus
+I design how people and AI agents work together.
+
 ## status
 UX at SCAD, graduating 2027
 Open to design roles
