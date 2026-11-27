@@ -25,7 +25,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#ffffff">
 <title>Brayden Wisniewski</title>
-<meta name="description" content="Hey, I'm Brayden. Designer, people person, kinda tall. UX at SCAD, graduating 2027, and open to design roles.">
+<meta name="description" content="Hey, I'm Brayden. Designer, people person, kinda tall. UX at SCAD, graduating March 2027, and open to design roles.">
 
 <link rel="canonical" href="https://www.braydenw.com/">
 <script type="application/ld+json">
@@ -2259,6 +2259,17 @@ button.c-link{font:inherit;cursor:pointer;background:none}
 .foot__made{margin:0;font-size:.85rem}
 .foot__made a{padding:0}
 
+/* Résumé joined the nav: keep the sidebar links on one line and the phone pill inside the screen. */
+@media (min-width:1001px){.g-hello .h-bar__links{gap:.2rem 1.1rem}.g-hello .h-bar__links a{white-space:nowrap}}
+@media (max-width:620px){.h-pill-nav .h-bar__wide{display:none}}
+
+/* Résumé: company logos, all one ink color (mask = the logo's shape, filled with the text color). */
+.rs-org{display:inline-flex;align-items:center;gap:.7rem}
+.rs-logo{flex:none;width:64px;height:20px;background:var(--color-savannah-night);
+  -webkit-mask:var(--logo) left center/contain no-repeat;mask:var(--logo) left center/contain no-repeat}
+.rs-logo--none{background:none}
+@media (max-width:620px){.rs-logo{width:52px;height:16px}}
+
 </style>
 </head>
 <body class="no-js v2" data-page="home">
@@ -2276,6 +2287,7 @@ button.c-link{font:inherit;cursor:pointer;background:none}
     <nav class="h-bar__links" aria-label="Sections">
       <a href="#work">Work</a>
       <a href="/about">About</a>
+      <a href="/resume">Résumé</a>
       <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
       <a href="mailto:brayden@braydenw.com">Say Hello</a>
     </nav>
@@ -2284,7 +2296,7 @@ button.c-link{font:inherit;cursor:pointer;background:none}
     <h1 class="g-mark" id="g-mark"><span>Brayden</span> <span>Wisniewski</span></h1>
     <p class="g-hey">Designer. People person. Kinda tall.</p>
     <div class="g-hello__row">
-      <p>UX at SCAD, graduating 2027<br>Open to design roles</p>
+      <p>UX at SCAD, graduating March 2027<br>Open to design roles</p>
     </div>
   </div>
 </header>
@@ -2293,6 +2305,7 @@ button.c-link{font:inherit;cursor:pointer;background:none}
   <a href="/" aria-current="page">Home</a>
   <a href="#work">Work</a>
   <a href="/about">About</a>
+      <a href="/resume">Résumé</a>
   <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
   <a class="h-pill-nav__hi" href="mailto:brayden@braydenw.com">Say Hello</a>
 </nav>

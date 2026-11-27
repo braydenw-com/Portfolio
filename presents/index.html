@@ -2244,6 +2244,17 @@ button.c-link{font:inherit;cursor:pointer;background:none}
 .foot__made{margin:0;font-size:.85rem}
 .foot__made a{padding:0}
 
+/* Résumé joined the nav: keep the sidebar links on one line and the phone pill inside the screen. */
+@media (min-width:1001px){.g-hello .h-bar__links{gap:.2rem 1.1rem}.g-hello .h-bar__links a{white-space:nowrap}}
+@media (max-width:620px){.h-pill-nav .h-bar__wide{display:none}}
+
+/* Résumé: company logos, all one ink color (mask = the logo's shape, filled with the text color). */
+.rs-org{display:inline-flex;align-items:center;gap:.7rem}
+.rs-logo{flex:none;width:64px;height:20px;background:var(--color-savannah-night);
+  -webkit-mask:var(--logo) left center/contain no-repeat;mask:var(--logo) left center/contain no-repeat}
+.rs-logo--none{background:none}
+@media (max-width:620px){.rs-logo{width:52px;height:16px}}
+
 </style>
 </head>
 <body class="no-js v2" data-page="presents">
@@ -2259,6 +2270,7 @@ button.c-link{font:inherit;cursor:pointer;background:none}
     <nav class="h-bar__links" aria-label="Sections">
       <a href="/#work" aria-current="page">Work</a>
       <a href="/about">About</a>
+      <a href="/resume">Résumé</a>
       <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
       <a href="mailto:brayden@braydenw.com">Say Hello</a>
     </nav>
@@ -2267,7 +2279,7 @@ button.c-link{font:inherit;cursor:pointer;background:none}
     <a class="g-mark g-mark--link" href="/"><span>Brayden</span> <span>Wisniewski</span></a>
     <p class="g-hey">Designer. People person. Kinda tall.</p>
     <div class="g-hello__row">
-      <p>UX at SCAD, graduating 2027<br>Open to design roles</p>
+      <p>UX at SCAD, graduating March 2027<br>Open to design roles</p>
     </div>
   </div>
 </header>
@@ -2276,6 +2288,7 @@ button.c-link{font:inherit;cursor:pointer;background:none}
   <a href="/">Home</a>
   <a href="/#work" aria-current="page">Work</a>
   <a href="/about">About</a>
+      <a href="/resume">Résumé</a>
   <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
   <a class="h-pill-nav__hi" href="mailto:brayden@braydenw.com">Say Hello</a>
 </nav>
@@ -2287,7 +2300,7 @@ button.c-link{font:inherit;cursor:pointer;background:none}
     <img class="hero-vid" src="/images/hero-presents-L.jpg" width="1920" height="1200" alt="The Presents shuffle screen: a soft glow of color behind the five-dot mark, with a Shuffle button below">
   </figure>
   <h1>Capture a moment, together</h1>
-  <p class="c-sum">Presents is a private time capsule for a group of friends. In four days, our team of three built a working iOS prototype and a website for the SVSD Design Sprint.</p>
+  <p class="c-sum">Presents is a private time capsule for a group of friends. In four days, our team of three built a working iOS prototype and a website for the SVSD Design Sprint. I built the iOS app.</p>
 
   <dl class="c-facts">
     <div><dt>Role</dt><dd>Designer &amp; iOS build</dd></div>

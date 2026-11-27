@@ -11,7 +11,7 @@
 Making focus feel a little easier
 
 ## intro summary
-Opal already blocks distractions. With two teammates, I designed an expansion of the app around planning, motivation, and breaks worth taking, built from a 30-student survey and tested with 23 more.
+Opal already blocks distractions. With two teammates, I designed an expansion of the app around planning, motivation, and breaks worth taking, built from a 30-student survey and tested with 23 more. I led the research and designed the Tap Sticker scanning.
 
 ## intro fact 1 name
 Role

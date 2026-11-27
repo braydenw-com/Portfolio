@@ -16,7 +16,7 @@ Wisniewski
 Designer. People person. Kinda tall.
 
 ## status
-UX at SCAD, graduating 2027
+UX at SCAD, graduating March 2027
 Open to design roles
 
 ## footer credit
