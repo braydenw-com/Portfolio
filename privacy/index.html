@@ -2248,6 +2248,13 @@ button.c-link{font:inherit;cursor:pointer;background:none}
 @media (min-width:1001px){.g-hello .h-bar__links{gap:.2rem 1.1rem}.g-hello .h-bar__links a{white-space:nowrap}}
 @media (max-width:620px){.h-pill-nav .h-bar__wide{display:none}}
 
+/* Résumé: company logos, all one ink color (mask = the logo's shape, filled with the text color). */
+.rs-org{display:inline-flex;align-items:center;gap:.7rem}
+.rs-logo{flex:none;width:64px;height:20px;background:var(--color-savannah-night);
+  -webkit-mask:var(--logo) left center/contain no-repeat;mask:var(--logo) left center/contain no-repeat}
+.rs-logo--none{background:none}
+@media (max-width:620px){.rs-logo{width:52px;height:16px}}
+
 </style>
 </head>
 <body class="no-js v2" data-page="privacy">
