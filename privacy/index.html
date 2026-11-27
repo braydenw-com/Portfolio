@@ -2244,6 +2244,24 @@ button.c-link{font:inherit;cursor:pointer;background:none}
 .foot__made{margin:0;font-size:.85rem}
 .foot__made a{padding:0}
 
+/* ── Résumé ─────────────────────────────────────────────── */
+.rs-grid{grid-template-columns:1fr}
+.rs{background:var(--h-fill);padding:clamp(1.2rem,3vw,3rem);display:flex;flex-direction:column;gap:2.2rem;max-width:62rem}
+.rs-contact{margin:0;color:var(--h-soft)}
+.rs-contact a{color:var(--blue)}
+.rs-sec h2{margin:0 0 .4rem;font-family:var(--g-serif);font-weight:600;letter-spacing:-.02em;font-size:clamp(1.5rem,2.4vw,2rem)}
+.rs-item{border-top:1px solid var(--h-line);padding-top:1rem;display:flex;flex-direction:column;gap:.45rem}
+.rs-head{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline}
+.rs-head b{font-family:var(--g-serif);font-weight:600;font-size:1.2rem;letter-spacing:-.015em}
+.rs-item p{margin:0;line-height:1.5}
+.rs-sub{color:var(--h-soft)}
+.rs-item ul{margin:.2rem 0 0;padding-left:1.2rem;line-height:1.55;display:grid;gap:.35rem}
+.rs{grid-column:1/-1}
+/* Five links in the rail: wrap whole links, never mid-label. */
+@media (min-width:1001px){.g-hello .h-bar__links{flex-wrap:wrap;column-gap:clamp(.9rem,1.4vw,1.3rem)}.g-hello .h-bar__links a{white-space:nowrap}}
+/* Small phones: LinkedIn drops from the pinned pill so it fits; it is still in the page footer CTAs. */
+@media (max-width:480px){.h-pill-nav a.h-bar__wide{display:none}}
+
 </style>
 </head>
 <body class="no-js v2" data-page="privacy">
@@ -2259,6 +2277,7 @@ button.c-link{font:inherit;cursor:pointer;background:none}
     <nav class="h-bar__links" aria-label="Sections">
       <a href="/#work">Work</a>
       <a href="/about">About</a>
+      <a href="/resume">Résumé</a>
       <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
       <a href="mailto:brayden@braydenw.com">Say Hello</a>
     </nav>
@@ -2276,6 +2295,7 @@ button.c-link{font:inherit;cursor:pointer;background:none}
   <a href="/">Home</a>
   <a href="/#work">Work</a>
   <a href="/about">About</a>
+  <a href="/resume">Résumé</a>
   <a class="h-bar__wide" href="https://linkedin.com/in/braydenwisniewski" target="_blank" rel="noopener">LinkedIn</a>
   <a class="h-pill-nav__hi" href="mailto:brayden@braydenw.com">Say Hello</a>
 </nav>

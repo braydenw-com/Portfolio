@@ -32,6 +32,7 @@ CARD    = re.compile(r'^([ \t]*)<!--\s*@card\s+(/[\w-]+)\s*-->[ \t]*$', re.M)
 # GitHub Pages serves index.html for a directory request.
 PAGES = {'page.html':  'index.html',
          'about.html': 'about/index.html',
+         'resume.html': 'resume/index.html',
          'slack.html': 'slack/index.html',
          'opal.html':  'opal/index.html',
          'presents.html': 'presents/index.html',
@@ -43,7 +44,7 @@ PAGES = {'page.html':  'index.html',
          'ibm.html':   'ibm/index.html'}
 
 # Which content file fills which page.
-CONTENT = {'page.html': 'home', 'about.html': 'about', 'slack.html': 'slack',
+CONTENT = {'page.html': 'home', 'about.html': 'about', 'resume.html': 'resume', 'slack.html': 'slack',
            'opal.html': 'opal', 'presents.html': 'presents', 'ibm.html': 'ibm',
            'privacy.html': 'privacy', 'guide.html': 'guide', 'dsguide.html': 'dsguide', '404.html': '404'}
 
