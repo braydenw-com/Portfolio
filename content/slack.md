@@ -11,7 +11,7 @@
 Making Slack’s hidden state visible
 
 ## intro summary
-As research lead on a team of three, I studied where everyday Slack tasks break down. Two of them failed for most people, and two small changes to language and system state took success from 3/8 and 2/8 to 8/8.
+On a team of three, I led the project and ran the usability tests to find where everyday Slack tasks break down. Two of them failed for most people, and two small changes to language and system state took success from 3/8 and 2/8 to 8/8.
 
 ## intro fact 1 name
 Role

@@ -2193,3 +2193,7 @@ button.c-link{font:inherit;cursor:pointer;background:none}
 .foot__row{font-size:.85rem}
 .foot__made{margin:0;font-size:.85rem}
 .foot__made a{padding:0}
+
+/* Résumé joined the nav: keep the sidebar links on one line and the phone pill inside the screen. */
+@media (min-width:1001px){.g-hello .h-bar__links{gap:.2rem 1.1rem}.g-hello .h-bar__links a{white-space:nowrap}}
+@media (max-width:620px){.h-pill-nav .h-bar__wide{display:none}}

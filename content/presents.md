@@ -11,7 +11,7 @@
 Capture a moment, together
 
 ## intro summary
-Presents is a private time capsule for a group of friends. In four days, our team of three built a working iOS prototype and a website for the SVSD Design Sprint.
+Presents is a private time capsule for a group of friends. In four days, our team of three built a working iOS prototype and a website for the SVSD Design Sprint. I built the iOS app.
 
 ## intro fact 1 name
 Role
