@@ -2247,12 +2247,35 @@ button.c-link{font:inherit;cursor:pointer;background:none}
 @media (min-width:1001px){.g-hello .h-bar__links{gap:.2rem 1.1rem}.g-hello .h-bar__links a{white-space:nowrap}}
 @media (max-width:620px){.h-pill-nav .h-bar__wide{display:none}}
 
-/* Résumé: company logos, all one ink color (mask = the logo's shape, filled with the text color). */
-.rs-org{display:inline-flex;align-items:center;gap:.7rem}
-.rs-logo{flex:none;width:64px;height:20px;background:var(--color-savannah-night);
-  -webkit-mask:var(--logo) left center/contain no-repeat;mask:var(--logo) left center/contain no-repeat}
-.rs-logo--none{background:none}
-@media (max-width:620px){.rs-logo{width:52px;height:16px}}
+/* Résumé: one entry per company, roles underneath, dates in a column beside them. */
+[data-page="resume"] .c-sec{max-width:46rem;margin-left:0!important;margin-right:auto!important}
+.rs-list{list-style:none;margin:1.75rem 0 0;padding:0}
+.rs-co{display:grid;grid-template-columns:32px 1fr;column-gap:1rem;padding:1.15rem 0;border-top:1px solid var(--h-line)}
+.rs-co:first-child{border-top:0;padding-top:0}
+.rs-list--noicon .rs-co{grid-template-columns:1fr}
+.rs-co__body{min-width:0}
+.rs-co__name{margin:.3rem 0 .35rem;font-family:var(--font-head),sans-serif;font-weight:600;font-size:1.05rem;letter-spacing:-.01em;color:var(--h-text);line-height:1.3}
+.rs-co__name a{color:inherit;text-decoration:none}
+.rs-co__name a:hover,.rs-co__name a:focus-visible{color:var(--blue)}
+.rs-sub{margin-left:.55rem;font-family:var(--font-body),sans-serif;font-weight:400;font-size:.85rem;letter-spacing:0;color:var(--h-soft)}
+.rs-roles{list-style:none;margin:0;padding:0;display:grid;gap:.3rem}
+.rs-roles li{display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;font-size:.95rem;line-height:1.45}
+.rs-role{color:var(--h-text)}
+.rs-role a{color:inherit;text-decoration:underline;text-decoration-color:var(--color-pencil-line);text-underline-offset:3px}
+.rs-role a:hover{color:var(--blue)}
+.rs-date{flex:none;color:var(--h-soft);font-size:.875rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.rs-list--flat .rs-role{color:var(--h-soft)}
+.rs-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:var(--color-studio-wall);box-shadow:inset 0 0 0 1px var(--color-porcelain)}
+.rs-icon__mark{width:16px;height:16px;background:var(--color-savannah-night);-webkit-mask:var(--logo) center/contain no-repeat;mask:var(--logo) center/contain no-repeat}
+.rs-icon__mark--ibm,.rs-icon__mark--scad{width:22px}
+.rs-icon__txt{font-family:var(--font-head),sans-serif;font-weight:800;font-size:12px;letter-spacing:-.02em;color:var(--color-savannah-night)}
+@media (max-width:620px){.rs-sub{display:block;margin:.1rem 0 0}.rs-roles li{flex-direction:column;gap:0}.rs-roles li+li{margin-top:.35rem}}
+.rs-skills{margin:1.75rem 0 0}
+.rs-skill{display:grid;grid-template-columns:10rem 1fr;gap:1rem;padding:.9rem 0;border-top:1px solid var(--h-line)}
+.rs-skill:first-child{border-top:0;padding-top:0}
+.rs-skill dt{font-family:var(--font-head),sans-serif;font-weight:600;font-size:1.05rem;color:var(--h-text)}
+.rs-skill dd{margin:0;font-size:.95rem;line-height:1.55;color:var(--h-text)}
+@media (max-width:620px){.rs-skill{grid-template-columns:1fr;gap:.25rem}}
 
 </style>
 </head>
