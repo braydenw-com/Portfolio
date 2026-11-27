@@ -2276,6 +2276,26 @@ button.c-link{font:inherit;cursor:pointer;background:none}
 .rs-skill dt{font-family:var(--font-head),sans-serif;font-weight:600;font-size:1.05rem;color:var(--h-text)}
 .rs-skill dd{margin:0;font-size:.95rem;line-height:1.55;color:var(--h-text)}
 @media (max-width:620px){.rs-skill{grid-template-columns:1fr;gap:.25rem}}
+.rs-role--soft{color:var(--h-soft)}
+
+/* Résumé: compact two-column sheet. Section name on the left, entries on the right. */
+[data-page="resume"] .c-sec{max-width:58rem;display:grid;grid-template-columns:11rem minmax(0,1fr);column-gap:2.5rem;align-items:start;
+  margin-top:0!important;padding:2rem 0 0!important;margin-bottom:2rem!important;border-top:1px solid var(--h-line)}
+[data-page="resume"] .c-sec>*{grid-column:2}
+[data-page="resume"] .c-sec>h2{grid-column:1;grid-row:1 / span 20;margin:0;font-family:var(--font-head),sans-serif;font-size:1.05rem!important;font-weight:600;letter-spacing:-.01em;line-height:1.35}
+[data-page="resume"] .rs-list,[data-page="resume"] .rs-skills{margin-top:0}
+[data-page="resume"] .c-sec .c-links{margin-top:0}
+[data-page="resume"] .c-open{margin-bottom:2.5rem}
+[data-page="resume"] .rs-co{padding:.85rem 0}
+[data-page="resume"] .rs-co:first-child{padding-top:0}
+[data-page="resume"] .rs-skill{grid-template-columns:8.5rem 1fr;padding:.6rem 0}
+[data-page="resume"] .rs-skill dt{font-size:.95rem}
+@media (max-width:760px){
+  [data-page="resume"] .c-sec{grid-template-columns:1fr;padding-top:1.5rem!important;margin-bottom:1.5rem!important}
+  [data-page="resume"] .c-sec>*,[data-page="resume"] .c-sec>h2{grid-column:1;grid-row:auto}
+  [data-page="resume"] .c-sec>h2{margin-bottom:1rem;font-size:1.25rem!important}
+}
+@media (max-width:620px){[data-page="resume"] .rs-skill{grid-template-columns:1fr;gap:.2rem}}
 
 </style>
 </head>
